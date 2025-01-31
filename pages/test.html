@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Boarding Form</title>
+</head>
+<body>
+    <form id="windowForm">
+        <div id="windowFields">
+            <div class="windowInput">
+                <label for="window1">Window 1 Size:</label>
+                <input type="text" id="window1" name="window1">
+                
+            </div>
+        </div>
+        <button type="button" id="addMore">Add more</button>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // JavaScript to add more window size inputs
+        document.getElementById('addMore').addEventListener('click', function() {
+            const windowFields = document.getElementById('windowFields');
+            const windowCount = windowFields.getElementsByClassName('windowInput').length + 1;
+
+            const newWindowInput = document.createElement('div');
+            newWindowInput.className = 'windowInput';
+            newWindowInput.innerHTML = `
+                <label for="window${windowCount}">Window ${windowCount} Size:</label>
+                <input type="text" id="window${windowCount}" name="window${windowCount}">
+            `;
+
+            windowFields.appendChild(newWindowInput);
+        });
+    </script>
+</body>
+</html>
