@@ -75,14 +75,14 @@ body {
   }
   
  /* This is only for NEWS. Once We will have something to share, We will make it visible. */
-  /* .news{
+  .news{
     display: flex;
     background-color: #b6e9c2;
     padding: 5px;
     border: 2px solid #199E07;
     border-radius: 10px;
     margin-bottom: 10px;
-  } */
+  } 
   
   /* Categories Column Styles */
   .category-section {
