@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Taufiq Pias">
+  <title>Lock Changes - BMT</title>
+  <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png">
+    <link rel="stylesheet" href="styles.css">
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "pyixod2g2s");
+    </script>
+    
+</head>
+<body>
+    <div class="main-container">      
+    <!-- Information Area -->
+    <div class="info-container">
+        <h2>Information</h2>
+        <div class="info-content">
+            <p>Fill out the form accordingly to generate a bid. The following prices are provided as a ranged parameter taken from RepairBase 2024. </p>
+            <p><strong>Prices: Approximate Range</strong></p>
+                <p><b>Please check client allowable prices for bid price.</b>
+                <br>
+                Usual HUD codes are - <br><B></p>
+                <p style="text-decoration: underline;">Key Codes</p>
+                <p style="font-size: 18px;">
+                13226 | 14334 | 21121 | 23255 <br>
+                23323 | 35241 | 35453 | 44535 <br>
+                52534 | 64445 | 67767 | 76667 <br>
+                <p style="text-decoration: underline;">Padlocks</p>
+                <p style="font-size: 18px;">A389 | A802</p>
+                <p style="text-decoration: underline;">Lockbox</p>
+                <p style="font-size: 18px;">OCN | SUN | Last 4 Dig of Loan</p><br>
+
+
+                </B></p>
+            
+            
+            <b><p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p></b>
+            <b><p style="color: brown;">***Please copy the bids before visiting other pages. Bids will not be saved once redirected.***</p></b>
+        </div>
+    </div>
+
+
+
+  
+        <div class="container">
+            <h1>Securing Bid</h1>
+            <div class="division">
+                <h2>Lock Changes Bids</h2>
+                <form id="LCForm">
+                    
+                    <label for="bidPrefix">Bid Prefix (for conjunction bid - Use a colon after prefix)</label>
+                    <input type="text" id="bidPrefix" name="bidPrefix" placeholder="Title: / Title-">
+
+                    <label for="lctype">Select a Lock Type:*</label>
+                    <Select id="lctype" name="lctype" required>
+                        <option value="">--Select a lock type--</option>
+                        <option value="lockbox">Lock Box</option>
+                        <option value="lock set">Lock Set (Knoblock & Deadbolt)</option>
+                        <option value="lock">Knoblock or Deadbolt Only</option>
+                        <option value="padlock & hasp">Padlock & Hasp</option>
+                        <option value="padlock & chain">Padlock & Chain</option>
+                        <option value="padlock">Padlock Only</option>
+                        
+                        
+                    </Select>
+                    
+                    <label for="lcode">Code:*</label>
+                    <input type="text" id="lcode" name="lcode" required>
+
+                    <label for="location">Location/Which Door:*</label>
+                    <input type="text" id="location" name="location" required>
+                    
+                    <label for="lccount">How many locks needed?*</label>
+                    <input type="number" id="lccount" name="lccount" required>
+
+                    <label for="reason">Reason:*</label>
+                    <input type="text" id="reason" name="reason" required>
+                    
+                    <label for="additionalInfo">Additional information:</label>
+                    <textarea id="additionalInfo" name="additionalInfo" placeholder="Disclaimers or any other comment"></textarea>
+
+                    <label for="conj">Make this bid conjunction to:</label>
+                    <input type="text" id="conj" name="conj" placeholder="Bid name only">
+
+                    <label for="price">Price (in USD):</label>
+                    <input type="number" id="price" name="price" step="0.01">
+
+                    <button type="submit">Generate Bid</button>
+                    
+                </form>
+
+            
+            </div>
+
+       
+    </div>
+
+        <!-- New Note Section -->
+        <div class="note-container">
+            <h2>Bids</h2>
+            <div id="notesList" class="notes-list">
+                <!-- Notes will be dynamically added here -->
+            </div>
+            <button id="copyAllBidsButton">Copy All Bids</button>
+            <a href="../index.html" id="home"> <ion-icon name="home"></ion-icon> Go Home</a>
+            
+        </div>
+
+    </div>
+
+    
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <!-- Script to Generate Bid -->
+    <script>
+        
+    </script>
+   <script src="script_other.js"></script>
+
+    
+
+    
+</body>
+</html>

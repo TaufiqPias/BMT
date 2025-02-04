@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Taufiq Pias">
+    <title>Tree - BMT</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "pyixod2g2s");
+    </script>
+
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Information Area -->
+        <div class="info-container">
+            <h2>Information</h2>
+            <div class="info-content">
+                <p>Check the tree condition and determine the scope of work. Fill out the form accordingly to generate a
+                    bid. The following prices are provided as a ranged parameter taken from RepairBase 2024. </p>
+                <p><strong>Prices: Approximate Range for tree trimming</strong></p>
+                <ul>
+                    <li>Small: <b>$102.50 - $165.15</b></li>
+                    <li>Medium: <b>$128.60 - $220.93</b></li>
+                    <li>Large: <b>$240.38 - $444.49</b></li>
+                    <li>Extra-Large: <b>$316.30 - $577.61</b></li>
+                </ul>
+                <b>For removal, please consult with contractor and bid specialist to determine the correct pricing.</b>
+                <br>
+                <br>
+                <b>
+                    <p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p>
+                </b>
+                <b>
+                    <p style="color: brown;">***Please copy the bids before visiting other pages. Bids will not be saved
+                        once redirected.***</p>
+                </b>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <h1>Landscaping Bid</h1>
+            <div class="division">
+                <h2>Tree Bids</h2>
+                <form id="treeForm">
+
+                    <label for="bidPrefix">Bid Prefix (for conjunction bid - Use a colon after prefix)</label>
+                    <input type="text" id="bidPrefix" name="bidPrefix" placeholder="Title: / Title-">
+
+                    <label for="treeCount">How many trees?*</label>
+                    <input type="number" id="treeCount" name="treeCount" required>
+
+                    <label for="treeaction">What do you want to do?*</label>
+                    <select id="treeaction" name="treeaction" required>
+                        <option value="select">--Select Action--</option>
+                        <option value="trim">Trim</option>
+                        <option value="remove">Remove</option>
+                    </select>
+
+                    <label for="treeSize">Tree size:*</label>
+                    <select id="treeSize" name="treeSize" required>
+                        <option value="select">--Select Tree Size--</option>
+                        <option value="small - up to 8 inch diameter and 8' to 16' Tall">Small (up to 8" Diameter and 8'
+                            to 16' Tall) </option>
+                        <option value="medium - 9 to 18 inch diameter and 17' to 24' Tall">Medium (9" to 18" Diameter
+                            and 17' to 24' Tall)</option>
+                        <option value="large - 19 to 38 inch diameter and 25' to 50' Tall">Large (19" to 38" Diameter
+                            and 25' to 50' Tall)</option>
+                        <option value="ex-large - 39 to 78 inch diameter and 51' to 102' Tall">Extra Large (39" to 78"
+                            Diameter and 51' to 102' Tall)</option>
+                    </select>
+
+                    <label for="grinder">Grinder and fill in depression needed?: (Select only for tree removal
+                        bid)</label>
+                    <select id="grinder" name="grinder">
+                        <option value="">--Select Any (Only for tree removal bid)--</option>
+                        <option
+                            value="Will require stump grinder and after grinding the stump, need to fill depression with dirt.">
+                            Yes </option>
+                        <option value="">No</option>
+                    </select>
+
+                    <label for="location">Location:*</label>
+                    <input type="text" id="location" name="location" placeholder="front, left, right, rear" required>
+
+                    <label for="reason">Reason for trimming:*</label>
+                    <input type="text" id="reason" name="reason" placeholder="overgrowth, touching the property"
+                        required>
+
+                    <label for="debris">Generated debris (in cyds):*</label>
+                    <input type="number" id="debris" name="debris" step="1" required>
+
+                    <label for="equipments">Equipments required:*</label>
+                    <Select id="equipments" name="equipments" required>
+                        <option value="select">--Select Equipments--</option>
+                        <option value="Loopers, Hedge Trimmer, Hatchet, Chainsaw, Ladder, Raker, Gloves and Bags">
+                            Landscaping Equipments</option>
+                        <option value="Mower, Blower, Raker, Gloves and Bags">Grass Cut Equipments</option>
+                        <option value="General Tools, Wheel Barrow, Mask, Gloves and Bags">Debris Removal Equipments
+                        </option>
+                        <option
+                            value="General Tools, Excavetor, Sledge Hammer, Jack Hammer, Wheel Barrow, Mask, Gloves and Bags">
+                            Demolition Equipments</option>
+                        <option value="Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other">
+                            Plumbing Repair Equipments</option>
+                        <option value="Nail Guns, Hammer, Tape, Wrench, Drills, Ladder and Other">General Repair
+                            Equipments</option>
+                    </Select>
+
+                    <label for="additionalInfo">Additional information:</label>
+                    <textarea id="additionalInfo" name="additionalInfo"
+                        placeholder="Disclaimer or Other necessary comments"></textarea>
+
+                    <label for="conj">Make this bid conjunction to:</label>
+                    <input type="text" id="conj" name="conj" placeholder="Bid name only">
+
+                    <label for="price">Price (in USD):</label>
+                    <input type="number" id="price" name="price" step="0.01">
+
+                    <button type="submit">Generate Bid</button>
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+        <!-- New Note Section -->
+        <div class="note-container">
+            <h2>Bids</h2>
+            <div id="notesList" class="notes-list">
+                <!-- Notes will be dynamically added here -->
+            </div>
+            <button id="copyAllBidsButton">Copy All Bids</button>
+            <a href="../index.html" id="home"> <ion-icon name="home"></ion-icon> Go Home</a>
+        </div>
+
+    </div>
+    </div>
+
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <!-- Script to Generate Bid -->
+    <script>
+        document.getElementById('treeForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Get form values
+            const bidPrefix = document.getElementById('bidPrefix').value;
+            const treeaction = document.getElementById('treeaction').value;
+            const treeCount = document.getElementById('treeCount').value;
+            const treeSize = document.getElementById('treeSize').value;
+            const grinder = document.getElementById('grinder').value;
+            const location = document.getElementById('location').value;
+            const reason = document.getElementById('reason').value;
+            const debris = document.getElementById('debris').value;
+            const equipments = document.getElementById('equipments').value;
+            const additionalInfo = document.getElementById('additionalInfo').value;
+            const conj = document.getElementById('conj').value;
+            const price = parseFloat(document.getElementById('price').value);
+
+            // Format the price with commas
+            const formattedPrice = price.toLocaleString('en-US', {
+                style: 'decimal',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+            });
+
+            // Generate the bid text
+            const bidText = `${bidPrefix} Need to ${treeaction} ${treeCount} ${treeSize} trees at the ${location} of the property due to ${reason}. Will generate approx ${debris} cyds of debris.${grinder} Will require ${equipments}. ${conj ? `***Must be approved in conjunction to ${conj} bid.` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            // Save the bid as a note
+            saveBidAsNote(bidText);
+        });
+    </script>
+    <script src="script_other.js"></script>
+
+
+
+
+</body>
+
+</html>

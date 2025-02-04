@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Taufiq Pias">
+  <title>Debris - BMT</title>
+  <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png">
+    <link rel="stylesheet" href="styles.css">
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "pyixod2g2s");
+    </script>
+    
+</head>
+<body>
+    <div class="main-container">      
+    <!-- Information Area -->
+    <div class="info-container">
+        <h2>Information</h2>
+        <div class="info-content">
+            <p>Be very careful in taking debris measurement. Add 5-7 cyds of additional debris in case of large amount to be on the safe side. Fill out the form accordingly to generate a bid. The following prices are provided as a ranged parameter taken from RepairBase 2024. </p>
+            <p><strong>Prices: Approximate Range</strong></p>
+                <p>HUD price: $50.00/cyds Before Discount <br>
+                General Price (National FHA): $40.00/cyds Before Discount <br>
+                General Price (National Conv): $30.00/ cyds Flat Fee</p>
+                <p><b>How to correctly prepare a debris bid</b>
+                <br>
+                1. Without Dumpster: Calculate the amount of debris. Multiply the removal price according to the client type. <br>
+                <b>For Example:</b> After calculation, total amount of debris is 35 cyds for FHA client. Price will be: $1,400.00 <br><br>
+                2. With Dumpster: Calculate the amount of debris. Multiply the moving price according to the client type. Add the dumpster price. <br>
+                <b>For Example:</b> After calculation, total amount of debris is 35 cyds for FHA client. Debris moving price is $20/cyds and the 4 ton dumpster price is $899.99. Price will be: $1,599.99 <br>
+                <b>Dumpster Rental Price:</b><br>
+                Dumpster Rental - 20 C.Y./3 Ton = $709.93 <br> 
+                Dumpster Rental - 30 C.Y./3 Ton = $860.86 <br>
+                Dumpster Rental - 40 C.Y./4 Ton = $899.99 <br>
+                Dumpster Rental - 60 C.Y./6 Ton = $1,090.05
+                </p>
+            
+            
+            <b><p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p></b>
+            <b><p style="color: brown;">***Please copy the bids before visiting other pages. Bids will not be saved once redirected.***</p></b>
+        </div>
+    </div>
+
+
+
+   
+        <div class="container">
+            <h1>Debris & Personals Bid</h1>
+            <div class="division">
+                <h2>Debris Bids</h2>
+                <form id="debForm">
+                    
+                    <label for="bidPrefix">Bid Prefix (for conjunction bid - Use a colon after prefix)</label>
+                    <input type="text" id="bidPrefix" name="bidPrefix" placeholder="Title: / Title-">
+
+                    <label for="action">Select Action:*</label>
+                    <Select id="action" name="action" required>
+                        <option value="">--Select Action--</option>
+                        <option value="remove">Remove Debris</option>
+                        <option value="move">Move Debris</option>
+                    </Select>
+                    
+                    <label for="bidtype">Debris Bid Type?*</label>
+                    <Select id="bidtype" name="bidtype" required>
+                        <option value="">--Select Any--</option>
+                        <option value="exterior debris">Debris - Exterior</option>
+                        <option value="interior debris">Debris - Interior</option>
+                        <option value="natural debris">Debris - Natural</option>
+                        <option value="heavy debris">Debris - Heavy</option>
+                        <option value="raw garbage">Debris - Raw</option>
+                        <option value="hazardous debris">Debris - Hazard</option>
+                        <option value="debris">Debris - All (Trash Out)</option>
+                    </Select>
+
+                    <label for="debcount">Debris Amount (in CYDS):*</label>
+                    <input type="number" id="debcount" name="debcount" required>
+                    
+                    <label for="consist">Consist of:*</label>
+                    <input type="text" id="consist" name="consist" placeholder="List 4-5 items from the photos using commas." required>
+
+                    <label for="dumpster">Dumpster needed?</label>
+                    <Select id="dumpster" name="dumpster">
+                        <option value="">--Select Any--</option>
+                        <option value="20 C.Y./2 Ton">Dumpster - Small - 20 C.Y./2 Ton</option>
+                        <option value="30 C.Y./3 Ton">Dumpster - Medium - 30 C.Y./3 Ton</option>
+                        <option value="40 C.Y./4 Ton">Dumpster - Large - 40 C.Y./4 Ton</option>
+                        <option value="60 C.Y./6 Ton">Dumpster - Extra Large - 60 C.Y./6 Ton</option>
+                    </Select>
+
+                                       
+                    <label for="additionalInfo">Additional information:</label>
+                    <textarea id="additionalInfo" name="additionalInfo" placeholder="Disclaimers or any other comment"></textarea>
+
+                    <label for="conj">Make this bid conjunction to:</label>
+                    <input type="text" id="conj" name="conj" placeholder="Bid name only">
+
+                    <label for="price">Price (in USD):</label>
+                    <input type="number" id="price" name="price" step="0.01">
+
+                    <button type="submit">Generate Bid</button>
+                </form>
+
+            
+            </div>
+
+       
+    </div>
+
+        <!-- New Note Section -->
+        <div class="note-container">
+            <h2>Bids</h2>
+            <div id="notesList" class="notes-list">
+                <!-- Notes will be dynamically added here -->
+            </div>
+            <button id="copyAllBidsButton">Copy All Bids</button>
+            <a href="../index.html" id="home"> <ion-icon name="home"></ion-icon> Go Home</a>
+            
+        </div>
+
+    </div>
+
+    
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <!-- Script to Generate Bid -->
+     <script>
+        document.getElementById('debForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Get form values
+    const bidPrefix = document.getElementById('bidPrefix').value;
+    const action = document.getElementById('action').value;
+    const bidtype = document.getElementById('bidtype').value;
+    const debcount = document.getElementById('debcount').value;
+    const consist = document.getElementById('consist').value;
+    const dumpster = document.getElementById('dumpster').value;
+    const additionalInfo = document.getElementById('additionalInfo').value;
+    const conj = document.getElementById('conj').value;
+    const price = parseFloat(document.getElementById('price').value);
+
+    // Format the price with commas
+    const formattedPrice = price.toLocaleString('en-US', {
+        style: 'decimal',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+    });
+
+    // Generate the bid text
+    const bidText = `${bidPrefix} Need to ${action} approx ${debcount} cyd(s) of ${bidtype} consisting of ${consist}. ${dumpster ? `Will require renting a ${dumpster} to haul away the debris.` : ''} If approved, will provide empty load, half load and full load measurement photos including proper length x width x height. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+    // Save the bid as a note
+    saveBidAsNote(bidText);
+});
+     </script>
+
+<script src="script_other.js"></script>
+    
+
+    
+
+    
+</body>
+</html>

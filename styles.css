@@ -1,0 +1,233 @@
+/* General Styles */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #b6e9c2;
+  }
+  
+  /* Header Styles */
+  header {
+    background-color: #28a745; /* Updated to green */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 48px;
+  }
+  
+  /* Container Styles */
+  .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+  }
+  
+  .column {
+    flex: 1;
+    margin: 0 10 px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  @media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Stack columns vertically */
+  }
+
+  .column {
+    margin: 10px 0; /* Adjust margin for vertical stacking */
+  }
+}
+  
+  h2 {
+    margin-top: 0;
+  }
+  
+  /* Information Panel Styles */
+  .info-panel {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .info-panel p {
+    margin: 0 0 15px;
+    line-height: 1.5;
+  }
+
+  .Estimator{
+    margin-top: 10px;
+    padding: 6px 10px;
+    background-color: #28a745; /* Updated to green */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .Estimator:hover {
+    background-color: #218838; /* Darker green on hover */
+  }
+  
+  .info-panel ol {
+    margin: 0 0 15px;
+    padding-left: 20px;
+  }
+  
+  .info-panel ol li {
+    margin-bottom: 10px;
+  }
+  
+ /* This is only for NEWS. Once We will have something to share, We will make it visible. */
+  .news{
+    display: flex;
+    background-color: #b6e9c2;
+    padding: 5px;
+    border: 2px solid #199E07;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  /* Categories Column Styles */
+  .category-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .category {
+    background-color: #f8f9fa;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .category h3 {
+    margin-top: 0;
+  }
+  
+  .category-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  
+  .category-buttons a {
+    padding: 6px 10px;
+    background-color: #28a745; /* Updated to green */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .category-buttons a:hover {
+    background-color: #218838; /* Darker green on hover */
+  }
+  
+  /* Final Bid Column Styles */
+  #bidSummary {
+    margin-top: 20px;
+  }
+  
+  .bid-item {
+    background-color: #f8f9fa;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+  }
+  
+  .bid-item p {
+    margin: 0;
+    line-height: 1.5;
+  }
+  
+  .bid-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .bid-actions button {
+    padding: 10px 15px;
+    background-color: #28a745; /* Updated to green */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .bid-actions button:hover {
+    background-color: #218838; /* Darker green on hover */
+  }
+  
+  .bid-actions button#exportToExcel {
+    background-color: #28a745; /* Updated to green */
+  }
+  
+  .bid-actions button#exportToExcel:hover {
+    background-color: #218838; /* Darker green on hover */
+  }
+
+  #searchInput {
+    width: 97%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  footer .footer{
+    color:#194b24ec;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 20px;
+    font-size: 10px;
+  }
+
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    
+  }
+
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #b6e9c2;
+    color: #199E07;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Position above the button */
+    left: 50%;
+    margin-left: -60px; /* Center the tooltip */
+    opacity: 0;
+    /* transition: opacity 0.3s; */
+  }
+
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    color: #199E07;
+  }
+
+  

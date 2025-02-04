@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Taufiq Pias">
+    <title>Maid Services - BMT</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "pyixod2g2s");
+    </script>
+
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Information Area -->
+        <div class="info-container">
+            <h2>Information</h2>
+            <div class="info-content">
+                <p>Fill out the form accordingly to generate a bid. The following prices are provided as a ranged
+                    parameter taken from RepairBase 2024. </p>
+                <p><strong>Prices: Approximate Range</strong></p>
+                <p><b>Please check client allowable prices for bid price.</b>
+                    <br>
+                    Client allowable is only applicable for property below 2000 SF. For properties over 2000 SF, please
+                    add <b style="color:brown">$25.00</b> for every 1000 sf. <br>
+                    For Example: If a property size is 3600 sf. The Initial Maid Service Price will be: <br> $125.00
+                    (allowable) + $25.00(1st 1000sf) + $25.00 (2nd 600sf) = <b style="color:brown">$175.00</b> <br>
+                    <b style="color: teal;">DO NOT FORGET TO ADD A DISCLAIMER - "Price will be higher due to the size of
+                        the property."</b>
+                </p>
+
+
+                <b>
+                    <p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p>
+                </b>
+                <b>
+                    <p style="color: brown;">***Please copy the bids before visiting other pages. Bids will not be saved
+                        once redirected.***</p>
+                </b>
+            </div>
+        </div>
+
+
+
+
+        <div class="container">
+            <h1>Debris & Personals Bid</h1>
+            <div class="division">
+                <h2>Maid Services Bids</h2>
+                <form id="MSForm">
+
+                    <label for="bidPrefix">Bid Prefix (for conjunction bid - Use a colon after prefix)</label>
+                    <input type="text" id="bidPrefix" name="bidPrefix" placeholder="Title: / Title-">
+
+                    <label for="rqtype">Select a Service:*</label>
+                    <Select id="rqtype" name="rqtype" required>
+                        <option value="">--Select a type--</option>
+                        <option value="After debris removal -">After Debris Removal - Conjunction Bid</option>
+                        <option value="">Individual - Stand Alone Bid</option>
+
+                    </Select>
+
+                    <label for="servic">Select a Service:*</label>
+                    <Select id="servic" name="servic" required>
+                        <option value="">--Select a Service--</option>
+                        <option value="initial maid service">Initial Maid Service</option>
+                        <option value="recurring maid service - every 30 days">Recurring Maid Service/Maid Refresh
+                        </option>
+                        <option value="broom sweep">Broom Sweep</option>
+                    </Select>
+
+
+                    <label for="propsize">Property Size:*</label>
+                    <input type="number" id="propsize" name="propsize" required>
+
+                    <label for="additionalInfo">Additional information:</label>
+                    <textarea id="additionalInfo" name="additionalInfo"
+                        placeholder="Disclaimers or any other comment"></textarea>
+
+                    <label for="conj">Make this bid conjunction to:</label>
+                    <input type="text" id="conj" name="conj" placeholder="Bid name only">
+
+                    <label for="price">Price (in USD):</label>
+                    <input type="number" id="price" name="price" step="0.01">
+
+                    <button type="submit">Generate Bid</button>
+                    <a href="https://www.zillow.com/" target="_blank" id="findpropsize">Find Property Size: Zillow</a>
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+        <!-- New Note Section -->
+        <div class="note-container">
+            <h2>Bids</h2>
+            <div id="notesList" class="notes-list">
+                <!-- Notes will be dynamically added here -->
+            </div>
+            <button id="copyAllBidsButton">Copy All Bids</button>
+            <a href="../index.html" id="home"> <ion-icon name="home"></ion-icon> Go Home</a>
+        </div>
+
+    </div>
+
+
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <!-- Script to Generate Bid -->
+    <script>
+        document.getElementById('MSForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Get form values
+            const bidPrefix = document.getElementById('bidPrefix').value;
+            const rqtype = document.getElementById('rqtype').value;
+            const servic = document.getElementById('servic').value;
+            const propsize = document.getElementById('propsize').value;
+            const additionalInfo = document.getElementById('additionalInfo').value;
+            const conj = document.getElementById('conj').value;
+            const price = parseFloat(document.getElementById('price').value);
+
+            // Format the price with commas
+            const formattedPrice = price.toLocaleString('en-US', {
+                style: 'decimal',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+            });
+
+            // Generate the bid text
+            const bidText = `${bidPrefix} ${rqtype} Need to perform ${servic} on ${propsize} SF of property including but not limited to complete cleaning and replacing air freshener. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            // Save the bid as a note
+            saveBidAsNote(bidText);
+        }); 
+    </script>
+    <script src="script_other.js"></script>
+
+
+
+
+</body>
+
+</html>

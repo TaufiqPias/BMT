@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Taufiq Pias">
+    <title>Shrubs - BMT</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "pyixod2g2s");
+    </script>
+
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Information Area -->
+        <div class="info-container">
+            <h2>Information</h2>
+            <div class="info-content">
+                <p>Check the shrubs condition and determine the scope of work. Fill out the form accordingly to generate
+                    a bid. The following prices are provided as a ranged parameter taken from RepairBase 2024. </p>
+                <p><strong>Prices: Approximate Range</strong></p>
+
+                <p><b>Trimming: (Shrubs Length x $6.50-$7.20) + (Gen.Debris x $40.00) = Total Price.</b></p>
+                <p>For Example: 30 LF shrubs will generate 2 cyds of debris. Price will be: (30 x $6.80) + (2 x $40.00)
+                    = <b>$284.00</b> </p>
+
+                <b>For removal, please consult with contractor and bid specialist to determine the correct pricing.</b>
+                <br>
+                <br>
+                <b>
+                    <p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p>
+                </b>
+                <b>
+                    <p style="color: brown;">***Please copy the bids before visiting other pages. Bids will not be saved
+                        once redirected.***</p>
+                </b>
+            </div>
+        </div>
+
+
+
+
+        <div class="container">
+            <h1>Landscaping Bid</h1>
+            <div class="division">
+                <h2>Shrubs Bids</h2>
+                <form id="shrubsForm">
+
+                    <label for="bidPrefix">Bid Prefix (for conjunction bid - Use a colon after prefix)</label>
+                    <input type="text" id="bidPrefix" name="bidPrefix" placeholder="Title: / Title-">
+
+                    <label for="shrubsCount">How long the shrubs are?*</label>
+                    <input type="number" id="shrubsCount" name="shrubsCount" required>
+
+                    <label for="action">What do you want to do?*</label>
+                    <select id="action" name="action" required>
+                        <option value="select">--Select Action--</option>
+                        <option value="trim">Trim</option>
+                        <option value="remove">Remove</option>
+                    </select>
+
+                    <label for="shrubsize">How high the shrubs are?*</label>
+                    <select id="shrubsize" name="shrubsize" required>
+                        <option value="select">--Select Height Size--</option>
+                        <option value="4' to 6' tall">4' to 6' Tall</option>
+                        <option value="6' to 10' tall">6' to 10' Tall</option>
+                        <option value="10' to 18' tall">10' to 18' Tall</option>
+                    </select>
+
+                    <label for="location">Location:*</label>
+                    <input type="text" id="location" name="location" placeholder="front, left, right, rear" required>
+
+                    <label for="reason">Reason for trimming:*</label>
+                    <input type="text" id="reason" name="reason" placeholder="overgrowth, touching the property"
+                        required>
+
+                    <label for="debris">Generated debris (in cyds):*</label>
+                    <input type="number" id="debris" name="debris" step="1" required>
+
+                    <label for="equipments">Equipments required:*</label>
+                    <Select id="equipments" name="equipments" required>
+                        <option value="select">--Select Equipments--</option>
+                        <option value="Loopers, Hedge Trimmer, Hatchet, Chainsaw, Ladder, Raker, Gloves and Bags">
+                            Landscaping Equipments</option>
+                        <option value="Mower, Blower, Raker, Gloves and Bags">Grass Cut Equipments</option>
+                        <option value="General Tools, Wheel Barrow, Mask, Gloves and Bags">Debris Removal Equipments
+                        </option>
+                        <option
+                            value="General Tools, Excavetor, Sledge Hammer, Jack Hammer, Wheel Barrow, Mask, Gloves and Bags">
+                            Demolition Equipments</option>
+                        <option value="Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other">
+                            Plumbing Repair Equipments</option>
+                        <option value="Nail Guns, Hammer, Tape, Wrench, Drills, Ladder and Other">General Repair
+                            Equipments</option>
+                    </Select>
+
+                    <label for="additionalInfo">Additional information:</label>
+                    <textarea id="additionalInfo" name="additionalInfo"
+                        placeholder="Disclaimer or Other necessary comments"></textarea>
+
+                    <label for="conj">Make this bid conjunction to:</label>
+                    <input type="text" id="conj" name="conj" placeholder="Bid name only">
+
+                    <label for="price">Price (in USD):</label>
+                    <input type="number" id="price" name="price" step="0.01">
+
+                    <button type="submit">Generate Bid</button>
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+        <!-- New Note Section -->
+        <div class="note-container">
+            <h2>Bids</h2>
+            <div id="notesList" class="notes-list">
+                <!-- Notes will be dynamically added here -->
+            </div>
+            <button id="copyAllBidsButton">Copy All Bids</button>
+            <a href="../index.html" id="home"> <ion-icon name="home"></ion-icon> Go Home</a>
+
+        </div>
+
+    </div>
+
+
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <!-- Script to Generate Bid -->
+    <script>
+        document.getElementById('shrubsForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Get form values
+            const bidPrefix = document.getElementById('bidPrefix').value;
+            const action = document.getElementById('action').value;
+            const shrubsCount = document.getElementById('shrubsCount').value;
+            const shrubsize = document.getElementById('shrubsize').value;
+            const location = document.getElementById('location').value;
+            const reason = document.getElementById('reason').value;
+            const debris = document.getElementById('debris').value;
+            const equipments = document.getElementById('equipments').value;
+            const additionalInfo = document.getElementById('additionalInfo').value;
+            const conj = document.getElementById('conj').value;
+            const price = parseFloat(document.getElementById('price').value);
+
+            // Format the price with commas
+            const formattedPrice = price.toLocaleString('en-US', {
+                style: 'decimal',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+            });
+
+            // Generate the bid text
+            const bidText = `${bidPrefix} Need to ${action} ${shrubsCount} LF of ${shrubsize} shrubs at/around the ${location} of the property due to ${reason}. Will generate approx ${debris} cyds of debris. Will require ${equipments}. ${conj ? `***Must be approved in conjunction to ${conj} bid.` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            // Save the bid as a note
+            saveBidAsNote(bidText);
+        });
+    </script>
+    <script src="script_other.js"></script>
+
+
+
+
+</body>
+
+</html>

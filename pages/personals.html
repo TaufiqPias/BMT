@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Taufiq Pias">
+    <title>Personals - BMT</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "pyixod2g2s");
+    </script>
+
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Information Area -->
+        <div class="info-container">
+            <h2>Information</h2>
+            <div class="info-content">
+                <p>Be very careful in taking personals measurement. Add 5-7 cyds of additional debris in case of large
+                    amount to be on the safe side. <B>DO NOT FORGET TO ADD DISCLAIMER THAT YOU SHOULD NOT BE HELD
+                        RESPONSIBLE FOR MISSING PERSONALS ONCE THE 30 DAYS STORAGE PERIOD IS OVER.</B> Fill out the form
+                    accordingly to generate a bid. The following prices are provided as a ranged parameter taken from
+                    RepairBase 2024. </p>
+                <p><strong>Prices: Approximate Range</strong></p>
+                <p><b>Storage Rental Price:</b></p>
+                30 CYDS: $300.00 <br>
+                40 CYDS: $360.00 <br>
+                60 CYDS: $450.00 <br>
+
+                Prices may vary from State to State.
+                <h4>WARNING</h4>
+                <p>For Pre-forclosed Property: Personals must be stored to a storage facility for 30 days period. You
+                    have to provide the Name, Address and Contact number of the facility. ***Client may ask to move the
+                    personals left outside to a interior secure location in pre-foreclosure*** <br>
+                    For REO Property: Personals can be removed and disposed.</p> <br>
+                <p><strong>How to find Storage For Rental</strong></p>
+                <ul>
+                    <li>Go to <b>Google Maps</b> or Click <b>"Find Storage for Rental"</b> .</li>
+                    <li>Search "Storage for rental near (City & State)</li>
+                    <li>If the property is in Houston TX, Search - 'storage for rental near houston TX'</li>
+                    <li>Select 1 and add the information in the bid.</li>
+
+                </ul>
+
+
+                <b>
+                    <p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p>
+                </b>
+                <b>
+                    <p style="color: brown;">***Please copy the bids before visiting other pages. Bids will not be saved
+                        once redirected.***</p>
+                </b>
+            </div>
+        </div>
+
+
+
+
+        <div class="container">
+            <h1>Debris & Personals Bid</h1>
+            <div class="division">
+                <h2>Personals Bids</h2>
+                <form id="personalsForm">
+
+                    <label for="bidPrefix">Bid Prefix (for conjunction bid - Use a colon after prefix)</label>
+                    <input type="text" id="bidPrefix" name="bidPrefix" placeholder="Title: / Title-">
+
+                    <label for="action">Select Action:*</label>
+                    <Select id="action" name="action" required>
+                        <option value="">--Select Action--</option>
+                        <option value="remove and dispose">Remove Personals</option>
+                        <option value="move">Move Personals</option>
+                        <option value="store">Store Personals</option>
+                    </Select>
+
+                    <label for="perscount">Personals Amount (in CYDS):*</label>
+                    <input type="number" id="perscount" name="perscount" required>
+
+                    <label for="consist">Consist of:*</label>
+                    <input type="text" id="consist" name="consist"
+                        placeholder="List 4-5 items from the photos using commas." required>
+
+                    <label for="movef">Moved from: (Only for Move Personal Bid)</label>
+                    <input type="text" id="movef" name="movef" placeholder="Move From">
+
+                    <label for="movet">Move to: (Only for Move Personal Bid)</label>
+                    <input type="text" id="movet" name="movet" placeholder="Move To">
+
+
+                    <label for="storesize">Storage Size Needed:</label>
+                    <Select id="storesize" name="storesize">
+                        <option value="">--Select Any--</option>
+                        <option value="30 CYDS">30 CYDS Storage</option>
+                        <option value="40 CYDS">40 CYDS Storage</option>
+                        <option value="60 CYDS">60 CYDS Storage</option>
+                    </Select>
+
+                    <label for="store">Storage Name:</label>
+                    <input type="text" id="store" name="store">
+
+                    <label for="address">Storage Address:</label>
+                    <input type="text" id="address" name="address">
+
+                    <label for="contact">Storage Contact:</label>
+                    <input type="tel" id="contact" name="contact">
+
+
+                    <label for="additionalInfo">Additional information:</label>
+                    <textarea id="additionalInfo" name="additionalInfo"
+                        placeholder="Disclaimers or any other comment"></textarea>
+
+                    <label for="conj">Make this bid conjunction to:</label>
+                    <input type="text" id="conj" name="conj" placeholder="Bid name only">
+
+                    <label for="price">Price (in USD):</label>
+                    <input type="number" id="price" name="price" step="0.01">
+
+                    <button type="submit">Generate Bid</button>
+                    <a href="https://www.google.com/maps" target="_blank" id="findstorage">Find Storage for Rental</a>
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+        <!-- New Note Section -->
+        <div class="note-container">
+            <h2>Bids</h2>
+            <div id="notesList" class="notes-list">
+                <!-- Notes will be dynamically added here -->
+            </div>
+            <button id="copyAllBidsButton">Copy All Bids</button>
+            <a href="../index.html" id="home"> <ion-icon name="home"></ion-icon> Go Home</a>
+
+        </div>
+
+    </div>
+
+
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <!-- Script to Generate Bid -->
+    <script>
+        document.getElementById('personalsForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Get form values
+            const bidPrefix = document.getElementById('bidPrefix').value;
+            const action = document.getElementById('action').value;
+            const perscount = document.getElementById('perscount').value;
+            const storesize = document.getElementById('storesize').value;
+            const consist = document.getElementById('consist').value;
+            const movef = document.getElementById('movef').value;
+            const movet = document.getElementById('movet').value;
+            const store = document.getElementById('store').value;
+            const address = document.getElementById('address').value;
+            const contact = document.getElementById('contact').value;
+            const additionalInfo = document.getElementById('additionalInfo').value;
+            const conj = document.getElementById('conj').value;
+            const price = parseFloat(document.getElementById('price').value);
+
+            // Format the price with commas
+            const formattedPrice = price.toLocaleString('en-US', {
+                style: 'decimal',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+            });
+
+            // Generate the bid text
+            const bidText = `${bidPrefix} Need to ${action} approx ${perscount} cyd(s) of personal property consisting of ${consist}. ${movef ? `Personals will be moved from ${movef} to ${movet}` : ''} ${storesize ? `Will require renting a ${storesize} storage for 30 days before disposing the personals to let the owner retrieve the belongings.` : ''} ${additionalInfo}. ${conj ? `***Must be approved in conjunction to ${conj} bid.` : ''} \n${store ? `Facility Name: ${store}` : ''}\n${address ? `Facility Location: ${address}` : ''}\n${contact ? `Facility Contact Number: ${contact}` : ''} \nPrice: $${formattedPrice}`;
+            // Save the bid as a note
+            saveBidAsNote(bidText);
+        });
+    </script>
+    <script src="script_other.js"></script>
+
+
+
+
+</body>
+
+</html>
