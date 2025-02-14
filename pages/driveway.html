@@ -230,7 +230,7 @@
             });
 
             // Generate the bid text
-            const bidText = `${bidPrefix} Need to repair ${size} of ${drivewaytype} using ${repairtype} method. ${description} ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            const bidText = `${bidPrefix} Need to repair ${size} of ${drivewaytype} driveway using ${repairtype} method. ${description} ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
             // Save the bid as a note
             saveBidAsNote(bidText);
         });
