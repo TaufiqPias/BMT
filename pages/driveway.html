@@ -82,23 +82,30 @@
             <h1>Landscaping Bid</h1>
             <div class="division">
                 <h2>Driveway Bids</h2>
-                <form id="hazForm">
+                <form id="drForm">
 
                     <label for="bidPrefix">Bid Prefix (for conjunction bid - Use a colon after prefix)</label>
                     <input type="text" id="bidPrefix" name="bidPrefix" placeholder="Title: / Title-">
 
-                    <label for="type">Select A Type of Driveway:*</label>
-                    <Select id="type" name="type" required>
+                    <label for="drivewaytype">Select A Type of Driveway:*</label>
+                    <Select id="drivewaytype" name="drivewaytype" required>
                         <option value="">--Select a Type--</option>
-                        <option value="">Asphalt Driveway</option>
-                        <option value="">Concrete Driveway</option>
-                        <option value="">Gravel Driveway</option>
-                        <option value="">Pavement Driveway</option>
+                        <option value="asphalt">Asphalt Driveway</option>
+                        <option value="concrete">Concrete Driveway</option>
+                        <option value="gravel">Gravel Driveway</option>
+                        <option value="pavement">Pavement Driveway</option>
                         
                     </Select>
 
-                    <label for="reason">Why do you need to purchase the Hasmat Suit?*</label>
-                    <input type="text" id="reason" name="reason" placeholder="Task name only" required>
+                    <label for="repairtype">Repair Type:*</label>
+                    <select id="repairtype" name="repairtype" required>
+                        <option value="">Select Repair Type</option>
+                    </select>
+                    
+                    <label for="size">What is the size of the damage?*</label>
+                    <input type="text" id="size" name="size" placeholder="i.e.- 3 X 2 = 6 SF or 30 LF" required>
+                    
+                    <div id="description"></div>
 
 
                     <label for="additionalInfo">Additional information:</label>
@@ -136,15 +143,81 @@
 
     <div id="floatingMessage" class="floating-message">Copied!</div>
 
+    <!-- Script for Dynamic Option -->
+    <script>const drivewayTypeDropdown = document.getElementById('drivewaytype');
+        const repairTypeDropdown = document.getElementById('repairtype');
+        const descriptionDiv = document.getElementById('description');
+
+        // Define repair types for each driveway type
+        const repairTypes = {
+            asphalt: ['Patching', 'Sealcoating', 'Crack Filling', 'Resurfacing', 'Overlay'],
+            concrete: ['Crack Repair', 'Resurfacing', 'Mudjacking', 'Polyurethane Foam Injection', 'Replacement'],
+            gravel: ['Grading', 'Adding New Gravel', 'Compacting'],
+            pavement: ['Replacing Damaged Pavers', 'Releveling', 'Joint Sand Replacement']
+        };
+
+        // Define descriptions for each repair type
+        const descriptions = {
+            'patching': 'Will fill the damaged area (potholes or cracks) with asphalt patch.',
+            'sealcoating': 'Will apply a protective layer of asphalt emulsion or similar product to prevent water damage and UV deterioration.',
+            'crack-filling': 'Will seal the cracks using asphalt/epoxy/mortar to prevent water infiltration and further damage.',
+            'resurfacing': 'Will apply a new layer of asphalt over the existing surface.',
+            'overlay': 'Will add a thick layer of asphalt to restore the driveway\'s surface.',
+            'crack-repair': 'Will fill cracks with concrete caulk or epoxy.',
+            'mudjacking': 'Will lift sunken concrete slabs by injecting a slurry (a mixture of water, soil, and cement) underneath.',
+            'polyurethane-foam-injection': 'Will lift sunken concrete slabs by injecting a foam to lift and stabilize concrete.',
+            'replacement': 'Will remove and replace severely damaged sections.',
+            'grading': 'Will level the driveway and redistribute the gravel.',
+            'adding-new-gravel': 'Will add new gravel to replenish lost material and improve the surface.',
+            'compacting': 'Will use a roller or tamper to stabilize the gravel.',
+            'replacing-damaged-pavers': 'Will remove and replace cracked or broken pavers.',
+            'releveling': 'Will adjust sunken or uneven pavers.',
+            'joint-sand-replacement': 'Will refill the sand between pavers to stabilize them.'
+        };
+
+        // Event listener for driveway type dropdown
+        drivewayTypeDropdown.addEventListener('change', function () {
+            const selectedDrivewayType = drivewayTypeDropdown.value;
+
+            // Clear the repair type dropdown and description
+            repairTypeDropdown.innerHTML = '<option value="">Select Repair Type</option>';
+            descriptionDiv.textContent = '';
+
+            // Populate the repair type dropdown based on the selected driveway type
+            if (selectedDrivewayType && repairTypes[selectedDrivewayType]) {
+                repairTypes[selectedDrivewayType].forEach(function (repairType) {
+                    const option = document.createElement('option');
+                    option.value = repairType.toLowerCase().replace(/ /g, '-');
+                    option.textContent = repairType;
+                    repairTypeDropdown.appendChild(option);
+                });
+            }
+        });
+
+        // Event listener for repair type dropdown
+        repairTypeDropdown.addEventListener('change', function () {
+            const selectedRepairType = repairTypeDropdown.value;
+
+            // Display the description for the selected repair type
+            if (selectedRepairType && descriptions[selectedRepairType]) {
+                descriptionDiv.textContent = descriptions[selectedRepairType];
+            } else {
+                descriptionDiv.textContent = '';
+            }
+        });
+        </script>
+
     <!-- Script to Generate Bid -->
     <script>
-        document.getElementById('hazForm').addEventListener('submit', function (event) {
+        document.getElementById('drForm').addEventListener('submit', function (event) {
             event.preventDefault();
 
             // Get form values
             const bidPrefix = document.getElementById('bidPrefix').value;
-            const type = document.getElementById('type').value;
-            const reason = document.getElementById('reason').value;
+            const drivewaytype = document.getElementById('drivewaytype').value;
+            const repairtype = document.getElementById('repairtype').value;
+            const description = document.getElementById('description').textContent;
+            const size = document.getElementById('size').value;
             const additionalInfo = document.getElementById('additionalInfo').value;
             const conj = document.getElementById('conj').value;
             const price = parseFloat(document.getElementById('price').value);
@@ -157,11 +230,13 @@
             });
 
             // Generate the bid text
-            const bidText = `${bidPrefix} Need to purchase ${type} to complete the ${reason} task. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            const bidText = `${bidPrefix} Need to repair ${size} of ${drivewaytype} using ${repairtype} method. ${description} ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
             // Save the bid as a note
             saveBidAsNote(bidText);
         });
     </script>
+
+    
 
     <script src="script_other.js"></script>
 
