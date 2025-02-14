@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Taufiq Pias">
+    <title>Driveway - BMT</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "pyixod2g2s");
+    </script>
+
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Information Area -->
+        <div class="info-container">
+            <h2>Information</h2>
+            <div class="info-content">
+                <h3>Driveway Repair Types</h3>
+
+                <h4>1. Asphalt Driveway Repairs</h4>
+                <ul>
+                    <li><b>Patching:</b> Filling potholes or cracks with asphalt patch material.</li>
+                    <li><b>Sealcoating:</b> Applying a protective layer to prevent water damage and UV deterioration.
+                    </li>
+                    <li><b>Crack Filling:</b> Sealing cracks to prevent water infiltration and further damage.</li>
+                    <li><b>Resurfacing:</b> Applying a new layer of asphalt over the existing surface.</li>
+                    <li><b>Overlay:</b> Adding a thick layer of asphalt to restore the driveway's surface.</li>
+                </ul>
+
+                <h4>2. Concrete Driveway Repairs</h4>
+                <ul>
+                    <li><b>Crack Repair:</b> Filling cracks with concrete caulk or epoxy.</li>
+                    <li><b>Resurfacing:</b> Applying a thin layer of new concrete or overlay.</li>
+                    <li><b>Mudjacking:</b> Lifting sunken concrete slabs by injecting a slurry underneath.</li>
+                    <li><b>Polyurethane Foam Injection:</b> Similar to mudjacking but uses foam to lift and stabilize
+                        concrete.</li>
+                    <li><b>Replacement:</b> Removing and replacing severely damaged sections.</li>
+                </ul>
+
+                <h4>3. Gravel Driveway Repairs</h4>
+                <ul>
+                    <li><b>Grading:</b> Leveling the driveway and redistributing gravel.</li>
+                    <li><b>Adding New Gravel:</b> To replenish lost material and improve the surface.</li>
+                    <li><b>Compacting:</b> Using a roller or tamper to stabilize the gravel.</li>
+                </ul>
+
+                <h4>4. Pavement Driveway Repairs</h4>
+                <ul>
+                    <li><b>Replacing Damaged Pavers:</b> Removing and replacing cracked or broken pavers.</li>
+                    <li><b>Releveling:</b> Adjusting sunken or uneven pavers.</li>
+                    <li><b>Joint Sand Replacement:</b> Refilling the sand between pavers to stabilize them.</li>
+                </ul>
+                <b>
+                    <p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p>
+                </b>
+                <b>
+                    <p style="color: brown;">***Please copy the bids before visiting other pages. Bids will not be saved
+                        once redirected.***</p>
+                </b>
+            </div>
+        </div>
+
+
+
+
+        <div class="container">
+            <h1>Landscaping Bid</h1>
+            <div class="division">
+                <h2>Driveway Bids</h2>
+                <form id="hazForm">
+
+                    <label for="bidPrefix">Bid Prefix (for conjunction bid - Use a colon after prefix)</label>
+                    <input type="text" id="bidPrefix" name="bidPrefix" placeholder="Title: / Title-">
+
+                    <label for="type">Select A Type of Driveway:*</label>
+                    <Select id="type" name="type" required>
+                        <option value="">--Select a Type--</option>
+                        <option value="">Asphalt Driveway</option>
+                        <option value="">Concrete Driveway</option>
+                        <option value="">Gravel Driveway</option>
+                        <option value="">Pavement Driveway</option>
+                        
+                    </Select>
+
+                    <label for="reason">Why do you need to purchase the Hasmat Suit?*</label>
+                    <input type="text" id="reason" name="reason" placeholder="Task name only" required>
+
+
+                    <label for="additionalInfo">Additional information:</label>
+                    <textarea id="additionalInfo" name="additionalInfo"
+                        placeholder="Disclaimers or any other comment"></textarea>
+
+                    <label for="conj">Make this bid conjunction to:</label>
+                    <input type="text" id="conj" name="conj" placeholder="Bid name only">
+
+                    <label for="price">Price (in USD):</label>
+                    <input type="number" id="price" name="price" step="0.01">
+
+                    <button type="submit">Generate Bid</button>
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+        <!-- New Note Section -->
+        <div class="note-container">
+            <h2>Bids</h2>
+            <div id="notesList" class="notes-list">
+                <!-- Notes will be dynamically added here -->
+            </div>
+            <button id="copyAllBidsButton">Copy All Bids</button>
+            <a href="../index.html" id="home"> <ion-icon name="home"></ion-icon> Go Home</a>
+
+        </div>
+
+    </div>
+
+
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <!-- Script to Generate Bid -->
+    <script>
+        document.getElementById('hazForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Get form values
+            const bidPrefix = document.getElementById('bidPrefix').value;
+            const type = document.getElementById('type').value;
+            const reason = document.getElementById('reason').value;
+            const additionalInfo = document.getElementById('additionalInfo').value;
+            const conj = document.getElementById('conj').value;
+            const price = parseFloat(document.getElementById('price').value);
+
+            // Format the price with commas
+            const formattedPrice = price.toLocaleString('en-US', {
+                style: 'decimal',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+            });
+
+            // Generate the bid text
+            const bidText = `${bidPrefix} Need to purchase ${type} to complete the ${reason} task. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            // Save the bid as a note
+            saveBidAsNote(bidText);
+        });
+    </script>
+
+    <script src="script_other.js"></script>
+
+
+
+
+
+</body>
+
+</html>

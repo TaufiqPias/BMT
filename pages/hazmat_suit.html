@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Taufiq Pias">
+  <title>Hazmat Suit - BMT</title>
+  <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png">
+    <link rel="stylesheet" href="styles.css">
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "pyixod2g2s");
+    </script>
+    
+</head>
+<body>
+    <div class="main-container">      
+    <!-- Information Area -->
+    <div class="info-container">
+        <h2>Information</h2>
+        <div class="info-content">
+            <p>The term “hazmat” is a combination of “hazardous” (haz) and “materials” (mat). A hazmat suit is personal protective equipment (PPE) that shields workers from dangerous substances and environments. It includes a full-body outfit and specialized gear to prevent any harmful materials from getting through. The following prices are provided as a ranged parameter taken from RepairBase 2024. </p>
+            <p><strong>Types of Hazmat Suit & Prices</strong></p>
+                <img src="..\Images\Hazmat.webp" alt="Types of Hazmat Suit" style="width: 100%;">
+                <p>
+                    <ol> 
+                        <li> <b>Level A</b> - provide maximum protection from gases, liquid splashes, and mist. Level A suits include garments, a full-face mask with gloves, a breathing apparatus, and special footwear. <b style="color: brown;"> <br>Price: $1,000 - $1,500</b></li>
+                        <li> <b>Level B</b> - offer protection from hazardous chemical splashes, excluding vapors. Level B protection includes garments, gloves, special footwear, and a full-face mask with breathing apparatus. <b style="color: brown;"> <br>Price: $500 - $800</b></li>
+                        <li> <b>Level C</b> - guard against harmful chemicals and includes garments, gloves, boots, and respirator. This level is not suitable for an oxygen-lacking atmosphere or a chemical emergency. It only protects against specific hazardous materials. <b style="color: brown;"> <br>Price: $200 - $400</b></li>
+                        <li> <b>Level D</b> - include coveralls and chemical-resistant footwear. Workers wearing this gear do not encounter This design is unsuitable for a chemical emergency. <b style="color: brown;"> <br>Price: $50 - $100</b></li>
+                    </ol>
+                </p>
+                <b><p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p></b>
+                <b><p style="color: brown;">***Please copy the bids before visiting other pages. Bids will not be saved once redirected.***</p></b>
+        </div>
+    </div>
+
+
+
+   
+        <div class="container">
+            <h1>Debris & Personals Bid</h1>
+            <div class="division">
+                <h2>Hazmat Suit Bids</h2>
+                <form id="hazForm">
+                    
+                    <label for="bidPrefix">Bid Prefix (for conjunction bid - Use a colon after prefix)</label>
+                    <input type="text" id="bidPrefix" name="bidPrefix" placeholder="Title: / Title-">
+
+                    <label for="type">Select A Type of Hazmat Suit:*</label>
+                    <Select id="type" name="type" required>
+                        <option value="">--Select a Type--</option>
+                        <option value="Level A hazmat suit - including air tight garments, a full-face mask with gloves, a breathing apparatus, and special footwear">Level A</option>
+                        <option value="Level B hazmat suit - including protective garments, a full-face mask with gloves, a breathing apparatus, and special footwear">Level B</option>
+                        <option value="Level C hazmat suit - including garments, gloves, boots, and respirator">Level C</option>
+                        <option value="Level D hazmat suit - including coveralls and chemical-resistant footwear">Level D</option>
+                    </Select>
+                    
+                    <label for="reason">Why do you need to purchase the Hasmat Suit?*</label>
+                    <input type="text" id="reason" name="reason" placeholder="Task name only" required>
+
+                                       
+                    <label for="additionalInfo">Additional information:</label>
+                    <textarea id="additionalInfo" name="additionalInfo" placeholder="Disclaimers or any other comment"></textarea>
+
+                    <label for="conj">Make this bid conjunction to:</label>
+                    <input type="text" id="conj" name="conj" placeholder="Bid name only">
+
+                    <label for="price">Price (in USD):</label>
+                    <input type="number" id="price" name="price" step="0.01">
+
+                    <button type="submit">Generate Bid</button>
+                </form>
+
+            
+            </div>
+
+       
+    </div>
+
+        <!-- New Note Section -->
+        <div class="note-container">
+            <h2>Bids</h2>
+            <div id="notesList" class="notes-list">
+                <!-- Notes will be dynamically added here -->
+            </div>
+            <button id="copyAllBidsButton">Copy All Bids</button>
+            <a href="../index.html" id="home"> <ion-icon name="home"></ion-icon> Go Home</a>
+            
+        </div>
+
+    </div>
+
+    
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <!-- Script to Generate Bid -->
+     <script>
+        document.getElementById('hazForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    // Get form values
+    const bidPrefix = document.getElementById('bidPrefix').value;
+    const type = document.getElementById('type').value;
+    const reason = document.getElementById('reason').value;
+    const additionalInfo = document.getElementById('additionalInfo').value;
+    const conj = document.getElementById('conj').value;
+    const price = parseFloat(document.getElementById('price').value);
+
+    // Format the price with commas
+    const formattedPrice = price.toLocaleString('en-US', {
+        style: 'decimal',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+    });
+
+    // Generate the bid text
+    const bidText = `${bidPrefix} Need to purchase ${type} to complete the ${reason} task. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+    // Save the bid as a note
+    saveBidAsNote(bidText);
+});
+     </script>
+
+<script src="script_other.js"></script>
+    
+
+    
+
+    
+</body>
+</html>

@@ -50,8 +50,8 @@
         <div class="container">
             <h1>Landscaping Bid</h1>
             <div class="division">
-                <h2>Tree Bids</h2>
-                <form id="treeForm">
+                <h2>Broken Tree Limb/Branch Bids</h2>
+                <form id="treelimbForm">
 
                     <label for="bidPrefix">Bid Prefix (for conjunction bid - Use a colon after prefix)</label>
                     <input type="text" id="bidPrefix" name="bidPrefix" placeholder="Title: / Title-">
@@ -138,7 +138,7 @@
 
     <!-- Script to Generate Bid -->
     <script>
-        document.getElementById('treeForm').addEventListener('submit', function (event) {
+        document.getElementById('treelimbForm').addEventListener('submit', function (event) {
             event.preventDefault();
 
             // Get form values
