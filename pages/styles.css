@@ -117,17 +117,6 @@ form {
     margin-top: 10px; /* Add some spacing from the previous field */
 }
 
-#description {
-    width: 100%;
-    grid-column: span 2; /* Span across both columns of the form */
-    margin-top: 5px; /* Add spacing from the previous field */
-    padding: 10px;
-    background-color: #f8f9fa; /* Light background color */
-    border: 1px solid #ccc; /* Subtle border */
-    border-radius: 5px; /* Match the form's border radius */
-    font-size: 14px; /* Match the form's font size */
-    color: #333; /* Match the form's text color */
-}
 
 /* Style for each dynamic window input field */
 .windowInput {
@@ -150,6 +139,8 @@ form {
     border-radius: 5px;
     font-size: 14px;
 }
+
+
 
 label {
     font-size: 14px;
@@ -186,7 +177,32 @@ button:hover {
     background-color: #218838;
 }
 
+#description {
+    width: 100%;
+    grid-column: span 2; /* Span across both columns of the form */
+    margin-top: 5px; /* Add spacing from the previous field */
+    padding: 10px;
+    background-color: #f8f9fa; /* Light background color */
+    border: 1px solid #ccc; /* Subtle border */
+    border-radius: 5px; /* Match the form's border radius */
+    font-size: 14px; /* Match the form's font size */
+    color: #333; /* Match the form's text color */
+}
 
+#removeFields, #replaceFields {
+    grid-column: span 2; /* Span across both columns of the form */
+    padding: 10px;
+    background-color: #f0f0f0; /* Red background color */
+    color: #fff; /* White text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Match the form's border radius */
+    cursor: pointer; /* Show pointer on hover */
+    font-size: 16px; /* Larger font size */
+}
+#removeFields input {
+    grid-column: span 2; /* Span across both columns of the form */
+    width: 98%;
+}
 
 #bidOutput {
     white-space: pre-line;
@@ -334,9 +350,16 @@ table {
   form {
         grid-template-columns: 1fr; /* Single column for form inputs */
     }
+
+form label {
+        display: block;
+        font-weight: bold;
+    }
   
 
     button, a {
         grid-column: span 1; /* Full width for buttons and links */
     }
 }
+
+
