@@ -189,7 +189,7 @@ button:hover {
     color: #333; /* Match the form's text color */
 }
 
-#storeFields, #moveFields, #removeFields, #replaceFields, #grinderField, #panelFields, #toprailcapsField, #debrisField {
+#materialField, #storeFields, #moveFields, #removeFields, #replaceFields, #grinderField, #panelFields, #toprailcapsField, #debrisField {
     grid-column: span 2; /* Span across both columns of the form */
     padding: 10px;
     background-color: #f0f0f0; /* Red background color */
@@ -199,7 +199,7 @@ button:hover {
     cursor: pointer; /* Show pointer on hover */
     font-size: 16px; /* Larger font size */
 }
-#storeFields, #moveFields, #removeFields, #grinderField, #panelFields, #toprailcapsField, #debrisField input {
+#materialField, #storeFields, #moveFields, #removeFields, #grinderField, #panelFields, #toprailcapsField, #debrisField input {
     grid-column: span 2; /* Span across both columns of the form */
     width: 100%;
     max-width: 100%;
@@ -364,4 +364,15 @@ form label {
     }
 }
 
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    width: 100%; /* Make input fields take up 100% of their container's width */
+    max-width: 100%; /* Set a maximum width to prevent them from becoming too wide */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+    padding: 8px; /* Add some padding for better appearance */
+    margin-bottom: 10px; /* Add spacing between fields */
+}
 

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Taufiq Pias">
+    <title>Dead Animal - BMT</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "pyixod2g2s");
+    </script>
+
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Information Area -->
+        <div class="info-container">
+            <h2>Information</h2>
+            <div class="info-content">
+                <p>Fill out the form accordingly to generate a bid. The following prices are provided as a ranged
+                    parameter taken from RepairBase 2024. </p>
+                <p><strong>Prices: Approximate Range</strong></p>
+                <p><b>Please check client allowable prices for bid price.</b>
+                    <br>
+                    <table>
+                        <tr>
+                                <th>Animal_Size</th>
+                                <th>Examples</th>
+                                <th>Prices</th>
+                        </tr>
+                        
+                        
+                            <tr>
+                                <td>Small</td>
+                                <td>Squirrel, Rat, Pika, Cottontail Rabbit, Box Turtles, Armadillo, Sparrow</td>
+                                <td>$20-$35</td>
+                            </tr>
+                            <tr>
+                                <td>Medium</td>
+                                <td>Otter, Beaver, Raccoon, Cat</td>
+                                <td>$45-$60</td>
+                            </tr>
+                            <tr>
+                                <td>Large</td>
+                                <td>Moose, Deer, Cow, Goats, Llama, Elk</td>
+                                <td>$100-$450</td>
+                            </tr>
+                        
+                    </table>
+                    <br>
+
+                <b>
+                    <p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p>
+                </b>
+                <b>
+                    <p style="color: brown;">***Please copy the bids before visiting other pages. Bids will not be saved
+                        once redirected.***</p>
+                </b>
+            </div>
+        </div>
+
+
+
+
+        <div class="container">
+            <h1>Debris & Personals Bid</h1>
+            <div class="division">
+                <h2>Dead Animal Bids</h2>
+                <form id="DAForm">
+
+                    <label for="bidPrefix">Bid Prefix (for conjunction bid - Use a colon after prefix)</label>
+                    <input type="text" id="bidPrefix" name="bidPrefix" placeholder="Title: / Title-">
+
+                    <label for="anicount">How many dead animals need removing?*</label>
+                    <input type="number" id="anicount" name="anicount" required>
+
+                    <label for="anisize">Select Animal Size:*</label>
+                    <Select id="anisize" name="anisize" required>
+                        <option value="">--Select a size--</option>
+                        <option value="small">Small</Sption>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                    </Select>
+
+                    <label for="anitype">What are the dead animals?*</label>
+                    <input type="text" id="anitype" name="anitype" placeholder="Dead Animal Type. Ex: Rat, Squirrel, Cat"
+                        required>
+                    
+                    <label for="loc">Location:*</label>
+                    <input type="text" id="loc" name="loc" placeholder="kitchen, living room, red room, etc."
+                        required>
+
+                    <label for="additionalInfo">Additional information:</label>
+                    <textarea id="additionalInfo" name="additionalInfo"
+                        placeholder="Disclaimers or any other comment"></textarea>
+
+                    <label for="conj">Make this bid conjunction to:</label>
+                    <input type="text" id="conj" name="conj" placeholder="Bid name only">
+
+                    <label for="price">Price (in USD):</label>
+                    <input type="number" id="price" name="price" step="0.01">
+
+                    <button type="submit">Generate Bid</button>
+                    <!-- <a href="https://www.zillow.com/" target="_blank" id="findpropsize">Find Property Size: Zillow</a> -->
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+        <!-- New Note Section -->
+        <div class="note-container">
+            <h2>Bids</h2>
+            <div id="notesList" class="notes-list">
+                <!-- Notes will be dynamically added here -->
+            </div>
+            <button id="copyAllBidsButton">Copy All Bids</button>
+            <a href="../index.html" id="home"> <ion-icon name="home"></ion-icon> Go Home</a>
+        </div>
+
+    </div>
+
+
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <!-- Script to Generate Bid -->
+    <script>
+        document.getElementById('DAForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Get form values
+            const bidPrefix = document.getElementById('bidPrefix').value;
+            const anicount = document.getElementById('anicount').value;
+            const anisize = document.getElementById('anisize').value;
+            const loc = document.getElementById('loc').value;
+            const anitype = document.getElementById('anitype').value;
+            const additionalInfo = document.getElementById('additionalInfo').value;
+            const conj = document.getElementById('conj').value;
+            const price = parseFloat(document.getElementById('price').value);
+
+            // Format the price with commas
+            const formattedPrice = price.toLocaleString('en-US', {
+                style: 'decimal',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+            });
+
+            // Generate the bid text
+            const bidText = `${bidPrefix} Need to remove ${anicount} ${anisize} dead animal (${anitype}) from the ${loc}. - includes disposal. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            // Save the bid as a note
+            saveBidAsNote(bidText);
+        }); 
+    </script>
+    <script src="script_other.js"></script>
+
+
+
+
+</body>
+
+</html>
