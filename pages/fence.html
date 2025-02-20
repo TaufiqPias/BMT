@@ -52,9 +52,6 @@
             </div>
         </div>
 
-
-
-
         <div class="container">
             <h1>Landscaping Bid</h1>
             <div class="division">
@@ -96,18 +93,22 @@
                         <option value="8ft x 6ft">8ft wide x 6ft tall</option>
                     </select>
 
-                    <label for="panelcount">How many panels? (only if panel size is sleceted)</label>
-                    <input type="number" id="panelcount" name="panelcount">
+                    <div id="panelFields" style="display: none;">
+                        <label for="panelcount">How many panels?</label>
+                        <input type="number" id="panelcount" name="panelcount">
 
-                    <label for="postcount">How many posts? (only if panel size is sleceted)</label>
-                    <input type="number" id="postcount" name="postcount">
+                        <label for="postcount">How many posts?</label>
+                        <input type="number" id="postcount" name="postcount">
+                    </div>
 
-                    <label for="toprailcaps">Toprail & Post caps needed? (Only for Chainlink fence)</label>
-                    <select id="toprailcaps" name="toprailcaps">
-                        <option value="">--Select Any--</option>
-                        <option value="Will also require - ">Yes</option>
-                        <option value="">No</option>
-                    </select>
+                    <div id="toprailcapsField" style="display: none;">
+                        <label for="toprailcaps">Toprail & Post caps needed?</label>
+                        <select id="toprailcaps" name="toprailcaps">
+                            <option value="">--Select Any--</option>
+                            <option value="Will also require - ">Yes</option>
+                            <option value="">No</option>
+                        </select>
+                    </div>
 
                     <label for="gate">Fence Gate needed?</label>
                     <select id="gate" name="gate">
@@ -120,7 +121,6 @@
                         <option value="6ft x 3ft vinyle gate.">6ft x 3ft vinyle gate</option>
                         <option value="4ft x 3ft composite gate.">4ft x 3ft composite gate</option>
                         <option value="6ft x 3ft composite gate.">6ft x 3ft composite gate</option>
-
                     </select>
 
                     <label for="location">Location:*</label>
@@ -130,8 +130,10 @@
                     <input type="text" id="reason" name="reason"
                         placeholder="Please state reason for removal/replacement/repair" required>
 
-                    <label for="debris">Generated debris (in cyds) - Only for removal bid:</label>
-                    <input type="number" id="debris" name="debris" step="1">
+                    <div id="debrisField" style="display: none;">
+                        <label for="debris">Generated debris (in cyds):</label>
+                        <input type="number" id="debris" name="debris" step="1">
+                    </div>
 
                     <label for="equipments">Equipments required:*</label>
                     <Select id="equipments" name="equipments" required>
@@ -162,11 +164,7 @@
 
                     <button type="submit">Generate Bid</button>
                 </form>
-
-
             </div>
-
-
         </div>
 
         <!-- New Note Section -->
@@ -178,54 +176,75 @@
             <button id="copyAllBidsButton">Copy All Bids</button>
             <a href="../index.html" id="home"> <ion-icon name="home"></ion-icon> Go Home</a>
         </div>
-
     </div>
-
 
     <div id="floatingMessage" class="floating-message">Copied!</div>
 
-    <!-- script to Generate Bid -->
+    <!-- Script to Generate Bid -->
     <script>
-        document.getElementById('fenceForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+        document.getElementById('fenceForm').addEventListener('submit', function (event) {
+            event.preventDefault();
 
-    // Get form values
-    const bidPrefix = document.getElementById('bidPrefix').value;
-    const fenceaction = document.getElementById('fenceaction').value;
-    const length = document.getElementById('length').value;
-    const fencetype = document.getElementById('fencetype').value;
-    const panelsize = document.getElementById('panelsize').value;
-    const panelcount = document.getElementById('panelcount').value;
-    const postcount = document.getElementById('postcount').value;
-    const toprailcaps = document.getElementById('toprailcaps').value;
-    const gate = document.getElementById('gate').value;
-    const location = document.getElementById('location').value;
-    const reason = document.getElementById('reason').value;
-    const debris = document.getElementById('debris').value;
-    const equipments = document.getElementById('equipments').value;
-    const additionalInfo = document.getElementById('additionalInfo').value;
-    const conj = document.getElementById('conj').value;
-    const price = parseFloat(document.getElementById('price').value);
+            // Get form values
+            const bidPrefix = document.getElementById('bidPrefix').value;
+            const fenceaction = document.getElementById('fenceaction').value;
+            const length = document.getElementById('length').value;
+            const fencetype = document.getElementById('fencetype').value;
+            const panelsize = document.getElementById('panelsize').value;
+            const panelcount = document.getElementById('panelcount').value;
+            const postcount = document.getElementById('postcount').value;
+            const toprailcaps = document.getElementById('toprailcaps').value;
+            const gate = document.getElementById('gate').value;
+            const location = document.getElementById('location').value;
+            const reason = document.getElementById('reason').value;
+            const debris = document.getElementById('debris').value;
+            const equipments = document.getElementById('equipments').value;
+            const additionalInfo = document.getElementById('additionalInfo').value;
+            const conj = document.getElementById('conj').value;
+            const price = parseFloat(document.getElementById('price').value);
 
-    // Format the price with commas
-    const formattedPrice = price.toLocaleString('en-US', {
-        style: 'decimal',
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-    });
+            // Format the price with commas
+            const formattedPrice = price.toLocaleString('en-US', {
+                style: 'decimal',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+            });
 
-    // Generate the bid text
-    const bidText = `${bidPrefix} Need to ${fenceaction} ${length} LF of ${fencetype} fence from/at the ${location} side of the property. Reason: ${reason}. ${debris ? `Will generate approx ${debris} cyds of debris.` : ''} ${panelsize ? `Will need to ${fenceaction} ${panelcount} pieces of ${panelsize} panels and ${postcount} posts.` : ''} ${toprailcaps ? `${toprailcaps}to ${fenceaction} ${length} LF toprail and ${postcount} pieces of loop caps/ post caps.` : ''} ${gate ? `Will need to ${fenceaction} ${gate}` : ''} Will require ${equipments}. ${conj ? `***Must be approved in conjunction to ${conj} bid.` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
-    // Save the bid as a note
-    saveBidAsNote(bidText);
-    });
+            // Generate the bid text
+            const bidText = `${bidPrefix} Need to ${fenceaction} ${length} LF of ${fencetype} fence from/at the ${location} side of the property. Reason: ${reason}. ${debris ? `Will generate approx ${debris} cyds of debris.` : ''} ${panelsize ? `Will need to ${fenceaction} ${panelcount} pieces of ${panelsize} panels and ${postcount} posts.` : ''} ${toprailcaps ? `${toprailcaps}to ${fenceaction} ${length} LF toprail and ${postcount} pieces of loop caps/ post caps.` : ''} ${gate ? `Will also need to ${fenceaction} ${gate}` : ''} Will require ${equipments}. ${conj ? `***Must be approved in conjunction to ${conj} bid.` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            // Save the bid as a note
+            saveBidAsNote(bidText);
+        });
+
+        // Show or hide fields based on selections
+        document.getElementById('panelsize').addEventListener('change', function () {
+            const panelFields = document.getElementById('panelFields');
+            if (this.value) {
+                panelFields.style.display = 'block';
+            } else {
+                panelFields.style.display = 'none';
+            }
+        });
+
+        document.getElementById('fencetype').addEventListener('change', function () {
+            const toprailcapsField = document.getElementById('toprailcapsField');
+            if (this.value === 'chainlink') {
+                toprailcapsField.style.display = 'block';
+            } else {
+                toprailcapsField.style.display = 'none';
+            }
+        });
+
+        document.getElementById('fenceaction').addEventListener('change', function () {
+            const debrisField = document.getElementById('debrisField');
+            if (this.value === 'remove') {
+                debrisField.style.display = 'block';
+            } else {
+                debrisField.style.display = 'none';
+            }
+        });
     </script>
-
     <script src="script_other.js"></script>
-
-
-
-
 </body>
 
 </html>

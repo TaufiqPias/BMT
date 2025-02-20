@@ -11,7 +11,6 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-
     <script type="text/javascript">
         (function (c, l, a, r, i, t, y) {
             c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
@@ -50,7 +49,6 @@
             </div>
         </div>
 
-
         <div class="container">
             <h1>Landscaping Bid</h1>
             <div class="division">
@@ -83,15 +81,16 @@
                             Diameter and 51' to 102' Tall)</option>
                     </select>
 
-                    <label for="grinder">Grinder and fill in depression needed?: (Select only for tree removal
-                        bid)</label>
-                    <select id="grinder" name="grinder">
-                        <option value="">--Select Any (Only for tree removal bid)--</option>
-                        <option
-                            value="Will require stump grinder and after grinding the stump, need to fill depression with dirt.">
-                            Yes </option>
-                        <option value="">No</option>
-                    </select>
+                    <div id="grinderField" style="display: none;">
+                        <label for="grinder">Grinder and fill in depression needed?:*</label>
+                        <select id="grinder" name="grinder">
+                            <option value="">--Select Any--</option>
+                            <option
+                                value="Will require stump grinder and after grinding the stump, need to fill depression with dirt.">
+                                Yes </option>
+                            <option value="">No</option>
+                        </select>
+                    </div>
 
                     <label for="location">Location:*</label>
                     <input type="text" id="location" name="location" placeholder="front, left, right, rear" required>
@@ -132,11 +131,7 @@
 
                     <button type="submit">Generate Bid</button>
                 </form>
-
-
             </div>
-
-
         </div>
 
         <!-- New Note Section -->
@@ -148,8 +143,6 @@
             <button id="copyAllBidsButton">Copy All Bids</button>
             <a href="../index.html" id="home"> <ion-icon name="home"></ion-icon> Go Home</a>
         </div>
-
-    </div>
     </div>
 
     <div id="floatingMessage" class="floating-message">Copied!</div>
@@ -181,16 +174,22 @@
             });
 
             // Generate the bid text
-            const bidText = `${bidPrefix} Need to ${treeaction} ${treeCount} ${treeSize} trees at the ${location} of the property due to ${reason}. Will generate approx ${debris} cyds of debris.${grinder} Will require ${equipments}. ${conj ? `***Must be approved in conjunction to ${conj} bid.` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            const bidText = `${bidPrefix} Need to ${treeaction} ${treeCount} ${treeSize} trees at the ${location} of the property due to ${reason}. Will generate approx ${debris} cyds of debris.${grinder ? `${grinder}` : ``} Will require ${equipments}. ${conj ? `***Must be approved in conjunction to ${conj} bid.` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
             // Save the bid as a note
             saveBidAsNote(bidText);
         });
+
+        // Show or hide the grinder field based on the selected action
+        document.getElementById('treeaction').addEventListener('change', function () {
+            const grinderField = document.getElementById('grinderField');
+            if (this.value === 'remove') {
+                grinderField.style.display = 'block';
+            } else {
+                grinderField.style.display = 'none';
+            }
+        });
     </script>
     <script src="script_other.js"></script>
-
-
-
-
 </body>
 
 </html>

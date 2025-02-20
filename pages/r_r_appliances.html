@@ -31,33 +31,41 @@
             <div class="info-content">
                 <p>Fill out the form accordingly to generate a bid. The following prices are provided as a ranged
                     parameter taken from RepairBase 2024. </p>
-                <p><strong>Prices: Approximate Range</strong></p>
-                <p><b>Please check client allowable prices for bid price.</b>
+                
+                <p style="color: brown;"><b>***Please check Local stores for prices before determining bid price.***</b>
                     <br>
+                    <p><strong>Prices: Approximate Range</strong> (Economy Grade)</p>
+                    <b>Refrigerator:</b> $800
                     <br>
-                <table>
-                    <tr>
-                        <th>Cleaning Type</th>
-                        <th>Price</th>
-                    </tr>
-
-                    <tr>
-                        <td>Light Cleaning - Interior Only</td>
-                        <td>$25.00</td>
-                    </tr>
-                    <tr>
-                        <td>Complete Cleaning - Interior & Exterior</td>
-                        <td>$50.00</td>
-                    </tr>
-                    <tr>
-                        <td>Heavy Cleaning - Soiled</td>
-                        <td>$100.00</td>
-                    </tr>
-                    <tr>
-                        <td>Heavy Cleaning - Hazardous</td>
-                        <td>$150.00</td>
-                    </tr>
-                </table>
+                    <b>Stove:</b> $550           
+                    <br>
+                    <b>Dishwasher:</b> $600
+                    <br>
+                    <b>Freezer:</b> $750
+                    <br>
+                    <b>Rangehood:</b> $300
+                    <br>
+                    <b>Oven:</b> $800
+                    <br>
+                    <b>Microwave:</b> $300
+                    <br>
+                    <b>Washer:</b> $600
+                    <br>
+                    <b>Dryer:</b> $600
+                    <br>
+                    <b>Hot Water Heater:</b> $1,250
+                    <br>
+                    <b>AC Unit:</b> $6,500
+                    <br>
+                    <b>Window AC:</b> $400
+                    <br>
+                    <b>Furnace:</b> $6,000
+                    <br>
+                    <b>Boiler:</b> $7,500
+                    <br>
+                    <b>Radiator:</b> $450
+                    <br>
+                    <b>Baseboard Radiators:</b> $150
                 </p>
 
 
@@ -101,8 +109,8 @@
                         <option value="microwave">Microwave</option>
                         <option value="washer">Washer</option>
                         <option value="dryer">Dryer</option>
-                        <option value="hot water heater">Hot Water Heater</option>
-                        <option value="AC unit">AC Unit</option>
+                        <option value="hot water heater (40 gal)">Hot Water Heater</option>
+                        <option value="AC unit (3Ton 13 Seer)">AC Unit</option>
                         <option value="window AC">Window AC</option>
                         <option value="furnace">Furnace</option>
                         <option value="boiler">Boiler</option>
@@ -121,8 +129,6 @@
                             <option value="vandalized">Vandalized</option>
                         </select>
                 
-                        <label for="debris">Generated debris (in cyds):*</label>
-                        <input type="number" id="debris" name="debris" step="1">
                     </div>
                 
                     <!-- Dynamic Fields for Replace -->
@@ -130,22 +136,23 @@
                         <label for="additem">Select an Appliance for Additional Items:*</label>
                         <select id="additem" name="additem">
                             <option value="">--Additional Items--</option>
-                            <option value="refrigerator">For Refrigerator Installation</option>
-                            <option value="stove">For Stove Installation</option>
-                            <option value="dishwasher">For Dishwasher Installation</option>
-                            <option value="freezer">For Freezer Installation</option>
-                            <option value="rangehood">For Rangehood Installation</option>
-                            <option value="oven">For Oven Installation</option>
-                            <option value="microwave">For Microwave Installation</option>
-                            <option value="washer">For Washer Installation</option>
-                            <option value="dryer">For Dryer Installation</option>
-                            <option value="hot water heater">For Hot Water Heater Installation</option>
-                            <option value="AC unit">For AC Unit Installation</option>
-                            <option value="window AC">For Window AC Installation</option>
-                            <option value="furnace">For Furnace Installation</option>
-                            <option value="boiler">For Boiler Installation</option>
-                            <option value="radiator">For Radiator Installation</option>
-                            <option value="baseboard radiators">For Baseboard Radiators Installation</option>
+                            <option value="">For Refrigerator Installation</option>
+                            <option value="Will require gas shut off valves and supply lines to complete the installation.">For Stove Installation</option>
+                            <option value="Will require discharge line (10 LF), angle stops and water supply lines to complete the installation.">For Dishwasher Installation</option>
+                            <option value="">For Freezer Installation</option>
+                            <option value="Will require aluminium exhaust line or duct to complete the installation.">For Rangehood Installation</option>
+                            <option value="">For Oven Installation</option>
+                            <option value="">For Microwave Installation</option>
+                            <option value="Will require discharge line (10 LF), angle stops and water supply lines to complete the installation.">For Washer Installation</option>
+                            <option value="Will require PVC exhaust line to complete the installation.">For Dryer Installation</option>
+                            <option value="Will require 10-20LF copper lines, 60 AMP circuit breaker and safety switch to complete the installation.">For Electric Hot Water Heater Installation</option>
+                            <option value="Will require 10-20LF copper lines, gas shut off valve, gas supply lines, 60 AMP circuit breaker, exhaust duct and safety switch to complete the installation.">For Gas Fueled Hot Water Heater Installation</option>
+                            <option value="Will require 10LF copper lines, 60 AMP circuit breaker, and safety switch to complete the installation.">For AC Unit Installation</option>
+                            <option value="">For Window AC Installation</option>
+                            <option value="Will require duct, 60 AMP circuit breaker, and safety switch to complete the installation.">For Furnace Installation</option>
+                            <option value="Will require expansion tank, 10-20LF copper lines, shark bites, ball valves, 60 AMP circuit breaker, and safety switch to complete the installation.">For Boiler Installation</option>
+                            <option value="Will require 10LF copper lines, shark bites, ball valves to complete the installation. ">For Radiator Installation</option>
+                            <option value="">For Baseboard Radiators Installation</option>
                         </select>
                     </div>
                 
@@ -218,9 +225,10 @@
 
             // Get form values
             const bidPrefix = document.getElementById('bidPrefix').value;
+            const action = document.getElementById('action').value;
             const appl = document.getElementById('appl').value;
             const servic = document.getElementById('servic').value;
-            const location = document.getElementById('location').value;
+            const additem = document.getElementById('additem').value;
             const additionalInfo = document.getElementById('additionalInfo').value;
             const conj = document.getElementById('conj').value;
             const price = parseFloat(document.getElementById('price').value);
@@ -234,9 +242,9 @@
 
             let bidText;
             if (action === 'remove') {
-                bidText = `${bidPrefix} Need to remove 1 ${appl}. Condition: ${servic}. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+                bidText = `${bidPrefix} Need to remove 1 ${appl}. Damage Type: ${servic}. Generated debris/appliance is heavy in nature. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
             } else if (action === 'replace') {
-                bidText = `${bidPrefix} Need to replace 1 ${appl}. Condition: ${servic}. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+                bidText = `${bidPrefix} Need to replace 1 ${appl} (Economy Grade). ${additem}${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
             } else {
                 alert('Please select an action (Remove or Replace).');
                 return; // Stop execution if no action is selected

@@ -11,8 +11,6 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-
-
     <script type="text/javascript">
         (function (c, l, a, r, i, t, y) {
             c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
@@ -52,9 +50,7 @@
                     <li>Search "Storage for rental near (City & State)</li>
                     <li>If the property is in Houston TX, Search - 'storage for rental near houston TX'</li>
                     <li>Select 1 and add the information in the bid.</li>
-
                 </ul>
-
 
                 <b>
                     <p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p>
@@ -65,9 +61,6 @@
                 </b>
             </div>
         </div>
-
-
-
 
         <div class="container">
             <h1>Debris & Personals Bid</h1>
@@ -93,30 +86,32 @@
                     <input type="text" id="consist" name="consist"
                         placeholder="List 4-5 items from the photos using commas." required>
 
-                    <label for="movef">Moved from: (Only for Move Personal Bid)</label>
-                    <input type="text" id="movef" name="movef" placeholder="Move From">
+                    <div id="moveFields" style="display: none;">
+                        <label for="movef">Moved from: (Only for Move Personal Bid)</label>
+                        <input type="text" id="movef" name="movef" placeholder="Move From">
 
-                    <label for="movet">Move to: (Only for Move Personal Bid)</label>
-                    <input type="text" id="movet" name="movet" placeholder="Move To">
+                        <label for="movet">Move to: (Only for Move Personal Bid)</label>
+                        <input type="text" id="movet" name="movet" placeholder="Move To">
+                    </div>
 
+                    <div id="storeFields" style="display: none;">
+                        <label for="storesize">Storage Size Needed:</label>
+                        <Select id="storesize" name="storesize">
+                            <option value="">--Select Any--</option>
+                            <option value="30 CYDS">30 CYDS Storage</option>
+                            <option value="40 CYDS">40 CYDS Storage</option>
+                            <option value="60 CYDS">60 CYDS Storage</option>
+                        </Select>
 
-                    <label for="storesize">Storage Size Needed:</label>
-                    <Select id="storesize" name="storesize">
-                        <option value="">--Select Any--</option>
-                        <option value="30 CYDS">30 CYDS Storage</option>
-                        <option value="40 CYDS">40 CYDS Storage</option>
-                        <option value="60 CYDS">60 CYDS Storage</option>
-                    </Select>
+                        <label for="store">Storage Name:</label>
+                        <input type="text" id="store" name="store">
 
-                    <label for="store">Storage Name:</label>
-                    <input type="text" id="store" name="store">
+                        <label for="address">Storage Address:</label>
+                        <input type="text" id="address" name="address">
 
-                    <label for="address">Storage Address:</label>
-                    <input type="text" id="address" name="address">
-
-                    <label for="contact">Storage Contact:</label>
-                    <input type="tel" id="contact" name="contact">
-
+                        <label for="contact">Storage Contact:</label>
+                        <input type="tel" id="contact" name="contact">
+                    </div>
 
                     <label for="additionalInfo">Additional information:</label>
                     <textarea id="additionalInfo" name="additionalInfo"
@@ -131,11 +126,7 @@
                     <button type="submit">Generate Bid</button>
                     <a href="https://www.google.com/maps" target="_blank" id="findstorage">Find Storage for Rental</a>
                 </form>
-
-
             </div>
-
-
         </div>
 
         <!-- New Note Section -->
@@ -146,11 +137,8 @@
             </div>
             <button id="copyAllBidsButton">Copy All Bids</button>
             <a href="../index.html" id="home"> <ion-icon name="home"></ion-icon> Go Home</a>
-
         </div>
-
     </div>
-
 
     <div id="floatingMessage" class="floating-message">Copied!</div>
 
@@ -186,12 +174,25 @@
             // Save the bid as a note
             saveBidAsNote(bidText);
         });
+
+        // Show or hide fields based on selected action
+        document.getElementById('action').addEventListener('change', function () {
+            const moveFields = document.getElementById('moveFields');
+            const storeFields = document.getElementById('storeFields');
+
+            if (this.value === 'move') {
+                moveFields.style.display = 'block';
+                storeFields.style.display = 'none';
+            } else if (this.value === 'store') {
+                moveFields.style.display = 'none';
+                storeFields.style.display = 'block';
+            } else {
+                moveFields.style.display = 'none';
+                storeFields.style.display = 'none';
+            }
+        });
     </script>
     <script src="script_other.js"></script>
-
-
-
-
 </body>
 
 </html>
