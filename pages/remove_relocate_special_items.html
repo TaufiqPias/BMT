@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Taufiq Pias">
+    <title>Remove/Relocate Spec. Items - BMT</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "pyixod2g2s");
+    </script>
+
+    <style>
+        #manualItemsInput {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Information Area -->
+        <div class="info-container">
+            <h2>Information</h2>
+            <div class="info-content">
+                <p>Fill out the form accordingly to generate a bid. The following prices are provided as a ranged
+                    parameter taken from RepairBase 2024. </p>
+                <p><ul>
+                    <li>
+                        <strong>Tires:</strong> Tires are must to remove. Depending on client and state law, tires are either removed per cyds or per pieces. Please check the ordinance before determining the price.
+                    </li>
+                    <li>
+                        <strong>Oil Drums:</strong> If oil drums are empty, they can be removed as general debris. If they are filled with something, they can be removed as heavy debris. Check the prices before finalizing. ***Please consult with your contractor about the content inside the drum. Be careful if it contains any bio-hazardous or flammable items.***
+                    </li>
+                    <li>
+                        <strong>Trampoline:</strong> Trampolines can be dismantled and relocated or dismantled and removed. Please check what your client and Loan information suggests.
+                    </li>
+                    <li>
+                        <strong>Swing set:</strong> Swing Sets can be dismantled and relocated or dismantled and removed. Please check what your client and Loan information suggests.
+                    </li>
+                    <li>
+                        <strong>Fire Drums:</strong> Fire Drums are fire hazards. They must be removed from the property to prevent the property from fire damage.
+                    </li>
+                </ul>
+            </p>
+                <b>
+                    <p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p>
+                </b>
+                <b>
+                    <p style="color: brown;">***Please copy the bids before visiting other pages. Bids will not be saved
+                        once redirected.***</p>
+                </b>
+            </div>
+        </div>
+
+        <div class="container">
+            <h1>Debris & Personals Bid</h1>
+            <div class="division">
+                <h2>Remove/Relocate Spec. Items Bids</h2>
+                <form id="Form">
+
+                    <label for="bidPrefix">Bid Prefix (for conjunction bid - Use a colon after prefix)</label>
+                    <input type="text" id="bidPrefix" name="bidPrefix" placeholder="Title: / Title-">
+
+                    <label for="count">How many items?*</label>
+                    <input type="number" id="count" name="count" required>
+
+                    <label for="itm">Select an Item:*</label>
+                    <select id="itm" name="itm" onchange="handleSelection()" required>
+                        <option value="">--Select Item--</option>
+                        <option value="tires">Tires</option>
+                        <option value="oil drums">Oil Drums</option>
+                        <option value="satellite antenna">Satellite Antenna</option>
+                        <option value="trampoline">Trampoline</option>
+                        <option value="swing set">Swing Set</option>
+                        <option value="fire drum">Fire Drum</option>
+                        <option value="miscellaneous items including -">Miscellaneous Items</option>
+                    </select>
+
+                    <div id="manualItemsInput" style="display: none;">
+                        <label for="itemsList">Enlist all Items:</label>
+                        <input type="text" id="itemsList" name="itemsList">
+                    </div>
+
+                    <label for="action">Please Select an Action Type*</label>
+                    <select id="action" name="action" required>
+                        <option value="">--Select Action--</option>
+                    </select>
+
+                    <label for="additionalInfo">Additional information:</label>
+                    <textarea id="additionalInfo" name="additionalInfo"
+                        placeholder="Disclaimers or any other comment"></textarea>
+
+                    <label for="conj">Make this bid conjunction to:</label>
+                    <input type="text" id="conj" name="conj" placeholder="Bid name only">
+
+                    <label for="price">Price (in USD):</label>
+                    <input type="number" id="price" name="price" step="0.01">
+
+                    <button type="submit">Generate Bid</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- New Note Section -->
+        <div class="note-container">
+            <h2>Bids</h2>
+            <div id="notesList" class="notes-list">
+                <!-- Notes will be dynamically added here -->
+            </div>
+            <button id="copyAllBidsButton">Copy All Bids</button>
+            <a href="../index.html" id="home"> <ion-icon name="home"></ion-icon> Go Home</a>
+        </div>
+    </div>
+
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <script>
+        function handleSelection() {
+            const selectElement = document.getElementById('itm');
+            const manualInputDiv = document.getElementById('manualItemsInput');
+            const actionSelect = document.getElementById('action');
+
+            // Clear existing options
+            actionSelect.innerHTML = '<option value="">--Select Action--</option>';
+
+            if (selectElement.value === 'miscellaneous items including -') {
+                manualInputDiv.style.display = 'block';
+                // Add all action options for miscellaneous items
+                actionSelect.innerHTML += `
+                    <option value="dismantle and relocate">Dismantle & Relocate</option>
+                    <option value="dismantle and remove">Dismantle & Remove</option>
+                    <option value="remove and dispose">Remove & Dispose</option>
+                    <option value="relocate">Relocate</option>
+                `;
+            } else {
+                manualInputDiv.style.display = 'none';
+                // Add specific action options based on selected item
+                switch (selectElement.value) {
+                    case 'tires':
+                    case 'oil drums':
+                    case 'fire drum':
+                        actionSelect.innerHTML += `
+                            <option value="remove and dispose">Remove & Dispose</option>
+                            <option value="relocate">Relocate</option>
+                        `;
+                        break;
+                    case 'trampoline':
+                    case 'swing set':
+                    case 'satellite antenna':
+                        actionSelect.innerHTML += `
+                            <option value="dismantle and relocate">Dismantle & Relocate</option>
+                            <option value="dismantle and remove">Dismantle & Remove</option>
+                        `;
+                        break;
+                }
+            }
+        }
+    </script>
+
+    <script>
+        document.getElementById('Form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Get form values
+            const bidPrefix = document.getElementById('bidPrefix').value;
+            const action = document.getElementById('action').value;
+            const count = document.getElementById('count').value;
+            const itm = document.getElementById('itm').value;
+            const itemsList = document.getElementById('itemsList').value;
+            const additionalInfo = document.getElementById('additionalInfo').value;
+            const conj = document.getElementById('conj').value;
+            const price = parseFloat(document.getElementById('price').value);
+
+            // Format the price with commas
+            const formattedPrice = price.toLocaleString('en-US', {
+                style: 'decimal',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+            });
+
+            // Generate the bid text
+            const bidText = `${bidPrefix} Need to ${action} ${count} ${itm} ${itemsList ? `${itemsList}` : ''} from the property due to safety reasons. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            // Save the bid as a note
+            saveBidAsNote(bidText);
+        });
+    </script>
+    <script src="script_other.js"></script>
+</body>
+</html>

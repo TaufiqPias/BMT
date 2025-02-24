@@ -189,7 +189,7 @@ button:hover {
     color: #333; /* Match the form's text color */
 }
 
-#materialField, #storeFields, #moveFields, #removeFields, #replaceFields, #grinderField, #panelFields, #toprailcapsField, #debrisField {
+#manualItemsInput, #materialField, #storeFields, #moveFields, #removeFields, #replaceFields, #grinderField, #panelFields, #toprailcapsField, #debrisField {
     grid-column: span 2; /* Span across both columns of the form */
     padding: 10px;
     background-color: #f0f0f0; /* Red background color */
@@ -199,7 +199,7 @@ button:hover {
     cursor: pointer; /* Show pointer on hover */
     font-size: 16px; /* Larger font size */
 }
-#materialField, #storeFields, #moveFields, #removeFields, #grinderField, #panelFields, #toprailcapsField, #debrisField input {
+#manualItemsInput, #materialField, #storeFields, #moveFields, #removeFields, #grinderField, #panelFields, #toprailcapsField, #debrisField input {
     grid-column: span 2; /* Span across both columns of the form */
     width: 100%;
     max-width: 100%;
