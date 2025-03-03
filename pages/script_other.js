@@ -93,6 +93,8 @@ document.getElementById('saveInFinalBidsButton').addEventListener('click', funct
 
 
 
+
+
 document.getElementById('saveInFinalBidsButton').addEventListener('click', function() {
     const notes = document.querySelectorAll('.note p');
     let allBidsText = '';
@@ -152,3 +154,5 @@ document.getElementById('saveInFinalBidsButton').addEventListener('click', funct
 });
 
 const updatedBids = [...new Set([...existingBids, ...allBids])];
+
+

@@ -11,15 +11,15 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"></script>
-        <script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"></script>
+    <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'G-M2K232X4B3');
-        </script>
+    </script>
 
     <script type="text/javascript">
         (function (c, l, a, r, i, t, y) {
@@ -38,7 +38,13 @@
             <h2>Information</h2>
             <div class="info-content">
                 <p>Fill out the form accordingly to generate a bid. The following prices are provided as a ranged parameter taken from RepairBase 2024. </p>
-                <p>Info</p>
+                <p>Check with your experienced team member before finalizing the subtype of the door. Cost may vary from one door to another. 
+                    Usual cost to remove a door is $37.50 to $51.97. 
+                    <br>
+                    Usual cost to replace an economy grade exterior door is $996.00 with locks. 
+                    <br>
+                    Check RepairBase for more accurate pricing for the other doors. 
+                </p>
                 <b>
                     <p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p>
                 </b>
@@ -48,9 +54,6 @@
                 </b>
             </div>
         </div>
-
-
-
 
         <div class="container">
             <h1>Securing Bid</h1>
@@ -82,25 +85,32 @@
                         <option value="fence gate">Fence Gate</option>
                         <option value="screen door">Screen Door</option>
                         <option value="storm door">Storm Door</option>
+                        <option value="sliding door">Sliding Door</option>
                     </select>
 
-                    
-                    <label for="debris">Generated debris (in cyds):*</label>
-                    <input type="number" id="debris" name="debris" step="1" required>
-                    
+                    <label for="subtype">Select a Door Sub-type(Must Select a Door Type):*</label>
+                    <select id="subtype" name="subtype" required>
+                        <option value="">--Select Sub Type--</option>
+                    </select>
 
+                    <label for="jamb">Jamb included:*</label>
+                    <select id="jamb" name="jamb" required>
+                        <option value="">--Select any--</option>
+                        <option value=" - Jamb included.">Yes</option>
+                        <option value="">No</option>
+                    </select>
+
+                    <label for="dsize">Door/ Gate Size:*</label>
+                    <input type="text" id="dsize" name="dsize" placeholder="i.e 80 x 36 = 116 UI" required>
 
                     
-                    <label for="equipments">Equipments required:*</label>
-                    <Select id="equipments" name="equipments" required>
-                        <option value="">--Select Equipments--</option>
-                        <option value="Will require Loopers, Hedge Trimmer, Hatchet, Chainsaw, Ladder, Raker, Gloves and Bags">Landscaping Equipments</option>
-                        <option value="Will require Mower, Blower, Raker, Gloves and Bags">Grass Cut Equipments</option>
-                        <option value="Will require General Tools, Wheel Barrow, Mask, Gloves and Bags">Debris Removal Equipments</option>
-                        <option value="Will require General Tools, Excavetor, Sledge Hammer, Jack Hammer, Wheel Barrow, Mask, Gloves and Bags">Demolition Equipments</option>
-                        <option value="Will require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other">Plumbing Repair Equipments</option>
-                        <option value="Will require Nail Guns, Hammer, Tape, Wrench, Drills, Ladder and Other">General Repair Equipments</option>
-                    </Select>
+                    <div id="debrisField" style="display: none;">
+                        <label for="debris">Generated debris (in cyds):</label>
+                        <input type="number" id="debris" name="debris" step="1">
+                    </div>
+                                        
+                    <label for="loc">Door/ Gate Location:*</label>
+                    <input type="text" id="loc" name="loc" placeholder="front, back, bedroom 1, bathroom, etc." required>
                     
                     <label for="additionalInfo">Additional information:</label>
                     <textarea id="additionalInfo" name="additionalInfo"
@@ -141,11 +151,100 @@
 
     <!-- Script to Generate Bid -->
     <script>
+        // Define subtype options for each type
+        const subtypeOptions = {
+            "exterior door": [
+                "Single - Fiberglass Door",
+                "Single - Wooden Door",
+                "Single - Steel Door",
+                "Single - Arc Door",
+                "Double - Fiberglass Door",
+                "Double - Wooden Door",
+                "Double - Steel Door"
+            ],
+            "interior door": [
+                "Insulated Door",
+                "Non-insulated Door"
+            ],
+            "security door": [
+                "CDX Plywood Door",
+                "OSB Plywood Door",
+                "VPS Security Door"
+            ],
+            "bilco door": [
+                "Steel Door",
+                "Wooden Door"
+            ],
+            "crawlspace door": [
+                "Single Door - Wooden",
+                "Double Door - Wooden"
+            ],
+            "fence gate": [
+                "Single - Wooden Gate",
+                "Single - Composite Gate",
+                "Single - Chainlink Gate",
+                "Double - Wooden Gate",
+                "Double - Composite Gate",
+                "Double - Chainlink Gate"
+            ],
+            "screen door": [
+                "Full Screen Door",
+                "Half Screen Windowed Door"
+            ],
+            "storm door": [
+                "Full Storm Door",
+                "Half Storm Windowed Door"
+            ],
+            "sliding door": [
+                "French Sliding Door",
+                "Patio Sliding Door",
+                "Glass Sliding Door"
+            ] // Add options if needed
+        };
+
+        // Function to update subtype dropdown
+        function updateSubtypeOptions() {
+            const type = document.getElementById('type').value;
+            const subtypeDropdown = document.getElementById('subtype');
+            subtypeDropdown.innerHTML = '<option value="">--Select Sub Type--</option>'; // Reset options
+
+            if (type && subtypeOptions[type]) {
+                subtypeOptions[type].forEach(option => {
+                    const newOption = document.createElement('option');
+                    newOption.value = option;
+                    newOption.textContent = option;
+                    subtypeDropdown.appendChild(newOption);
+                });
+            }
+        }
+
+        // Add event listener to type dropdown
+        document.getElementById('type').addEventListener('change', updateSubtypeOptions);
+
+        // Add event listener to action dropdown
+        document.getElementById('action').addEventListener('change', function () {
+            const debrisField = document.getElementById('debrisField');
+            if (this.value === 'remove') {
+                debrisField.style.display = 'block';
+            } else {
+                debrisField.style.display = 'none';
+            }
+        });
+
+        // Form submission logic
         document.getElementById('Form').addEventListener('submit', function (event) {
             event.preventDefault();
 
             // Get form values
             const bidPrefix = document.getElementById('bidPrefix').value;
+            const count = document.getElementById('count').value;
+            const action = document.getElementById('action').value;
+            const type = document.getElementById('type').value;
+            const subtype = document.getElementById('subtype').value;
+            const jamb = document.getElementById('jamb').value;
+            const dsize = document.getElementById('dsize').value;
+            const debris = document.getElementById('debris').value;
+            const loc = document.getElementById('loc').value;
             const additionalInfo = document.getElementById('additionalInfo').value;
             const conj = document.getElementById('conj').value;
             const price = parseFloat(document.getElementById('price').value);
@@ -158,15 +257,30 @@
             });
 
             // Generate the bid text
-            const bidText = `${bidPrefix}  ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            let bidText;
+            if (action === 'remove') {
+                bidText = `${bidPrefix} Need to remove ${count} ${type} (${subtype}) from ${loc} of the property${jamb}. Door/Gate Size: ${dsize}. Will generaet approx ${debris} cyds of debris. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            } else if (action === 'replace') {
+                bidText = `${bidPrefix} Need to replace ${count} ${type} (${subtype}) at ${loc} of the property${jamb}. Securing included. Door/Gate Size: ${dsize}. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            } else {
+                alert('Please select an action (Remove or Replace).');
+                return; // Stop execution if no action is selected
+            }
             // Save the bid as a note
             saveBidAsNote(bidText);
-        }); 
+        });
+
+        function saveBidAsNote(bidText) {
+            const notesList = document.getElementById('notesList');
+            const note = document.createElement('div');
+            note.className = 'note';
+            note.textContent = bidText;
+            notesList.appendChild(note);
+        }
     </script>
+    <script src="blocker.js"></script>
+
     <script src="script_other.js"></script>
-
-
-
 
 </body>
 
