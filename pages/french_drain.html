@@ -174,16 +174,14 @@
 
     <!-- Script to Generate Bid -->
     <script>
-        document.getElementById('LCForm').addEventListener('submit', function (event) {
+        document.getElementById('fdForm').addEventListener('submit', function (event) {
             event.preventDefault();
 
             // Get form values
             const bidPrefix = document.getElementById('bidPrefix').value;
-            const lctype = document.getElementById('lctype').value;
-            const lcode = document.getElementById('lcode').value;
-            const location = document.getElementById('location').value;
-            const lccount = document.getElementById('lccount').value;
-            const reason = document.getElementById('reason').value;
+            const length = document.getElementById('length').value;
+            const permit = document.getElementById('permit').value;
+            const equipments = document.getElementById('equipments').value;
             const additionalInfo = document.getElementById('additionalInfo').value;
             const conj = document.getElementById('conj').value;
             const price = parseFloat(document.getElementById('price').value);
@@ -196,7 +194,7 @@
             });
 
             // Generate the bid text
-            const bidText = `${bidPrefix} Need to replace ${lccount} ${lctype} coded to ${lcode}. Location: ${location}. Reason: ${reason} ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            const bidText = `${bidPrefix} Need to install approx ${length} lf french drain (18-24 inches wide and 2 ft deep trench) around the property to divert water from the property foundation and reduce/prevent the chance of seeping. Will requrie 4-inches corrugated/PVC drain pipe, landscape fabric, pea gravel, fitting pipes and inlet grates. Permit ${permit}. Will also require ${equipments}. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`; 
             // Save the bid as a note
             saveBidAsNote(bidText);
         });
