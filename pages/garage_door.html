@@ -11,23 +11,23 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-            <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"></script>
-        <script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"></script>
+    <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'G-M2K232X4B3');
-        </script>
+    </script>
 
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "qj1sdmrlho");
-</script>
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "qj1sdmrlho");
+    </script>
 
 </head>
 
@@ -38,19 +38,16 @@
             <h2>Information</h2>
             <div class="info-content">
                 <p>Fill out the form accordingly to generate a bid. The following prices are provided as a ranged parameter taken from RepairBase 2024. </p>
-                <p>Info</p>
+                <img src="..\Images\bay door.jpg" alt="Bay Door" style="width: 100%;">
+                <img src="..\Images\god.jpg" alt="Garage Overhead Door" style="width: 100%;">
                 <b>
                     <p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p>
                 </b>
                 <b>
-                    <p style="color: brown;">***Please copy the bids before visiting other pages. Bids will not be saved
-                        once redirected.***</p>
+                    <p style="color: brown;">***Please copy the bids before visiting other pages. Bids will not be saved once redirected.***</p>
                 </b>
             </div>
         </div>
-
-
-
 
         <div class="container">
             <h1>Securing Bid</h1>
@@ -60,21 +57,43 @@
 
                     <label for="bidPrefix">Bid Prefix (for conjunction bid - Use a colon after prefix)</label>
                     <input type="text" id="bidPrefix" name="bidPrefix" placeholder="Title: / Title-">
-                    
-                    <label for="equipments">Equipments required:*</label>
-                    <Select id="equipments" name="equipments" required>
-                        <option value="">--Select Equipments--</option>
-                        <option value="Will require Loopers, Hedge Trimmer, Hatchet, Chainsaw, Ladder, Raker, Gloves and Bags">Landscaping Equipments</option>
-                        <option value="Will require Mower, Blower, Raker, Gloves and Bags">Grass Cut Equipments</option>
-                        <option value="Will require General Tools, Wheel Barrow, Mask, Gloves and Bags">Debris Removal Equipments</option>
-                        <option value="Will require General Tools, Excavetor, Sledge Hammer, Jack Hammer, Wheel Barrow, Mask, Gloves and Bags">Demolition Equipments</option>
-                        <option value="Will require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other">Plumbing Repair Equipments</option>
-                        <option value="Will require Nail Guns, Hammer, Tape, Wrench, Drills, Ladder and Other">General Repair Equipments</option>
+
+                    <label for="drtype">Select A Door Type:*</label>
+                    <Select id="drtype" name="drtype" required>
+                        <option value="">--Select any--</option>
+                        <option value="bay door">Bay Door</option>
+                        <option value="garage overhead door">Garage Overhead Door</option>
                     </Select>
-                    
+
+                    <label for="action">Select an Action:*</label>
+                    <select id="action" name="action" required>
+                        <option value="">--Select an Action--</option>
+                        <option value="remove">Remove</option>
+                        <option value="replace">Replace</option>
+                    </select>
+
+                    <label for="length">Door Length:*</label>
+                    <input type="number" id="length" name="length" step="1" required>
+
+                    <label for="width">Door Width:*</label>
+                    <input type="number" id="width" name="width" step="1" required>
+
+                    <div id="debrisField" style="display: none;">
+                        <label for="debris">Generated debris (in cyds):</label>
+                        <input type="number" id="debris" name="debris" step="1">
+                    </div>
+
+                    <div id="equipmentField" style="display: none;">
+                        <label for="equipments">Additional Items Needed For Installation:*</label>
+                        <Select id="equipments" name="equipments">
+                            <option value="">--Select Additional Items--</option>
+                            <option value="Will require (but not limited to) panels, trim, hinges, padlocks & hardware.">For Bay Door</option>
+                            <option value="Will require (but not limited to) panel, track, roller, opener, tension spring, hinges, drum, hardwares & locks to secure.">For Garage Overhead Door</option>
+                        </Select>
+                    </div>
+
                     <label for="additionalInfo">Additional information:</label>
-                    <textarea id="additionalInfo" name="additionalInfo"
-                        placeholder="Disclaimers or any other comment"></textarea>
+                    <textarea id="additionalInfo" name="additionalInfo" placeholder="Disclaimers or any other comment"></textarea>
 
                     <label for="conj">Make this bid conjunction to:</label>
                     <input type="text" id="conj" name="conj" placeholder="Bid name only">
@@ -83,13 +102,8 @@
                     <input type="number" id="price" name="price" step="0.01">
 
                     <button type="submit">Generate Bid</button>
-                    <!-- <a href="https://www.zillow.com/" target="_blank" id="findpropsize">Find Property Size: Zillow</a> -->
                 </form>
-
-
             </div>
-
-
         </div>
 
         <!-- New Note Section -->
@@ -101,19 +115,40 @@
             <button id="copyAllBidsButton">Copy All Bids</button>
             <a href="../index.html" id="home"> <ion-icon name="home"></ion-icon> Go Home</a>
         </div>
-
     </div>
-
 
     <div id="floatingMessage" class="floating-message">Copied!</div>
 
     <!-- Script to Generate Bid -->
     <script>
+        document.getElementById('action').addEventListener('change', function () {
+            const action = this.value;
+            const debrisField = document.getElementById('debrisField');
+            const equipmentField = document.getElementById('equipmentField');
+
+            if (action === 'remove') {
+                debrisField.style.display = 'block';
+                equipmentField.style.display = 'none';
+            } else if (action === 'replace') {
+                debrisField.style.display = 'none';
+                equipmentField.style.display = 'block';
+            } else {
+                debrisField.style.display = 'none';
+                equipmentField.style.display = 'none';
+            }
+        });
+
         document.getElementById('Form').addEventListener('submit', function (event) {
             event.preventDefault();
 
             // Get form values
             const bidPrefix = document.getElementById('bidPrefix').value;
+            const drtype = document.getElementById('drtype').value;
+            const action = document.getElementById('action').value;
+            const length = document.getElementById('length').value;
+            const width = document.getElementById('width').value;
+            const debris = document.getElementById('debris').value;
+            const equipments = document.getElementById('equipments').value;
             const additionalInfo = document.getElementById('additionalInfo').value;
             const conj = document.getElementById('conj').value;
             const price = parseFloat(document.getElementById('price').value);
@@ -126,17 +161,30 @@
             });
 
             // Generate the bid text
-            const bidText = `${bidPrefix}  ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            let bidText;
+            if (action === 'remove') {
+                bidText = `${bidPrefix} Need to remove 1 ${drtype}. Door Dimensions: ${length}ft x ${width}ft. Will generate approx. ${debris} cyds of debris. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            } else if (action === 'replace') {
+                bidText = `${bidPrefix} Need to replace 1 ${drtype} (Economy Grade) - existing style and material. Door Dimensions: ${length}ft x ${width}ft. ${equipments}${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            } else {
+                alert('Please select an action (Remove or Replace).');
+                return; // Stop execution if no action is selected
+            }
+
             // Save the bid as a note
             saveBidAsNote(bidText);
-        }); 
+        });
+
+        function saveBidAsNote(bidText) {
+            const notesList = document.getElementById('notesList');
+            const noteElement = document.createElement('div');
+            noteElement.className = 'note';
+            noteElement.textContent = bidText;
+            notesList.appendChild(noteElement);
+        }
     </script>
     <script src="script_other.js"></script>
-    
     <script src="blocker.js"></script>
-
-
-
 </body>
 
 </html>
