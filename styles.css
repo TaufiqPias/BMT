@@ -11,7 +11,7 @@ body {
   header {
     background-color: #28a745; /* Updated to green */
     color: #fff;
-    padding: 20px;
+    padding: 5px;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
