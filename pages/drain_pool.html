@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Taufiq Pias">
+    <title>Drain Pool - BMT</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+            <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-M2K232X4B3');
+        </script>
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "qj1sdmrlho");
+</script>
+
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Information Area -->
+        <div class="info-container">
+            <h2>Information</h2>
+            <div class="info-content">
+                <p>Fill out the form accordingly to generate a bid. The following prices are provided as a ranged parameter taken from RepairBase 2024. </p>
+                <p><b>Reason to drain and not draining the pool at the same time:</b></p>
+                <p>We drain the pool so that when it rains, the pool does not overflow and damage other component of the property. You can drain the above ground pool and the spa/hottub completely.</p>
+                <p>But never drain the in-ground pool completely. It causes popping up. As the above ground pools and hottubs have no issue of popping up, they can be drained 100%. <br><br>
+                    <a href="https://www.google.com/search?q=Pool+Popping&sca_esv=f39c2e4a14fedcf4&udm=2&biw=1920&bih=919&sxsrf=AHTn8zoXnJruVHP2wtJM5GS1fIII6-494g%3A1741884132393&ei=5ArTZ5PhF_2bvr0P66KCsQE&ved=0ahUKEwiT482HwIeMAxX9ja8BHWuRIBYQ4dUDCBE&uact=5&oq=Pool+Popping&gs_lp=EgNpbWciDFBvb2wgUG9wcGluZzIFEAAYgAQyBRAAGIAEMgUQABiABDIEEAAYHjIGEAAYBRgeMgYQABgFGB4yBhAAGAUYHjIGEAAYCBgeMgYQABgIGB4yBhAAGAgYHkjzJlCxDFjUJXAAeACQAQCYAaMDoAGmD6oBCjAuMTEuMS4wLjG4AQPIAQD4AQGYAg2gArsQwgIHECMYJxjJAsICBhAAGAcYHsICChAAGIAEGEMYigXCAggQABiABBixA8ICCxAAGIAEGLEDGIMBwgINEAAYgAQYsQMYQxiKBZgDAIgGAZIHCjAuMTEuMC4xLjGgB5NP&sclient=img" target="_blank">Pool Popping Examples</a></p>
+                    
+                    <p><b>Approximate Prices:</b></p>
+                    <p>***Check Client Allowable - Also check with vendor how long would it take to drain the pool. Wait time is $20/hrs (standard); $15/hrs (traditional)</p>
+                <b>
+                    <p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p>
+                </b>
+                <b>
+                    <p style="color: brown;">***Please copy the bids before visiting other pages. Bids will not be saved
+                        once redirected.***</p>
+                </b>
+            </div>
+        </div>
+
+
+
+
+        <div class="container">
+            <h1>Pool Bid</h1>
+            <div class="division">
+                <h2>Drain Pool Bids</h2>
+                <form id="Form">
+
+                    <label for="bidPrefix">Bid Prefix (for conjunction bid - Use a colon after prefix)</label>
+                    <input type="text" id="bidPrefix" name="bidPrefix" placeholder="Title: / Title-">
+
+                    <label for="appl">Select A Type of Pool:*</label>
+                    <Select id="appl" name="appl" required>
+                        <option value="">--Select any--</option>
+                        <option value="in-ground pool">In-Ground Pool</option>
+                        <option value="above-ground pool">Above-Ground Pool</option>
+                        <option value="spa/hottub">Spa or Hottub</option>
+                    </Select>
+
+                    <label for="drlmt">Select How Much Draining You Need:*</label>
+                    <Select id="drlmt" name="drlmt" required>
+                        <option value="">--Select any--</option>
+                        <option value="- upto 4 ft">Upto 4 ft</option>
+                        <option value="- completely">Complete</option>
+                    </Select>
+                    
+                    <label for="waittm">How many hours will it take to drain?*</label>
+                    <input type="number" id="waittm" name="waittm" step="1" required>
+                                        
+                    <label for="additionalInfo">Additional information:</label>
+                    <textarea id="additionalInfo" name="additionalInfo"
+                        placeholder="Disclaimers or any other comment"></textarea>
+
+                    <label for="conj">Make this bid conjunction to:</label>
+                    <input type="text" id="conj" name="conj" placeholder="Bid name only">
+
+                    <label for="price">Price (in USD):</label>
+                    <input type="number" id="price" name="price" step="0.01">
+
+                    <button type="submit">Generate Bid</button>
+                    <!-- <a href="https://www.zillow.com/" target="_blank" id="findpropsize">Find Property Size: Zillow</a> -->
+                    <a href="https://www.google.com/maps" target="_blank" id="measuredr">Measure Pool Size</a>
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+        <!-- New Note Section -->
+        <div class="note-container">
+            <h2>Bids</h2>
+            <div id="notesList" class="notes-list">
+                <!-- Notes will be dynamically added here -->
+            </div>
+            <button id="copyAllBidsButton">Copy All Bids</button>
+            <a href="../index.html" id="home"> <ion-icon name="home"></ion-icon> Go Home</a>
+        </div>
+
+    </div>
+
+
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <!-- Script to Generate Bid -->
+    <script>
+        document.getElementById('Form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Get form values
+            const bidPrefix = document.getElementById('bidPrefix').value;
+            const appl = document.getElementById('appl').value;
+            const drlmt = document.getElementById('drlmt').value;
+            const waittm = document.getElementById('waittm').value;
+            const additionalInfo = document.getElementById('additionalInfo').value;
+            const conj = document.getElementById('conj').value;
+            const price = parseFloat(document.getElementById('price').value);
+
+            // Format the price with commas
+            const formattedPrice = price.toLocaleString('en-US', {
+                style: 'decimal',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+            });
+
+            // Generate the bid text
+            const bidText = `${bidPrefix} Need to drain 1 ${appl} ${drlmt} to preserve the ${appl} up to the standard and prevent any unwanted damages. Will requrie approx ${waittm} hrs of wait-time to drain the ${appl} - Price includes waiting time. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            // Save the bid as a note
+            saveBidAsNote(bidText);
+        }); 
+    </script>
+    <script src="script_other.js"></script>
+    
+    <script src="blocker.js"></script>
+
+
+
+</body>
+
+</html>
