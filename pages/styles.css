@@ -294,6 +294,10 @@ a{
     text-align: center;
 }
 
+a:hover {
+    background-color: #218838;
+}
+
 table {
     font-family: arial, sans-serif;
     border-collapse: collapse;

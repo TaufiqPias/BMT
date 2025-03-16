@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Taufiq Pias">
+    <title>Treat & Shock Pool - BMT</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+            <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-M2K232X4B3');
+        </script>
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "qj1sdmrlho");
+</script>
+
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Information Area -->
+        <div class="info-container">
+            <h2>Information</h2>
+            <div class="info-content">
+                <p>Fill out the form accordingly to generate a bid. The following prices are provided as a ranged parameter taken from RepairBase 2024. </p>
+                <style>
+                    #poolShockForm {
+                        border: 1px solid #ccc;
+                        border-radius: 5px;
+                    }
+                    label {
+                      display: block;
+                    }
+                    #poolShockForm input, select {
+                      padding: 5px;
+                      width: 100%;
+                      max-width: 300px;
+                    }
+                   .result {
+                        margin-bottom: 20px;
+                        margin-top: 5px;
+                        font-size: 1.5em;
+                        border: 1px solid #ccc;
+                        border-radius: 5px;
+                        background-color: #218838;
+                        color: aliceblue;
+                    }
+                  </style>
+                </head>
+                <body>
+                  <h3 style="text-align: center;">Pool Shock Calculator</h3>
+                  <form id="poolShockForm">
+                    <label for="poolType">Pool Type:</label>
+                    <select id="poolType" required>
+                        <option value="">Select</option>
+                        <option value="in-ground">In-ground Pool</option>
+                        <option value="above-ground">Above Ground Pool</option>
+                    </select>
+                
+                    <label for="poolLength">Pool Length (feet):</label>
+                    <input type="number" id="poolLength" step="0.1" required>
+                
+                    <label for="poolWidth">Pool Width (feet):</label>
+                    <input type="number" id="poolWidth" step="0.1" required>
+                
+                    <button type="submit">Calculate</button>
+                  </form>
+                
+                  <div class="result" id="result" style="text-align: center;"></div>
+                
+                  <script>
+                    document.getElementById('poolShockForm').addEventListener('submit', function(event) {
+                      event.preventDefault(); // Prevent form submission
+                
+                      // Get form values
+                      const poolType = document.getElementById('poolType').value;
+                      const poolLength = parseFloat(document.getElementById('poolLength').value);
+                      const poolWidth = parseFloat(document.getElementById('poolWidth').value);
+                
+                      // Perform calculation based on pool type
+                      let result;
+                      if (poolType === 'in-ground') {
+                        result = Math.ceil((poolLength * poolWidth * 8 * 7.5) / 10000);
+                      } else if (poolType === 'above-ground') {
+                        result = Math.ceil((poolLength * poolWidth * 4 * 7.5) / 10000);
+                      }
+                
+                      // Display the result
+                      document.getElementById('result').innerHTML = `Pool Shock Needed: <strong>${result} Packs</strong>`;
+                    });
+                  </script>
+                  <p>Price Per Pool Shock bags (1 bag of 16-oz Pool Shock): <b>$5.96 - $10.12</b></p>
+                  <p><b>***Submit this bid if the property is under REO and the pool water is filled with algea or green.***</b></p>
+                <b>
+                    <p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p>
+                </b>
+                <b>
+                    <p style="color: brown;">***Please copy the bids before visiting other pages. Bids will not be saved
+                        once redirected.***</p>
+                </b>
+            </div>
+        </div>
+
+
+
+
+        <div class="container">
+            <h1>Pool Bid</h1>
+            <div class="division">
+                <h2>Treat & Shock Pool Bids</h2>
+                <form id="Form">
+
+                    <label for="bidPrefix">Bid Prefix (for conjunction bid - Use a colon after prefix)</label>
+                    <input type="text" id="bidPrefix" name="bidPrefix" placeholder="Title: / Title-">
+
+                    <label for="appl">Select A Type of Pool:*</label>
+                    <Select id="appl" name="appl" required>
+                        <option value="">--Select any--</option>
+                        <option value="in-ground pool">In-Ground Pool</option>
+                        <option value="above-ground pool">Above-Ground Pool</option>
+                    </Select>
+
+                    <label for="shk">Pool Shock Packs Needed?*</label>
+                    <input type="number" id="shk" name="shk" step="1" required>
+
+                                                           
+                    <label for="additionalInfo">Additional information:</label>
+                    <textarea id="additionalInfo" name="additionalInfo"
+                        placeholder="Disclaimers or any other comment"></textarea>
+
+                    <label for="conj">Make this bid conjunction to:</label>
+                    <input type="text" id="conj" name="conj" placeholder="Bid name only">
+
+                    <label for="price">Price (in USD):</label>
+                    <input type="number" id="price" name="price" step="0.01">
+
+                    <button type="submit">Generate Bid</button>
+                    <!-- <a href="https://www.zillow.com/" target="_blank" id="findpropsize">Find Property Size: Zillow</a> -->
+                    <a href="https://www.google.com/maps" target="_blank" id="measuredr">Measure Pool Size</a>
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+        <!-- New Note Section -->
+        <div class="note-container">
+            <h2>Bids</h2>
+            <div id="notesList" class="notes-list">
+                <!-- Notes will be dynamically added here -->
+            </div>
+            <button id="copyAllBidsButton">Copy All Bids</button>
+            <a href="../index.html" id="home"> <ion-icon name="home"></ion-icon> Go Home</a>
+        </div>
+
+    </div>
+
+
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <!-- Script to Generate Bid -->
+    <script>
+        document.getElementById('Form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Get form values
+            const bidPrefix = document.getElementById('bidPrefix').value;
+            const appl = document.getElementById('appl').value;
+            const shk = document.getElementById('shk').value;
+            const additionalInfo = document.getElementById('additionalInfo').value;
+            const conj = document.getElementById('conj').value;
+            const price = parseFloat(document.getElementById('price').value);
+
+            // Format the price with commas
+            const formattedPrice = price.toLocaleString('en-US', {
+                style: 'decimal',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+            });
+
+            // Generate the bid text
+            const bidText = `${bidPrefix} Need to treat and shock 1 ${appl} with ${shk} packs of (16oz) chemicals similar to chlorine to maintain water balance and sanitation and combat contaminants like algae and chloramines. ***Pool must not be covered and must have water to perform this task***. Will require pool shock, bucket, rubber gloves. Will require 8-10 hours to take effect for the pool shock. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            // Save the bid as a note
+            saveBidAsNote(bidText);
+        }); 
+    </script>
+    <script src="script_other.js"></script>
+    
+    <script src="blocker.js"></script>
+
+
+
+</body>
+
+</html>
