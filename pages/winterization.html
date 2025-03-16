@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Taufiq Pias">
+    <title>Winterization - BMT</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+            <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-M2K232X4B3');
+        </script>
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "qj1sdmrlho");
+</script>
+
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Information Area -->
+        <div class="info-container">
+            <h2>Information</h2>
+            <div class="info-content">
+                <p>Fill out the form accordingly to generate a bid. The following prices are provided as a ranged parameter taken from RepairBase 2024. </p>
+                <p><b>Approximate Prices:</b>
+                
+                <table>
+                    <tr>
+                      <th>Wint Type</th>
+                      <th>System</th>
+                      <th>Price Range</th>
+                    </tr>
+                    <tr>
+                      <td>Complete Wint</td>
+                      <td>Dry</td>
+                      <td>$90.00-$125.00 B/D</td>
+                    </tr>
+                    <tr>
+                      <td>Complete Wint</td>
+                      <td>Wet</td>
+                      <td>$105.00 - $175.00 B/D</td>
+                    </tr>
+                    <tr>
+                      <td>Complete Wint</td>
+                      <td>Radiant</td>
+                      <td>$225.00 -$250.00 B/D</td>
+                    </tr>
+                    <tr>
+                      <td>Re-wint</td>
+                      <td>All</td>
+                      <td>$25.00-$45.00 B/D</td>
+                    </tr>
+                    <tr>
+                      <td>Wint Refresh</td>
+                      <td>All</td>
+                      <td>$50.00-$65.00 B/D</td>
+                    </tr>
+                </table></p>
+                <b>
+                    <p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p>
+                </b>
+                <b>
+                    <p style="color: brown;">***Please copy the bids before visiting other pages. Bids will not be saved
+                        once redirected.***</p>
+                </b>
+            </div>
+        </div>
+
+
+
+
+        <div class="container">
+            <h1>Plumbing, Winterization, Electrical & Gas Bid</h1>
+            <div class="division">
+                <h2>Winterization Bids</h2>
+                <form id="Form">
+
+                    <label for="bidPrefix">Bid Prefix (for conjunction bid - Use a colon after prefix)</label>
+                    <input type="text" id="bidPrefix" name="bidPrefix" placeholder="Title: / Title-">
+                    
+                    <label for="appl">Select A Winterization Type:*</label>
+                    <Select id="appl" name="appl" required>
+                        <option value="">--Select any--</option>
+                        <option value="winterization">Winterization (Complete)</option>
+                        <option value="re-winterization">Re-winterization</option>
+                        <option value="winterization refresh">Winterization Refresh</option>
+                    </Select>
+
+                    <label for="winttype">Select A System Type:*</label>
+                    <Select id="winttype" name="winttype" required>
+                        <option value="">--Select any--</option>
+                        <option value="Dry - Forced Air">Dry</option>
+                        <option value="Steam - Wet">Steam</option>
+                        <option value="Steam - Radiant">Radiant</option>
+                    </Select>
+
+                    <label for="additionalInfo">Additional information:</label>
+                    <textarea id="additionalInfo" name="additionalInfo"
+                        placeholder="Disclaimers or any other comment"></textarea>
+
+                    <label for="conj">Make this bid conjunction to:</label>
+                    <input type="text" id="conj" name="conj" placeholder="Bid name only">
+
+                    <label for="price">Price (in USD):</label>
+                    <input type="number" id="price" name="price" step="0.01">
+
+                    <button type="submit">Generate Bid</button>
+                    <a href="https://www.zillow.com/" target="_blank" id="chksys">Find Property Heating System Info: Zillow</a>
+                    <!-- <a href="https://www.google.com/maps" target="_blank" id="measuredr">Plan & Measure French Drain</a> -->
+                </form>
+
+
+            </div>
+
+
+        </div>
+
+        <!-- New Note Section -->
+        <div class="note-container">
+            <h2>Bids</h2>
+            <div id="notesList" class="notes-list">
+                <!-- Notes will be dynamically added here -->
+            </div>
+            <button id="copyAllBidsButton">Copy All Bids</button>
+            <a href="../index.html" id="home"> <ion-icon name="home"></ion-icon> Go Home</a>
+        </div>
+
+    </div>
+
+
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <!-- Script to Generate Bid -->
+    <script>
+        // Define the steps mapping
+    const steps = {
+        'winterization': {
+            'Dry': [
+                '- Shut off Water Main \n',
+                '- Zip tie Lines \n',
+                '- Disconnect water meter (Only if permitted by State Code) \n',
+                '- Perform pressure test for 25-30 minutes \n',
+                '- Drain all plumbing fixtures \n',
+                '- Drain hot water heater \n',
+                '- Clean toilets \n',
+                '- Pour antifreeze \n',
+                '- Cap any open water lines \n',
+                '- Post wint stickers. \n'
+            ],
+            'Steam - wet': [
+                '- Shut off Water Main \n',
+                '- Zip tie Lines \n',
+                '- Disconnect water meter (Only if permitted by State Code) \n',
+                '- Perform pressure test for 25-30 minutes. \n',
+                '- Drain all plumbing fixtures \n',
+                '- Drain boiler \n',
+                '- Drain radiators \n',
+                '- Drain hot water heater \n',
+                '- Clean toilets \n',
+                '- Pour antifreeze \n',
+                '- Cap any open water lines \n',
+                '- Post wint stickers. \n'
+            ],
+            'Steam - radiant': [
+                '- Shut off Water Main \n',
+                '- Zip tie Lines \n',
+                '- Disconnect water meter (Only if permitted by State Code) \n',
+                '- Perform pressure test for 25-30 minutes. \n',
+                '- Drain all plumbing fixtures \n',
+                '- Drain boiler \n',
+                '- Drain hot water heater \n',
+                '- Clean toilets \n',
+                '- Pour antifreeze \n',
+                '- Cap any open water lines \n',
+                '- Post wint stickers. \n'
+            ]
+        },
+        're-winterization': {
+            'Dry': [
+                '- Clean toilets (if needed) \n',
+                '- Pour antifreeze \n',
+                '- Post wint stickers. \n'
+            ],
+            'Steam - wet': [
+                '- Clean toilets (if needed) \n',
+                '- Pour antifreeze \n',
+                '- Post wint stickers. \n'
+            ],
+            'Steam - radiant': [
+                '- Clean toilets (if needed) \n',
+                '- Pour antifreeze \n',
+                '- Post wint stickers. \n'
+            ]
+        },
+        'winterization refresh': {
+            'Dry': [
+                '- Perform pressure test for 25-30 minutes. \n',
+                '- Drain all plumbing fixtures \n',
+                '- Pour antifreeze \n',
+                '- Cap any open water lines \n',
+                '- Post wint stickers. \n'
+            ],
+            'Steam - wet': [
+                '- Perform pressure test for 25-30 minutes. \n',
+                '- Drain all plumbing fixtures \n',
+                '- Drain boiler \n',
+                '- Drain radiators \n',
+                '- Pour antifreeze \n',
+                '- Cap any open water lines \n',
+                '- Post wint stickers. \n'
+            ],
+            'Steam - radiant': [
+                '- Perform pressure test for 25-30 minutes. \n',
+                '- Drain all plumbing fixtures \n',
+                '- Drain boiler \n',
+                '- Pour antifreeze \n',
+                '- Cap any open water lines \n',
+                '- Post wint stickers. \n'
+            ]
+        }
+    };
+
+    function getProcessedWinttype(winttype) {
+        const parts = winttype.split(' - ');
+        if (parts[0] === 'Dry') {
+            return 'Dry';
+        } else if (parts[0] === 'Steam') {
+            const subPart = parts[1].toLowerCase();
+            return `Steam - ${subPart}`;
+        }
+        return '';
+    }
+
+    document.getElementById('Form').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        // Get form values
+        const bidPrefix = document.getElementById('bidPrefix').value;
+        const appl = document.getElementById('appl').value;
+        const winttype = document.getElementById('winttype').value;
+        const additionalInfo = document.getElementById('additionalInfo').value;
+        const conj = document.getElementById('conj').value;
+        const priceInput = document.getElementById('price').value;
+        const price = parseFloat(priceInput);
+
+        // Validate required fields
+        if (!appl || !winttype || !priceInput) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+        if (isNaN(price)) {
+            alert('Please enter a valid price.');
+            return;
+        }
+
+        // Process winttype
+        const processedWinttype = getProcessedWinttype(winttype);
+        if (!processedWinttype || !steps[appl] || !steps[appl][processedWinttype]) {
+            alert('Invalid combination of selections.');
+            return;
+        }
+        const stepsList = steps[appl][processedWinttype].join('');
+
+        // Format price
+        const formattedPrice = price.toLocaleString('en-US', {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+
+        // Build bid text
+        let bidText = `${bidPrefix} Need to perform ${appl} to the property plumbing to prevent freeze damage. System type: ${winttype}. Process includes but not limited to -\n${stepsList}`;
+
+        if (conj) {
+            bidText += `\n***Must be approved in conjunction to ${conj} bid.***`;
+        }
+        if (additionalInfo) {
+            bidText += `\n${additionalInfo}`;
+        }
+        bidText += `\nPrice: $${formattedPrice}`;
+
+        // Save bid
+        saveBidAsNote(bidText);
+    });
+    </script>
+    <script src="script_other.js"></script>
+    
+    <script src="blocker.js"></script>
+
+
+
+</body>
+
+</html>
