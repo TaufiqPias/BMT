@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Taufiq Pias">
+    <title>Toilet - BMT</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-M2K232X4B3');
+    </script>
+
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "qj1sdmrlho");
+    </script>
+
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Information Area -->
+        <div class="info-container">
+            <h2>Information</h2>
+            <div class="info-content">
+                <p>Fill out the form accordingly to generate a bid. The following prices are provided as a ranged parameter taken from RepairBase 2024. </p>
+                <p><b>Approximate Prices:</b>
+                    <table>
+                        <tr>
+                          <th>Items</th>
+                          <th>Price Range</th>
+                        </tr>
+                        <tr>
+                          <td>Clean Toilet (light)</td>
+                          <td>$25.00 (allowable)</td>
+                        </tr>
+                        <tr>
+                          <td>Clean Toilet (soiled)</td>
+                          <td>$50.00 (allowable)</td>
+                        </tr>
+                        <tr>
+                          <td>Clean Toilet (heavily soiled)</td>
+                          <td>$100.00 (allowable)</td>
+                        </tr>
+                        <tr>
+                          <td>Remove Toilet</td>
+                          <td>$139.73-$156.27</td>
+                        </tr>
+                        <tr>
+                          <td>Replace Toilet (economy)</td>
+                          <td>$391.29-$411.48</td>
+                        </tr>
+                      </table>
+                    </p>
+                    <p>If you need to repair the toilet only, please visit the following page as toilet repairs only invove changing (1) Angle Stops, (2) Water Supply Lines or (3) Toilet Flushing Kit </p>
+                    <a href="../pages/remove_replace_other_plumbing.html" title="Remove/Replace - Faucet, Spigot, Showerhead, Supply Lines, P-Trap, Garbage Disposal, Toilet Flushing Kit, Angle Stop, Shower Diverter" >Remove/Replace Other Plumbing</a> <br><br>
+                <b>
+                    <p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p>
+                </b>
+                <b>
+                    <p style="color: brown;">***Please copy the bids before visiting other pages. Bids will not be saved
+                        once redirected.***</p>
+                </b>
+            </div>
+        </div>
+
+        <div class="container">
+            <h1>Plumbing, Winterization, Electrical & Gas Bid</h1>
+            <div class="division">
+                <h2>Toilet Bids</h2>
+                <form id="Form">
+
+                    <label for="bidPrefix">Bid Prefix (for conjunction bid - Use a colon after prefix)</label>
+                    <input type="text" id="bidPrefix" name="bidPrefix" placeholder="Title: / Title-">
+
+                    <label for="count">How many toilets:*</label>
+                    <input type="number" id="count" name="count" step="1" required>
+
+                    <label for="action">Select an Action:*</label>
+                    <select id="action" name="action" required>
+                        <option value="">--Select an Action--</option>
+                        <option value="clean toilet">Clean Toilet</option>
+                        <option value="remove">Remove Toilet</option>
+                        <option value="replace">Replace Toilet</option>
+                    </select>
+
+                    <label for="loc">Location:*</label>
+                    <input type="text" id="loc" name="loc" placeholder="1st floor bathroom, basement bathroom etc." required>
+
+                    <div id="applField" style="display: none;">
+                        <label for="appl">Select Item: (Optional)</label>
+                        <select id="appl" name="appl" >
+                            <option value="">--Select any--</option>
+                            <option value="(bowl & tank)">Bowl & Tank</option>
+                            <option value="(bowl only)">Bowl Only</option>
+                            <option value="(Tank Only)">Tank Only</option>
+                        </select>
+                    </div>
+
+                    
+
+                    <div id="debrisField" style="display: none;">
+                        <label for="debris">Generated debris (in cyds):</label>
+                        <input type="number" id="debris" name="debris" step="1">
+                    </div>
+
+                    <label for="additionalInfo">Additional information:</label>
+                    <textarea id="additionalInfo" name="additionalInfo"
+                        placeholder="Disclaimers or any other comment"></textarea>
+
+                    <label for="conj">Make this bid conjunction to:</label>
+                    <input type="text" id="conj" name="conj" placeholder="Bid name only">
+
+                    <label for="price">Price (in USD):</label>
+                    <input type="number" id="price" name="price" step="0.01">
+
+                    <button type="submit">Generate Bid</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- New Note Section -->
+        <div class="note-container">
+            <h2>Bids</h2>
+            <div id="notesList" class="notes-list">
+                <!-- Notes will be dynamically added here -->
+            </div>
+            <button id="copyAllBidsButton">Copy All Bids</button>
+            <a href="../index.html" id="home"> <ion-icon name="home"></ion-icon> Go Home</a>
+        </div>
+    </div>
+
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <!-- Script to Generate Bid -->
+    <script>
+        document.getElementById('action').addEventListener('change', function () {
+            const action = this.value;
+            const debrisField = document.getElementById('debrisField');
+            const applField = document.getElementById('applField');
+
+            // Debris field visibility
+            if (action === 'remove') {
+                debrisField.style.display = 'block';
+            } else {
+                debrisField.style.display = 'none';
+            }
+
+            // Appl field visibility
+            if (action === 'remove' || action === 'replace') {
+                applField.style.display = 'block';
+            } else {
+                applField.style.display = 'none';
+            }
+        });
+
+        document.getElementById('Form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Get form values
+            const bidPrefix = document.getElementById('bidPrefix').value;
+            const additionalInfo = document.getElementById('additionalInfo').value;
+            const conj = document.getElementById('conj').value;
+            const price = parseFloat(document.getElementById('price').value);
+            const action = document.getElementById('action').value;
+            const appl = document.getElementById('appl').value;
+            const debris = document.getElementById('debris').value;
+            const loc = document.getElementById('loc').value;
+            const count = document.getElementById('count').value;
+
+
+
+            // Format the price with commas
+            const formattedPrice = price.toLocaleString('en-US', {
+                style: 'decimal',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+            });
+
+            // Generate the bid text
+            let bidText;
+            if (action === 'remove') {
+                bidText = `${bidPrefix} Need to remove ${count} toilet(s) - ${appl} from ${loc}. Will generate approx ${debris} cyds of debris - heavy in nature. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            } else if (action === 'replace') {
+                bidText = `${bidPrefix} Need to replace ${count} toilet(s) ${appl} (Economy Grade) - in the ${loc}. Will require to install angle stops and water supply lines. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            } else if (action === 'clean toilet') {
+                bidText = `${bidPrefix} Need to clean ${count} toilet(s) in the ${loc} - ***Cleaning Only***. This bid is not a part of winterization. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            } else {
+                alert('Please select an action (Clean or Remove or Replace).');
+                return; // Stop execution if no action is selected
+            }
+
+            // Save the bid as a note
+            saveBidAsNote(bidText);
+        });
+
+        function saveBidAsNote(bidText) {
+            const notesList = document.getElementById('notesList');
+            const note = document.createElement('div');
+            note.className = 'note';
+            note.textContent = bidText;
+            notesList.appendChild(note);
+        }
+    </script>
+    <script src="script_other.js"></script>
+    <script src="blocker.js"></script>
+</body>
+
+</html>
