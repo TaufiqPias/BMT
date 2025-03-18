@@ -206,6 +206,41 @@ button:hover {
     
 }
 
+#hwhField {
+    grid-column: span 2; /* Span only 1 column */
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Match the form's gap */
+    padding: 10px;
+    background-color: #f0f0f0; /* Match the style of other fields */
+    border: 1px solid #ccc; /* Match the form's border */
+    border-radius: 5px; /* Match the form's border radius */
+}
+
+.checkbox-item {
+    display: grid;
+    grid-template-columns: auto 1fr; /* Align checkbox and label */
+    align-items: center; /* Align checkbox and label vertically */
+    gap: 8px; /* Add spacing between checkbox and label */
+}
+
+
+
+#hwhField input[type="checkbox"] {
+    margin: 0; /* Remove default margin */
+}
+
+.checkbox-title {
+    border-bottom: 1px solid #ccc; /* Green border bottom */
+    font-size: 16px; /* Larger font size */
+    color: #333; /* Match the form's text color */
+}
+
+#hwhField .checkbox-item label {
+    font-size: 14px; /* Match the form's font size */
+    color: #555; /* Match the form's text color */
+}
+
 #bidOutput {
     white-space: pre-line;
 }

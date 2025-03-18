@@ -11,23 +11,23 @@
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
-            <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"></script>
-        <script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"></script>
+    <script>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
 
         gtag('config', 'G-M2K232X4B3');
-        </script>
+    </script>
 
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "qj1sdmrlho");
-</script>
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "qj1sdmrlho");
+    </script>
 
 </head>
 
@@ -38,7 +38,56 @@
             <h2>Information</h2>
             <div class="info-content">
                 <p>Fill out the form accordingly to generate a bid. The following prices are provided as a ranged parameter taken from RepairBase 2024. </p>
-                <p>Info</p>
+                <p><b>Market Price Range for new Hot Water Heater:</b>
+                    <table>
+                        <tr>
+                          <th>Item Name</th>
+                          <th>Lowe's</th>
+                          <th>Menards</th>
+                        </tr>
+                        <tr>
+                          <td>HWH 10 Gal</td>
+                          <td>$180.00 - $399.00</td>
+                          <td>$176.00 - $356.49</td>
+                        </tr>
+                        <tr>
+                          <td>HWH 20 Gal</td>
+                          <td>$192.64 - $412.20</td>
+                          <td>$191.76 - $388.40</td>
+                        </tr>
+                        <tr>
+                          <td>HWH 30 Gal</td>
+                          <td>$324.90 - $499.00</td>
+                          <td>$226.38 - $518.91</td>
+                        </tr>
+                        <tr>
+                          <td>HWH 40 Gal</td>
+                          <td>$598.20 - $696.19</td>
+                          <td>$550.32 - $722.10</td>
+                        </tr>
+                        <tr>
+                          <td>HWH 50 Gal</td>
+                          <td>$1059.00 - $1958.62</td>
+                          <td>$889.29 - $2152.39</td>
+                        </tr>
+                        <tr>
+                          <td>HWH 60 Gal</td>
+                          <td>$1259.90 - $2630.33</td>
+                          <td>$1259.90 - $2630.33</td>
+                        </tr>
+                        <tr>
+                          <td>HWH 70 Gal</td>
+                          <td>$1863.98 - $3949.99</td>
+                          <td>$1644.15 - $3400.49</td>
+                        </tr>
+                        <tr>
+                          <td>HWH 80 Gal</td>
+                          <td>$3110.30 - $5960.25</td>
+                          <td>$3422.20 - $6233.94</td>
+                        </tr>
+                      </table>
+                ***Prices may vary depending on States and region - also on avaibility***</p>
+                <p><b>Please consult with your Seniors if you encounter a tankless hot water heater.</b></p>
                 <b>
                     <p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p>
                 </b>
@@ -48,9 +97,6 @@
                 </b>
             </div>
         </div>
-
-
-
 
         <div class="container">
             <h1>Plumbing, Winterization, Electrical & Gas Bid</h1>
@@ -73,24 +119,46 @@
                     <label for="hwhsize">Select a Size of the Hot Water Heater:*</label>
                     <Select id="hwhsize" name="hwhsize" required>
                         <option value="">--Select any--</option>
-                        <option value="10 gal">10 gal</option>
-                        <option value="20 gal">20 gal</option>
-                        <option value="30 gal">30 gal</option>
-                        <option value="40 gal">40 gal</option>
-                        <option value="50 gal">50 gal</option>
-                        <option value="60 gal">60 gal</option>
-                        <option value="70 gal">70 gal</option>
-                        <option value="80 gal">80 gal</option>
+                        <option value="(10 gal)">10 gal</option>
+                        <option value="(20 gal)">20 gal</option>
+                        <option value="(30 gal)">30 gal</option>
+                        <option value="(40 gal)">40 gal</option>
+                        <option value="(50 gal)">50 gal</option>
+                        <option value="(60 gal)">60 gal</option>
+                        <option value="(70 gal)">70 gal</option>
+                        <option value="(80 gal)">80 gal</option>
                     </Select>
 
                     <label for="loc">Location:*</label>
-                    <input type="text" id="loc" name="loc" placeholder="basement, kitchen, etc." required>   
+                    <input type="text" id="loc" name="loc" placeholder="basement, kitchen, etc." required>
+
+                    <div id="hwhField" style="display: none;">
+                        <label class="checkbox-title">Select items for repair:</label>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="power_supply" name="power_supply"> <label for="power supply">Power Supply</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="thermostat" name="thermostat"> <label for="thermostat">Thermostat</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="tank" name="tank"> <label for="tank">Tank</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="strap" name="strap"> <label for="strap">Strap</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="exhaust_vent" name="exhaust_vent"> <label for="exhaust vent">Exhaust Vent</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="inlet_valve" name="inlet_valve"> <label for="inlet valve">Inlet Valve</label>
+                        </div>
+                    </div>
 
                     <div id="debrisField" style="display: none;">
                         <label for="debris">Generated debris (in cyds):</label>
                         <input type="number" id="debris" name="debris" step="1">
                     </div>
-                                                           
+
                     <label for="additionalInfo">Additional information:</label>
                     <textarea id="additionalInfo" name="additionalInfo"
                         placeholder="Disclaimers or any other comment"></textarea>
@@ -102,14 +170,8 @@
                     <input type="number" id="price" name="price" step="0.01">
 
                     <button type="submit">Generate Bid</button>
-                    <!-- <a href="https://www.zillow.com/" target="_blank" id="findpropsize">Find Property Size: Zillow</a> -->
-                    <!-- <a href="https://www.google.com/maps" target="_blank" id="measuredr">Plan & Measure French Drain</a> -->
                 </form>
-
-
             </div>
-
-
         </div>
 
         <!-- New Note Section -->
@@ -121,9 +183,7 @@
             <button id="copyAllBidsButton">Copy All Bids</button>
             <a href="../index.html" id="home"> <ion-icon name="home"></ion-icon> Go Home</a>
         </div>
-
     </div>
-
 
     <div id="floatingMessage" class="floating-message">Copied!</div>
 
@@ -134,6 +194,9 @@
 
             // Get form values
             const bidPrefix = document.getElementById('bidPrefix').value;
+            const action = document.getElementById('action').value;
+            const hwhsize = document.getElementById('hwhsize').value;
+            const loc = document.getElementById('loc').value;
             const additionalInfo = document.getElementById('additionalInfo').value;
             const conj = document.getElementById('conj').value;
             const price = parseFloat(document.getElementById('price').value);
@@ -145,18 +208,68 @@
                 maximumFractionDigits: 2,
             });
 
-            // Generate the bid text
-            const bidText = `${bidPrefix}  ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            // Generate the bid text based on the selected action
+            let bidText = '';
+            switch (action) {
+                case 'drain':
+                    bidText = `${bidPrefix} Need to drain 1 ${hwhsize} hot water heater located in the ${loc}. ***Draining Only: Not as a part of the winterization.*** ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''}${additionalInfo}\nPrice: $${formattedPrice}`;
+                    break;
+                case 'remove':
+                    const debris = document.getElementById('debris').value;
+                    bidText = `${bidPrefix} Need to remove 1 ${hwhsize} hot water heater located in the ${loc}. Will generate approx ${debris} cyds heavy debris. Will require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other equipments. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''}${additionalInfo}\nPrice: $${formattedPrice}`;
+                    break;
+                case 'replace':
+                    bidText = `${bidPrefix} Need to replace 1 ${hwhsize} hot water heater (Economy Grade) located in the ${loc}. Will require installing 60 Amp Breaker box, copper lines, valves, vents, etc. Will also require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other equipments. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+                    break;
+                case 'repair':
+                    const repairItems = [];
+                    if (document.getElementById('power_supply').checked) repairItems.push('Power Supply');
+                    if (document.getElementById('thermostat').checked) repairItems.push('Thermostat');
+                    if (document.getElementById('tank').checked) repairItems.push('Tank');
+                    if (document.getElementById('strap').checked) repairItems.push('Strap');
+                    if (document.getElementById('exhaust_vent').checked) repairItems.push('Exhaust Vent');
+                    if (document.getElementById('inlet_valve').checked) repairItems.push('Inlet Valve');
+                    bidText = `${bidPrefix} Need to repair 1 ${hwhsize} hot water heater located in the ${loc}. Will require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other equipments. \nItems to repair: ${repairItems.join(', ')}. \nBid price includes additional material/component purchase as well. ${conj ? `\n***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+                    break;
+                default:
+                    bidText = 'Please select a valid action.';
+                    break;
+            }
+
             // Save the bid as a note
             saveBidAsNote(bidText);
-        }); 
+        });
+
+        // Add event listener to the action dropdown
+        document.getElementById('action').addEventListener('change', function () {
+            const action = this.value;
+            const debrisField = document.getElementById('debrisField');
+            const hwhField = document.getElementById('hwhField');
+
+            if (action === 'remove') {
+                debrisField.style.display = 'block';
+            } else {
+                debrisField.style.display = 'none';
+            }
+
+            if (action === 'repair') {
+                hwhField.style.display = 'block';
+            } else {
+                hwhField.style.display = 'none';
+            }
+        });
+
+        // Function to save the bid as a note
+        function saveBidAsNote(bidText) {
+            const notesList = document.getElementById('notesList');
+            const noteItem = document.createElement('div');
+            noteItem.className = 'note-item';
+            noteItem.textContent = bidText;
+            notesList.appendChild(noteItem);
+        }
     </script>
     <script src="script_other.js"></script>
-    
     <script src="blocker.js"></script>
-
-
-
 </body>
 
 </html>
