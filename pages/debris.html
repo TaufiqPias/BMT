@@ -107,6 +107,22 @@
                         <option value="60 C.Y./6 Ton">Dumpster - Extra Large - 60 C.Y./6 Ton</option>
                     </Select>
 
+                    <label for="equipments">Equipments required:*</label>
+                    <Select id="equipments" name="equipments" required>
+                        <option value="">--Select Equipments--</option>
+                        <option value="Will require Loopers, Hedge Trimmer, Hatchet, Chainsaw, Ladder, Raker, Gloves and Bags">Landscaping
+                            Equipments</option>
+                        <option value="Will require Mower, Blower, Raker, Gloves and Bags">Grass Cut Equipments</option>
+                        <option value="Will require General Tools, Wheel Barrow, Mask, Gloves and Bags">Debris Removal Equipments</option>
+                        <option
+                            value="Will require General Tools, Excavetor, Sledge Hammer, Jack Hammer, Wheel Barrow, Mask, Gloves and Bags">
+                            Demolition Equipments</option>
+                        <option value="Will require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other">Plumbing
+                            Repair Equipments</option>
+                        <option value="Will require Nail Guns, Hammer, Tape, Wrench, Drills, Ladder and Other">General Repair Equipments
+                        </option>
+                    </Select>
+
                                        
                     <label for="additionalInfo">Additional information:</label>
                     <textarea id="additionalInfo" name="additionalInfo" placeholder="Disclaimers or any other comment"></textarea>
@@ -152,6 +168,7 @@
     const action = document.getElementById('action').value;
     const bidtype = document.getElementById('bidtype').value;
     const debcount = document.getElementById('debcount').value;
+    const equipments = document.getElementById('equipments').value;
     const consist = document.getElementById('consist').value;
     const dumpster = document.getElementById('dumpster').value;
     const additionalInfo = document.getElementById('additionalInfo').value;
@@ -166,7 +183,7 @@
     });
 
     // Generate the bid text
-    const bidText = `${bidPrefix} Need to ${action} approx ${debcount} cyd(s) of ${bidtype} consisting of ${consist}. ${dumpster ? `Will require renting a ${dumpster} to haul away the debris.` : ''} If approved, will provide empty load, half load and full load measurement photos including proper length x width x height. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+    const bidText = `${bidPrefix} Need to ${action} approx ${debcount} cyd(s) of ${bidtype} consisting of ${consist}. ${dumpster ? `Will require renting a ${dumpster} to haul away the debris.` : ''} ***If approved, will provide empty load, half load and full load measurement photos including proper length x width x height.*** ${equipments}. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
     // Save the bid as a note
     saveBidAsNote(bidText);
 });
