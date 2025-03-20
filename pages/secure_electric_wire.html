@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Taufiq Pias">
-    <title>Caps & Covers - BMT</title>
+    <title>Secure Electric Wire - BMT</title>
     <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png">
     <link rel="stylesheet" href="styles.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -38,16 +38,9 @@
             <h2>Information</h2>
             <div class="info-content">
                 <p>Fill out the form accordingly to generate a bid. The following prices are provided as a ranged parameter taken from RepairBase 2024. </p>
-                <p><b>Information:</b>
-                <br><b>Caps:</b> Capping water/gas/electric lines are one of the highly considerable ICC bid. But the cost of this bid is often lower than $20. Therefore, you must add the following disclaimer to the the bid - <br></p>
-                <p style="text-align: center;">***</p>
-                <p style="background-color: lightgreen; border-radius: 5px; padding: 8px; text-align: center;">If ONLY this bid is approved, we will invoice additional $25.00 for visiting the property as bid price does not cover minimum charge and material cost.</p>
-                <p style="text-align: center;">***</p>
-                <p><b>Cover:</b> Dryer vent can be both capped and covered. <br>
-                Capping Dryer Vent: Capped from inside the property. <br>
-                Covering Dryer Vent: Capped from outside the property. </p>
-                
-                <P style="text-align: center;"><b>Please check client allowable for pricing</b></P>
+                <p><b>Approximate Price:</b><br>
+                Usual minimum charge for securing loose wires/zip tie is <b>$30.00 - $45.00</b></p>
+                <p>For <b>Exterior Loose Wire</b> contact vendor and request a quotation before finalizing the price.</p>
                 <b>
                     <p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p>
                 </b>
@@ -64,28 +57,19 @@
         <div class="container">
             <h1>Plumbing, Winterization, Electrical & Gas Bid</h1>
             <div class="division">
-                <h2>Caps & Covers Bids</h2>
+                <h2>Secure Electric Wire Bids</h2>
                 <form id="Form">
 
                     <label for="bidPrefix">Bid Prefix (for conjunction bid - Use a colon after prefix)</label>
                     <input type="text" id="bidPrefix" name="bidPrefix" placeholder="Title: / Title-">
                     
-                    <label for="action">Select an Action:*</label>
-                    <select id="action" name="action" required>
-                        <option value="">--Select an Action--</option>
-                        <option value="cap">Cap</option>
-                        <option value="cover">Cover</option>
-                    </select>
-
-                    <label for="items">Items:*</label>
-                    <select id="items" name="items" required>
+                    <label for="appl">Select an item:*</label>
+                    <Select id="appl" name="appl" required>
                         <option value="">--Select any--</option>
-                    </select>
+                        <option value="secure electric wire">Secure Electric Wire - Exterior</option>
+                        <option value="zip tie loose wire">Zip Tie Loose Wire - Interior</option>
+                    </Select>
 
-                    <label for="count">How many items need capping/covering?*</label>
-                    <input type="number" id="count" name="count" step="1" required> 
-
-                                        
                     <label for="additionalInfo">Additional information:</label>
                     <textarea id="additionalInfo" name="additionalInfo"
                         placeholder="Disclaimers or any other comment"></textarea>
@@ -129,9 +113,7 @@
 
             // Get form values
             const bidPrefix = document.getElementById('bidPrefix').value;
-            const action = document.getElementById('action').value;
-            const count = document.getElementById('count').value;
-            const items = document.getElementById('items').value;
+            const appl = document.getElementById('appl').value;
             const additionalInfo = document.getElementById('additionalInfo').value;
             const conj = document.getElementById('conj').value;
             const price = parseFloat(document.getElementById('price').value);
@@ -144,34 +126,17 @@
             });
 
             // Generate the bid text
-            const bidText = `${bidPrefix} Need to ${action} ${count} ${items} to ensure safety to the property. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            let bidText = '';
+
+            if (appl === 'secure electric wire') {
+                bidText = `${bidPrefix} Need to secure fallen/loose electric wire(s) at the exterior of the property to prevent any utility related damage. - Fire and Safety Hazard. Might require ladder or manlift to complete the task. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            } else if (appl === 'zip tie loose wire') {
+                bidText = `${bidPrefix} Need to zip tie all loose wires found at the interior of the property. - Trip Hazard. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            } 
+            
             // Save the bid as a note
             saveBidAsNote(bidText);
         }); 
-
-        // Function to update reason dropdown based on ptest selection
-        document.getElementById('action').addEventListener('change', function () {
-            const actionValue = this.value;
-            const reasonDropdown = document.getElementById('items');
-
-            // Clear existing options
-            reasonDropdown.innerHTML = '<option value="">--Select any--</option>';
-
-            // Add new options based on ptest value
-            if (actionValue === 'cap') {
-                reasonDropdown.innerHTML += `
-                    <option value="water line(s)">Water Lines</option>
-                    <option value="gas lines(s)">Gas Lines</option>
-                    <option value="electric lines(s)">Electric Lines</option>
-                    <option value="dryer vent">Dryer Vent</option>
-                `;
-            } else if (actionValue === 'cover') {
-                reasonDropdown.innerHTML += `
-                    <option value="dryer vent">Dryer Vent</option>
-                    <option value="outlet">Outlet</option>
-                `;
-            }
-        });
     </script>
     <script src="script_other.js"></script>
     
