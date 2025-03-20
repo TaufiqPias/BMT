@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Taufiq Pias">
+    <title>Pressure Test - BMT</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-M2K232X4B3');
+    </script>
+
+    <script type="text/javascript">
+        (function (c, l, a, r, i, t, y) {
+            c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+            t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+            y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "qj1sdmrlho");
+    </script>
+
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Information Area -->
+        <div class="info-container">
+            <h2>Information</h2>
+            <div class="info-content">
+                <p>Fill out the form accordingly to generate a bid. The following prices are provided as a ranged parameter taken from RepairBase 2024. </p>
+                <p><b>Approximate Prices:</b>
+                    <table>
+                        <tr>
+                          <th>Item</th>
+                          <th>Price</th>
+                        </tr>
+                        <tr>
+                          <td>Pressure Test (35-40 PSI)</td>
+                          <td>$25.00</td>
+                        </tr>
+                        <tr>
+                          <td>High Pressure Test (45-100 PSI)</td>
+                          <td>$50.00</td>
+                        </tr>
+                      </table>
+                    </p>
+                    <h3>Pressure Test & High Pressure Test</h3>
+                <iframe width="100%" height="216" src="https://www.youtube.com/embed/p3LUGlH10ek?si=nit6oNh1Hrl8Wyo1"
+                    title="Pressure Test" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <p style="color: gray; font-size: smaller;"><i><small>Credit: The Excellent Laborer</small></i></p>
+                <b>
+                    <p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p>
+                </b>
+                <b>
+                    <p style="color: brown;">***Please copy the bids before visiting other pages. Bids will not be saved
+                        once redirected.***</p>
+                </b>
+            </div>
+        </div>
+
+        <div class="container">
+            <h1>Plumbing, Winterization, Electrical & Gas Bid</h1>
+            <div class="division">
+                <h2>Pressure Test Bids</h2>
+                <form id="Form">
+
+                    <label for="bidPrefix">Bid Prefix (for conjunction bid - Use a colon after prefix)</label>
+                    <input type="text" id="bidPrefix" name="bidPrefix" placeholder="Title: / Title-">
+
+                    <label for="ptest">Select a type of pressure test:*</label>
+                    <select id="ptest" name="ptest" required>
+                        <option value="">--Select any--</option>
+                        <option value="pressure test (35-40 PSI)">Pressure Test (35-40 PSI)</option>
+                        <option value="high pressure test (45-100 PSI)">High Pressure Test (45-100 PSI)</option>
+                    </select>
+
+                    <label for="reason">Reason:*</label>
+                    <select id="reason" name="reason" required>
+                        <option value="">--Select any--</option>
+                    </select>
+
+                    <label for="additionalInfo">Additional information:</label>
+                    <textarea id="additionalInfo" name="additionalInfo" placeholder="Disclaimers or any other comment"></textarea>
+
+                    <label for="conj">Make this bid conjunction to:</label>
+                    <input type="text" id="conj" name="conj" placeholder="Bid name only">
+
+                    <label for="price">Price (in USD):</label>
+                    <input type="number" id="price" name="price" step="0.01">
+
+                    <button type="submit">Generate Bid</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- New Note Section -->
+        <div class="note-container">
+            <h2>Bids</h2>
+            <div id="notesList" class="notes-list">
+                <!-- Notes will be dynamically added here -->
+            </div>
+            <button id="copyAllBidsButton">Copy All Bids</button>
+            <a href="../index.html" id="home"> <ion-icon name="home"></ion-icon> Go Home</a>
+        </div>
+
+    </div>
+
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <!-- Script to Generate Bid -->
+    <script>
+        document.getElementById('Form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            // Get form values
+            const bidPrefix = document.getElementById('bidPrefix').value;
+            const reason = document.getElementById('reason').value;
+            const ptest = document.getElementById('ptest').value;
+            const additionalInfo = document.getElementById('additionalInfo').value;
+            const conj = document.getElementById('conj').value;
+            const price = parseFloat(document.getElementById('price').value);
+
+            // Format the price with commas
+            const formattedPrice = price.toLocaleString('en-US', {
+                style: 'decimal',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2,
+            });
+
+            // Generate the bid text
+            const bidText = `${bidPrefix} Need to perform ${ptest} and determine the state of the plumbing system. Reason: ${reason} ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            // Save the bid as a note
+            saveBidAsNote(bidText);
+        });
+
+        // Function to update reason dropdown based on ptest selection
+        document.getElementById('ptest').addEventListener('change', function () {
+            const ptestValue = this.value;
+            const reasonDropdown = document.getElementById('reason');
+
+            // Clear existing options
+            reasonDropdown.innerHTML = '<option value="">--Select any--</option>';
+
+            // Add new options based on ptest value
+            if (ptestValue === 'pressure test (35-40 PSI)') {
+                reasonDropdown.innerHTML += `
+                    <option value="Damage/Leakage checking">Damage/Leakage Checking</option>
+                    <option value="Leakage checking after plumbing repairs">After Plumbing Repair</option>
+                `;
+            } else if (ptestValue === 'high pressure test (45-100 PSI)') {
+                reasonDropdown.innerHTML += `
+                    <option value="Checking leaks in discharge line">Checking Leak in Discharge Line</option>
+                    <option value="Removing alien object from the line,">Removing Alien Object From the Line</option>
+                `;
+            }
+        });
+    </script>
+    <script src="script_other.js"></script>
+    <script src="blocker.js"></script>
+
+</body>
+
+</html>
