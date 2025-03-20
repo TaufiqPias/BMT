@@ -216,10 +216,10 @@
                     break;
                 case 'remove':
                     const debris = document.getElementById('debris').value;
-                    bidText = `${bidPrefix} Need to remove 1 ${hwhsize} hot water heater located in the ${loc}. Will generate approx ${debris} cyds heavy debris. Will require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other equipments. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''}${additionalInfo}\nPrice: $${formattedPrice}`;
+                    bidText = `${bidPrefix} Need to remove 1 ${hwhsize} hot water heater located in the ${loc}. Will generate approx ${debris} cyds heavy debris. Will require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other equipment. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''}${additionalInfo}\nPrice: $${formattedPrice}`;
                     break;
                 case 'replace':
-                    bidText = `${bidPrefix} Need to replace 1 ${hwhsize} hot water heater (Economy Grade) located in the ${loc}. Will require installing 60 Amp Breaker box, copper lines, valves, vents, etc. Will also require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other equipments. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+                    bidText = `${bidPrefix} Need to replace 1 ${hwhsize} hot water heater (Economy Grade) located in the ${loc}. Will require installing 60 Amp Breaker box, copper lines, valves, vents, etc. Will also require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other equipment. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
                     break;
                 case 'repair':
                     const repairItems = [];
@@ -229,7 +229,7 @@
                     if (document.getElementById('strap').checked) repairItems.push('Strap');
                     if (document.getElementById('exhaust_vent').checked) repairItems.push('Exhaust Vent');
                     if (document.getElementById('inlet_valve').checked) repairItems.push('Inlet Valve');
-                    bidText = `${bidPrefix} Need to repair 1 ${hwhsize} hot water heater located in the ${loc}. Will require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other equipments. \nItems to repair: ${repairItems.join(', ')}. \nBid price includes additional material/component purchase as well. ${conj ? `\n***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+                    bidText = `${bidPrefix} Need to repair 1 ${hwhsize} hot water heater located in the ${loc}. Will require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other equipment. \nItems to repair: ${repairItems.join(', ')}. \nBid price includes additional material/component purchase as well. ${conj ? `\n***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
                     break;
                 default:
                     bidText = 'Please select a valid action.';

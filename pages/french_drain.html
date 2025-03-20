@@ -119,21 +119,15 @@
                         <option value="not required.">No</option>
                     </select>
 
-                    <label for="equipments">Equipments required:*</label>
+                    <label for="equipments">Equipment required:*</label>
                     <Select id="equipments" name="equipments" required>
-                        <option value="select">--Select Equipments--</option>
-                        <option value="Loopers, Hedge Trimmer, Hatchet, Chainsaw, Ladder, Raker, Gloves and Bags">
-                            Landscaping Equipments</option>
-                        <option value="Mower, Blower, Raker, Gloves and Bags">Grass Cut Equipments</option>
-                        <option value="General Tools, Wheel Barrow, Mask, Gloves and Bags">Debris Removal Equipments
-                        </option>
-                        <option
-                            value="General Tools, Excavetor, Sledge Hammer, Jack Hammer, Wheel Barrow, Mask, Gloves and Bags">
-                            Demolition Equipments</option>
-                        <option value="Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other">
-                            Plumbing Repair Equipments</option>
-                        <option value="Nail Guns, Hammer, Tape, Wrench, Drills, Ladder and Other">General Repair
-                            Equipments</option>
+                        <option value="">--Select Equipment--</option>
+                        <option value="Will also require Loopers, Hedge Trimmer, Hatchet, Chainsaw, Ladder, Raker, Gloves and Bags">Landscaping Equipment</option>
+                        <option value="Will also require Mower, Blower, Raker, Gloves and Bags">Grass Cut Equipment</option>
+                        <option value="Will also require General Tools, Wheel Barrow, Mask, Gloves and Bags">Debris Removal Equipment</option>
+                        <option value="Will also require General Tools, Excavetor, Sledge Hammer, Jack Hammer, Wheel Barrow, Mask, Gloves and Bags">Demolition Equipment</option>
+                        <option value="Will also require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other">Plumbing Repair Equipment</option>
+                        <option value="Will also require Nail Guns, Hammer, Tape, Wrench, Drills, Ladder and Other">General Repair Equipment</option>
                     </Select>
 
                     <label for="additionalInfo">Additional information:</label>
@@ -194,7 +188,7 @@
             });
 
             // Generate the bid text
-            const bidText = `${bidPrefix} Need to install approx ${length} lf french drain (18-24 inches wide and 2 ft deep trench) around the property to divert water from the property foundation and reduce/prevent the chance of seeping. Will requrie 4-inches corrugated/PVC drain pipe, landscape fabric, pea gravel, fitting pipes and inlet grates. Permit ${permit}. Will also require ${equipments}. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`; 
+            const bidText = `${bidPrefix} Need to install approx ${length} lf french drain (18-24 inches wide and 2 ft deep trench) around the property to divert water from the property foundation and reduce/prevent the chance of seeping. Will requrie 4-inches corrugated/PVC drain pipe, landscape fabric, pea gravel, fitting pipes and inlet grates. Permit ${permit}. ${equipments}. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`; 
             // Save the bid as a note
             saveBidAsNote(bidText);
         });

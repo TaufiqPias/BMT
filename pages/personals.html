@@ -125,21 +125,16 @@
                         <input type="tel" id="contact" name="contact">
                     </div>
 
-                    <label for="equipments">Equipments required:*</label>
-                        <Select id="equipments" name="equipments" required>
-                            <option value="">--Select Equipments--</option>
-                            <option value="Will require Loopers, Hedge Trimmer, Hatchet, Chainsaw, Ladder, Raker, Gloves and Bags">Landscaping
-                                Equipments</option>
-                            <option value="Will require Mower, Blower, Raker, Gloves and Bags">Grass Cut Equipments</option>
-                            <option value="Will require General Tools, Wheel Barrow, Mask, Gloves and Bags">Debris Removal Equipments</option>
-                            <option
-                                value="Will require General Tools, Excavetor, Sledge Hammer, Jack Hammer, Wheel Barrow, Mask, Gloves and Bags">
-                                Demolition Equipments</option>
-                            <option value="Will require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other">Plumbing
-                                Repair Equipments</option>
-                            <option value="Will require Nail Guns, Hammer, Tape, Wrench, Drills, Ladder and Other">General Repair Equipments
-                            </option>
-                        </Select>
+                    <label for="equipments">Equipment required:*</label>
+                    <Select id="equipments" name="equipments" required>
+                        <option value="">--Select Equipment--</option>
+                        <option value="Will require Loopers, Hedge Trimmer, Hatchet, Chainsaw, Ladder, Raker, Gloves and Bags">Landscaping Equipment</option>
+                        <option value="Will require Mower, Blower, Raker, Gloves and Bags">Grass Cut Equipment</option>
+                        <option value="Will require General Tools, Wheel Barrow, Mask, Gloves and Bags">Debris Removal Equipment</option>
+                        <option value="Will require General Tools, Excavetor, Sledge Hammer, Jack Hammer, Wheel Barrow, Mask, Gloves and Bags">Demolition Equipment</option>
+                        <option value="Will require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other">Plumbing Repair Equipment</option>
+                        <option value="Will require Nail Guns, Hammer, Tape, Wrench, Drills, Ladder and Other">General Repair Equipment</option>
+                    </Select>
 
                     <label for="additionalInfo">Additional information:</label>
                     <textarea id="additionalInfo" name="additionalInfo"
@@ -199,7 +194,7 @@
             });
 
             // Generate the bid text
-            const bidText = `${bidPrefix} Need to ${action} approx ${perscount} cyd(s) of personal property consisting of ${consist}. ${movef ? `Personals will be moved from ${movef} to ${movet}` : ''} ${storesize ? `Will require renting a ${storesize} storage for 30 days before disposing the personals to let the owner retrieve the belongings.` : ''} ${equipments}. ${additionalInfo}. ${conj ? `***Must be approved in conjunction to ${conj} bid.` : ''} \n${store ? `Facility Name: ${store}` : ''}\n${address ? `Facility Location: ${address}` : ''}\n${contact ? `Facility Contact Number: ${contact}` : ''} \nPrice: $${formattedPrice}`;
+            const bidText = `${bidPrefix} Need to ${action} approx ${perscount} cyd(s) of personal property consisting of ${consist}. ${movef ? `Personals will be moved from ${movef} to ${movet}` : ''} ${storesize ? `Will require renting a ${storesize} storage for 30 days before disposing the personals to let the owner retrieve the belongings.` : ''} ${equipments}. ${additionalInfo}. ${conj ? `***Must be approved in conjunction to ${conj} bid.` : ''} ${store ? `\nFacility Name: ${store}` : ''}${address ? `\nFacility Location: ${address}` : ''}${contact ? `\nFacility Contact Number: ${contact}` : ''} \nPrice: $${formattedPrice}`;
             // Save the bid as a note
             saveBidAsNote(bidText);
         });

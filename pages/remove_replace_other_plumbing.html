@@ -180,9 +180,9 @@
             // Generate the bid text
             let bidText;
             if (action === 'remove') {
-                bidText = `${bidPrefix} Need to remove ${count} ${appl} from ${loc} of the property. Will generate approx ${debris} cyds of debris - includes hauling away. Will require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other equipments to complete the task. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+                bidText = `${bidPrefix} Need to remove ${count} ${appl} from ${loc} of the property. Will generate approx ${debris} cyds of debris - includes hauling away. Will require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other equipment to complete the task. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
             } else if (action === 'replace') {
-                bidText = `${bidPrefix} Need to replace ${count} ${appl} in ${loc} of the property. Will require performing pressure test to check the ${appl} has/have been installed properly without any leaks. Will also require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other equipments to complete the task. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+                bidText = `${bidPrefix} Need to replace ${count} ${appl} in ${loc} of the property. Will require performing pressure test to check the ${appl} has/have been installed properly without any leaks. Will also require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other equipment to complete the task. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
             } else {
                 alert('Please select an action (Remove or Replace).');
                 return; // Stop execution if no action is selected
