@@ -178,7 +178,6 @@ button:hover {
 }
 
 #description {
-    width: 100%;
     grid-column: span 2; /* Span across both columns of the form */
     margin-top: 5px; /* Add spacing from the previous field */
     padding: 10px;
@@ -189,7 +188,7 @@ button:hover {
     color: #333; /* Match the form's text color */
 }
 
-#manualItemsInput, #countfield, #repairField, #capField, #flatrtContainer, #shthngContainer, #rftrContainer, #rventContainer, #rtoilContainer, #chmnContainer, #debrisFieldContainer, #reasonField, #applField, #reltoField, #equipmentField, #typeField, #materialField, #storeFields, #moveFields, #removeFields, #replaceFields, #grinderField, #panelFields, #toprailcapsField, #debrisField {
+#manualItemsInput, #countfield, #repairField, #capField, #flatrtContainer, #shthngContainer, #rftrContainer, #rventContainer, #rtoilContainer, #replaceField, #chmnContainer, #debrisFieldContainer, #reasonField, #applField, #reltoField, #equipmentField, #rakefield, #typeField, #materialField, #storeFields, #moveFields, #removeFields, #replaceFields, #grinderField, #panelFields, #toprailcapsField, #debrisField, #fasciaField, #soffitField, #endcapfield  {
     grid-column: span 2; /* Span across both columns of the form */
     padding: 10px;
     background-color: #f0f0f0; /* Red background color */
@@ -199,12 +198,12 @@ button:hover {
     cursor: pointer; /* Show pointer on hover */
     font-size: 16px; /* Larger font size */
 }
-#manualItemsInput,  #flatrtContainer, #shthngContainer, #rftrContainer, #rventContainer, #rtoilContainer, #chmnContainer, #debrisFieldContainer, #reasonField, #applField, #reltoField, #equipmentField, #typeField, #materialField, #storeFields, #moveFields, #removeFields, #grinderField, #panelFields, #toprailcapsField, #debrisField input {
-    grid-column: span 2; /* Span across both columns of the form */
+/* #flatrtContainer, #shthngContainer, #rftrContainer, #rventContainer, #rtoilContainer, #chmnContainer, #debrisFieldContainer, #reasonField, #applField, #reltoField, #equipmentField, #typeField, #materialField, #grinderField, #debrisField input {
+    grid-column: span 2; 
     width: 100%;
     max-width: 100%;
-    
-}
+   
+} */
 
 #hwhField {
     grid-column: span 2; /* Span only 1 column */
@@ -337,7 +336,7 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
-    font-size: 10px;
+    font-size: 12px;
     
   }
   

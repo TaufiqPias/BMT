@@ -68,6 +68,35 @@
                           <td>Epoxy Filler - Per LF</td>
                           <td>$16.97</td>
                         </tr>
+                        <tr>
+                            <td>---</td>
+                            <td>---</td>
+                        </tr>
+                        <tr>
+                            <td>Rake & Repoint Chimney - up to 40 SF - M/C</td>
+                            <td>$396.84</td>
+                          </tr>
+                        <tr>
+                        <td>Rake & Repoint Chimney - 40 SF + per SF</td>
+                            <td>$6.82</td>
+                          </tr>
+                          <tr>
+                            <td>---</td>
+                            <td>---</td>
+                        </tr>
+                        <tr>
+                            <td>Brick Chimney - up to 18' high</td>
+                            <td>$4,787.51</td>
+                        </tr>
+                        <tr>
+                            <td>Brick Chimney - up to 30' high</td>
+                            <td>$6,161.58</td>
+                        </tr>
+                        <tr>
+                            <td>Chimney Flashing - Complete</td>
+                            <td>$334.56</td>
+                        </tr>
+
                       </table>
                 </p>
                 <b>
@@ -95,8 +124,10 @@
                     <label for="action">Select an Action:*</label>
                     <select id="action" name="action" required>
                         <option value="">--Select an Action--</option>
+                        <option value="replace">Replace</option>
                         <option value="repair">Repair</option>
                         <option value="cap">Cap</option>
+                        <option value="rake & repoint">Rake & Repoint</option>
                     </select>
 
                     <div id="repairField" style="display: none;">
@@ -109,6 +140,21 @@
 
                         <label for="count">How many LF of chimney needs repairing:*</label>
                         <input type="number" id="count" name="count" step="1">
+                    </div>
+
+                    <div id="replaceField" style="display: none;">
+                        <label for="replacech">Select an item to replace:*</label>
+                        <select id="replacech" name="replacech">
+                            <option value="">--Select an item to replace--</option>
+                            <option value="brick chimney - upto 18' high">Brick Chimney - to 18' high</option>
+                            <option value="brick chimney - upto 30' high">Brick Chimney - to 30' high</option>
+                            <option value="chimney flashing - complete">Chimney Flashing - Complete</option>
+                        </select>
+                    </div>
+
+                    <div id="rakefield" style="display: none;">
+                        <label for="count3">How many SF of chimney needs Raking & Repointing:*</label>
+                        <input type="number" id="count3" name="count3" step="1">
                     </div>
 
                     <div id="capField" style="display: none;">
@@ -168,16 +214,24 @@
             const action = this.value;
             const repairField = document.getElementById('repairField');
             const capField = document.getElementById('capField');
+            const rakefield = document.getElementById('rakefield');
+            const replaceField = document.getElementById('replaceField');
 
             // Reset both fields to hidden initially
             repairField.style.display = 'none';
             capField.style.display = 'none';
+            rakefield.style.display = 'none';
+            replaceField.style.display = 'none';
 
             // Show the appropriate field based on the selected action
             if (action === 'repair') {
                 repairField.style.display = 'block';
             } else if (action === 'cap') {
                 capField.style.display = 'block';
+            } else if (action === 'rake & repoint') {
+                rakefield.style.display = 'block';
+            } else if (action === 'replace') {
+                replaceField.style.display = 'block';
             }
         });
 
@@ -189,6 +243,8 @@
             const action = document.getElementById('action').value;
             const count = document.getElementById('count').value;
             const count2 = document.getElementById('count2').value;
+            const count3 = document.getElementById('count3').value;
+            const replacech = document.getElementById('replacech').value;
             const capsize = document.getElementById('capsize').value;
             const repmat = document.getElementById('repmat').value;
             const additionalInfo = document.getElementById('additionalInfo').value;
@@ -208,6 +264,10 @@
                 bidText = `${bidPrefix} Need to repair 1 chimney (${count}LF crack) using ${repmat} - safety issue. This will increase the structural integrity of the chimney. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
             } else if (action === 'cap') {
                 bidText = `${bidPrefix} Need to replace ${count2} (${capsize}) chimney cap(s) to the chimney to prevent any water intrusion. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            } else if (action === 'rake & repoint') {
+                bidText = `${bidPrefix} Need to rake and repoint ${count3} SF of chimney due to severe detarioration of the mortar seal around the chimney. This will increase the structural integrity of the chimney and prevent water leakage. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+            }  else if (action === 'replace') {
+                bidText = `${bidPrefix} Need to replace ${replacech} to prevent any water intrusion and develop the structural integrity. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
             } else {
                 alert('Please select an action (Repair or Cap).');
                 return; // Stop execution if no action is selected
