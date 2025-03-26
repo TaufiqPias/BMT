@@ -40,29 +40,29 @@
         <p>Fill out the form accordingly to generate a bid. The following prices are provided as a ranged
           parameter taken from RepairBase 2024. </p>
         <p><b>Approximate Prices:</b>
-          <table>
-            <tr>
-              <th>Item</th>
-              <th>Price</th>
-            </tr>
-            <tr>
-              <td>Remove Gutters & Downspouts - Per LF</td>
-              <td>$0.61</td>
-            </tr>
-            <tr>
-              <td>Replace Gutters & Downspouts - Vinyl</td>
-              <td>$6.34</td>
-            </tr>
-            <tr>
-              <td>Replace Gutters & Downspouts - Aluminum/Galvanized Steel</td>
-              <td>$7.12</td>
-            </tr>
-            <tr>
-              <td>Remove & Reset Gutters & Downspouts - Metal</td>
-              <td>$6.75</td>
-            </tr>
-          </table><br>
-          ***Prices for Gutter, Downspout, and Gutter Extension are the same.***
+        <table>
+          <tr>
+            <th>Item</th>
+            <th>Price</th>
+          </tr>
+          <tr>
+            <td>Remove Gutters & Downspouts - Per LF</td>
+            <td>$0.61</td>
+          </tr>
+          <tr>
+            <td>Replace Gutters & Downspouts - Vinyl</td>
+            <td>$6.34</td>
+          </tr>
+          <tr>
+            <td>Replace Gutters & Downspouts - Aluminum/Galvanized Steel</td>
+            <td>$7.12</td>
+          </tr>
+          <tr>
+            <td>Remove & Reset Gutters & Downspouts - Metal</td>
+            <td>$6.75</td>
+          </tr>
+        </table><br>
+        ***Prices for Gutter, Downspout, and Gutter Extension are the same.***
         </p>
         <b>
           <p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p>
@@ -166,74 +166,78 @@
 
   <!-- Script to Generate Bid -->
   <script>
-        // Function to update endcapfield visibility
-        function updateEndcapFieldVisibility() {
-          const item = document.getElementById('item').value;
-          const action = document.getElementById('action').value;
-          const endcapfield = document.getElementById('endcapfield');
-          const debrisField = document.getElementById('debrisField');
+    // Function to update endcapfield visibility
+    function updateEndcapFieldVisibility() {
+      const item = document.getElementById('item').value;
+      const action = document.getElementById('action').value;
+      const endcapfield = document.getElementById('endcapfield');
+      const debrisField = document.getElementById('debrisField');
 
-          // Reset to hidden initially
-          endcapfield.style.display = 'none';
+      // Reset to hidden initially
+      endcapfield.style.display = 'none';
 
-          // Show endcapfield only when both conditions are met
-          if (action === 'replace' && item === 'gutter') {
-            endcapfield.style.display = 'block';
-          } else {
-            endcapfield.style.display = 'none';
-          }
+      // Show endcapfield only when both conditions are met
+      if (action === 'replace' && item === 'gutter') {
+        endcapfield.style.display = 'block';
+      } else {
+        endcapfield.style.display = 'none';
+      }
 
-          // Handle debris field visibility
-          debrisField.style.display = action === 'remove' ? 'block' : 'none';
-        }
+      // Handle debris field visibility
+      debrisField.style.display = action === 'remove' ? 'block' : 'none';
+    }
 
-        // Add event listeners
-        document.getElementById('item').addEventListener('change', updateEndcapFieldVisibility);
-        document.getElementById('action').addEventListener('change', updateEndcapFieldVisibility);
+    // Add event listeners
+    document.getElementById('item').addEventListener('change', updateEndcapFieldVisibility);
+    document.getElementById('action').addEventListener('change', updateEndcapFieldVisibility);
 
-        document.getElementById('Form').addEventListener('submit', function (event) {
-          event.preventDefault();
+    document.getElementById('Form').addEventListener('submit', function (event) {
+      event.preventDefault();
 
-          // Get form values
-          const bidPrefix = document.getElementById('bidPrefix').value;
-          const action = document.getElementById('action').value;
-          const appl = document.getElementById('appl').value;
-          const item = document.getElementById('item').value;
-          const debris = document.getElementById('debris').value || 0; // Default to 0 if empty
-          const count = document.getElementById('count').value;
-          const material = document.getElementById('material').value;
-          const loc = document.getElementById('loc').value;
-          const additionalInfo = document.getElementById('additionalInfo').value;
-          const conj = document.getElementById('conj').value;
-          const price = parseFloat(document.getElementById('price').value) || 0; // Default to 0 if empty
+      // Get form elements
+      const bidPrefix = document.getElementById('bidPrefix').value;
+      const action = document.getElementById('action').value;
+      const item = document.getElementById('item').value;
+      const count = document.getElementById('count').value;
+      const material = document.getElementById('material').value;
+      const loc = document.getElementById('loc').value;
+      const additionalInfo = document.getElementById('additionalInfo').value;
+      const conj = document.getElementById('conj').value;
+      const price = parseFloat(document.getElementById('price').value) || 0;
 
-          // Format the price with commas
-          const formattedPrice = price.toLocaleString('en-US', {
-            style: 'decimal',
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-          });
+      // Get conditional fields and check their visibility
+      const endcapfield = document.getElementById('endcapfield');
+      const appl = endcapfield.style.display === 'none' ? '' : document.getElementById('appl').value;
+      const debrisField = document.getElementById('debrisField');
+      const debris = debrisField.style.display === 'none' ? 0 : (document.getElementById('debris').value || 0);
 
-          // Generate bid text based on action and item
-          let bidText = '';
+      // Format the price with commas
+      const formattedPrice = price.toLocaleString('en-US', {
+        style: 'decimal',
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
 
-          if (action === 'remove') {
-            bidText = `${bidPrefix} Need to remove approx ${count}LF of ${item} from the ${loc} side of the property. Will generate approx ${debris}cyd(s) of debris - includes hauling away. Will require ladder, hammer, crowbar and other equipment to complete the task. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
-          }
-          else if (action === 'replace') {
-            bidText = `${bidPrefix} Need to replace approx ${count}LF of ${material} ${item} at the ${loc} side of the property. Will require ladder, hammer, crowbar and other equipment to complete the task. ${appl ? `End Cap Needed: ${appl}.` : ''} ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
-          }
-          else if (action === 're-attach') {  // Fixed typo from 'repalce' to 'replace'
-            bidText = `${bidPrefix} Need to re-attach approx ${count}LF of ${item} at the ${loc} side of the property. Will require ladder, hammer, crowbar and other equipment to complete the task. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`; 
-          }
-          else {
-            alert('Please select an action (Remove or Replace).');
-            return; // Stop execution if no action is selected
-          }
+      // Generate bid text based on action and item
+      let bidText = '';
 
-          // Save the bid as a note
-          saveBidAsNote(bidText);
-        });
+      if (action === 'remove') {
+        bidText = `${bidPrefix} Need to remove approx ${count}LF of ${item} from the ${loc} side of the property. Will generate approx ${debris}cyd(s) of debris - includes hauling away. Will require ladder, hammer, crowbar and other equipment to complete the task. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+      }
+      else if (action === 'replace') {
+        bidText = `${bidPrefix} Need to replace approx ${count}LF of ${material} ${item} at the ${loc} side of the property. Will require ladder, hammer, crowbar and other equipment to complete the task. ${appl ? `End Cap Needed: ${appl}.` : ''} ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+      }
+      else if (action === 're-attach') {
+        bidText = `${bidPrefix} Need to re-attach approx ${count}LF of ${item} at the ${loc} side of the property. Will require ladder, hammer, crowbar and other equipment to complete the task. ${conj ? `***Must be approved in conjunction to ${conj} bid.***` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
+      }
+      else {
+        alert('Please select an action (Remove or Replace or Re-attach).');
+        return; // Stop execution if no action is selected
+      }
+
+      // Save the bid as a note
+      saveBidAsNote(bidText);
+    });
   </script>
   <script src="script_other.js"></script>
 

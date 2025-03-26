@@ -181,7 +181,7 @@ button:hover {
     grid-column: span 2; /* Span across both columns of the form */
     margin-top: 5px; /* Add spacing from the previous field */
     padding: 10px;
-    background-color: #f8f9fa; /* Light background color */
+    background-color: #cbffd8; /* Light background color */
     border: 1px solid #ccc; /* Subtle border */
     border-radius: 5px; /* Match the form's border radius */
     font-size: 14px; /* Match the form's font size */
@@ -191,7 +191,7 @@ button:hover {
 #manualItemsInput, #countfield, #repairField, #capField, #flatrtContainer, #shthngContainer, #rftrContainer, #rventContainer, #rtoilContainer, #replaceField, #chmnContainer, #debrisFieldContainer, #reasonField, #applField, #reltoField, #equipmentField, #rakefield, #typeField, #materialField, #storeFields, #moveFields, #removeFields, #replaceFields, #grinderField, #panelFields, #toprailcapsField, #debrisField, #fasciaField, #soffitField, #endcapfield  {
     grid-column: span 2; /* Span across both columns of the form */
     padding: 10px;
-    background-color: #f0f0f0; /* Red background color */
+    background-color: #cbffd8; /* Red background color */
     color: #fff; /* White text color */
     border: none; /* Remove border */
     border-radius: 5px; /* Match the form's border radius */

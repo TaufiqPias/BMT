@@ -52,3 +52,12 @@
     <option value="remove">Remove</option>
     <option value="replace">Replace</option>
 </select>
+
+<!-- logic to handle hidden field value -->
+ <script>
+    // Get conditional fields and check their visibility
+    const endcapfield = document.getElementById('endcapfield');
+      const appl = endcapfield.style.display === 'none' ? '' : document.getElementById('appl').value;
+      const debrisField = document.getElementById('debrisField');
+      const debris = debrisField.style.display === 'none' ? 0 : (document.getElementById('debris').value || 0);
+ </script>
