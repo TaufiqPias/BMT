@@ -59,24 +59,36 @@
         </div>
         <div class="title">
           <h1 style="text-align: right">INVOICE</h1>
-          <p>
-            #
+          <div class="invoice-text">
+            Invoice No.
             <label for="invoice-number"></label>
             <input type="text" id="invoice-number" name="invoice-number" />
-          </p>
+
+            Asset No.
+            <label for="asset-number"></label>
+            <input type="text" id="asset-number" name="asset-number" />
+          </div>
         </div>
+      </div>
+      <div class="address">
+        <label>Address:</label>
+        <input
+          type="text"
+          id="address"
+          name="address"
+          placeholder="Property address here..."
+        />
       </div>
 
       <div class="info-section">
         <div class="from">
-          <label>Company Details:</label>
+          <label>Billing From:</label>
           <textarea></textarea>
         </div>
         <div class="to">
-          <label>Billing To</label>
+          <label>Billing To:</label>
           <textarea></textarea>
         </div>
-
         <div class="details"><label>Date</label><input type="date" /></div>
       </div>
 
@@ -116,12 +128,6 @@
             <label>Notes</label>
             <textarea
               placeholder="Notes - any relevant information not already covered"
-            ></textarea>
-          </div>
-          <div>
-            <label>Terms</label>
-            <textarea
-              placeholder="Terms and conditions - late fees, payment methods, delivery schedule"
             ></textarea>
           </div>
         </div>

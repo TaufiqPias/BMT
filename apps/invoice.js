@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const logoUpload = document.getElementById("logo-upload");
   const logoPreview = document.getElementById("logo-preview");
   const changeLogoBtn = document.getElementById("change-logo");
-  let logoDataUrl = null; // To store the logo for PDF generation
+  let logoDataUrl = null;
 
   // Handle logo upload
   logoUpload.addEventListener("change", (event) => {
@@ -19,11 +19,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (file) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        logoDataUrl = e.target.result; // Store for PDF
+        logoDataUrl = e.target.result;
         logoPreview.src = logoDataUrl;
-        logoPreview.style.display = "block"; // Ensure the preview is visible
-        logoUpload.style.display = "none"; // Hide the input after upload
-        changeLogoBtn.style.display = "block"; // Show the "Change Logo" button
+        logoPreview.style.display = "block";
+        logoUpload.style.display = "none";
+        changeLogoBtn.style.display = "block";
       };
       reader.readAsDataURL(file);
     }
@@ -31,12 +31,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Handle "Change Logo" button click
   changeLogoBtn.addEventListener("click", () => {
-    logoUpload.style.display = "block"; // Show the file input again
-    changeLogoBtn.style.display = "none"; // Hide the "Change Logo" button
-    logoPreview.src = ""; // Clear the current logo preview
-    logoPreview.style.display = "block"; // Keep preview visible for placeholder
-    logoDataUrl = null; // Reset the stored logo data
-    logoUpload.value = ""; // Clear the file input selection
+    logoUpload.style.display = "block";
+    changeLogoBtn.style.display = "none";
+    logoPreview.src = "";
+    logoPreview.style.display = "block";
+    logoDataUrl = null;
+    logoUpload.value = "";
   });
 
   // Add new item row
@@ -77,11 +77,10 @@ document.addEventListener("DOMContentLoaded", () => {
   discountEl.addEventListener("input", calculateTotal);
   taxEl.addEventListener("input", calculateTotal);
 
-  // Calculate totals (removed shipping)
+  // Calculate totals
   function calculateTotal() {
     let subtotal = 0;
 
-    // Calculate subtotal from items
     document.querySelectorAll("#item-rows tr").forEach((row) => {
       const quantity = parseFloat(row.querySelector(".quantity").value) || 0;
       const rate = parseFloat(row.querySelector(".rate").value) || 0;
@@ -90,7 +89,6 @@ document.addEventListener("DOMContentLoaded", () => {
       subtotal += amount;
     });
 
-    // Apply discount and tax
     const discountPercent = parseFloat(discountEl.value) || 0;
     const taxPercent = parseFloat(taxEl.value) || 0;
 
@@ -98,10 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const taxableAmount = subtotal - discountAmount;
     const taxAmount = (taxableAmount * taxPercent) / 100;
     const total = taxableAmount + taxAmount;
-    const amountPaid = 0; // Static for now, can be made dynamic
+    const amountPaid = 0;
     const balanceDue = total - amountPaid;
 
-    // Update UI
     subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
     totalEl.textContent = `$${total.toFixed(2)}`;
     amountPaidEl.textContent = `$${total.toFixed(2)}`;
@@ -113,72 +110,85 @@ document.addEventListener("DOMContentLoaded", () => {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
-    // Add logo to PDF if uploaded
     if (logoDataUrl) {
       const img = new Image();
       img.src = logoDataUrl;
       img.onload = () => {
         const imgWidth = img.width;
         const imgHeight = img.height;
-        const minPdfWidth = 66; // ≈ 250px at 96 DPI (66 mm)
-        let pdfWidth = minPdfWidth; // Start with minimum width
-        let pdfHeight = (imgHeight / imgWidth) * pdfWidth; // Maintain aspect ratio
+        const minPdfWidth = 66;
+        let pdfWidth = minPdfWidth;
+        let pdfHeight = (imgHeight / imgWidth) * pdfWidth;
 
-        // Cap at page width (190 mm to leave margin) if too wide
         if (pdfWidth > 190) {
           pdfWidth = 190;
           pdfHeight = (imgHeight / imgWidth) * pdfWidth;
         }
 
-        // Adjust height if it exceeds a reasonable limit (e.g., 50 mm)
         if (pdfHeight > 50) {
           pdfHeight = 50;
           pdfWidth = (imgWidth / imgHeight) * pdfHeight;
         }
 
-        doc.addImage(logoDataUrl, "PNG", 10, 10, pdfWidth, pdfHeight); // Adjusted size
-        continuePDFGeneration(doc); // Continue after image is added
+        doc.addImage(logoDataUrl, "PNG", 10, 10, pdfWidth, pdfHeight);
+        continuePDFGeneration(doc);
       };
       img.onerror = () => {
-        continuePDFGeneration(doc); // Fallback if image fails to load
+        continuePDFGeneration(doc);
       };
     } else {
-      continuePDFGeneration(doc); // No logo, proceed directly
+      continuePDFGeneration(doc);
     }
 
-    // Function to continue PDF generation after logo handling
     function continuePDFGeneration(doc) {
       // Add title and invoice number
       doc.setFontSize(18);
       doc.text("INVOICE", 10, 50);
       doc.setFontSize(12);
       doc.text(
-        `Invoice Number: ${document.getElementById("invoice-number").value}`,
+        `Invoice Number\n ${document.getElementById("invoice-number").value}`,
         180,
         50,
-        {
-          align: "right",
-        }
+        { align: "right" }
+      );
+      // Add Asset Number below Invoice Number
+      doc.text(
+        `Asset Number\n ${
+          document.getElementById("asset-number").value || "N/A"
+        }`,
+        180,
+        60,
+        { align: "right" }
       );
 
+      // Add Address above Billing From
+      doc.text("Address:", 10, 70);
+      const address = document.getElementById("address").value || "N/A";
+      const addressLines = doc.splitTextToSize(address, 180); // Wrap text if too long
+      doc.text(addressLines, 10, 75);
+
+      // Adjust position of sender, receiver, and details based on address lines
+      const addressHeight = addressLines.length * 5; // Approx 5mm per line
+      const nextY = 75 + addressHeight + 5; // Add some padding
+
       // Sender, receiver, and details
-      doc.text("From:", 10, 70);
+      doc.text("From:", 10, nextY);
       doc.text(
         document.querySelector(".from textarea").value.split("\n"),
         10,
-        80
+        nextY + 10
       );
-      doc.text("Bill To:", 70, 70);
+      doc.text("Bill To:", 70, nextY);
       doc.text(
         document.querySelector(".to textarea").value.split("\n"),
         70,
-        80
+        nextY + 10
       );
-      doc.text("Date:", 140, 70);
+      doc.text("Date:", 140, nextY);
       doc.text(
         document.querySelector('.details input[type="date"]').value,
         140,
-        80
+        nextY + 10
       );
 
       // Prepare table data for items
@@ -193,7 +203,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Add items table using autoTable
       doc.autoTable({
-        startY: 100,
+        startY: nextY + 30, // Adjust table start based on previous content
         head: [["Description", "Quantity", "Rate", "Amount"]],
         body: tableData,
         theme: "grid",
@@ -216,21 +226,12 @@ document.addEventListener("DOMContentLoaded", () => {
       doc.text(`Balance Due: ${balanceDueEl.textContent}`, 140, finalY);
       finalY += 20;
 
-      // Add notes with max width of 180
+      // Add notes
       doc.text("Notes:", 10, finalY);
       const notes =
         document.querySelector(".notes-terms textarea").value || "N/A";
       const notesLines = doc.splitTextToSize(notes, 180);
       doc.text(notesLines, 10, finalY + 10);
-      finalY += 10 + notesLines.length * 10;
-
-      // Add terms with max width of 180
-      doc.text("Terms:", 10, finalY);
-      const terms =
-        document.querySelectorAll(".notes-terms textarea")[1].value || "N/A";
-      const termsLines = doc.splitTextToSize(terms, 180);
-      doc.text(termsLines, 10, finalY + 10);
-      finalY += 10 + termsLines.length * 10;
 
       // Save PDF
       doc.save("invoice.pdf");
