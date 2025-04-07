@@ -46,12 +46,13 @@
             type="file"
             id="logo-upload"
             accept="image/*"
+            required
           />
           <button id="change-logo" style="display: none">Change Logo</button>
           <div class="logo-container">
             <img
               id="logo-preview"
-              src=""
+              src="..\Images\insert-logo.svg"
               alt="Add Logo Here"
               style="display: block"
             />
@@ -62,11 +63,16 @@
           <div class="invoice-text">
             Invoice No.
             <label for="invoice-number"></label>
-            <input type="text" id="invoice-number" name="invoice-number" />
+            <input
+              type="text"
+              id="invoice-number"
+              name="invoice-number"
+              required
+            />
 
             Asset No.
             <label for="asset-number"></label>
-            <input type="text" id="asset-number" name="asset-number" />
+            <input type="text" id="asset-number" name="asset-number" required />
           </div>
         </div>
       </div>
@@ -77,6 +83,7 @@
           id="address"
           name="address"
           placeholder="Property address here..."
+          required
         />
       </div>
 
