@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Taufiq Pias" />
-    <title>Empty - BMT</title>
+    <title>Skylight - BMT</title>
     <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png" />
     <link rel="stylesheet" href="styles.css" />
     <script
@@ -59,6 +59,13 @@
             2024.
           </p>
           <p><b>Approximate Prices:</b></p>
+          <br />
+          <a
+            href="https://cdn11.bigcommerce.com/s-ljmuy6/images/stencil/1280x1280/products/720/31665/velux-skylights-flat-roof-fcm1430-665x870__86165.1702088065.jpg?c=2"
+            target="_blank"
+            >Check Skylight Sizes</a
+          >
+          <br /><br />
           <b>
             <p style="color: brown">
               ***Consult with your Team Lead before submitting the price.***
@@ -74,9 +81,9 @@
       </div>
 
       <div class="container">
-        <h1>Empty Bid</h1>
+        <h1>Roof Bid</h1>
         <div class="division">
-          <h2>Empty Bids</h2>
+          <h2>Skylight Bids</h2>
           <form id="Form">
             <label for="bidPrefix"
               >Bid Prefix (for conjunction bid - Use a colon after
@@ -89,40 +96,29 @@
               placeholder="Title: / Title-"
             />
 
-            <label for="equipments">Equipment required:*</label>
-            <select id="equipments" name="equipments" required>
-              <option value="">--Select Equipment--</option>
-              <option
-                value="Will require Loopers, Hedge Trimmer, Hatchet, Chainsaw, Ladder, Raker, Gloves and Bags"
-              >
-                Landscaping Equipment
-              </option>
-              <option
-                value="Will require Mower, Blower, Raker, Gloves and Bags"
-              >
-                Grass Cut Equipment
-              </option>
-              <option
-                value="Will require General Tools, Wheel Barrow, Mask, Gloves and Bags"
-              >
-                Debris Removal Equipment
-              </option>
-              <option
-                value="Will require General Tools, Excavetor, Sledge Hammer, Jack Hammer, Wheel Barrow, Mask, Gloves and Bags"
-              >
-                Demolition Equipment
-              </option>
-              <option
-                value="Will require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other"
-              >
-                Plumbing Repair Equipment
-              </option>
-              <option
-                value="Will require Nail Guns, Hammer, Tape, Wrench, Drills, Ladder and Other"
-              >
-                General Repair Equipment
-              </option>
+            <label for="appl">Select any option:*</label>
+            <select id="appl" name="appl" required>
+              <option value="">--Select any--</option>
+              <option value="Remove">Remove</option>
+              <option value="Replace">Replace</option>
+              <option value="Tar-Patch">Tar-Patch</option>
             </select>
+
+            <label for="count">How many Skylights?*</label>
+            <input type="number" id="count" name="count" step="1" required />
+
+            <label for="size">Skylight Size (Check Sizes in info):</label>
+            <input
+              type="text"
+              id="size"
+              name="size"
+              placeholder="i.e. 665mm x 970mm (Use Throat Dimension)"
+            />
+
+            <div id="debrisField" style="display: none">
+              <label for="debris">Generated debris (in cyds):</label>
+              <input type="number" id="debris" name="debris" step="1" />
+            </div>
 
             <label for="additionalInfo">Additional information:</label>
             <textarea
@@ -166,6 +162,18 @@
 
     <!-- Script to Generate Bid -->
     <script>
+      document.getElementById("appl").addEventListener("change", function () {
+        const debrisField = document.getElementById("debrisField");
+        if (this.value === "Remove") {
+          debrisField.style.display = "block";
+        } else {
+          debrisField.style.display = "none";
+          // Optional: Clear the debris value when hidden
+          document.getElementById("debris").value = "";
+        }
+      });
+    </script>
+    <script>
       document
         .getElementById("Form")
         .addEventListener("submit", function (event) {
@@ -173,6 +181,10 @@
 
           // Get form values
           const bidPrefix = document.getElementById("bidPrefix").value;
+          const debris = document.getElementById("debris").value;
+          const appl = document.getElementById("appl").value;
+          const size = document.getElementById("size").value;
+          const count = document.getElementById("count").value;
           const additionalInfo =
             document.getElementById("additionalInfo").value;
           const conj = document.getElementById("conj").value;
@@ -186,9 +198,32 @@
           });
 
           // Generate the bid text
-          const bidText = `${bidPrefix}  ${
-            conj ? `***Must be approved in conjunction to ${conj} bid.***` : ""
-          } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          let bidText;
+          if (appl === "Remove") {
+            bidText = `${bidPrefix} Need to remove ${count} skylight(s) - ${size} from the roof. Will generate approx ${debris} cyds of debris - heavy in nature. Will require ladders and safety gears to complete the job. ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else if (appl === "Replace") {
+            bidText = `${bidPrefix} Need to replace ${count} skylight(s) (Economy Grade) - ${size} at the roof. Will install flashing all around the skylight to prevent water leakage. Will require ladders and safety gears to complete the job. ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else if (appl === "Tar-Patch") {
+            bidText = `${bidPrefix} Need to repair ${count} skylight(s) - ${size} - to prevent water leakage. ***Tar-Patching Only***. Will require ladders and safety gears to complete the job. ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else {
+            alert(
+              "Please select an action (Clean or Remove or Replace or Repair)."
+            );
+            return; // Stop execution if no action is selected
+          }
+
           // Save the bid as a note
           saveBidAsNote(bidText);
         });

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Taufiq Pias" />
+    <title>BMT - Invoice Generator</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png" />
+    <link rel="stylesheet" href="..\apps\invoice.css" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-M2K232X4B3");
+    </script>
+
+    <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "qj1sdmrlho");
+    </script>
+  </head>
+  <body>
+    <div class="invoice-container">
+      <div class="header">
+        <div class="logo">
+          <input
+            title="Add Logo Here"
+            type="file"
+            id="logo-upload"
+            accept="image/*"
+          />
+          <button id="change-logo" style="display: none">Change Logo</button>
+          <div class="logo-container">
+            <img
+              id="logo-preview"
+              src=""
+              alt="Add Logo Here"
+              style="display: block"
+            />
+          </div>
+        </div>
+        <div class="title">
+          <h1 style="text-align: right">INVOICE</h1>
+          <p>
+            #
+            <label for="invoice-number"></label>
+            <input type="text" id="invoice-number" name="invoice-number" />
+          </p>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <div class="from">
+          <label>Company Details:</label>
+          <textarea></textarea>
+        </div>
+        <div class="to">
+          <label>Billing To</label>
+          <textarea></textarea>
+        </div>
+
+        <div class="details"><label>Date</label><input type="date" /></div>
+      </div>
+
+      <table id="item-table">
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Rate</th>
+            <th>Amount</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="item-rows">
+          <tr>
+            <td>
+              <input
+                type="text"
+                class="item-desc"
+                placeholder="Description of item/service..."
+              />
+            </td>
+            <td><input type="number" class="quantity" value="1" min="1" /></td>
+            <td>
+              <input type="number" class="rate" value="0" min="0" step="0.01" />
+            </td>
+            <td class="amount">$0.00</td>
+            <td><button class="remove-item">✖</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <button id="add-item">+ Add More Line Items</button>
+
+      <div class="summary-section">
+        <div class="notes-terms">
+          <div>
+            <label>Notes</label>
+            <textarea
+              placeholder="Notes - any relevant information not already covered"
+            ></textarea>
+          </div>
+          <div>
+            <label>Terms</label>
+            <textarea
+              placeholder="Terms and conditions - late fees, payment methods, delivery schedule"
+            ></textarea>
+          </div>
+        </div>
+        <div class="totals">
+          <p>Subtotal: <span id="subtotal">$0.00</span></p>
+          <p>
+            Discount:
+            <input
+              type="number"
+              id="discount"
+              value="0"
+              min="0"
+              style="max-width: 50px"
+            />
+            %
+          </p>
+          <p>
+            Tax:
+            <input
+              type="number"
+              id="tax"
+              value="0"
+              min="0"
+              style="max-width: 50px"
+            />
+            %
+          </p>
+          <p>
+            <strong>Total: <span id="total">$0.00</span></strong>
+          </p>
+          <p>Amount Paid: <span id="amount-paid">$0.00</span></p>
+          <p>
+            <strong>Balance Due: <span id="balance-due">$0.00</span></strong>
+          </p>
+        </div>
+      </div>
+
+      <button id="download-pdf">Download PDF</button>
+      <a href="../index.html" id="home">Go Home</a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+    <script src="..\apps\invoice.js"></script>
+  </body>
+</html>
