@@ -216,8 +216,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function continuePDFGeneration(doc) {
-      doc.setFontSize(18);
-      doc.text("INVOICE", 10, 50);
+      doc.setFontSize(22);
+      doc.setFont("Helvetica", "bold");
+      doc.text("INVOICE", 10, 60);
+      doc.setFont("Helvetica", "normal");
       doc.setFontSize(12);
       doc.text(
         `Invoice Number\n ${document.getElementById("invoice-number").value}`,
