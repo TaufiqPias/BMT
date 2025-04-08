@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Taufiq Pias" />
+    <title>Mold_Dark_Mold - BMT</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("js", new Date());
+      gtag("config", "G-M2K232X4B3");
+    </script>
+    <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+        t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "qj1sdmrlho");
+    </script>
+  </head>
+
+  <body>
+    <div class="main-container">
+      <!-- Information Area (unchanged) -->
+      <div class="info-container">
+        <h2>Information</h2>
+        <div class="info-content">
+          <p>Fill out the form accordingly to generate a bid. The following prices are provided as a ranged parameter taken from RepairBase 2024.</p>
+          <p><b>Bidding Process:</b><br>A normal discoloration bid consists of 4 major bids.
+          <ul>
+            <li><b>Address The Source:</b> Bid to repair the damage that is causing the discoloration.</li>
+            <li><b>Address The Infection:</b> Bid to remove soft surfaces like dryeall, wood, plaster or scrape residue from hard surface like - concrete or cinder block.</li>
+            <li><b>Address The Discoloration:</b> Bid to treat the discoloration.</li>
+            <li><b>Address The Existing Moisture:</b> Bid to install Damprid (no electricity) or Dehumidifier (with electricity).</li>
+          </ul></p>
+          <p>In this page we are bidding for the 2nd & 3rd step - <b>Address The Infection</b> & <b>Address The Discoloration</b> </p>
+          <br>
+          <p>For Step 1: Go to HOME and find out the source damage and bid accordingly.</p>
+          <p>For Step 4: visit the following link to add a "Moisture Control" bid.</p>
+          <a href="./pages/dehum_damrid.html" title="Dehumidifier, Damprids">Moisture Control</a>
+          <br><br><p><b>***MAKE SURE ALL BIDS ARE IN CONJUNCTION***</b></p>
+          <b><p style="color: brown">***Consult with your Team Lead before submitting the price.***</p></b>
+          <b><p style="color: brown">***Please copy the bids before visiting other pages. Bids will not be saved once redirected.***</p></b>
+        </div>
+      </div>
+
+      <div class="container">
+        <h1>Mold/Mildew Bid</h1>
+        <div class="division">
+          <h2>Mold_Dark_Mold Bids</h2>
+          <form id="Form">
+            <label for="bidPrefix">Bid Prefix (for conjunction bid - Use a colon after prefix)</label>
+            <input type="text" id="bidPrefix" name="bidPrefix" placeholder="Title: / Title-" />
+
+            <label for="appl">Infected Material:*</label>
+            <select id="appl" name="appl" required>
+              <option value="">--Select infected material--</option>
+              <option value="Drywall">Drywall</option>
+              <option value="Plaster">Plaster</option>
+              <option value="Wood Panels">Wood Panels</option>
+              <option value="Plywood Board">Plywood Board</option>
+              <option value="Vinyle Panels">Vinyle Panels</option>
+              <option value="Stones">Stones</option>
+              <option value="Cinder Block">Cinder Block</option>
+              <option value="Concrete">Concrete</option>
+              <option value="Brick">Brick</option>
+            </select>
+
+            <label for="action">Select a Mold Bid:*</label>
+            <select id="action" name="action" required>
+              <option value="">--Select an Action--</option>
+            </select>
+
+            <label for="count">How many SF of Surface Needs Discoloration Treatment?*</label>
+            <input type="number" id="count" name="count" step="1" required />
+
+            <div id="coatField" style="display: none;">
+              <label for="coat">How many Applications?</label>
+              <select id="coat" name="coat">
+                <option value="">--Select any--</option>
+                <option value="1">1 Coat Application</option>
+                <option value="2">2 Coats Application</option>
+              </select>
+            </div>
+
+            <div id="debrisField" style="display: none;">
+              <label for="debris">Generated debris (in cyds):</label>
+              <input type="number" id="debris" name="debris" step="1" />
+            </div>
+
+            <label for="loc">Location:*</label>
+            <input type="text" id="loc" name="loc" placeholder="bedroom 1 ceiling, bathroom wall, etc." required />
+
+            <label for="reason">Reason (Source):*</label>
+            <select id="reason" name="reason" required>
+              <option value="">--Select a Reason for Stain--</option>
+              <option value="Roof Leak">Roof Leak</option>
+              <option value="Flooding">Flooding</option>
+              <option value="Plumbing Damage">Plumbing Damage</option>
+              <option value="Moisture">Moisture</option>
+              <option value="Wet Debris">Wet Debris</option>
+              <option value="Wet Carpet">Wet Carpet</option>
+              <option value="Poor Air Circulation">Poor Air Circulation</option>
+              <option value="Mortgagee Neglect">Mortgagee Neglect</option>
+            </select>
+
+            <label for="additionalInfo">Additional information:</label>
+            <textarea id="additionalInfo" name="additionalInfo" placeholder="Area Breakdown or disclaimers or any other comment"></textarea>
+
+            <label for="conj">Make this bid conjunction to:</label>
+            <input type="text" id="conj" name="conj" placeholder="Bid name only" />
+
+            <label for="price">Price (in USD):</label>
+            <input type="number" id="price" name="price" step="0.01" />
+
+            <button type="submit">Generate Bid</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="note-container">
+        <h2>Bids</h2>
+        <div id="notesList" class="notes-list"></div>
+        <button id="copyAllBidsButton">Copy All Bids</button>
+        <a href="../index.html" id="home"><ion-icon name="home"></ion-icon> Go Home</a>
+      </div>
+    </div>
+
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <!-- Script to Generate Bid -->
+    <script>
+      // Function to update action options based on appl value
+      function updateActionOptions() {
+        const applValue = document.getElementById("appl").value;
+        const actionSelect = document.getElementById("action");
+
+        // Clear existing options in the action dropdown and set default
+        actionSelect.innerHTML = '<option value="">--Select an Action--</option>';
+
+        // Define material groups
+        const bioWashKilzMaterials = ["Drywall", "Plaster", "Wood Panels", "Plywood Board", "Vinyle Panels"];
+        const bioWashDrylokMaterials = ["Stones", "Cinder Block", "Concrete", "Brick"];
+
+        // Update action options based on selected material
+        if (applValue === "") {
+          // Do nothing, keep only the default option
+        } else if (bioWashKilzMaterials.includes(applValue)) {
+          actionSelect.innerHTML += `
+            <option value="Bid 0: Remove Material">Bid 0: Remove Material</option>
+            <option value="Bid 1: Bio-Wash 1">Bid 1: Bio-Wash or Anti-microbial Wash (Soft Serfaces - Open Beam)</option>
+            <option value="Bid 2: Kilz">Bid 2: Kilz or Light Prime Sealer</option>
+          `;
+        } else if (bioWashDrylokMaterials.includes(applValue)) {
+          actionSelect.innerHTML += `
+            <option value="Bid 1: Bio-Wash 2">Bid 1: Bio-Wash or Anti-microbial Wash (Hard Surfaces - Scrapping)</option>
+            <option value="Bid 2: Drylok">Bid 2: Drylok or Thick Prime Sealer</option>
+          `;
+        }
+      }
+
+      // Function to toggle coat and debris fields based on action
+      function toggleFields() {
+        const actionValue = document.getElementById("action").value;
+        const coatField = document.getElementById("coatField");
+        const debrisField = document.getElementById("debrisField");
+
+        if (actionValue === "") {
+          coatField.style.display = "none"; // Hide coat field
+          debrisField.style.display = "none"; // Hide debris field
+        } else if (actionValue === "Bid 0: Remove Material") {
+          coatField.style.display = "none"; // Hide coat field
+          debrisField.style.display = "block"; // Show debris field
+        } else {
+          coatField.style.display = "block"; // Show coat field
+          debrisField.style.display = "none"; // Hide debris field
+        }
+      }
+
+      // Run on page load
+      document.addEventListener("DOMContentLoaded", () => {
+        updateActionOptions();
+        toggleFields();
+      });
+
+      // Run on appl change
+      document.getElementById("appl").addEventListener("change", () => {
+        updateActionOptions();
+        toggleFields(); // Update fields when appl changes (resets action)
+      });
+
+      // Run on action change
+      document.getElementById("action").addEventListener("change", toggleFields);
+
+      // Form submission logic
+      document.getElementById("Form").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        // Get form values
+        const bidPrefix = document.getElementById("bidPrefix").value;
+        const action = document.getElementById("action").value;
+        const count = document.getElementById("count").value;
+        const coat = action === "Bid 0: Remove Material" ? "" : document.getElementById("coat").value; // Ignore coat if hidden
+        const debris = action === "Bid 0: Remove Material" ? document.getElementById("debris").value : ""; // Include debris only if visible
+        const loc = document.getElementById("loc").value;
+        const appl = document.getElementById("appl").value;
+        const reason = document.getElementById("reason").value;
+        const additionalInfo = document.getElementById("additionalInfo").value;
+        const conj = document.getElementById("conj").value;
+        const price = parseFloat(document.getElementById("price").value);
+
+        // Format the price with commas
+        const formattedPrice = price.toLocaleString("en-US", {
+          style: "decimal",
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        });
+
+        // Generate the bid text
+        let bidText;
+        if (action === "Bid 0: Remove Material") {
+          bidText = `${bidPrefix} Need to remove ${count}sf of infected ${appl.toLowerCase()} from ${loc}. Source/Reason: ${reason}. ${
+            debris ? `Will generate approx. ${debris} cyds of debris - hauling included ` : ""
+          }***SOURCE MUST BE ADDRESSED PRIOR TO PROCEEDING WITH THIS BID***. After removal, anti-microbial wash and sealer application are recommended. ${
+            conj ? `***Must be approved in conjunction to ${conj} bid.***` : ""
+          } ${additionalInfo}\nPrice: $${formattedPrice}`;
+        } else if (action === "Bid 1: Bio-Wash 1") {
+          bidText = `${bidPrefix} Need to perform ${coat} coat(s) of anti-microbial solution wash (biowash) on ${count}sf of open beam surface (after ${appl.toLowerCase()} removal) at ${loc} to eliminate further mold growth. Material: ${appl}. Source/Reason: ${reason}. ***SOURCE MUST BE ADDRESSED PRIOR TO PROCEEDING WITH THIS BID***. After completing bio-wash, a sealer application is recommended using Kilz/Drylok/similar product. ${
+            conj ? `***Must be approved in conjunction to ${conj} bid.***` : ""
+          } ${additionalInfo}\nPrice: $${formattedPrice}`;
+        }else if (action === "Bid 1: Bio-Wash 2") {
+          bidText = `${bidPrefix} Need to scrape first and then perform ${coat} coat(s) of anti-microbial solution wash (biowash) on ${count}sf of ${appl.toLowerCase()} at ${loc} to eliminate further mold growth. Source/Reason: ${reason}. ***SOURCE MUST BE ADDRESSED PRIOR TO PROCEEDING WITH THIS BID***. After completing bio-wash, a sealer application is recommended using Kilz/Drylok/similar product. ${
+            conj ? `***Must be approved in conjunction to ${conj} bid.***` : ""
+          } ${additionalInfo}\nPrice: $${formattedPrice}`;
+        } else if (action === "Bid 2: Kilz") {
+          bidText = `${bidPrefix} After completing open beam bio-wash, need to apply ${coat} coat(s) of kilz or similar prime sealer product on ${count}sf of of open beam at ${loc} to prevent further water damage or leakage. Source/Reason: ${reason}. ***SOURCE MUST BE ADDRESSED PRIOR TO PROCEEDING WITH THIS BID***. ***To control existing moisture, a damprid/dehumidifier bid must be approved in conjunction.*** ${
+            conj ? `***Must be approved in conjunction to ${conj} bid.***` : ""
+          } ${additionalInfo}\nPrice: $${formattedPrice}`;
+        } else if (action === "Bid 2: Drylok") {
+          bidText = `${bidPrefix} After completing scrapped wash, need to apply ${coat} coat(s) of drylok or similar prime sealer product on ${count}sf of ${appl.toLowerCase()} at ${loc} to prevent further water damage or leakage. Source/Reason: ${reason}. ***SOURCE MUST BE ADDRESSED PRIOR TO PROCEEDING WITH THIS BID***. ***To control existing moisture, a damprid/dehumidifier bid must be approved in conjunction.*** ${
+            conj ? `***Must be approved in conjunction to ${conj} bid.***` : ""
+          } ${additionalInfo}\nPrice: $${formattedPrice}`;
+        } else {
+          alert("Please select an action (Bid 0, Bid 1, or Bid 2).");
+          return; // Stop execution if no action is selected
+        }
+
+        // Save the bid as a note (assuming saveBidAsNote is defined elsewhere)
+        saveBidAsNote(bidText);
+      });
+    </script>
+    <script src="script_other.js"></script>
+    <script src="blocker.js"></script>
+  </body>
+</html>
