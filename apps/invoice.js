@@ -179,17 +179,13 @@ document.addEventListener("DOMContentLoaded", () => {
       img.onload = () => {
         const imgWidth = img.width;
         const imgHeight = img.height;
-        const minPdfWidth = 66;
-        let pdfWidth = minPdfWidth;
-        let pdfHeight = (imgHeight / imgWidth) * pdfWidth;
+        const maxPdfHeight = 40; // Maximum height of 40px
+        let pdfHeight = imgHeight;
+        let pdfWidth = imgWidth;
 
-        if (pdfWidth > 190) {
-          pdfWidth = 190;
-          pdfHeight = (imgHeight / imgWidth) * pdfWidth;
-        }
-
-        if (pdfHeight > 50) {
-          pdfHeight = 50;
+        // Scale down if height exceeds 40px, maintaining aspect ratio
+        if (pdfHeight > maxPdfHeight) {
+          pdfHeight = maxPdfHeight;
           pdfWidth = (imgWidth / imgHeight) * pdfHeight;
         }
 

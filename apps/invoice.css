@@ -4,6 +4,20 @@ body {
   margin: 0;
   padding: 20px;
   background-color: #b6e9c2;
+  color: #333; /* Default light mode text color */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Light Mode Text Color Enforcement */
+body:not(.dark-mode) {
+  color: #333;
+}
+
+body:not(.dark-mode) p,
+body:not(.dark-mode) h1,
+body:not(.dark-mode) label,
+body:not(.dark-mode) .address {
+  color: #333;
 }
 
 input {
@@ -20,6 +34,7 @@ input {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   border-radius: 8px;
+  transition: background-color 0.3s ease;
 }
 
 .header {
@@ -48,9 +63,9 @@ input {
 }
 
 #change-logo {
-  margin-top: 5px; /* Space between input/preview and button */
-  font-size: 12px; /* Smaller button text */
-  padding: 5px 10px; /* Button padding */
+  margin-top: 5px;
+  font-size: 12px;
+  padding: 5px 10px;
 }
 
 .address {
@@ -63,21 +78,21 @@ input {
 }
 
 .logo-container {
-  max-width: 400px; /* Maximum width of the container */
-  max-height: 100px; /* Maximum height of the container */
-  width: 100%; /* Allows it to shrink if the parent is narrower than 400px */
-  height: 100px; /* Fixed height to match max-height */
-  display: flex; /* Centers the image inside the container */
-  justify-content: center; /* Horizontally center the image */
-  align-items: center; /* Vertically center the image */
-  overflow: hidden; /* Clips any overflow if the image exceeds the container */
+  max-width: 400px;
+  max-height: 100px;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
   border-radius: 5px;
 }
 
 #logo-preview {
-  max-width: 100%; /* Ensures the image doesn’t exceed the container width */
-  max-height: 100%; /* Ensures the image doesn’t exceed the container height */
-  object-fit: contain; /* Maintains aspect ratio, fitting within the container */
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .title h1 {
@@ -126,12 +141,8 @@ input {
 
 .address {
   margin-top: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  font-size: small;
-  color: #2c3e50;
 }
+
 .address input {
   max-width: 785px;
   width: 100%;
@@ -149,6 +160,7 @@ table {
 thead {
   background: #2c3e50;
   color: white;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 th,
@@ -181,7 +193,9 @@ td input {
   padding: 5px;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 #add-item:hover {
   background: #218838;
 }
@@ -217,16 +231,17 @@ td input {
 #download-pdf {
   display: flex;
   flex-direction: row;
-  justify-content: center; /* Center content inside the button */
+  justify-content: center;
   align-items: center;
-  margin: 20px auto; /* Center the button horizontally */
+  margin: 20px auto;
   background: #28a745;
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 4px;
   cursor: pointer;
-  width: fit-content; /* Ensure the button width adjusts to its content */
+  width: fit-content;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #download-pdf:hover {
@@ -246,8 +261,51 @@ a {
   cursor: pointer;
   font-size: 14px;
   text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a:hover {
   background-color: #39834a;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #082032 !important;
+  color: #fff !important;
+}
+
+body.dark-mode .invoice-container {
+  background-color: rgba(44, 57, 75, 0.9);
+  border-color: #082032;
+}
+
+body.dark-mode .invoice-text,
+body.dark-mode .address,
+body.dark-mode .title h1,
+body.dark-mode .info-section label,
+body.dark-mode .totals p {
+  color: #fff;
+}
+
+body.dark-mode thead {
+  background-color: #334756;
+  color: #fff;
+}
+
+body.dark-mode #add-item,
+body.dark-mode #download-pdf,
+body.dark-mode a {
+  background-color: #334756;
+  color: #ff4c29;
+}
+
+body.dark-mode #add-item:hover,
+body.dark-mode #download-pdf:hover,
+body.dark-mode a:hover {
+  background-color: #ff4c29;
+  color: #fff;
+}
+
+body.dark-mode .remove-item {
+  color: #ff4c29;
 }

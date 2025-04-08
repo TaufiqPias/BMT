@@ -215,7 +215,7 @@ body.dark-mode #description,
 #fasciaField,
 #soffitField,
 #endcapfield {
-  background-color: #f79682;
+  background-color: #f8927e;
   border: 1px solid #082032;
 }
 
@@ -385,7 +385,8 @@ th {
 }
 
 body.dark-mode tr:nth-child(even) {
-  background-color: #f79682;
+  background-color: #fcdbd4;
+  color: #333;
 }
 
 /* Dark Mode Styles */
