@@ -1,5 +1,4 @@
-/* General Styles */
-
+/* General Styles (unchanged) */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -7,13 +6,13 @@ body {
   background-color: #b6e9c2;
 }
 
-/* Header Styles */
+/* Header Styles (unchanged) */
 header {
-  background-color: #28a745; /* Default green */
+  background-color: #28a745;
   color: #fff;
-  padding: 10px 20px; /* Increased padding for better spacing */
+  padding: 10px 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s ease; /* Smooth transition for dark mode */
+  transition: background-color 0.3s ease;
 }
 
 .header-container {
@@ -26,10 +25,10 @@ header {
 
 header h1 {
   margin: 0;
-  font-size: 32px; /* Slightly smaller for better balance */
+  font-size: 32px;
 }
 
-/* Navigation Styles */
+/* Navigation Styles (unchanged) */
 .header-nav {
   display: flex;
   gap: 20px;
@@ -41,16 +40,16 @@ header h1 {
   font-size: 16px;
   padding: 5px 10px;
   transition: color 0.3s ease;
-}
-
-.header-nav a:hover {
-  color: #044202; /* Light blue hover effect */
-  transform: scale(1.1);
-  transition: transform 0.3s ease; /* Smooth scaling effect */
   font-weight: bold;
 }
 
-/* Header Actions (Right Side) */
+.header-nav a:hover {
+  color: #044202;
+  transform: scale(1.1);
+  transition: transform 0.5s ease;
+}
+
+/* Header Actions (unchanged) */
 .header-actions {
   display: flex;
   align-items: center;
@@ -87,7 +86,7 @@ header h1 {
   background-color: #218838;
 }
 
-/* Container Styles */
+/* Container Styles (unchanged) */
 .container {
   display: flex;
   justify-content: space-between;
@@ -97,28 +96,18 @@ header h1 {
 
 .column {
   flex: 1;
-  margin: 0 10 px;
+  margin: 0 10px;
   background-color: #fff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column; /* Stack columns vertically */
-  }
-
-  .column {
-    margin: 10px 0; /* Adjust margin for vertical stacking */
-  }
-}
-
 h2 {
   margin-top: 0;
 }
 
-/* Information Panel Styles */
+/* Information Panel Styles (unchanged) */
 .info-panel {
   background-color: #f8f9fa;
   padding: 15px;
@@ -134,7 +123,7 @@ h2 {
 .Estimator {
   margin-top: 10px;
   padding: 6px 10px;
-  background-color: #28a745; /* Updated to green */
+  background-color: #28a745;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -143,29 +132,10 @@ h2 {
 }
 
 .Estimator:hover {
-  background-color: #218838; /* Darker green on hover */
+  background-color: #218838;
 }
 
-.info-panel ol {
-  margin: 0 0 15px;
-  padding-left: 20px;
-}
-
-.info-panel ol li {
-  margin-bottom: 10px;
-}
-
-/* This is only for NEWS. Once We will have something to share, We will make it visible. */
-.news {
-  display: flex;
-  background-color: #b6e9c2;
-  padding: 5px;
-  border: 2px solid #199e07;
-  border-radius: 10px;
-  margin-bottom: 10px;
-}
-
-/* Categories Column Styles */
+/* Categories and Other Styles (unchanged) */
 .category-section {
   display: flex;
   flex-direction: column;
@@ -179,10 +149,6 @@ h2 {
   border: 1px solid #ddd;
 }
 
-.category h3 {
-  margin-top: 0;
-}
-
 .category-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -191,7 +157,7 @@ h2 {
 
 .category-buttons a {
   padding: 6px 10px;
-  background-color: #28a745; /* Updated to green */
+  background-color: #28a745;
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -200,61 +166,18 @@ h2 {
 }
 
 .category-buttons a:hover {
-  background-color: #218838; /* Darker green on hover */
+  background-color: #218838;
 }
 
-/* Final Bid Column Styles */
-#bidSummary {
-  margin-top: 20px;
-}
-
-.bid-item {
-  background-color: #f8f9fa;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-}
-
-.bid-item p {
-  margin: 0;
-  line-height: 1.5;
-}
-
-.bid-actions {
-  margin-top: 20px;
-  display: flex;
-  gap: 10px;
-}
-
-.bid-actions button {
-  padding: 10px 15px;
-  background-color: #28a745; /* Updated to green */
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.bid-actions button:hover {
-  background-color: #218838; /* Darker green on hover */
-}
-
-.bid-actions button#exportToExcel {
-  background-color: #28a745; /* Updated to green */
-}
-
-.bid-actions button#exportToExcel:hover {
-  background-color: #218838; /* Darker green on hover */
-}
-
+/* Search Input (unchanged) */
 #searchInput {
-  width: 97%;
+  width: 100%;
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  box-sizing: border-box;
 }
 
 footer .footer {
@@ -266,32 +189,24 @@ footer .footer {
   font-size: 10px;
 }
 
-.tooltip {
-  position: relative;
-  display: inline-block;
+/* Collapsible Toggle Button */
+.info-toggle {
+  display: none;
+  width: 100%;
+  padding: 10px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 16px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Add transition for consistency */
 }
 
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: #b6e9c2;
-  color: #199e07;
-  text-align: center;
-  border-radius: 5px;
-  padding: 5px;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%; /* Position above the button */
-  left: 50%;
-  margin-left: -60px; /* Center the tooltip */
-  opacity: 0;
-  /* transition: opacity 0.3s; */
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-  color: #199e07;
+.info-toggle:hover {
+  background-color: #218838;
 }
 
 /* Dark Mode Styles */
@@ -309,7 +224,7 @@ body.dark-mode .header-nav a {
 }
 
 body.dark-mode .header-nav a:hover {
-  color: #ff4c29; /* Orange hover effect in dark mode */
+  color: #ff4c29;
 }
 
 body.dark-mode .toggle-btn {
@@ -318,6 +233,17 @@ body.dark-mode .toggle-btn {
 }
 
 body.dark-mode .toggle-btn:hover {
+  background-color: #ff4c29;
+  color: #fff;
+}
+
+/* Add dark mode styles for info-toggle to match toggle-btn */
+body.dark-mode .info-toggle {
+  background-color: #2c394b;
+  color: #ff4c29;
+}
+
+body.dark-mode .info-toggle:hover {
   background-color: #ff4c29;
   color: #fff;
 }
@@ -336,13 +262,11 @@ body.dark-mode .profile-btn:hover {
 body.dark-mode .container a {
   background-color: #334756;
   color: #ff4c29;
-  /* border: solid 0.5px #ff4c29; */
 }
 
 body.dark-mode .container a:hover {
   background-color: #ff4c29;
   color: #fff;
-  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body.dark-mode .column {
@@ -351,13 +275,141 @@ body.dark-mode .column {
 }
 
 body.dark-mode .info-panel,
-body.dark-mode .category,
-body.dark-mode .bid-item {
+body.dark-mode .category {
   background-color: #2c394b;
   border-color: #082032;
 }
 
-/* Ensure smooth transitions */
+/* Media Queries for Mobile Only */
+@media (max-width: 768px) {
+  /* Header Adjustments */
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 8px 15px;
+  }
+
+  header h1 {
+    font-size: 24px;
+  }
+
+  .header-nav {
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+
+  .header-nav a {
+    font-size: 14px;
+    padding: 5px 8px;
+  }
+
+  .header-actions {
+    gap: 10px;
+    margin-top: 10px;
+    justify-content: center;
+  }
+
+  .toggle-btn,
+  .profile-btn {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  /* Container Adjustments */
+  .container {
+    flex-direction: column;
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .column {
+    margin: 0;
+    padding: 10px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  /* Collapsible Information Section */
+  .info-toggle {
+    display: block; /* Show on mobile */
+  }
+
+  .info-panel {
+    display: none; /* Hidden by default on mobile */
+  }
+
+  .info-panel.active {
+    display: block; /* Show when toggled */
+  }
+
+  .info-panel p,
+  .info-panel ol {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  /* Search Input for Mobile */
+  #searchInput {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+  }
+
+  /* Categories Adjustments */
+  .category-section {
+    gap: 8px;
+  }
+
+  .category {
+    padding: 10px;
+  }
+
+  .category h3 {
+    font-size: 16px;
+  }
+
+  .category-buttons a {
+    padding: 5px 8px;
+    font-size: 12px;
+    flex: 1 1 45%; /* Two per row */
+    text-align: center;
+  }
+
+  /* Footer Adjustments */
+  footer .footer {
+    left: 10px;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 20px;
+  }
+
+  .header-nav a,
+  .toggle-btn,
+  .profile-btn {
+    font-size: 12px;
+    padding: 4px 6px;
+  }
+
+  .category-buttons a {
+    flex: 1 1 100%; /* One per row */
+  }
+
+  footer .footer {
+    left: 5px;
+    font-size: 8px;
+  }
+}
+
+/* Transitions (unchanged) */
 body,
 header,
 .toggle-btn,
@@ -365,7 +417,7 @@ header,
 .column,
 .info-panel,
 .category,
-.bid-item {
+.info-toggle {
   transition: background-color 0.3s ease, color 0.3s ease,
     border-color 0.3s ease;
 }

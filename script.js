@@ -111,3 +111,8 @@ document.addEventListener("keydown", function (event) {
     alert("Ctrl+Shift+I is disabled!");
   }
 });
+
+document.querySelector(".info-toggle").addEventListener("click", function () {
+  const infoPanel = document.querySelector(".info-panel");
+  infoPanel.classList.toggle("active");
+});
