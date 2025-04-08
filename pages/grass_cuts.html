@@ -1,210 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Taufiq Pias">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Taufiq Pias" />
     <title>Grass Cuts - BMT</title>
-    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png">
-    <link rel="stylesheet" href="styles.css">
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="..\dark_mode.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"
+    ></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-        gtag('config', 'G-M2K232X4B3');
+      gtag("config", "G-M2K232X4B3");
     </script>
 
-<script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "qj1sdmrlho");
-</script>
+    <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "qj1sdmrlho");
+    </script>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div class="main-container">
-        <!-- Information Area -->
-        <div class="info-container">
-            <h2>Information</h2>
-            <div class="info-content">
-                <p>Check the Lot condition and determine the scope of work. Fill out the form accordingly to generate a
-                    bid. The following prices are provided as a ranged parameter taken from RepairBase 2024. </p>
-                <p><strong>Prices: Approximate Range</strong></p>
-                <p><b>Only for Initial Grass cut<br>
-                        Cut Lawn - 12" Tall - up to 5,000SF = $76.28 <br>
-                        Cut Lawn - 12" Tall - for EA 1,000SF = $8.49 <br>
-                        Cut Lawn - 12" - 24" Tall - up to 5,000SF = $107.46 <br>
-                        Cut Lawn - 12" - 24" Tall - EA 1,000SF = $14.84 <br>
-                        Cut Lawn - 24" - 36" Tall - up to 5,000SF = $147.56 <br>
-                        Cut Lawn - 24" - 36" Tall - EA 1,000SF = $22.05 <br>
-                        Cut Lawn - 36" - 48" Tall - up to 5,000SF = $197.61 <br>
-                        Cut Lawn - 36" - 48" Tall - EA 1,000SF = $29.25 <br>
-                        Cut Lawn - 48" - 72" Tall - up to 5,000SF = $243.21 <br>
-                        Cut Lawn - 48" - 72" Tall - EA 1,000SF = $35.88</b></p>
-                <br>
-                <p><b>Please check the client grass cut pricing metrix for grass re-cut</b></p>
+      <!-- Information Area -->
+      <div class="info-container">
+        <h2>Information</h2>
+        <div class="info-content">
+          <p>
+            Check the Lot condition and determine the scope of work. Fill out
+            the form accordingly to generate a bid. The following prices are
+            provided as a ranged parameter taken from RepairBase 2024.
+          </p>
+          <p><strong>Prices: Approximate Range</strong></p>
+          <p>
+            <b
+              >Only for Initial Grass cut<br />
+              Cut Lawn - 12" Tall - up to 5,000SF = $76.28 <br />
+              Cut Lawn - 12" Tall - for EA 1,000SF = $8.49 <br />
+              Cut Lawn - 12" - 24" Tall - up to 5,000SF = $107.46 <br />
+              Cut Lawn - 12" - 24" Tall - EA 1,000SF = $14.84 <br />
+              Cut Lawn - 24" - 36" Tall - up to 5,000SF = $147.56 <br />
+              Cut Lawn - 24" - 36" Tall - EA 1,000SF = $22.05 <br />
+              Cut Lawn - 36" - 48" Tall - up to 5,000SF = $197.61 <br />
+              Cut Lawn - 36" - 48" Tall - EA 1,000SF = $29.25 <br />
+              Cut Lawn - 48" - 72" Tall - up to 5,000SF = $243.21 <br />
+              Cut Lawn - 48" - 72" Tall - EA 1,000SF = $35.88</b
+            >
+          </p>
+          <br />
+          <p>
+            <b
+              >Please check the client grass cut pricing metrix for grass
+              re-cut</b
+            >
+          </p>
 
-                <b>Brush hog rental price per day: $163.02 </b>
-                <br>
-                <br>
-                <b>
-                    <p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p>
-                </b>
-                <b>
-                    <p style="color: brown;">***Please copy the bids before visiting other pages. Bids will not be saved
-                        once redirected.***</p>
-                </b>
-            </div>
+          <b>Brush hog rental price per day: $163.02 </b>
+          <br />
+          <br />
+          <b>
+            <p style="color: brown">
+              ***Consult with your Team Lead before submitting the price.***
+            </p>
+          </b>
+          <b>
+            <p style="color: brown">
+              ***Please copy the bids before visiting other pages. Bids will not
+              be saved once redirected.***
+            </p>
+          </b>
         </div>
+      </div>
 
+      <div class="container">
+        <h1>Landscaping Bid</h1>
+        <div class="division">
+          <h2>Grass Cut Bids</h2>
+          <form id="gcForm">
+            <label for="bidPrefix"
+              >Bid Prefix (for conjunction bid - Use a colon after
+              prefix)</label
+            >
+            <input
+              type="text"
+              id="bidPrefix"
+              name="bidPrefix"
+              placeholder="Title: / Title-"
+            />
 
+            <label for="cutType">Type of cut needed:*</label>
+            <select id="cutType" name="cutType" required>
+              <option value="select">--Select Grass Cut type--</option>
+              <option value="full lawn initial cut">
+                Full lawn initial grass cut
+              </option>
+              <option value="front lawn only - partial initial cut">
+                Front lawn only - partial initial grass cut
+              </option>
+              <option value="back lawn only - partial initial cut">
+                Back lawn only - partial initial grass cut
+              </option>
+              <option value="full lawn grass re-cut">
+                Full lawn grass re-cut
+              </option>
+              <option value="front lawn only - partial grass re-cut">
+                Front lawn only - partial grass re-cut
+              </option>
+            </select>
 
+            <label for="lSize">Lot Size:*</label>
+            <input type="number" id="lSize" name="lSize" required />
 
-        <div class="container">
-            <h1>Landscaping Bid</h1>
-            <div class="division">
-                <h2>Grass Cut Bids</h2>
-                <form id="gcForm">
+            <label for="gheight">Grass Height:*</label>
+            <input
+              type="number"
+              id="gheight"
+              name="gheight"
+              step="1"
+              required
+            />
 
-                    <label for="bidPrefix">Bid Prefix (for conjunction bid - Use a colon after prefix)</label>
-                    <input type="text" id="bidPrefix" name="bidPrefix" placeholder="Title: / Title-">
+            <label for="brushhog">Brush hog needed?*</label>
+            <select id="brushhog" name="brushhog" required>
+              <option value="select">--Select Any--</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
 
-                    <label for="cutType">Type of cut needed:*</label>
-                    <select id="cutType" name="cutType" required>
-                        <option value="select">--Select Grass Cut type--</option>
-                        <option value="full lawn initial cut">Full lawn initial grass cut</option>
-                        <option value="front lawn only - partial initial cut">Front lawn only - partial initial grass
-                            cut</option>
-                        <option value="back lawn only - partial initial cut">Back lawn only - partial initial grass cut
-                        </option>
-                        <option value="full lawn grass re-cut">Full lawn grass re-cut</option>
-                        <option value="front lawn only - partial grass re-cut">Front lawn only - partial grass re-cut
-                        </option>
-                    </select>
+            <label for="reason">Reason:*</label>
+            <select id="reason" name="reason" required>
+              <option value="select">--Select Reason--</option>
+              <option value="To prevent violation">To prevent violation</option>
+              <option value="To cure violation">To cure violation</option>
+              <option value="Possible code violation">
+                Possible code violation
+              </option>
+              <option value="To make the property Marketable Condition">
+                To make the property Marketable Condition
+              </option>
+              <option value="ICC Violation">ICC Violation</option>
+            </select>
 
-                    <label for="lSize">Lot Size:*</label>
-                    <input type="number" id="lSize" name="lSize" required>
+            <label for="debris">Generated debris (in cyds):*</label>
+            <input type="number" id="debris" name="debris" step="1" required />
 
-                    <label for="gheight">Grass Height:*</label>
-                    <input type="number" id="gheight" name="gheight" step="1" required>
+            <label for="equipments">Equipment required:*</label>
+            <select id="equipments" name="equipments" required>
+              <option value="">--Select Equipment--</option>
+              <option
+                value="Will require Loopers, Hedge Trimmer, Hatchet, Chainsaw, Ladder, Raker, Gloves and Bags"
+              >
+                Landscaping Equipment
+              </option>
+              <option
+                value="Will require Mower, Blower, Raker, Gloves and Bags"
+              >
+                Grass Cut Equipment
+              </option>
+              <option
+                value="Will require General Tools, Wheel Barrow, Mask, Gloves and Bags"
+              >
+                Debris Removal Equipment
+              </option>
+              <option
+                value="Will require General Tools, Excavetor, Sledge Hammer, Jack Hammer, Wheel Barrow, Mask, Gloves and Bags"
+              >
+                Demolition Equipment
+              </option>
+              <option
+                value="Will require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other"
+              >
+                Plumbing Repair Equipment
+              </option>
+              <option
+                value="Will require Nail Guns, Hammer, Tape, Wrench, Drills, Ladder and Other"
+              >
+                General Repair Equipment
+              </option>
+            </select>
 
-                    <label for="brushhog">Brush hog needed?*</label>
-                    <select id="brushhog" name="brushhog" required>
-                        <option value="select">--Select Any--</option>
-                        <option value="Yes">Yes</option>
-                        <option value="No">No</option>
-                    </select>
+            <label for="additionalInfo">Additional information:</label>
+            <textarea
+              id="additionalInfo"
+              name="additionalInfo"
+              placeholder="Disclaimer or Other necessary comments"
+            ></textarea>
 
-                    <label for="reason">Reason:*</label>
-                    <select id="reason" name="reason" required>
-                        <option value="select">--Select Reason--</option>
-                        <option value="To prevent violation">To prevent violation</option>
-                        <option value="To cure violation">To cure violation</option>
-                        <option value="Possible code violation">Possible code violation</option>
-                        <option value="To make the property Marketable Condition">To make the property Marketable
-                            Condition</option>
-                        <option value="ICC Violation">ICC Violation</option>
-                    </select>
+            <label for="conj">Make this bid conjunction to:</label>
+            <input
+              type="text"
+              id="conj"
+              name="conj"
+              placeholder="Bid name only"
+            />
 
-                    <label for="debris">Generated debris (in cyds):*</label>
-                    <input type="number" id="debris" name="debris" step="1" required>
+            <label for="price">Price (in USD):</label>
+            <input type="number" id="price" name="price" step="0.01" />
 
-                    <label for="equipments">Equipment required:*</label>
-                    <Select id="equipments" name="equipments" required>
-                        <option value="">--Select Equipment--</option>
-                        <option value="Will require Loopers, Hedge Trimmer, Hatchet, Chainsaw, Ladder, Raker, Gloves and Bags">Landscaping Equipment</option>
-                        <option value="Will require Mower, Blower, Raker, Gloves and Bags">Grass Cut Equipment</option>
-                        <option value="Will require General Tools, Wheel Barrow, Mask, Gloves and Bags">Debris Removal Equipment</option>
-                        <option value="Will require General Tools, Excavetor, Sledge Hammer, Jack Hammer, Wheel Barrow, Mask, Gloves and Bags">Demolition Equipment</option>
-                        <option value="Will require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other">Plumbing Repair Equipment</option>
-                        <option value="Will require Nail Guns, Hammer, Tape, Wrench, Drills, Ladder and Other">General Repair Equipment</option>
-                    </Select>
-
-                    <label for="additionalInfo">Additional information:</label>
-                    <textarea id="additionalInfo" name="additionalInfo"
-                        placeholder="Disclaimer or Other necessary comments"></textarea>
-
-                    <label for="conj">Make this bid conjunction to:</label>
-                    <input type="text" id="conj" name="conj" placeholder="Bid name only">
-
-                    <label for="price">Price (in USD):</label>
-                    <input type="number" id="price" name="price" step="0.01">
-
-                    <button type="submit">Generate Bid</button>
-                    <a href="https://www.zillow.com/" target="_blank" id="findLotsize">Find Lot Size: Zillow</a>
-                </form>
-
-
-            </div>
-
-
+            <button type="submit">Generate Bid</button>
+            <a href="https://www.zillow.com/" target="_blank" id="findLotsize"
+              >Find Lot Size: Zillow</a
+            >
+          </form>
         </div>
+      </div>
 
-        <!-- New Note Section -->
-        <div class="note-container">
-            <h2>Bids</h2>
-            <div id="notesList" class="notes-list">
-                <!-- Notes will be dynamically added here -->
-            </div>
-            <button id="copyAllBidsButton">Copy All Bids</button>
-            <a href="../index.html" id="home"> <ion-icon name="home"></ion-icon> Go Home</a>
-
+      <!-- New Note Section -->
+      <div class="note-container">
+        <h2>Bids</h2>
+        <div id="notesList" class="notes-list">
+          <!-- Notes will be dynamically added here -->
         </div>
-
+        <button id="copyAllBidsButton">Copy All Bids</button>
+        <a href="../index.html" id="home">
+          <ion-icon name="home"></ion-icon> Go Home</a
+        >
+      </div>
     </div>
-
 
     <div id="floatingMessage" class="floating-message">Copied!</div>
 
     <!-- Script to Generate Bid -->
     <script>
-        document.getElementById('gcForm').addEventListener('submit', function (event) {
-            event.preventDefault();
+      document
+        .getElementById("gcForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
 
-            // Get form values
-            const bidPrefix = document.getElementById('bidPrefix').value;
-            const cutType = document.getElementById('cutType').value;
-            const lSize = document.getElementById('lSize').value;
-            const gheight = document.getElementById('gheight').value;
-            const brushhog = document.getElementById('brushhog').value;
-            const reason = document.getElementById('reason').value;
-            const debris = document.getElementById('debris').value;
-            const equipments = document.getElementById('equipments').value;
-            const additionalInfo = document.getElementById('additionalInfo').value;
-            const conj = document.getElementById('conj').value;
-            const price = parseFloat(document.getElementById('price').value);
+          // Get form values
+          const bidPrefix = document.getElementById("bidPrefix").value;
+          const cutType = document.getElementById("cutType").value;
+          const lSize = document.getElementById("lSize").value;
+          const gheight = document.getElementById("gheight").value;
+          const brushhog = document.getElementById("brushhog").value;
+          const reason = document.getElementById("reason").value;
+          const debris = document.getElementById("debris").value;
+          const equipments = document.getElementById("equipments").value;
+          const additionalInfo =
+            document.getElementById("additionalInfo").value;
+          const conj = document.getElementById("conj").value;
+          const price = parseFloat(document.getElementById("price").value);
 
-            // Format the price with commas
-            const formattedPrice = price.toLocaleString('en-US', {
-                style: 'decimal',
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-            });
+          // Format the price with commas
+          const formattedPrice = price.toLocaleString("en-US", {
+            style: "decimal",
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
 
-            // Generate the bid text
-            const bidText = `${bidPrefix} Need to perform ${cutType} on ${lSize} SF of lot area at the property. Grass height: ${gheight}". Reason: ${reason}. Brush hog needed: ${brushhog}. ${equipments}. Will generate approx ${debris} cyds of debris - bid includes hauling away debris from the property. ${conj ? `***Must be approved in conjunction to ${conj} bid.` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
-            // Save the bid as a note
-            saveBidAsNote(bidText);
+          // Generate the bid text
+          const bidText = `${bidPrefix} Need to perform ${cutType} on ${lSize} SF of lot area at the property. Grass height: ${gheight}". Reason: ${reason}. Brush hog needed: ${brushhog}. ${equipments}. Will generate approx ${debris} cyds of debris - bid includes hauling away debris from the property. ${
+            conj ? `***Must be approved in conjunction to ${conj} bid.` : ""
+          } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          // Save the bid as a note
+          saveBidAsNote(bidText);
         });
     </script>
     <script src="blocker.js"></script>
 
-
     <script src="script_other.js"></script>
-
-
-
-
-</body>
-
+  </body>
 </html>

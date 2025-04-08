@@ -1,256 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Taufiq Pias">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Taufiq Pias" />
     <title>Fence - BMT</title>
-    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png">
-    <link rel="stylesheet" href="styles.css">
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
 
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+      gtag("config", "G-M2K232X4B3");
+    </script>
 
-        gtag('config', 'G-M2K232X4B3');
-        </script>
-        
-        <script type="text/javascript">
-            (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "qj1sdmrlho");
-        </script>
+    <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "qj1sdmrlho");
+    </script>
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div class="main-container">
-        <!-- Information Area -->
-        <div class="info-container">
-            <h2>Information</h2>
-            <div class="info-content">
-                <p>Fence is a tricky thing to work with. Consult with someone else and determine the scope of work
-                    together. Fill out the form accordingly to generate a bid. The following prices are provided as a
-                    ranged parameter taken from RepairBase 2024. </p>
+      <!-- Information Area -->
+      <div class="info-container">
+        <h2>Information</h2>
+        <div class="info-content">
+          <p>
+            Fence is a tricky thing to work with. Consult with someone else and
+            determine the scope of work together. Fill out the form accordingly
+            to generate a bid. The following prices are provided as a ranged
+            parameter taken from RepairBase 2024.
+          </p>
 
-                <p>It is good to know - <br>
-                    The usual height of fence at the front is <b style="color : brown">4ft</b>. <br>
-                    The usual height of fence at the rear is <b style="color : brown">6ft</b>.</p>
-                <br>
-                <p>Standard Post counting system = How many panels + 1</p>
-                <p><strong>Prices: Approximate Range</strong></p>
-                <p><b>Material and manufacturing cost vary from time to time. Please consult with contractor and bid
-                        specialist to determine the correct pricing.</b></p>
-                <br>
-                <p>Remember =:= Chainlink fence post is 5X more harder to remove than wooden post.</p>
-                <br>
-                <b>
-                    <p style="color: brown;">***Consult with your Team Lead before submitting the price.***</p>
-                </b>
-                <b>
-                    <p style="color: brown;">***Please copy the bids before visiting other pages. Bids will not be saved
-                        once redirected.***</p>
-                </b>
-            </div>
+          <p>
+            It is good to know - <br />
+            The usual height of fence at the front is
+            <b style="color: brown">4ft</b>. <br />
+            The usual height of fence at the rear is
+            <b style="color: brown">6ft</b>.
+          </p>
+          <br />
+          <p>Standard Post counting system = How many panels + 1</p>
+          <p><strong>Prices: Approximate Range</strong></p>
+          <p>
+            <b
+              >Material and manufacturing cost vary from time to time. Please
+              consult with contractor and bid specialist to determine the
+              correct pricing.</b
+            >
+          </p>
+          <br />
+          <p>
+            Remember =:= Chainlink fence post is 5X more harder to remove than
+            wooden post.
+          </p>
+          <br />
+          <b>
+            <p style="color: brown">
+              ***Consult with your Team Lead before submitting the price.***
+            </p>
+          </b>
+          <b>
+            <p style="color: brown">
+              ***Please copy the bids before visiting other pages. Bids will not
+              be saved once redirected.***
+            </p>
+          </b>
         </div>
+      </div>
 
-        <div class="container">
-            <h1>Landscaping Bid</h1>
-            <div class="division">
-                <h2>Fence Bids</h2>
-                <form id="fenceForm">
+      <div class="container">
+        <h1>Landscaping Bid</h1>
+        <div class="division">
+          <h2>Fence Bids</h2>
+          <form id="fenceForm">
+            <label for="bidPrefix"
+              >Bid Prefix (for conjunction bid - Use a colon after
+              prefix)</label
+            >
+            <input
+              type="text"
+              id="bidPrefix"
+              name="bidPrefix"
+              placeholder="Title: / Title-"
+            />
 
-                    <label for="bidPrefix">Bid Prefix (for conjunction bid - Use a colon after prefix)</label>
-                    <input type="text" id="bidPrefix" name="bidPrefix" placeholder="Title: / Title-">
+            <label for="fencetype">What type of fence?*</label>
+            <select id="fencetype" name="fencetype" required>
+              <option value="select">--Select Fence Type--</option>
+              <option value="wooden">Wooden</option>
+              <option value="chainlink">Chainlink</option>
+              <option value="vinyl">Vinyl panel</option>
+              <option value="composite">Composite panel</option>
+              <option value="picket">Picket</option>
+            </select>
 
-                    <label for="fencetype">What type of fence?*</label>
-                    <select id="fencetype" name="fencetype" required>
-                        <option value="select">--Select Fence Type--</option>
-                        <option value="wooden">Wooden</option>
-                        <option value="chainlink">Chainlink</option>
-                        <option value="vinyl">Vinyl panel</option>
-                        <option value="composite">Composite panel</option>
-                        <option value="picket">Picket</option>
-                    </select>
+            <label for="fenceaction">What do you want to do?*</label>
+            <select id="fenceaction" name="fenceaction" required>
+              <option value="select">--Select Action--</option>
+              <option value="remove">Remove</option>
+              <option value="replace">Replace</option>
+              <option value="repair">Repair</option>
+            </select>
 
-                    <label for="fenceaction">What do you want to do?*</label>
-                    <select id="fenceaction" name="fenceaction" required>
-                        <option value="select">--Select Action--</option>
-                        <option value="remove">Remove</option>
-                        <option value="replace">Replace</option>
-                        <option value="repair">Repair</option>
-                    </select>
+            <label for="length">How many Linear Feet?*</label>
+            <input type="number" id="length" name="length" step="1" required />
 
-                    <label for="length">How many Linear Feet?*</label>
-                    <input type="number" id="length" name="length" step="1" required>
+            <label for="panelsize">Panel size:</label>
+            <select id="panelsize" name="panelsize">
+              <option value="">--Select Panel Size--</option>
+              <option value="6ft x 3ft">6ft wide x 3ft tall</option>
+              <option value="6ft x 4ft">6ft wide x 4ft tall</option>
+              <option value="6ft x 5ft">6ft wide x 5ft tall</option>
+              <option value="6ft x 6ft">6ft wide x 6ft tall</option>
+              <option value="8ft x 4ft">8ft wide x 4ft tall</option>
+              <option value="8ft x 6ft">8ft wide x 6ft tall</option>
+            </select>
 
-                    <label for="panelsize">Panel size:</label>
-                    <select id="panelsize" name="panelsize">
-                        <option value="">--Select Panel Size--</option>
-                        <option value="6ft x 3ft">6ft wide x 3ft tall</option>
-                        <option value="6ft x 4ft">6ft wide x 4ft tall</option>
-                        <option value="6ft x 5ft">6ft wide x 5ft tall</option>
-                        <option value="6ft x 6ft">6ft wide x 6ft tall</option>
-                        <option value="8ft x 4ft">8ft wide x 4ft tall</option>
-                        <option value="8ft x 6ft">8ft wide x 6ft tall</option>
-                    </select>
+            <div id="panelFields" style="display: none">
+              <label for="panelcount">How many panels?</label>
+              <input type="number" id="panelcount" name="panelcount" />
 
-                    <div id="panelFields" style="display: none;">
-                        <label for="panelcount">How many panels?</label>
-                        <input type="number" id="panelcount" name="panelcount">
-
-                        <label for="postcount">How many posts?</label>
-                        <input type="number" id="postcount" name="postcount">
-                    </div>
-
-                    <div id="toprailcapsField" style="display: none;">
-                        <label for="toprailcaps">Toprail & Post caps needed?</label>
-                        <select id="toprailcaps" name="toprailcaps">
-                            <option value="">--Select Any--</option>
-                            <option value="Will also require - ">Yes</option>
-                            <option value="">No</option>
-                        </select>
-                    </div>
-
-                    <label for="gate">Fence Gate needed?</label>
-                    <select id="gate" name="gate">
-                        <option value="">--Select Any--</option>
-                        <option value="">No</option>
-                        <option value="4ft x 3ft wooden gate.">4ft x 3ft wooden gate</option>
-                        <option value="6ft x 3ft wooden gate.">6ft x 3ft wooden gate</option>
-                        <option value="4ft x 3ft chainlink fence gate.">4ft x 3ft chainlink fence gate</option>
-                        <option value="4ft x 3ft vinyle gate.">4ft x 3ft vinyle gate</option>
-                        <option value="6ft x 3ft vinyle gate.">6ft x 3ft vinyle gate</option>
-                        <option value="4ft x 3ft composite gate.">4ft x 3ft composite gate</option>
-                        <option value="6ft x 3ft composite gate.">6ft x 3ft composite gate</option>
-                    </select>
-
-                    <label for="location">Location:*</label>
-                    <input type="text" id="location" name="location" placeholder="front, left, right, rear" required>
-
-                    <label for="reason">Reason:*</label>
-                    <input type="text" id="reason" name="reason"
-                        placeholder="Please state reason for removal/replacement/repair" required>
-
-                    <div id="debrisField" style="display: none;">
-                        <label for="debris">Generated debris (in cyds):</label>
-                        <input type="number" id="debris" name="debris" step="1">
-                    </div>
-
-                    <label for="equipments">Equipment required:*</label>
-                    <Select id="equipments" name="equipments" required>
-                        <option value="">--Select Equipment--</option>
-                        <option value="Will require Loopers, Hedge Trimmer, Hatchet, Chainsaw, Ladder, Raker, Gloves and Bags">Landscaping Equipment</option>
-                        <option value="Will require Mower, Blower, Raker, Gloves and Bags">Grass Cut Equipment</option>
-                        <option value="Will require General Tools, Wheel Barrow, Mask, Gloves and Bags">Debris Removal Equipment</option>
-                        <option value="Will require General Tools, Excavetor, Sledge Hammer, Jack Hammer, Wheel Barrow, Mask, Gloves and Bags">Demolition Equipment</option>
-                        <option value="Will require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other">Plumbing Repair Equipment</option>
-                        <option value="Will require Nail Guns, Hammer, Tape, Wrench, Drills, Ladder and Other">General Repair Equipment</option>
-                    </Select>
-
-                    <label for="additionalInfo">Additional information:</label>
-                    <textarea id="additionalInfo" name="additionalInfo"
-                        placeholder="Disclaimer or Other necessary comments"></textarea>
-
-                    <label for="conj">Make this bid conjunction to:</label>
-                    <input type="text" id="conj" name="conj" placeholder="Bid name only">
-
-                    <label for="price">Price (in USD):</label>
-                    <input type="number" id="price" name="price" step="0.01">
-
-                    <button type="submit">Generate Bid</button>
-                </form>
+              <label for="postcount">How many posts?</label>
+              <input type="number" id="postcount" name="postcount" />
             </div>
-        </div>
 
-        <!-- New Note Section -->
-        <div class="note-container">
-            <h2>Bids</h2>
-            <div id="notesList" class="notes-list">
-                <!-- Notes will be dynamically added here -->
+            <div id="toprailcapsField" style="display: none">
+              <label for="toprailcaps">Toprail & Post caps needed?</label>
+              <select id="toprailcaps" name="toprailcaps">
+                <option value="">--Select Any--</option>
+                <option value="Will also require - ">Yes</option>
+                <option value="">No</option>
+              </select>
             </div>
-            <button id="copyAllBidsButton">Copy All Bids</button>
-            <a href="../index.html" id="home"> <ion-icon name="home"></ion-icon> Go Home</a>
+
+            <label for="gate">Fence Gate needed?</label>
+            <select id="gate" name="gate">
+              <option value="">--Select Any--</option>
+              <option value="">No</option>
+              <option value="4ft x 3ft wooden gate.">
+                4ft x 3ft wooden gate
+              </option>
+              <option value="6ft x 3ft wooden gate.">
+                6ft x 3ft wooden gate
+              </option>
+              <option value="4ft x 3ft chainlink fence gate.">
+                4ft x 3ft chainlink fence gate
+              </option>
+              <option value="4ft x 3ft vinyle gate.">
+                4ft x 3ft vinyle gate
+              </option>
+              <option value="6ft x 3ft vinyle gate.">
+                6ft x 3ft vinyle gate
+              </option>
+              <option value="4ft x 3ft composite gate.">
+                4ft x 3ft composite gate
+              </option>
+              <option value="6ft x 3ft composite gate.">
+                6ft x 3ft composite gate
+              </option>
+            </select>
+
+            <label for="location">Location:*</label>
+            <input
+              type="text"
+              id="location"
+              name="location"
+              placeholder="front, left, right, rear"
+              required
+            />
+
+            <label for="reason">Reason:*</label>
+            <input
+              type="text"
+              id="reason"
+              name="reason"
+              placeholder="Please state reason for removal/replacement/repair"
+              required
+            />
+
+            <div id="debrisField" style="display: none">
+              <label for="debris">Generated debris (in cyds):</label>
+              <input type="number" id="debris" name="debris" step="1" />
+            </div>
+
+            <label for="equipments">Equipment required:*</label>
+            <select id="equipments" name="equipments" required>
+              <option value="">--Select Equipment--</option>
+              <option
+                value="Will require Loopers, Hedge Trimmer, Hatchet, Chainsaw, Ladder, Raker, Gloves and Bags"
+              >
+                Landscaping Equipment
+              </option>
+              <option
+                value="Will require Mower, Blower, Raker, Gloves and Bags"
+              >
+                Grass Cut Equipment
+              </option>
+              <option
+                value="Will require General Tools, Wheel Barrow, Mask, Gloves and Bags"
+              >
+                Debris Removal Equipment
+              </option>
+              <option
+                value="Will require General Tools, Excavetor, Sledge Hammer, Jack Hammer, Wheel Barrow, Mask, Gloves and Bags"
+              >
+                Demolition Equipment
+              </option>
+              <option
+                value="Will require Pliers, Pipe Wrench, Basin Wrench, Thread Sealing Tape, Faucet Key, and Other"
+              >
+                Plumbing Repair Equipment
+              </option>
+              <option
+                value="Will require Nail Guns, Hammer, Tape, Wrench, Drills, Ladder and Other"
+              >
+                General Repair Equipment
+              </option>
+            </select>
+
+            <label for="additionalInfo">Additional information:</label>
+            <textarea
+              id="additionalInfo"
+              name="additionalInfo"
+              placeholder="Disclaimer or Other necessary comments"
+            ></textarea>
+
+            <label for="conj">Make this bid conjunction to:</label>
+            <input
+              type="text"
+              id="conj"
+              name="conj"
+              placeholder="Bid name only"
+            />
+
+            <label for="price">Price (in USD):</label>
+            <input type="number" id="price" name="price" step="0.01" />
+
+            <button type="submit">Generate Bid</button>
+          </form>
         </div>
+      </div>
+
+      <!-- New Note Section -->
+      <div class="note-container">
+        <h2>Bids</h2>
+        <div id="notesList" class="notes-list">
+          <!-- Notes will be dynamically added here -->
+        </div>
+        <button id="copyAllBidsButton">Copy All Bids</button>
+        <a href="../index.html" id="home">
+          <ion-icon name="home"></ion-icon> Go Home</a
+        >
+      </div>
     </div>
 
     <div id="floatingMessage" class="floating-message">Copied!</div>
 
     <!-- Script to Generate Bid -->
     <script>
-        document.getElementById('fenceForm').addEventListener('submit', function (event) {
-            event.preventDefault();
+      document
+        .getElementById("fenceForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
 
-            // Get form values
-            const bidPrefix = document.getElementById('bidPrefix').value;
-            const fenceaction = document.getElementById('fenceaction').value;
-            const length = document.getElementById('length').value;
-            const fencetype = document.getElementById('fencetype').value;
-            const panelsize = document.getElementById('panelsize').value;
-            const panelcount = document.getElementById('panelcount').value;
-            const postcount = document.getElementById('postcount').value;
-            const toprailcaps = document.getElementById('toprailcaps').value;
-            const gate = document.getElementById('gate').value;
-            const location = document.getElementById('location').value;
-            const reason = document.getElementById('reason').value;
-            const debris = document.getElementById('debris').value;
-            const equipments = document.getElementById('equipments').value;
-            const additionalInfo = document.getElementById('additionalInfo').value;
-            const conj = document.getElementById('conj').value;
-            const price = parseFloat(document.getElementById('price').value);
+          // Get form values
+          const bidPrefix = document.getElementById("bidPrefix").value;
+          const fenceaction = document.getElementById("fenceaction").value;
+          const length = document.getElementById("length").value;
+          const fencetype = document.getElementById("fencetype").value;
+          const panelsize = document.getElementById("panelsize").value;
+          const panelcount = document.getElementById("panelcount").value;
+          const postcount = document.getElementById("postcount").value;
+          const toprailcaps = document.getElementById("toprailcaps").value;
+          const gate = document.getElementById("gate").value;
+          const location = document.getElementById("location").value;
+          const reason = document.getElementById("reason").value;
+          const debris = document.getElementById("debris").value;
+          const equipments = document.getElementById("equipments").value;
+          const additionalInfo =
+            document.getElementById("additionalInfo").value;
+          const conj = document.getElementById("conj").value;
+          const price = parseFloat(document.getElementById("price").value);
 
-            // Format the price with commas
-            const formattedPrice = price.toLocaleString('en-US', {
-                style: 'decimal',
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-            });
+          // Format the price with commas
+          const formattedPrice = price.toLocaleString("en-US", {
+            style: "decimal",
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
 
-            // Generate the bid text
-            const bidText = `${bidPrefix} Need to ${fenceaction} ${length} LF of ${fencetype} fence from/at the ${location} side of the property. Reason: ${reason}. ${debris ? `Will generate approx ${debris} cyds of debris.` : ''} ${panelsize ? `Will need to ${fenceaction} ${panelcount} pieces of ${panelsize} panels and ${postcount} posts.` : ''} ${toprailcaps ? `${toprailcaps}to ${fenceaction} ${length} LF toprail and ${postcount} pieces of loop caps/ post caps.` : ''} ${gate ? `Will also need to ${fenceaction} ${gate}` : ''} Will require ${equipments}. ${conj ? `***Must be approved in conjunction to ${conj} bid.` : ''} ${additionalInfo}\nPrice: $${formattedPrice}`;
-            // Save the bid as a note
-            saveBidAsNote(bidText);
+          // Generate the bid text
+          const bidText = `${bidPrefix} Need to ${fenceaction} ${length} LF of ${fencetype} fence from/at the ${location} side of the property. Reason: ${reason}. ${
+            debris ? `Will generate approx ${debris} cyds of debris.` : ""
+          } ${
+            panelsize
+              ? `Will need to ${fenceaction} ${panelcount} pieces of ${panelsize} panels and ${postcount} posts.`
+              : ""
+          } ${
+            toprailcaps
+              ? `${toprailcaps}to ${fenceaction} ${length} LF toprail and ${postcount} pieces of loop caps/ post caps.`
+              : ""
+          } ${
+            gate ? `Will also need to ${fenceaction} ${gate}` : ""
+          } Will require ${equipments}. ${
+            conj ? `***Must be approved in conjunction to ${conj} bid.` : ""
+          } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          // Save the bid as a note
+          saveBidAsNote(bidText);
         });
 
-        // Show or hide fields based on selections
-        document.getElementById('panelsize').addEventListener('change', function () {
-            const panelFields = document.getElementById('panelFields');
-            if (this.value) {
-                panelFields.style.display = 'block';
-            } else {
-                panelFields.style.display = 'none';
-            }
+      // Show or hide fields based on selections
+      document
+        .getElementById("panelsize")
+        .addEventListener("change", function () {
+          const panelFields = document.getElementById("panelFields");
+          if (this.value) {
+            panelFields.style.display = "block";
+          } else {
+            panelFields.style.display = "none";
+          }
         });
 
-        document.getElementById('fencetype').addEventListener('change', function () {
-            const toprailcapsField = document.getElementById('toprailcapsField');
-            if (this.value === 'chainlink') {
-                toprailcapsField.style.display = 'block';
-            } else {
-                toprailcapsField.style.display = 'none';
-            }
+      document
+        .getElementById("fencetype")
+        .addEventListener("change", function () {
+          const toprailcapsField = document.getElementById("toprailcapsField");
+          if (this.value === "chainlink") {
+            toprailcapsField.style.display = "block";
+          } else {
+            toprailcapsField.style.display = "none";
+          }
         });
 
-        document.getElementById('fenceaction').addEventListener('change', function () {
-            const debrisField = document.getElementById('debrisField');
-            if (this.value === 'remove') {
-                debrisField.style.display = 'block';
-            } else {
-                debrisField.style.display = 'none';
-            }
+      document
+        .getElementById("fenceaction")
+        .addEventListener("change", function () {
+          const debrisField = document.getElementById("debrisField");
+          if (this.value === "remove") {
+            debrisField.style.display = "block";
+          } else {
+            debrisField.style.display = "none";
+          }
         });
     </script>
     <script src="blocker.js"></script>
     <script src="script_other.js"></script>
-</body>
-
+    <script src="..\dark_mode.js"></script>
+  </body>
 </html>

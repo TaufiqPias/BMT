@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Taufiq Pias" />
     <title>Bid Maker Tool by Taufiq Pias</title>
-    <link rel="icon" type="image/x-icon" href="Images\Favicon.png" />
+    <link rel="icon" type="image/x-icon" href=".\Images\Favicon.png" />
     <link rel="stylesheet" href="styles.css" />
 
     <!-- Google tag (gtag.js) -->
@@ -41,7 +41,19 @@
   <body>
     <!-- Header -->
     <header>
-      <h1>Bid Maker Tool</h1>
+      <div class="header-container">
+        <h1>Bid Maker Tool</h1>
+        <nav class="header-nav">
+          <a href="#pricing">Pricing</a>
+          <a href="#bid-demo">Bid Demo</a>
+          <a href="#analytics">Analytics</a>
+          <a href="#report">Report</a>
+        </nav>
+        <div class="header-actions">
+          <button id="darkModeToggle" class="toggle-btn">Dark Mode</button>
+          <a href="#profile" class="profile-btn">Profile</a>
+        </div>
+      </div>
     </header>
 
     <!-- Main Container -->
@@ -587,6 +599,7 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="dark_mode.js"></script>
 
     <footer>
       <div class="footer">

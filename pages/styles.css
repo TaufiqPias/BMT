@@ -1,4 +1,4 @@
-/* styles.css */
+/* General Styles */
 body {
   font-family: Arial, sans-serif;
   background-color: #b6e9c2;
@@ -8,20 +8,40 @@ body {
   justify-content: center;
   align-items: top;
   height: 100vh;
+  color: #333; /* Default light mode text color */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Added for smooth transitions */
 }
 
-/* Main container to hold both sections side by side */
+/* Light Mode Text Color Enforcement */
+body:not(.dark-mode) {
+  color: #333;
+}
+
+body:not(.dark-mode) p,
+body:not(.dark-mode) b,
+body:not(.dark-mode) h1,
+body:not(.dark-mode) h2,
+body:not(.dark-mode) h3,
+body:not(.dark-mode) h4,
+body:not(.dark-mode) h5,
+body:not(.dark-mode) h6,
+body:not(.dark-mode) label,
+body:not(.dark-mode) .note,
+body:not(.dark-mode) .info-content {
+  color: #333;
+}
+
+/* Layout */
 .main-container {
   display: flex;
-  gap: 10px; /* Space between the two containers */
+  gap: 10px;
   justify-content: center;
-  align-items: stretch; /* Stretch children to the same height */
+  align-items: stretch;
   padding: 20px;
-  max-height: 100vh; /* Ensure the container doesn't exceed the viewport height */
-  overflow-y: auto; /* Allow vertical scrolling if content overflows */
+  max-height: 100vh;
+  overflow-y: auto;
 }
 
-/* Existing container (form and output) */
 .container {
   width: 1000px;
   background-color: #fff;
@@ -31,11 +51,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  overflow-y: auto; /* Allow scrolling if content overflows */
+  overflow-y: auto;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* New note container */
-.note-container {
+.note-container,
+.info-container {
   width: 400px;
   background-color: #fff;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
@@ -44,52 +65,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  overflow-y: auto; /* Allow scrolling if content overflows */
-}
-
-/* Notes list */
-.notes-list {
-  flex: 1; /* Take up remaining space */
-  overflow-y: auto; /* Allow scrolling if content overflows */
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  background-color: #f8f9fa;
-}
-
-/* Note styling */
-.note {
-  position: relative; /* For positioning the copy icon */
-  padding-top: 15px;
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-bottom: 5px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  font-size: 14px;
-  color: #333;
-}
-
-/* Copy icon styling */
-.copy-icon {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  cursor: pointer;
-  color: #007bff;
-  font-size: 16px;
-}
-
-.copy-icon:hover {
-  color: #0056b3;
-}
-
-h1 {
-  font-size: 36px;
-  color: #333;
-  margin: 0;
+  overflow-y: auto;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .division {
@@ -99,6 +76,7 @@ h1 {
   gap: 5px;
 }
 
+/* Form Elements */
 form {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -106,27 +84,25 @@ form {
   padding: 15px;
 }
 
-/* Ensure the dynamic fields container aligns with the form's grid layout */
 #windowFields {
-  grid-column: span 2; /* Span across both columns of the form */
+  grid-column: span 2;
   display: flex;
   flex-direction: column;
-  gap: 10px; /* Space between dynamic fields */
-  margin-top: 10px; /* Add some spacing from the previous field */
+  gap: 10px;
+  margin-top: 10px;
 }
 
-/* Style for each dynamic window input field */
 .windowInput {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Match the form's grid layout */
-  gap: 8px; /* Match the form's gap */
-  align-items: center; /* Align label and input vertically */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  align-items: center;
 }
 
 .windowInput label {
   font-size: 14px;
   color: #555;
-  margin-bottom: 0; /* Remove default margin to align properly */
+  margin-bottom: 0;
 }
 
 .windowInput input {
@@ -151,6 +127,7 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 14px;
+  box-sizing: border-box;
 }
 
 textarea {
@@ -158,32 +135,15 @@ textarea {
   min-height: 60px;
 }
 
-button {
-  grid-column: span 2;
-  padding: 10px;
-  background-color: #28a745;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  max-width: 100%;
+  margin-bottom: 10px;
 }
 
-button:hover {
-  background-color: #218838;
-}
-
-#description {
-  grid-column: span 2; /* Span across both columns of the form */
-  margin-top: 5px; /* Add spacing from the previous field */
-  padding: 10px;
-  background-color: #cbffd8; /* Light background color */
-  border: 1px solid #ccc; /* Subtle border */
-  border-radius: 5px; /* Match the form's border radius */
-  font-size: 14px; /* Match the form's font size */
-  color: #333; /* Match the form's text color */
-}
-
+#description,
 #manualItemsInput,
 #countfield,
 #repairField,
@@ -215,57 +175,146 @@ button:hover {
 #fasciaField,
 #soffitField,
 #endcapfield {
-  grid-column: span 2; /* Span across both columns of the form */
+  grid-column: span 2;
   padding: 10px;
-  background-color: #cbffd8; /* Red background color */
-  color: #fff; /* White text color */
-  border: none; /* Remove border */
-  border-radius: 5px; /* Match the form's border radius */
-  cursor: pointer; /* Show pointer on hover */
-  font-size: 16px; /* Larger font size */
+  background-color: #cbffd8;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
 }
-/* #flatrtContainer, #shthngContainer, #rftrContainer, #rventContainer, #rtoilContainer, #chmnContainer, #debrisFieldContainer, #reasonField, #applField, #reltoField, #equipmentField, #typeField, #materialField, #grinderField, #debrisField input {
-    grid-column: span 2; 
-    width: 100%;
-    max-width: 100%;
-   
-} */
+
+body.dark-mode #description,
+#manualItemsInput,
+#countfield,
+#repairField,
+#capField,
+#flatrtContainer,
+#shthngContainer,
+#rftrContainer,
+#rventContainer,
+#rtoilContainer,
+#replaceField,
+#chmnContainer,
+#debrisFieldContainer,
+#reasonField,
+#applField,
+#coatField,
+#reltoField,
+#equipmentField,
+#rakefield,
+#typeField,
+#materialField,
+#storeFields,
+#moveFields,
+#removeFields,
+#replaceFields,
+#grinderField,
+#panelFields,
+#toprailcapsField,
+#debrisField,
+#fasciaField,
+#soffitField,
+#endcapfield {
+  background-color: #f79682;
+  border: 1px solid #082032;
+}
 
 #hwhField {
-  grid-column: span 2; /* Span only 1 column */
+  grid-column: span 2;
   display: flex;
   flex-direction: column;
-  gap: 8px; /* Match the form's gap */
+  gap: 8px;
   padding: 10px;
-  background-color: #f0f0f0; /* Match the style of other fields */
-  border: 1px solid #ccc; /* Match the form's border */
-  border-radius: 5px; /* Match the form's border radius */
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
 .checkbox-item {
   display: grid;
-  grid-template-columns: auto 1fr; /* Align checkbox and label */
-  align-items: center; /* Align checkbox and label vertically */
-  gap: 8px; /* Add spacing between checkbox and label */
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 8px;
 }
 
 #hwhField input[type="checkbox"] {
-  margin: 0; /* Remove default margin */
+  margin: 0;
 }
 
 .checkbox-title {
-  border-bottom: 1px solid #ccc; /* Green border bottom */
-  font-size: 16px; /* Larger font size */
-  color: #333; /* Match the form's text color */
+  border-bottom: 1px solid #ccc;
+  font-size: 16px;
 }
 
 #hwhField .checkbox-item label {
-  font-size: 14px; /* Match the form's font size */
-  color: #555; /* Match the form's text color */
+  font-size: 14px;
+  color: #555;
 }
 
-#bidOutput {
-  white-space: pre-line;
+.dynamic-field {
+  display: none;
+}
+
+/* Notes */
+.notes-list {
+  flex: 1;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.note {
+  position: relative;
+  padding: 15px 5px 5px 5px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.copy-icon {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  cursor: pointer;
+  color: #007bff;
+  font-size: 16px;
+}
+
+.copy-icon:hover {
+  color: #0056b3;
+}
+
+.info-content {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Buttons and Links */
+button,
+a {
+  grid-column: span 2;
+  padding: 10px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button:hover,
+a:hover {
+  background-color: #218838;
 }
 
 #copyButton {
@@ -278,6 +327,7 @@ button:hover {
   cursor: pointer;
   font-size: 14px;
   margin-top: 5px;
+  transition: background-color 0.3s ease;
 }
 
 #copyButton:hover {
@@ -288,78 +338,38 @@ button:hover {
   position: fixed;
   bottom: 20px;
   left: 20px;
-  background-color: #28a745; /* Green background */
+  background-color: #28a745;
   color: #fff;
   padding: 10px 20px;
   border-radius: 10px;
   font-size: 36px;
-  opacity: 0; /* Initially hidden */
-  transform: translateY(20px); /* Start slightly below */
+  opacity: 0;
+  transform: translateY(20px);
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  z-index: 1000; /* Ensure it's above other content */
+  z-index: 1000;
 }
 
 .floating-message.show {
-  opacity: 1; /* Fully visible */
-  transform: translateY(0); /* Move to final position */
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Information container */
-.info-container {
-  width: 400px;
-  background-color: #fff;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  overflow-y: auto; /* Allow scrolling if content overflows */
-}
-
-/* Information content */
-.info-content {
-  flex: 1;
-  font-size: 14px;
-  color: #333;
-  line-height: 1.6;
-}
-
-.info-content p {
-  margin: 0 0 10px 0;
-}
-
-.info-content ul {
-  margin: 0;
-  padding-left: 20px;
-}
-
-.info-content ul li {
-  margin-bottom: 5px;
-}
-
-a {
-  grid-column: span 2;
-  padding: 10px;
-  background-color: #28a745;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  text-decoration: none;
-  text-align: center;
-}
-
-a:hover {
-  background-color: #218838;
-}
-
+/* Tables */
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
   font-size: 12px;
+}
+
+h1 {
+  font-size: 30px;
+  margin-block-start: 0.2em;
+  margin-block-end: 0.125em;
+}
+
+body.dark-mode h4 {
+  border: solid 1px#fff;
 }
 
 td,
@@ -373,19 +383,92 @@ tr:nth-child(even) {
   background-color: #b1dfbc;
 }
 
-.dynamic-field {
-  display: none;
+body.dark-mode td,
+th {
+  border: 1px solid #ff4c29;
 }
 
-/* Mobile Responsiveness */
+body.dark-mode tr:nth-child(even) {
+  background-color: #f79682;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #082032 !important; /* Bright red background */
+  color: #fff !important; /* Ensure text color applies */
+}
+
+body.dark-mode header {
+  background-color: #2c394b;
+}
+
+body.dark-mode .info-container a,
+body.dark-mode .main-container a,
+body.dark-mode button {
+  background-color: #334756;
+  color: #ff4c29;
+}
+
+body.dark-mode .main-container a:hover,
+body.dark-mode button:hover {
+  background-color: #ff4c29;
+  color: #fff;
+}
+
+body.dark-mode .info-container,
+/* body.dark-mode .main-container, */
+body.dark-mode .note-container,
+body.dark-mode .container,
+body.dark-mode .note {
+  background-color: #2c394b; /* Slightly transparent to show red background */
+  border-color: #082032;
+}
+
+body.dark-mode .notes-list {
+  background-color: #334756;
+  color: #fff;
+}
+
+body.dark-mode p,
+body.dark-mode b,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6,
+body.dark-mode label,
+body.dark-mode .note,
+body.dark-mode .info-content {
+  color: #fff;
+}
+
+body.dark-mode .toggle-btn,
+body.dark-mode .profile-btn,
+body.dark-mode .container a,
+body.dark-mode #home {
+  background-color: #334756;
+  color: #ff4c29;
+}
+
+body.dark-mode .toggle-btn:hover,
+body.dark-mode .profile-btn:hover,
+body.dark-mode .container a:hover,
+body.dark-mode #home:hover {
+  background-color: #ff4c29;
+  color: #fff;
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
   body {
-    height: auto; /* Allow body to grow with content */
+    height: auto;
   }
+
   .main-container {
-    flex-direction: column; /* Stack children vertically */
-    align-items: center; /* Center children horizontally */
-    padding: 0 5px; /* Reduce padding for smaller screens */
+    flex-direction: column;
+    align-items: center;
+    padding: 0 5px;
     margin: 0 5px;
     height: auto;
     gap: 0;
@@ -395,14 +478,15 @@ tr:nth-child(even) {
   .note-container,
   .info-container {
     scale: 0.9;
-    width: 100%; /* Full width on mobile */
-    max-width: 100%; /* Ensure no overflow */
+    width: 100%;
+    max-width: 100%;
     border-radius: 10px;
     padding: 10px;
     height: auto;
   }
+
   .info-container {
-    margin-left: 0; /* Remove left margin */
+    margin-left: 0;
   }
 
   .notes-list {
@@ -410,7 +494,7 @@ tr:nth-child(even) {
   }
 
   form {
-    grid-template-columns: 1fr; /* Single column for form inputs */
+    grid-template-columns: 1fr;
   }
 
   form label {
@@ -420,17 +504,6 @@ tr:nth-child(even) {
 
   button,
   a {
-    grid-column: span 1; /* Full width for buttons and links */
+    grid-column: span 1;
   }
-}
-
-input[type="text"],
-input[type="number"],
-select,
-textarea {
-  width: 100%; /* Make input fields take up 100% of their container's width */
-  max-width: 100%; /* Set a maximum width to prevent them from becoming too wide */
-  box-sizing: border-box; /* Include padding and border in the element's total width */
-  padding: 8px; /* Add some padding for better appearance */
-  margin-bottom: 10px; /* Add spacing between fields */
 }

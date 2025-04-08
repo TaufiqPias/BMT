@@ -1,44 +1,110 @@
 /* General Styles */
 
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #b6e9c2;
-  }
-  
-  /* Header Styles */
-  header {
-    background-color: #28a745; /* Updated to green */
-    color: #fff;
-    padding: 5px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #b6e9c2;
+}
 
-  header h1 {
-    margin: 0;
-    font-size: 48px;
-  }
-  
-  /* Container Styles */
-  .container {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    gap: 20px;
-  }
-  
-  .column {
-    flex: 1;
-    margin: 0 10 px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+/* Header Styles */
+header {
+  background-color: #28a745; /* Default green */
+  color: #fff;
+  padding: 10px 20px; /* Increased padding for better spacing */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease; /* Smooth transition for dark mode */
+}
 
-  @media (max-width: 768px) {
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 32px; /* Slightly smaller for better balance */
+}
+
+/* Navigation Styles */
+.header-nav {
+  display: flex;
+  gap: 20px;
+}
+
+.header-nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 5px 10px;
+  transition: color 0.3s ease;
+}
+
+.header-nav a:hover {
+  color: #044202; /* Light blue hover effect */
+  transform: scale(1.1);
+  transition: transform 0.3s ease; /* Smooth scaling effect */
+  font-weight: bold;
+}
+
+/* Header Actions (Right Side) */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.toggle-btn {
+  padding: 6px 12px;
+  background-color: #fff;
+  color: #28a745;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background-color: #e9ecef;
+}
+
+.profile-btn {
+  padding: 6px 12px;
+  background-color: #28a745;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.profile-btn:hover {
+  background-color: #218838;
+}
+
+/* Container Styles */
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+}
+
+.column {
+  flex: 1;
+  margin: 0 10 px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
   .container {
     flex-direction: column; /* Stack columns vertically */
   }
@@ -47,187 +113,272 @@ body {
     margin: 10px 0; /* Adjust margin for vertical stacking */
   }
 }
-  
-  h2 {
-    margin-top: 0;
-  }
-  
-  /* Information Panel Styles */
-  .info-panel {
-    background-color: #f8f9fa;
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-  }
-  
-  .info-panel p {
-    margin: 0 0 15px;
-    line-height: 1.5;
-  }
 
-  .Estimator{
-    margin-top: 10px;
-    padding: 6px 10px;
-    background-color: #28a745; /* Updated to green */
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
-  }
+h2 {
+  margin-top: 0;
+}
 
-  .Estimator:hover {
-    background-color: #218838; /* Darker green on hover */
-  }
-  
-  .info-panel ol {
-    margin: 0 0 15px;
-    padding-left: 20px;
-  }
-  
-  .info-panel ol li {
-    margin-bottom: 10px;
-  }
-  
- /* This is only for NEWS. Once We will have something to share, We will make it visible. */
-  .news{
-    display: flex;
-    background-color: #b6e9c2;
-    padding: 5px;
-    border: 2px solid #199E07;
-    border-radius: 10px;
-    margin-bottom: 10px;
-  }
-  
-  /* Categories Column Styles */
-  .category-section {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  
-  .category {
-    background-color: #f8f9fa;
-    padding: 10px 15px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-  }
-  
-  .category h3 {
-    margin-top: 0;
-  }
-  
-  .category-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-  }
-  
-  .category-buttons a {
-    padding: 6px 10px;
-    background-color: #28a745; /* Updated to green */
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  
-  .category-buttons a:hover {
-    background-color: #218838; /* Darker green on hover */
-  }
-  
-  /* Final Bid Column Styles */
-  #bidSummary {
-    margin-top: 20px;
-  }
-  
-  .bid-item {
-    background-color: #f8f9fa;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 4px;
-    border: 1px solid #ddd;
-  }
-  
-  .bid-item p {
-    margin: 0;
-    line-height: 1.5;
-  }
-  
-  .bid-actions {
-    margin-top: 20px;
-    display: flex;
-    gap: 10px;
-  }
-  
-  .bid-actions button {
-    padding: 10px 15px;
-    background-color: #28a745; /* Updated to green */
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .bid-actions button:hover {
-    background-color: #218838; /* Darker green on hover */
-  }
-  
-  .bid-actions button#exportToExcel {
-    background-color: #28a745; /* Updated to green */
-  }
-  
-  .bid-actions button#exportToExcel:hover {
-    background-color: #218838; /* Darker green on hover */
-  }
+/* Information Panel Styles */
+.info-panel {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
 
-  #searchInput {
-    width: 97%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-  }
+.info-panel p {
+  margin: 0 0 15px;
+  line-height: 1.5;
+}
 
-  footer .footer{
-    color:#194b24ec;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    left: 20px;
-    font-size: 10px;
-  }
+.Estimator {
+  margin-top: 10px;
+  padding: 6px 10px;
+  background-color: #28a745; /* Updated to green */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
 
+.Estimator:hover {
+  background-color: #218838; /* Darker green on hover */
+}
 
-  .tooltip {
-    position: relative;
-    display: inline-block;
-    
-  }
+.info-panel ol {
+  margin: 0 0 15px;
+  padding-left: 20px;
+}
 
-  .tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: #b6e9c2;
-    color: #199E07;
-    text-align: center;
-    border-radius: 5px;
-    padding: 5px;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%; /* Position above the button */
-    left: 50%;
-    margin-left: -60px; /* Center the tooltip */
-    opacity: 0;
-    /* transition: opacity 0.3s; */
-  }
+.info-panel ol li {
+  margin-bottom: 10px;
+}
 
-  .tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-    color: #199E07;
-  }
+/* This is only for NEWS. Once We will have something to share, We will make it visible. */
+.news {
+  display: flex;
+  background-color: #b6e9c2;
+  padding: 5px;
+  border: 2px solid #199e07;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
 
-  
+/* Categories Column Styles */
+.category-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.category {
+  background-color: #f8f9fa;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.category h3 {
+  margin-top: 0;
+}
+
+.category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.category-buttons a {
+  padding: 6px 10px;
+  background-color: #28a745; /* Updated to green */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.category-buttons a:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Final Bid Column Styles */
+#bidSummary {
+  margin-top: 20px;
+}
+
+.bid-item {
+  background-color: #f8f9fa;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.bid-item p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.bid-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.bid-actions button {
+  padding: 10px 15px;
+  background-color: #28a745; /* Updated to green */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.bid-actions button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+.bid-actions button#exportToExcel {
+  background-color: #28a745; /* Updated to green */
+}
+
+.bid-actions button#exportToExcel:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+#searchInput {
+  width: 97%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+footer .footer {
+  color: #194b24ec;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 20px;
+  font-size: 10px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #b6e9c2;
+  color: #199e07;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position above the button */
+  left: 50%;
+  margin-left: -60px; /* Center the tooltip */
+  opacity: 0;
+  /* transition: opacity 0.3s; */
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+  color: #199e07;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #082032;
+  color: #fff;
+}
+
+body.dark-mode header {
+  background-color: #2c394b;
+}
+
+body.dark-mode .header-nav a {
+  color: #fff;
+}
+
+body.dark-mode .header-nav a:hover {
+  color: #ff4c29; /* Orange hover effect in dark mode */
+}
+
+body.dark-mode .toggle-btn {
+  background-color: #334756;
+  color: #ff4c29;
+}
+
+body.dark-mode .toggle-btn:hover {
+  background-color: #ff4c29;
+  color: #fff;
+}
+
+body.dark-mode .profile-btn {
+  background-color: #334756;
+  border-color: #ff4c29;
+  color: #ff4c29;
+}
+
+body.dark-mode .profile-btn:hover {
+  background-color: #ff4c29;
+  color: #fff;
+}
+
+body.dark-mode .container a {
+  background-color: #334756;
+  color: #ff4c29;
+  /* border: solid 0.5px #ff4c29; */
+}
+
+body.dark-mode .container a:hover {
+  background-color: #ff4c29;
+  color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .column {
+  background-color: #334756;
+  color: #fff;
+}
+
+body.dark-mode .info-panel,
+body.dark-mode .category,
+body.dark-mode .bid-item {
+  background-color: #2c394b;
+  border-color: #082032;
+}
+
+/* Ensure smooth transitions */
+body,
+header,
+.toggle-btn,
+.profile-btn,
+.column,
+.info-panel,
+.category,
+.bid-item {
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Override inline style for email link in dark mode */
+body.dark-mode a[href="mailto:taufiq.xenox@gmail.com"], [href="https://taufiqpias.github.io/portfolio"]
+{
+  padding: 5px;
+  color: #fff !important; /* White in dark mode, overriding inline rgb(2, 77, 2) */
+  border-radius: 5px;
+}
+
+body.dark-mode a[href="mailto:taufiq.xenox@gmail.com"], [href="https://taufiqpias.github.io/portfolio"]:hover
+{
+  color: #e6e6e6; /* Slightly off-white for hover effect, optional */
+}
