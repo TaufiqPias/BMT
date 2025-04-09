@@ -137,7 +137,7 @@ table button:hover {
 .quotation th,
 .quotation td {
   padding: 4px;
-  padding-left: 8px !important;
+  padding-left: 8px;
   border: 1px solid #4bd345;
   text-align: left;
 }
@@ -270,8 +270,8 @@ p {
 
 /* Dark Mode Styles */
 body.dark-mode {
-  background-color: #082032 !important;
-  color: #fff !important;
+  background-color: #082032;
+  color: #fff;
 }
 
 body.dark-mode .header {
@@ -309,14 +309,12 @@ body.dark-mode .quotation th {
   color: #fff;
 }
 
-body.dark-mode .quotation th,
-td {
+body.dark-mode th {
   border: solid 1px #ff4c29;
 }
 
-body.dark-mode table th,
-td {
-  border: solid 1px #ff4c29 !important;
+body.dark-mode td {
+  border: solid 1px #ff4c29;
 }
 
 body.dark-mode table button,
