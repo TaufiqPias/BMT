@@ -355,6 +355,11 @@ a:hover {
   z-index: 1000;
 }
 
+body.dark-mode .floating-message {
+  background-color: #ff4c29;
+  color: #fff;
+}
+
 .floating-message.show {
   opacity: 1;
   transform: translateY(0);
@@ -386,7 +391,7 @@ tr:nth-child(even) {
 }
 
 body.dark-mode td,
-th {
+body.dark-mode th {
   border: 1px solid #ff4c29;
 }
 
