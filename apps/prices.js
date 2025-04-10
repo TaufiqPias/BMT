@@ -1,16 +1,22 @@
-// Function to add item to the quotation
+// Add item to quotation
 function addToQuotation(button) {
   const row = button.closest("tr");
   const category = row.cells[0].innerText;
   const description = row.cells[1].innerText;
   const uom = row.cells[2].innerText;
   const price = parseFloat(row.cells[3].innerText.replace("$", ""));
-  const unit = parseInt(row.querySelector('input[type="number"]').value);
-  const total = (price * unit).toFixed(2);
+  const unitInput = row.querySelector('input[type="number"]').value;
+  const unit = parseInt(unitInput) || 0;
 
+  if (unit <= 0) {
+    showFloatingMessage("Please enter a valid unit quantity");
+    return;
+  }
+
+  const total = (price * unit).toFixed(2);
   const quotationTable = document
     .getElementById("quotation-table")
-    .getElementsByTagName("tbody")[0];
+    .querySelector("tbody");
   const newRow = quotationTable.insertRow();
   newRow.innerHTML = `
     <td data-label="Category:">${category}</td>
@@ -23,53 +29,44 @@ function addToQuotation(button) {
   updateTotalPrice();
 }
 
-// Function to update the total price
+// Update total price
 function updateTotalPrice() {
   const rows = document.querySelectorAll("#quotation-table tbody tr");
-  let total = 0;
-  rows.forEach((row) => {
+  const total = Array.from(rows).reduce((sum, row) => {
     const totalCell = row.cells[5].innerText.replace("$", "");
-    total += parseFloat(totalCell);
-  });
+    return sum + parseFloat(totalCell) || 0;
+  }, 0);
   document.getElementById("total-price").innerText = total.toFixed(2);
 }
 
-document
-  .getElementById("print-btn")
-  .addEventListener("touchend", printQuotation);
-document
-  .getElementById("clear-btn")
-  .addEventListener("touchend", clearQuotation);
-
-function clearQuotation() {
+// Clear quotation table
+function clearQuotation(event) {
   const quotationTable = document
     .getElementById("quotation-table")
-    .getElementsByTagName("tbody")[0];
+    .querySelector("tbody");
   quotationTable.innerHTML = "";
+  updateTotalPrice();
+
+  // Reset all unit input fields in pricing-table
+  const unitInputs = document
+    .getElementById("pricing-table")
+    .querySelectorAll('input[type="number"]');
+  unitInputs.forEach((input) => {
+    input.value = ""; // Or input.value = "0" if you prefer
+  });
+
+  // Update total price
   updateTotalPrice();
 }
 
-// Function to print the quotation
-function printQuotation() {
-  window.print();
-}
-
-// Function to refresh the page
-function refreshPage() {
-  location.reload();
-}
-
-// Disable context menu and Ctrl+C
-document.addEventListener("contextmenu", function (event) {
-  event.preventDefault();
-});
-
-document.addEventListener("keydown", function (event) {
-  if (event.ctrlKey && event.key === "c") {
-    event.preventDefault();
-    showFloatingMessage("Request Denied");
+// Print quotation
+function printQuotation(event) {
+  try {
+    window.print();
+  } catch (e) {
+    showFloatingMessage("Printing failed. Please try again.");
   }
-});
+}
 
 // Show floating message
 function showFloatingMessage(message) {
@@ -87,52 +84,27 @@ let allRows = [];
 function initializeTable() {
   const tableBody = document.getElementById("priceTable");
   if (!tableBody) {
-    console.error("Table body with ID 'priceTable' not found. Retrying...");
-    setTimeout(initializeTable, 500);
+    console.error("Table body with ID 'priceTable' not found.");
     return;
   }
 
-  // Capture all rows
   allRows = Array.from(tableBody.getElementsByTagName("tr"));
   console.log(`Total rows captured: ${allRows.length}`);
-
-  // Retry up to 3 times if no rows are found
-  if (allRows.length === 0) {
-    let retries = 0;
-    const maxRetries = 3;
-    const retryInterval = 500;
-
-    function tryCaptureRows() {
-      allRows = Array.from(tableBody.getElementsByTagName("tr"));
-      console.log(`Retry ${retries + 1}: rows captured: ${allRows.length}`);
-
-      if (allRows.length > 0 || retries >= maxRetries) {
-        if (allRows.length === 0) {
-          console.error(
-            "No rows found in priceTable after retries. Check data loading."
-          );
-        }
-        console.log(`Final rows captured: ${allRows.length}`);
-        setupSearch();
-      } else {
-        retries++;
-        setTimeout(tryCaptureRows, retryInterval);
-      }
-    }
-
-    tryCaptureRows();
-  } else {
-    setupSearch();
-  }
+  setupSearch();
 }
 
 function setupSearch() {
-  document.getElementById("search").addEventListener("input", function () {
-    const searchTerm = this.value.toLowerCase();
-    const tableBody = document.getElementById("priceTable");
-    tableBody.innerHTML = ""; // Clear current rows
+  const searchInput = document.getElementById("search");
+  if (!searchInput) {
+    console.error("Search input with ID 'search' not found.");
+    return;
+  }
 
-    // Filter and display matching rows
+  searchInput.addEventListener("input", () => {
+    const searchTerm = searchInput.value.toLowerCase();
+    const tableBody = document.getElementById("priceTable");
+    tableBody.innerHTML = "";
+
     const filteredRows = allRows.filter((row) =>
       Array.from(row.cells).some((cell) =>
         cell.innerText.toLowerCase().includes(searchTerm)
@@ -153,6 +125,46 @@ function setupSearch() {
   });
 }
 
+// Disable context menu and Ctrl+C
+document.addEventListener("contextmenu", (event) => event.preventDefault());
+document.addEventListener("keydown", (event) => {
+  if (event.ctrlKey && event.key === "c") {
+    event.preventDefault();
+    showFloatingMessage("Copying is disabled");
+  }
+});
+
+// Initialize on DOM load
 document.addEventListener("DOMContentLoaded", () => {
   initializeTable();
+
+  const printBtn = document.getElementById("print-btn");
+  const clearBtn = document.getElementById("clear-btn");
+
+  if (printBtn) {
+    printBtn.addEventListener("click", printQuotation);
+    // Handle touch devices carefully
+    printBtn.addEventListener(
+      "touchend",
+      (event) => {
+        event.preventDefault(); // Prevent synthetic click
+        printQuotation(event);
+      },
+      { passive: false }
+    );
+  } else {
+    console.error("Print button not found");
+  }
+
+  if (clearBtn) {
+    clearBtn.addEventListener("click", clearQuotation);
+    clearBtn.addEventListener(
+      "touchend",
+      (event) => {
+        event.preventDefault();
+        clearQuotation(event);
+      },
+      { passive: false }
+    );
+  }
 });

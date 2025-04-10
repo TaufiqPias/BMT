@@ -8,17 +8,17 @@ body {
 }
 
 /* Light Mode Text Color Enforcement */
-body:not(.dark-mode) {
+:not(.dark-mode) body {
   color: #333;
 }
 
-body:not(.dark-mode) p,
-body:not(.dark-mode) h2,
-body:not(.dark-mode) .total-price {
+:not(.dark-mode) body p,
+:not(.dark-mode) body h2,
+:not(.dark-mode) body .total-price {
   color: #333;
 }
 
-body:not(.dark-mode) .header {
+:not(.dark-mode) body .header {
   color: #effeee;
 }
 
@@ -51,33 +51,39 @@ html.dark-mode header {
 }
 
 /* Header Navigation */
+/* Header Navigation */
 .header-nav {
   display: flex;
   gap: 20px;
 }
 
 .header-nav a {
-  color: #fff;
+  padding: 5px 10px;
+  background-color: #28a745; /* Green background */
+  color: #fff; /* White text */
   text-decoration: none;
   font-size: 16px;
-  padding: 5px 10px;
-  transition: color 0.3s ease;
   font-weight: bold;
+  border: none;
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
 .header-nav a:hover {
-  color: #044202;
-  transform: scale(1.1);
-  transition: transform 0.5s ease;
+  /* background-color: #218838; Darker green on hover */
+  color: #fff; /* Keep white text */
+  transform: scale(1.1); /* Slight scale effect */
 }
-
 /* Dark Mode Header Navigation */
 html.dark-mode .header-nav a {
-  color: #fff;
+  background-color: unset; /* Dark mode button background */
+  color: #fff; /* Orange text for dark mode */
 }
 
 html.dark-mode .header-nav a:hover {
-  color: #ff4c29;
+  background-color: unset;
+  color: #ff4c29; /* White text on hover */
 }
 
 /* Header Actions */
@@ -374,6 +380,72 @@ table button:hover {
 }
 
 @media print {
+  /* Reset dark mode styles to light mode */
+  body,
+  html.dark-mode body {
+    background-color: #fff !important; /* White background */
+    color: #333 !important; /* Dark text for readability */
+  }
+
+  /* Ensure the right column (quotation) uses light mode styles */
+  .right-column,
+  html.dark-mode .right-column {
+    background-color: #fff !important;
+    color: #333 !important;
+  }
+
+  /* Explicitly target all text elements within right-column */
+  .right-column *,
+  html.dark-mode .right-column * {
+    color: #333 !important; /* Force text color for all elements */
+  }
+
+  /* Reset table styles to light mode */
+  table,
+  html.dark-mode table,
+  .quotation table,
+  html.dark-mode .quotation table {
+    border-collapse: collapse;
+  }
+
+  table th,
+  table td,
+  .quotation th,
+  .quotation td,
+  html.dark-mode table th,
+  html.dark-mode table td,
+  html.dark-mode .quotation th,
+  html.dark-mode .quotation td {
+    border: 1px solid #4bd345 !important; /* Light mode green border */
+    color: #333 !important; /* Dark text for table cells */
+  }
+
+  table th,
+  .quotation th,
+  html.dark-mode table th,
+  html.dark-mode .quotation th {
+    background-color: #28a745 !important; /* Light mode green background */
+    color: #effeee !important; /* Light text for headers */
+  }
+
+  /* Reset total-and-print section to light mode */
+  .total-and-print,
+  html.dark-mode .total-and-print {
+    background-color: #a8fd95 !important; /* Light mode green background */
+  }
+
+  .total-price,
+  html.dark-mode .total-price {
+    color: #333 !important; /* Dark text for total price */
+  }
+
+  /* Reset watermark to light mode */
+  .watermark,
+  html.dark-mode .watermark {
+    color: #c2c2c2 !important; /* Light mode watermark color */
+  }
+
+  /* Hide unnecessary elements */
   body * {
     visibility: hidden;
   }
@@ -385,7 +457,7 @@ table button:hover {
     position: absolute;
     left: 0;
     top: 0;
-    width: 97%;
+    width: 95%;
   }
   .print-button {
     display: none;
@@ -396,10 +468,41 @@ table button:hover {
   .watermark {
     display: contents;
   }
+
+  /* Ensure table layout is correct */
+  #quotation-table {
+    display: table !important;
+  }
+  #quotation-table thead {
+    display: table-header-group !important;
+  }
+  #quotation-table tbody {
+    display: table-row-group !important;
+  }
+  #quotation-table tr {
+    display: table-row !important;
+    background-color: transparent !important;
+    border-bottom: none !important;
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+  }
+  #quotation-table td,
+  #quotation-table th {
+    display: table-cell !important;
+    grid-template-columns: none !important;
+    border: 1px solid #4bd345 !important;
+    padding: 4px 8px !important;
+    text-align: left !important;
+  }
+  #quotation-table td::before,
+  #quotation-table th::before {
+    content: none !important;
+  }
 }
 
 .print-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
 }
@@ -415,7 +518,7 @@ table button:hover {
   font-size: 24px;
 }
 
-a {
+/* a {
   padding: 5px 10px;
   background-color: #28a745;
   color: white;
@@ -429,24 +532,7 @@ a {
 
 a:hover {
   background-color: #39834a;
-}
-
-.header-nav a {
-  padding: 5px 10px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-html.dark-mode.header-nav a {
-  background-color: none !important;
-  color: #ff4c29;
-}
+} */
 
 p {
   font-size: smaller;
