@@ -70,8 +70,8 @@ body {
 }
 
 .division {
+  display: flex; /* Always visible by default */
   flex: 1;
-  display: flex;
   flex-direction: column;
   gap: 5px;
 }
@@ -466,44 +466,49 @@ html.dark-mode #home:hover {
   color: #fff;
 }
 
+/* Toggle Button Base Style */
+.toggle-btn {
+  display: none; /* Hidden by default on desktop */
+}
+
 /* Mobile-Specific Styles */
 @media (max-width: 1200px) {
   body {
-    height: auto; /* Allow page to grow for scrollbar */
-    display: block; /* Remove flex centering */
+    height: auto;
+    display: block;
     width: 100%;
-    max-width: 100vw; /* Cap at viewport width */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 
   .main-container {
     flex-direction: column;
-    align-items: flex-start; /* Align at top */
-    justify-content: flex-start; /* Ensure top alignment */
+    align-items: flex-start;
+    justify-content: flex-start;
     padding: 10px;
-    max-height: none; /* Allow growth */
-    min-height: 100vh; /* Full device height */
+    max-height: none;
+    min-height: 100vh;
     width: 100%;
-    max-width: 100vw; /* Cap at viewport width */
+    max-width: 100vw;
     box-sizing: border-box;
-    overflow-y: auto; /* Page scrollbar */
+    overflow-y: auto;
   }
 
   .container,
   .note-container,
   .info-container {
-    width: calc(100% - 10px); /* Account for margins */
-    max-width: calc(100% - 10px); /* Prevent overflow */
+    width: calc(100% - 10px);
+    max-width: calc(100% - 10px);
     padding: 15px;
-    margin: 5px; /* Thin margin around containers */
+    margin: 5px;
     box-sizing: border-box;
-    overflow-y: visible; /* No internal scrollbar */
-    position: relative; /* Ensure proper stacking */
+    overflow-y: visible;
+    position: relative;
   }
 
-  /* Collapsible Sections */
+  /* Toggle Buttons */
   .toggle-btn {
-    display: block; /* Show toggle buttons */
+    display: block; /* Shown on mobile */
     width: 100%;
     padding: 10px;
     background-color: #28a745;
@@ -531,35 +536,36 @@ html.dark-mode #home:hover {
     background-color: #218838;
   }
 
-  .info-content,
-  .division {
-    transition: display 0.3s ease;
-  }
-
+  /* Content Initial State */
   .info-content.collapsed,
   .division.collapsed {
-    display: none; /* Hidden when collapsed */
+    display: none; /* Hidden when collapsed on mobile */
+  }
+  .info-content:not(.collapsed),
+  .division:not(.collapsed) {
+    display: flex; /* Visible when not collapsed */
+    flex-direction: column;
   }
 
   /* Note Section */
   .note-container {
-    min-height: auto; /* Allow notes-list to control height */
+    min-height: auto;
   }
 
   .notes-list {
-    height: 60px; /* Default height */
-    overflow-y: visible; /* No scrollbar */
+    height: 60px;
+    overflow-y: visible;
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: normal;
   }
 
   .notes-list:not(:empty) {
-    height: auto; /* Stretch with content */
+    height: auto;
   }
 
   .note {
-    overflow: visible; /* No scrollbar */
+    overflow: visible;
     word-wrap: break-word;
     overflow-wrap: break-word;
     white-space: normal;
@@ -567,7 +573,7 @@ html.dark-mode #home:hover {
 
   /* Form Adjustments */
   form {
-    grid-template-columns: 1fr; /* Single column */
+    grid-template-columns: 1fr;
   }
 
   #windowFields,
@@ -577,15 +583,15 @@ html.dark-mode #home:hover {
 
   /* Reorder Sections */
   .info-container {
-    order: 1; /* Top */
+    order: 1;
   }
 
   .container {
-    order: 2; /* Middle */
+    order: 2;
   }
 
   .note-container {
-    order: 3; /* Bottom */
+    order: 3;
   }
 }
 

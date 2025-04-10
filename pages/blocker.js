@@ -23,10 +23,9 @@ document.addEventListener("keydown", function (event) {
 // Toggle functionality for mobile only
 document.querySelectorAll(".toggle-btn").forEach((button) => {
   button.addEventListener("click", function () {
-    if (window.innerWidth <= 1200) {
+    if (window.innerWidth <= 1200 && this.nextElementSibling) {
       const content = this.nextElementSibling;
       content.classList.toggle("collapsed");
-      // Scroll to top to ensure content is visible
       if (!content.classList.contains("collapsed")) {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }
@@ -34,27 +33,22 @@ document.querySelectorAll(".toggle-btn").forEach((button) => {
   });
 });
 
-// Apply collapsed state to info-content on mobile load and resize
+// Initial state on load
 window.addEventListener("load", function () {
-  const infoContent = document.querySelector(".info-content");
-  const toggleButtons = document.querySelectorAll(".toggle-btn");
+  const infoContents = document.querySelectorAll(".info-content");
   if (window.innerWidth <= 1200) {
-    infoContent.classList.add("collapsed");
-    toggleButtons.forEach((btn) => (btn.style.display = "block"));
+    infoContents.forEach((content) => content.classList.add("collapsed"));
   } else {
-    infoContent.classList.remove("collapsed");
-    toggleButtons.forEach((btn) => (btn.style.display = "none"));
+    infoContents.forEach((content) => content.classList.remove("collapsed"));
   }
 });
 
+// Handle resize for content visibility
 window.addEventListener("resize", function () {
-  const infoContent = document.querySelector(".info-content");
-  const toggleButtons = document.querySelectorAll(".toggle-btn");
-  if (window.innerWidth <= 1200) {
-    infoContent.classList.add("collapsed");
-    toggleButtons.forEach((btn) => (btn.style.display = "block"));
+  const infoContents = document.querySelectorAll(".info-content");
+  if (window.innerWidth > 1200) {
+    infoContents.forEach((content) => content.classList.remove("collapsed"));
   } else {
-    infoContent.classList.remove("collapsed");
-    toggleButtons.forEach((btn) => (btn.style.display = "none"));
+    infoContents.forEach((content) => content.classList.add("collapsed"));
   }
 });

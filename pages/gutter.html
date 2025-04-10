@@ -17,6 +17,12 @@
       if (savedMode === "dark" || (!savedMode && prefersDark)) {
         document.documentElement.classList.add("dark-mode"); // Changed to <html>
       }
+      // Only collapse .info-content on mobile initially
+      if (window.matchMedia("(max-width: 1200px)").matches) {
+          document.querySelectorAll(".info-content").forEach((el) => {
+            el.classList.add("collapsed");
+          });
+        }
     })();
   </script>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
