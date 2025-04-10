@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Taufiq Pias" />
+    <title>Wash Cabinets - BMT</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-M2K232X4B3");
+    </script>
+
+    <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "qj1sdmrlho");
+    </script>
+  </head>
+
+  <body>
+    <div class="main-container">
+      <!-- Information Area -->
+      <div class="info-container">
+        <button class="toggle-btn">Toggle Information</button>
+        <div class="info-content">
+          <h2>Information</h2>
+          <p>
+            Fill out the form accordingly to generate a bid. The following
+            prices are provided as a ranged parameter taken from RepairBase
+            2024.
+          </p>
+          <h3 style="text-align: center; color: brown">
+            Auto Calculator Active
+          </h3>
+          <p style="text-align: center; color: rgb(4, 119, 21)">
+            Auto calculator activated means Depending on the logical situation,
+            you do not have to put an input for
+            <b>Linear Ft or Square Ft</b>. These will be calculated
+            autometically.
+          </p>
+          <p>Cabinet Counting: Each 3x3x3 is the usual size of 1 cabinet.</p>
+          <img
+            src="..\Images\Cabinet.png"
+            alt="Cabinet counting"
+            style="width: 100%; border-radius: 10px"
+          />
+          <b>
+            <p style="color: brown">
+              ***Consult with your Team Lead before submitting the price.***
+            </p>
+          </b>
+          <b>
+            <p style="color: brown">
+              ***Please copy the bids before visiting other pages. Bids will not
+              be saved once redirected.***
+            </p>
+          </b>
+        </div>
+      </div>
+
+      <div class="container">
+        <button class="toggle-btn">Toggle Form</button>
+        <div class="division">
+          <h1>Mold/Mildew Bid</h1>
+          <h2>Wash Cabinets Bids</h2>
+          <form id="Form">
+            <label for="bidPrefix"
+              >Bid Prefix (for conjunction bid - Use a colon after
+              prefix)</label
+            >
+            <input
+              type="text"
+              id="bidPrefix"
+              name="bidPrefix"
+              placeholder="Title: / Title-"
+            />
+
+            <label for="cabtype">Select an item:*</label>
+            <select id="cabtype" name="cabtype" required>
+              <option value="">--Select any--</option>
+              <option value="Cabinet Floor Only">Cabinet Floor Only</option>
+              <option value="Full Cabinet">Full Cabinet</option>
+            </select>
+
+            <label for="cabfl">Select an item:*</label>
+            <select id="cabfl" name="cabfl">
+              <option value="">--Select any--</option>
+              <option value="Bio-Wash Cabinet Floor">
+                Bio-Wash Cabinet Floor
+              </option>
+              <option value="Kilz Paint Cabinet Floor">
+                Kilz Paint Cabinet Floor
+              </option>
+            </select>
+
+            <label for="fulcab">Select an item:*</label>
+            <select id="fulcab" name="fulcab">
+              <option value="">--Select any--</option>
+              <option value="Exterior Only">Exterior Only</option>
+              <option value="Interior & Exterior">Interior & Exterior</option>
+            </select>
+
+            <label for="count">How many Cabinets/ Cabinet Floors?*</label>
+            <input type="number" id="count" name="count" step="1" required />
+
+            <label for="additionalInfo">Additional information:</label>
+            <textarea
+              id="additionalInfo"
+              name="additionalInfo"
+              placeholder="Disclaimers or any other comment"
+            ></textarea>
+
+            <label for="conj">Make this bid conjunction to:</label>
+            <input
+              type="text"
+              id="conj"
+              name="conj"
+              placeholder="Bid name only"
+            />
+
+            <label for="price">Price (in USD):</label>
+            <input type="number" id="price" name="price" step="0.01" />
+
+            <button type="submit">Generate Bid</button>
+            <!-- <a href="https://www.zillow.com/" target="_blank" id="findpropsize">Find Property Size: Zillow</a> -->
+            <!-- <a href="https://www.google.com/maps" target="_blank" id="measuredr">Plan & Measure French Drain</a> -->
+          </form>
+        </div>
+      </div>
+
+      <!-- New Note Section -->
+      <div class="note-container">
+        <h2>Bids</h2>
+        <div id="notesList" class="notes-list">
+          <!-- Notes will be dynamically added here -->
+        </div>
+        <button id="copyAllBidsButton">Copy All Bids</button>
+        <a href="../index.html" id="home">
+          <ion-icon name="home"></ion-icon> Go Home</a
+        >
+      </div>
+    </div>
+
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <!-- Script to Generate Bid -->
+    <script>
+      document
+        .getElementById("Form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Get form values
+          const bidPrefix = document.getElementById("bidPrefix").value;
+          const cabType = document.getElementById("cabtype").value;
+          const cabfl = document.getElementById("cabfl").value;
+          const fulcab = document.getElementById("fulcab").value;
+          const count = document.getElementById("count").value;
+          const additionalInfo =
+            document.getElementById("additionalInfo").value;
+          const conj = document.getElementById("conj").value;
+          const price = parseFloat(document.getElementById("price").value) || 0;
+
+          // Format the price with commas
+          const formattedPrice = price.toLocaleString("en-US", {
+            style: "decimal",
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
+
+          // Generate the bid text
+          let bidText;
+          if (cabfl === "Bio-Wash Cabinet Floor") {
+            bidText = `${bidPrefix} Need to bio-wash ${count} cabinet floor(s) (approx. ${
+              9 * count
+            } SF) with anti-microbial solutions. ***Cleaning Only*** - to prevent infestation. ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else if (cabfl === "Kilz Paint Cabinet Floor") {
+            bidText = `${bidPrefix} After bio-wash, need to kilz paint ${count} cabinet floor(s) (approx. ${
+              9 * count
+            } SF) with prime sealer to prevent infestation and increase visual attraction. ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else if (fulcab === "Exterior Only") {
+            bidText = `${bidPrefix} Need to bio-wash ${count} cabinet(s) exterior body (approx. ${
+              9 * (count - 1) + 27
+            } SF/ approx. ${
+              3 * count
+            } LF) with anti-microbial solutions. ***Cleaning Only*** - to prevent infestation. ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else if (fulcab === "Interior & Exterior") {
+            bidText = `${bidPrefix} Need to bio-wash ${count} cabinet(s) interior and exterior body (approx. ${
+              9 * (count - 1) + 27 + 27 * count
+            } SF/ approx. ${
+              3 * count
+            } LF) with anti-microbial solutions. ***Cleaning Only*** - to prevent infestation. ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else {
+            alert("Please select an item first.");
+            return; // Stop execution if no action is selected
+          }
+          // Save the bid as a note
+          saveBidAsNote(bidText);
+        });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get elements
+        const cabTypeSelect = document.getElementById("cabtype");
+        const cabflSelect = document.getElementById("cabfl");
+        const fulcabSelect = document.getElementById("fulcab");
+
+        // Get labels
+        const cabflLabel = document.querySelector('label[for="cabfl"]');
+        const fulcabLabel = document.querySelector('label[for="fulcab"]');
+
+        // Initial state - hide both conditional fields
+        hideField(cabflLabel, cabflSelect);
+        hideField(fulcabLabel, fulcabSelect);
+
+        // Add change listener to cabtype
+        cabTypeSelect.addEventListener("change", function () {
+          const cabTypeValue = this.value;
+
+          // Reset and hide both fields first
+          resetAndHideField(cabflLabel, cabflSelect);
+          resetAndHideField(fulcabLabel, fulcabSelect);
+
+          // Show appropriate field based on selection
+          if (cabTypeValue === "Cabinet Floor Only") {
+            showField(cabflLabel, cabflSelect);
+          } else if (cabTypeValue === "Full Cabinet") {
+            showField(fulcabLabel, fulcabSelect);
+          }
+        });
+
+        // Helper functions
+        function hideField(label, input) {
+          label.style.display = "none";
+          input.style.display = "none";
+          input.removeAttribute("required");
+        }
+
+        function showField(label, input) {
+          label.style.display = "block";
+          input.style.display = "block";
+          input.setAttribute("required", "required");
+        }
+
+        function resetAndHideField(label, input) {
+          label.style.display = "none";
+          input.style.display = "none";
+          input.removeAttribute("required");
+          input.value = "";
+        }
+      });
+    </script>
+    <script src="script_other.js"></script>
+    <script src="..\dark_mode.js"></script>
+    <script src="blocker.js"></script>
+  </body>
+</html>

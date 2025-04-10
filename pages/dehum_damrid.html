@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Taufiq Pias" />
+    <title>Moisture Control - BMT</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-M2K232X4B3");
+    </script>
+
+    <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "qj1sdmrlho");
+    </script>
+  </head>
+
+  <body>
+    <div class="main-container">
+      <!-- Information Area -->
+      <div class="info-container">
+        <button class="toggle-btn">Toggle Information</button>
+        <div class="info-content">
+          <h2>Information</h2>
+          <p>
+            Fill out the form accordingly to generate a bid. The following
+            prices are provided as a ranged parameter taken from RepairBase
+            2024.
+          </p>
+          <p><b>Approximate Prices:</b></p>
+          <ul>
+            <li>Damprid 16oz: $15.00 - $20.00</li>
+            <li>Damprid 30oz: $30.00 - $45.00</li>
+            <li>De-Humidifier 30 pint: $150.00 - $180.00</li>
+            <li>De-Humidifier 40 pint: $150.00 - $180.00</li>
+          </ul>
+          <p><b>Instruction:</b></p>
+          <p>
+            De-humidifiers are only installed when the electricity is ON and
+            also in kitchens and basements because they need electricity and to
+            discharge water which they collect overtime. Only kitchen and
+            basement is the area which has discharge lines to eject the water.
+            ***Bathrooms are small area and although it has discharge line,
+            installing a de-humidifier in a bathroom hardly makes any impact on
+            the moisture of the other rooms due to vapor barrier.***
+            <br />
+            ---
+            <br />
+            Damprid buckets are installed in all other areas to reduce the
+            moisture in the air and prevent mold infestation. They do not need
+            electricity to work. They can be installed even if the property has
+            electricity on. Usually a damprid bucket or packet expires in 30-45
+            days. ***It is essential to change the damprid bucket or packet
+            every 30 days so that it does not become highly saturated and stops
+            absorbing moisture.***
+          </p>
+          <b>
+            <p style="color: brown">
+              ***Consult with your Team Lead before submitting the price.***
+            </p>
+          </b>
+          <b>
+            <p style="color: brown">
+              ***Please copy the bids before visiting other pages. Bids will not
+              be saved once redirected.***
+            </p>
+          </b>
+        </div>
+      </div>
+
+      <div class="container">
+        <button class="toggle-btn">Toggle Form</button>
+        <div class="division">
+          <h1>Mold/Mildew Bid</h1>
+          <h2>Moisture Control Bids</h2>
+          <form id="Form">
+            <label for="bidPrefix"
+              >Bid Prefix (for conjunction bid - Use a colon after
+              prefix)</label
+            >
+            <input
+              type="text"
+              id="bidPrefix"
+              name="bidPrefix"
+              placeholder="Title: / Title-"
+            />
+
+            <label for="elect">Electricity Status:*</label>
+            <select id="elect" name="elect" required>
+              <option value="">--Select any--</option>
+              <option value="On">Electricity ON</option>
+              <option value="Off">Electricity OFF</option>
+            </select>
+
+            <label for="appl">Select Product:*</label>
+            <select id="appl" name="appl" required>
+              <option value="">--Select any--</option>
+              <option value="damprid">Damprid</option>
+              <option value="de-humidifier">De-humidifier</option>
+            </select>
+
+            <label for="count"
+              >How many damprid buckets/packs are needed?*</label
+            >
+            <input type="number" id="count" name="count" step="1" />
+
+            <label for="locdamp">Location to install:*</label>
+            <input
+              type="text"
+              id="locdamp"
+              name="locdamp"
+              placeholder="basement, bedroom, bathroom, kitchen, etc."
+            />
+
+            <label for="locdehum">Select a Location to install:*</label>
+            <select id="locdehum" name="locdehum">
+              <option value="">--Select any--</option>
+              <option value="kitchen">Kitchen</option>
+              <option value="basement">Basement</option>
+            </select>
+
+            <label for="additionalInfo">Additional information:</label>
+            <textarea
+              id="additionalInfo"
+              name="additionalInfo"
+              placeholder="Disclaimers or any other comment"
+            ></textarea>
+
+            <label for="conj">Make this bid conjunction to:</label>
+            <input
+              type="text"
+              id="conj"
+              name="conj"
+              placeholder="Bid name only"
+            />
+
+            <label for="price">Price (in USD):</label>
+            <input type="number" id="price" name="price" step="0.01" />
+
+            <button type="submit">Generate Bid</button>
+            <!-- <a href="https://www.zillow.com/" target="_blank" id="findpropsize">Find Property Size: Zillow</a> -->
+            <!-- <a href="https://www.google.com/maps" target="_blank" id="measuredr">Plan & Measure French Drain</a> -->
+          </form>
+        </div>
+      </div>
+
+      <!-- New Note Section -->
+      <div class="note-container">
+        <h2>Bids</h2>
+        <div id="notesList" class="notes-list">
+          <!-- Notes will be dynamically added here -->
+        </div>
+        <button id="copyAllBidsButton">Copy All Bids</button>
+        <a href="../index.html" id="home">
+          <ion-icon name="home"></ion-icon> Go Home</a
+        >
+      </div>
+    </div>
+
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <!-- Script to Generate Bid -->
+    <script>
+      document
+        .getElementById("Form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Get form values
+          const bidPrefix = document.getElementById("bidPrefix").value;
+          const elect = document.getElementById("elect").value;
+          const appl = document.getElementById("appl").value;
+          const count = document.getElementById("count").value;
+          const locdamp = document.getElementById("locdamp").value;
+          const locdehum = document.getElementById("locdehum").value;
+          const additionalInfo =
+            document.getElementById("additionalInfo").value;
+          const conj = document.getElementById("conj").value;
+          const price = parseFloat(document.getElementById("price").value);
+
+          // Format the price with commas
+          const formattedPrice = price.toLocaleString("en-US", {
+            style: "decimal",
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
+
+          // Generate the bid text
+          let bidText;
+          if (appl === "damprid") {
+            bidText = `${bidPrefix} Need to install ${count} damprid bucket(s)/pack(s) (16oz) in ${locdamp} to reduce the moisture in the air and prevent mold infestation. Electricity is ${elect}. ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else if (appl === "de-humidifier") {
+            bidText = `${bidPrefix} Need to install 1 de-humidifier (30-40 pint) in the ${locdehum} to reduce the moisture in the air and prevent mold infestation. Electricity is ${elect}. ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else {
+            alert("Please select a product (Damprid or De-Humidifier).");
+            return; // Stop execution if no action is selected
+          }
+          // Save the bid as a note
+          saveBidAsNote(bidText);
+        });
+
+      // Wait for DOM to load
+      document.addEventListener("DOMContentLoaded", function () {
+        // Get all relevant elements
+        const electSelect = document.getElementById("elect");
+        const applSelect = document.getElementById("appl");
+        const countInput = document.getElementById("count");
+        const locDampInput = document.getElementById("locdamp");
+        const locDehumSelect = document.getElementById("locdehum");
+
+        // Get the labels too so we can hide/show them
+        const countLabel = document.querySelector('label[for="count"]');
+        const locDampLabel = document.querySelector('label[for="locdamp"]');
+        const locDehumLabel = document.querySelector('label[for="locdehum"]');
+
+        // Initial state - hide all conditional fields
+        hideField(countLabel, countInput);
+        hideField(locDampLabel, locDampInput);
+        hideField(locDehumLabel, locDehumSelect);
+
+        // Electricity status change handler
+        electSelect.addEventListener("change", function () {
+          const electValue = this.value;
+          // Store current appl value
+          const currentAppl = applSelect.value;
+
+          // Clear existing options except the default
+          applSelect.innerHTML = '<option value="">--Select any--</option>';
+
+          // Add options based on electricity status
+          if (electValue === "On") {
+            applSelect.innerHTML += `
+                <option value="damprid">Damprid</option>
+                <option value="de-humidifier">De-humidifier</option>
+            `;
+          } else if (electValue === "Off") {
+            applSelect.innerHTML += `
+                <option value="damprid">Damprid</option>
+            `;
+          }
+
+          // Try to restore previous selection if still valid
+          if (currentAppl) {
+            const options = Array.from(applSelect.options);
+            if (options.some((option) => option.value === currentAppl)) {
+              applSelect.value = currentAppl;
+            } else {
+              applSelect.value = "";
+              // Trigger appl change to reset dependent fields
+              applSelect.dispatchEvent(new Event("change"));
+            }
+          }
+        });
+
+        // Appliance selection change handler
+        applSelect.addEventListener("change", function () {
+          const applValue = this.value;
+
+          // Reset and hide all conditional fields first
+          resetAndHideField(countLabel, countInput);
+          resetAndHideField(locDampLabel, locDampInput);
+          resetAndHideField(locDehumLabel, locDehumSelect);
+
+          // Show relevant fields based on selection
+          if (applValue === "damprid") {
+            showField(countLabel, countInput);
+            showField(locDampLabel, locDampInput);
+          } else if (applValue === "de-humidifier") {
+            showField(locDehumLabel, locDehumSelect);
+          }
+        });
+
+        // Helper functions
+        function hideField(label, input) {
+          label.style.display = "none";
+          input.style.display = "none";
+          input.removeAttribute("required");
+        }
+
+        function showField(label, input) {
+          label.style.display = "block";
+          input.style.display = "block";
+          input.setAttribute("required", "required");
+        }
+
+        function resetAndHideField(label, input) {
+          label.style.display = "none";
+          input.style.display = "none";
+          input.removeAttribute("required");
+          if (input.tagName === "INPUT") {
+            input.value = "";
+          } else if (input.tagName === "SELECT") {
+            input.value = "";
+          }
+        }
+      });
+    </script>
+    <script src="script_other.js"></script>
+    <script src="..\dark_mode.js"></script>
+    <script src="blocker.js"></script>
+  </body>
+</html>
