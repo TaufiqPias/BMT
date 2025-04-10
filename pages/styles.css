@@ -13,21 +13,21 @@ body {
 }
 
 /* Light Mode Text Color Enforcement */
-body:not(.dark-mode) {
+:not(html.dark-mode) body {
   color: #333;
 }
 
-body:not(.dark-mode) p,
-body:not(.dark-mode) b,
-body:not(.dark-mode) h1,
-body:not(.dark-mode) h2,
-body:not(.dark-mode) h3,
-body:not(.dark-mode) h4,
-body:not(.dark-mode) h5,
-body:not(.dark-mode) h6,
-body:not(.dark-mode) label,
-body:not(.dark-mode) .note,
-body:not(.dark-mode) .info-content {
+:not(html.dark-mode) body p,
+:not(html.dark-mode) body b,
+:not(html.dark-mode) body h1,
+:not(html.dark-mode) body h2,
+:not(html.dark-mode) body h3,
+:not(html.dark-mode) body h4,
+:not(html.dark-mode) body h5,
+:not(html.dark-mode) body h6,
+:not(html.dark-mode) body label,
+:not(html.dark-mode) body .note,
+:not(html.dark-mode) body .info-content {
   color: #333;
 }
 
@@ -183,38 +183,38 @@ textarea {
   font-size: 14px;
 }
 
-body.dark-mode #description,
-body.dark-mode #manualItemsInput,
-body.dark-mode #countfield,
-body.dark-mode #repairField,
-body.dark-mode #capField,
-body.dark-mode #flatrtContainer,
-body.dark-mode #shthngContainer,
-body.dark-mode #rftrContainer,
-body.dark-mode #rventContainer,
-body.dark-mode #rtoilContainer,
-body.dark-mode #replaceField,
-body.dark-mode #chmnContainer,
-body.dark-mode #debrisFieldContainer,
-body.dark-mode #reasonField,
-body.dark-mode #applField,
-body.dark-mode #coatField,
-body.dark-mode #reltoField,
-body.dark-mode #equipmentField,
-body.dark-mode #rakefield,
-body.dark-mode #typeField,
-body.dark-mode #materialField,
-body.dark-mode #storeFields,
-body.dark-mode #moveFields,
-body.dark-mode #removeFields,
-body.dark-mode #replaceFields,
-body.dark-mode #grinderField,
-body.dark-mode #panelFields,
-body.dark-mode #toprailcapsField,
-body.dark-mode #debrisField,
-body.dark-mode #fasciaField,
-body.dark-mode #soffitField,
-body.dark-mode #endcapfield {
+html.dark-mode #description,
+html.dark-mode #manualItemsInput,
+html.dark-mode #countfield,
+html.dark-mode #repairField,
+html.dark-mode #capField,
+html.dark-mode #flatrtContainer,
+html.dark-mode #shthngContainer,
+html.dark-mode #rftrContainer,
+html.dark-mode #rventContainer,
+html.dark-mode #rtoilContainer,
+html.dark-mode #replaceField,
+html.dark-mode #chmnContainer,
+html.dark-mode #debrisFieldContainer,
+html.dark-mode #reasonField,
+html.dark-mode #applField,
+html.dark-mode #coatField,
+html.dark-mode #reltoField,
+html.dark-mode #equipmentField,
+html.dark-mode #rakefield,
+html.dark-mode #typeField,
+html.dark-mode #materialField,
+html.dark-mode #storeFields,
+html.dark-mode #moveFields,
+html.dark-mode #removeFields,
+html.dark-mode #replaceFields,
+html.dark-mode #grinderField,
+html.dark-mode #panelFields,
+html.dark-mode #toprailcapsField,
+html.dark-mode #debrisField,
+html.dark-mode #fasciaField,
+html.dark-mode #soffitField,
+html.dark-mode #endcapfield {
   background-color: #f8927e;
   border: 1px solid #082032;
 }
@@ -355,7 +355,7 @@ a:hover {
   z-index: 1000;
 }
 
-body.dark-mode .floating-message {
+html.dark-mode .floating-message {
   background-color: #ff4c29;
   color: #fff;
 }
@@ -390,78 +390,78 @@ tr:nth-child(even) {
   background-color: #b1dfbc;
 }
 
-body.dark-mode td,
-body.dark-mode th {
+html.dark-mode td,
+html.dark-mode th {
   border: 1px solid #ff4c29;
 }
 
-body.dark-mode tr:nth-child(even) {
+html.dark-mode tr:nth-child(even) {
   background-color: #fcdbd4;
   color: #333;
 }
 
 /* Dark Mode Styles */
-body.dark-mode {
+html.dark-mode body {
   background-color: #082032 !important;
   color: #fff !important;
 }
 
-body.dark-mode header {
+html.dark-mode header {
   background-color: #2c394b;
 }
 
-body.dark-mode .info-container a,
-body.dark-mode .main-container a,
-body.dark-mode button {
+html.dark-mode .info-container a,
+html.dark-mode .main-container a,
+html.dark-mode button {
   background-color: #334756;
   color: #ff4c29;
 }
 
-body.dark-mode .main-container a:hover,
-body.dark-mode button:hover {
+html.dark-mode .main-container a:hover,
+html.dark-mode button:hover {
   background-color: #ff4c29;
   color: #fff;
 }
 
-body.dark-mode .info-container,
-body.dark-mode .note-container,
-body.dark-mode .container,
-body.dark-mode .note {
+html.dark-mode .info-container,
+html.dark-mode .note-container,
+html.dark-mode .container,
+html.dark-mode .note {
   background-color: #2c394b;
   border-color: #082032;
 }
 
-body.dark-mode .notes-list {
+html.dark-mode .notes-list {
   background-color: #334756;
   color: #fff;
 }
 
-body.dark-mode p,
-body.dark-mode b,
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode h4,
-body.dark-mode h5,
-body.dark-mode h6,
-body.dark-mode label,
-body.dark-mode .note,
-body.dark-mode .info-content {
+html.dark-mode p,
+html.dark-mode b,
+html.dark-mode h1,
+html.dark-mode h2,
+html.dark-mode h3,
+html.dark-mode h4,
+html.dark-mode h5,
+html.dark-mode h6,
+html.dark-mode label,
+html.dark-mode .note,
+html.dark-mode .info-content {
   color: #fff;
 }
 
-body.dark-mode .toggle-btn,
-body.dark-mode .profile-btn,
-body.dark-mode .container a,
-body.dark-mode #home {
+html.dark-mode .toggle-btn,
+html.dark-mode .profile-btn,
+html.dark-mode .container a,
+html.dark-mode #home {
   background-color: #334756;
   color: #ff4c29;
 }
 
-body.dark-mode .toggle-btn:hover,
-body.dark-mode .profile-btn:hover,
-body.dark-mode .container a:hover,
-body.dark-mode #home:hover {
+html.dark-mode .toggle-btn:hover,
+html.dark-mode .profile-btn:hover,
+html.dark-mode .container a:hover,
+html.dark-mode #home:hover {
   background-color: #ff4c29;
   color: #fff;
 }
@@ -517,12 +517,12 @@ body.dark-mode #home:hover {
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-  body.dark-mode .toggle-btn {
+  html.dark-mode .toggle-btn {
     background-color: #334756;
     color: #ff4c29;
   }
 
-  body.dark-mode .toggle-btn:hover {
+  html.dark-mode .toggle-btn:hover {
     background-color: #ff4c29;
     color: #fff;
   }

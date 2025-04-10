@@ -210,72 +210,72 @@ footer .footer {
 }
 
 /* Dark Mode Styles */
-body.dark-mode {
+html.dark-mode body {
   background-color: #082032;
   color: #fff;
 }
 
-body.dark-mode header {
+html.dark-mode header {
   background-color: #2c394b;
 }
 
-body.dark-mode .header-nav a {
+html.dark-mode .header-nav a {
   color: #fff;
 }
 
-body.dark-mode .header-nav a:hover {
+html.dark-mode .header-nav a:hover {
   color: #ff4c29;
 }
 
-body.dark-mode .toggle-btn {
+html.dark-mode .toggle-btn {
   background-color: #334756;
   color: #ff4c29;
 }
 
-body.dark-mode .toggle-btn:hover {
+html.dark-mode .toggle-btn:hover {
   background-color: #ff4c29;
   color: #fff;
 }
 
 /* Add dark mode styles for info-toggle to match toggle-btn */
-body.dark-mode .info-toggle {
+html.dark-mode .info-toggle {
   background-color: #2c394b;
   color: #ff4c29;
 }
 
-body.dark-mode .info-toggle:hover {
+html.dark-mode .info-toggle:hover {
   background-color: #ff4c29;
   color: #fff;
 }
 
-body.dark-mode .profile-btn {
+html.dark-mode .profile-btn {
   background-color: #334756;
   border-color: #ff4c29;
   color: #ff4c29;
 }
 
-body.dark-mode .profile-btn:hover {
+html.dark-mode .profile-btn:hover {
   background-color: #ff4c29;
   color: #fff;
 }
 
-body.dark-mode .container a {
+html.dark-mode .container a {
   background-color: #334756;
   color: #ff4c29;
 }
 
-body.dark-mode .container a:hover {
+html.dark-mode .container a:hover {
   background-color: #ff4c29;
   color: #fff;
 }
 
-body.dark-mode .column {
+html.dark-mode .column {
   background-color: #334756;
   color: #fff;
 }
 
-body.dark-mode .info-panel,
-body.dark-mode .category {
+html.dark-mode .info-panel,
+html.dark-mode .category {
   background-color: #2c394b;
   border-color: #082032;
 }
@@ -434,25 +434,25 @@ body .info-panel a[href="https://taufiqpias.github.io/portfolio"]
 }
 
 /* Override inline style for email link in dark mode */
-body.dark-mode a[href="mailto:taufiq.xenox@gmail.com"] {
+html.dark-mode a[href="mailto:taufiq.xenox@gmail.com"] {
   padding: 5px;
   color: #fff;
   border-radius: 5px;
 }
 
-body.dark-mode a[href="mailto:taufiq.xenox@gmail.com"]:hover {
+html.dark-mode a[href="mailto:taufiq.xenox@gmail.com"]:hover {
   color: #e6e6e6; /* Slightly off-white for hover effect, optional */
 }
 
 /* Override inline style for email link in dark mode */
-body.dark-mode a[href="https://taufiqpias.github.io/portfolio"]
+html.dark-mode a[href="https://taufiqpias.github.io/portfolio"]
 {
   padding: 5px;
   color: #fff;
   border-radius: 5px;
 }
 
-body.dark-mode a[href="https://taufiqpias.github.io/portfolio"]:hover
+html.dark-mode a[href="https://taufiqpias.github.io/portfolio"]:hover
 {
   color: #e6e6e6; /* Slightly off-white for hover effect, optional */
 }

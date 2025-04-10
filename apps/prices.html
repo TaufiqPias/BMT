@@ -12,6 +12,18 @@
     <script src="table.js"></script>
     <script src="..\dark_mode.js"></script>
 
+    <script>
+      (function () {
+        const savedMode = localStorage.getItem("themeMode");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        if (savedMode === "dark" || (!savedMode && prefersDark)) {
+          document.documentElement.classList.add("dark-mode"); // Changed to <html>
+        }
+      })();
+    </script>
+
     <!-- Google tag (gtag.js) -->
     <script
       async

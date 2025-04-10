@@ -7,6 +7,17 @@
     <title>Bid Maker Tool by Taufiq Pias</title>
     <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png" />
     <link rel="stylesheet" href="analytics.css" />
+    <script>
+      (function () {
+        const savedMode = localStorage.getItem("themeMode");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        if (savedMode === "dark" || (!savedMode && prefersDark)) {
+          document.documentElement.classList.add("dark-mode"); // Changed to <html>
+        }
+      })();
+    </script>
 
     <!-- Google tag (gtag.js) -->
     <script

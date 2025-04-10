@@ -269,73 +269,73 @@ p {
 }
 
 /* Dark Mode Styles */
-body.dark-mode {
+html.dark-mode body {
   background-color: #082032;
   color: #fff;
 }
 
-body.dark-mode .header {
+html.dark-mode .header {
   background-color: #334756;
   color: #fff;
 }
 
-body.dark-mode .left-column::-webkit-scrollbar-track {
+html.dark-mode .left-column::-webkit-scrollbar-track {
   background: #082032;
 }
 
-body.dark-mode .left-column::-webkit-scrollbar-thumb {
+html.dark-mode .left-column::-webkit-scrollbar-thumb {
   background-color: #334756;
 }
 
-body.dark-mode .left-column::-webkit-scrollbar-thumb:hover {
+html.dark-mode .left-column::-webkit-scrollbar-thumb:hover {
   background-color: #ff4c29;
 }
 
-body.dark-mode .search-filter input {
+html.dark-mode .search-filter input {
   border-color: #334756;
   background-color: rgba(44, 57, 75, 0.9);
   color: #fff;
 }
 
-body.dark-mode h2,
-body.dark-mode .total-price,
-body.dark-mode p {
+html.dark-mode h2,
+html.dark-mode .total-price,
+html.dark-mode p {
   color: #fff;
 }
 
-body.dark-mode table th,
-body.dark-mode .quotation th {
+html.dark-mode table th,
+html.dark-mode .quotation th {
   background-color: #334756;
   color: #fff;
 }
 
-body.dark-mode th {
+html.dark-mode th {
   border: solid 1px #ff4c29;
 }
 
-body.dark-mode td {
+html.dark-mode td {
   border: solid 1px #ff4c29;
 }
 
-body.dark-mode table button,
-body.dark-mode .print-button,
-body.dark-mode a {
+html.dark-mode table button,
+html.dark-mode .print-button,
+html.dark-mode a {
   background-color: #334756;
   color: #ff4c29;
 }
 
-body.dark-mode table button:hover,
-body.dark-mode .print-button:hover,
-body.dark-mode a:hover {
+html.dark-mode table button:hover,
+html.dark-mode .print-button:hover,
+html.dark-mode a:hover {
   background-color: #ff4c29;
   color: #fff;
 }
 
-body.dark-mode .total-and-print {
+html.dark-mode .total-and-print {
   background-color: rgba(44, 57, 75, 0.9);
 }
 
-body.dark-mode .floating-message {
+html.dark-mode .floating-message {
   background-color: #334756;
 }
 

@@ -269,43 +269,43 @@ a:hover {
 }
 
 /* Dark Mode Styles */
-body.dark-mode {
+html.dark-mode body {
   background-color: #082032 !important;
   color: #fff !important;
 }
 
-body.dark-mode .invoice-container {
+html.dark-mode .invoice-container {
   background-color: rgba(44, 57, 75, 0.9);
   border-color: #082032;
 }
 
-body.dark-mode .invoice-text,
-body.dark-mode .address,
-body.dark-mode .title h1,
-body.dark-mode .info-section label,
-body.dark-mode .totals p {
+html.dark-mode .invoice-text,
+html.dark-mode .address,
+html.dark-mode .title h1,
+html.dark-mode .info-section label,
+html.dark-mode .totals p {
   color: #fff;
 }
 
-body.dark-mode thead {
+html.dark-mode thead {
   background-color: #334756;
   color: #fff;
 }
 
-body.dark-mode #add-item,
-body.dark-mode #download-pdf,
-body.dark-mode a {
+html.dark-mode #add-item,
+html.dark-mode #download-pdf,
+html.dark-mode a {
   background-color: #334756;
   color: #ff4c29;
 }
 
-body.dark-mode #add-item:hover,
-body.dark-mode #download-pdf:hover,
-body.dark-mode a:hover {
+html.dark-mode #add-item:hover,
+html.dark-mode #download-pdf:hover,
+html.dark-mode a:hover {
   background-color: #ff4c29;
   color: #fff;
 }
 
-body.dark-mode .remove-item {
+html.dark-mode .remove-item {
   color: #ff4c29;
 }
