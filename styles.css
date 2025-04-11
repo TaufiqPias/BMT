@@ -282,11 +282,10 @@ html.dark-mode .category {
 
 /* Media Queries for Mobile Only */
 @media (max-width: 768px) {
-  /* Header Adjustments */
   .header-container {
     flex-direction: column;
     text-align: center;
-    padding: 8px 15px;
+    padding: 8px 10px; /* Reduced side padding for more space */
   }
 
   header h1 {
@@ -294,19 +293,20 @@ html.dark-mode .category {
   }
 
   .header-nav {
-    gap: 10px;
-    flex-wrap: wrap;
-    margin-top: 10px;
+    gap: 8px; /* Reduced gap to save space */
+    flex-wrap: nowrap; /* Prevent wrapping to keep links in one row */
+    justify-content: center; /* Center links for better appearance */
+    margin-top: 8px; /* Slightly reduced margin */
   }
 
   .header-nav a {
-    font-size: 14px;
-    padding: 5px 8px;
+    font-size: 12px; /* Smaller font size to fit links */
+    padding: 4px 6px; /* Reduced padding */
   }
 
   .header-actions {
-    gap: 10px;
-    margin-top: 10px;
+    gap: 8px; /* Reduced gap */
+    margin-top: 8px; /* Slightly reduced margin */
     justify-content: center;
   }
 
@@ -387,9 +387,13 @@ html.dark-mode .category {
   }
 }
 
-@media (max-width: 480px) {
-  header h1 {
-    font-size: 20px;
+@media (max-width: 400px) {
+  .header-container {
+    padding: 8px 5px; /* Further reduce padding for ~390px viewports */
+  }
+
+  .header-nav {
+    gap: 6px; /* Further reduce gap */
   }
 
   .header-nav a,
@@ -403,9 +407,8 @@ html.dark-mode .category {
     flex: 1 1 100%; /* One per row */
   }
 
-  footer .footer {
-    left: 5px;
-    font-size: 8px;
+  header h1 {
+    font-size: 20px; /* Match existing 480px query for consistency */
   }
 }
 
