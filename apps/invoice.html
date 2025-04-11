@@ -72,18 +72,25 @@
         <div class="title">
           <h1 style="text-align: right">INVOICE</h1>
           <div class="invoice-text">
-            Invoice No.
-            <label for="invoice-number"></label>
-            <input
-              type="text"
-              id="invoice-number"
-              name="invoice-number"
-              required
-            />
+            <div class="invo">
+              <label for="invoice-number">Invoice No.</label>
+              <input
+                type="text"
+                id="invoice-number"
+                name="invoice-number"
+                required
+              />
+            </div>
 
-            Asset No.
-            <label for="asset-number"></label>
-            <input type="text" id="asset-number" name="asset-number" required />
+            <div class="asset">
+              <label for="asset-number">Asset No.</label>
+              <input
+                type="text"
+                id="asset-number"
+                name="asset-number"
+                required
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -142,7 +149,7 @@
 
       <div class="summary-section">
         <div class="notes-terms">
-          <div>
+          <div class="notes">
             <label>Notes</label>
             <textarea
               placeholder="Notes - any relevant information not already covered"

@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
   addItemBtn.addEventListener("click", () => {
     const row = document.createElement("tr");
     row.innerHTML = `
-      <td><input type="text" class="item-desc" placeholder="Description of item/service..."></td>
+      <td><input type="text" class="item-desc" placeholder="Description of item/service..." style="min-width: 150px;"></td>
       <td><input type="number" class="quantity" value="1" min="1"></td>
       <td><input type="number" class="rate" value="0" min="0" step="0.01"></td>
       <td class="amount">$0.00</td>
@@ -212,11 +212,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function continuePDFGeneration(doc) {
-      doc.setFontSize(22);
+      doc.setFontSize(18); // Reduced from 22 for better mobile fit
       doc.setFont("Helvetica", "bold");
       doc.text("INVOICE", 10, 60);
       doc.setFont("Helvetica", "normal");
-      doc.setFontSize(12);
+      doc.setFontSize(10); // Reduced from 12 for better mobile fit
       doc.text(
         `Invoice Number\n ${document.getElementById("invoice-number").value}`,
         180,
