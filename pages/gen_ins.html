@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Taufiq Pias" />
+    <title>General Inspection - BMT</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <script>
+      (function () {
+        const savedMode = localStorage.getItem("themeMode");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        if (savedMode === "dark" || (!savedMode && prefersDark)) {
+          document.documentElement.classList.add("dark-mode"); // Changed to <html>
+        }
+        // Only collapse .info-content on mobile initially
+        if (window.matchMedia("(max-width: 1200px)").matches) {
+          document.querySelectorAll(".info-content").forEach((el) => {
+            el.classList.add("collapsed");
+          });
+        }
+      })();
+    </script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-M2K232X4B3");
+    </script>
+
+    <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "qj1sdmrlho");
+    </script>
+  </head>
+
+  <body>
+    <div class="main-container">
+      <!-- Information Area -->
+      <div class="info-container">
+        <button class="toggle-btn">Toggle Information</button>
+        <div class="info-content">
+          <h2>Information</h2>
+          <p>
+            Fill out the form accordingly to generate a bid. The following
+            prices are provided as a ranged parameter taken from RepairBase
+            2024.
+          </p>
+          <p><b>Approximate Prices:</b></p>
+          <p><table>
+            <tr>
+              <th>Inspection Type</th>
+              <th>Standard Bid Price</th>
+              <th>Inspector Charge</th>
+            </tr>
+            <tr>
+              <td>Roof</td>
+              <td>$500.00</td>
+              <td>$322.50</td>
+            </tr>
+            <tr>
+              <td>Structural</td>
+              <td>$2,500.00</td>
+              <td>$1,900.00</td>
+            </tr>
+            <tr>
+              <td>Plumbing</td>
+              <td>$500.00</td>
+              <td>$271.00</td>
+            </tr>
+            <tr>
+              <td>Electric</td>
+              <td>$500.00</td>
+              <td>$175.00</td>
+            </tr>
+            <tr>
+              <td>HVAC</td>
+              <td>$500.00</td>
+              <td>$250.00</td>
+            </tr>
+            <tr>
+              <td>Arborist</td>
+              <td>$800.00</td>
+              <td>$540.80</td>
+            </tr>
+            <tr>
+              <td>Mold</td>
+              <td>$500.00</td>
+              <td>$117.99</td>
+            </tr>
+            <tr>
+              <td>Mold Remediation</td>
+              <td>$800.00</td>
+              <td>$670.50</td>
+            </tr>
+            <tr>
+              <td>Termite</td>
+              <td>$1,200.00</td>
+              <td>$850.20</td>
+            </tr>
+            <tr>
+              <td>Asbestos</td>
+              <td>$1,200.00</td>
+              <td>$300.00</td>
+            </tr>
+            <tr>
+              <td>Lead Paint</td>
+              <td>$1,200.00</td>
+              <td>$300.00</td>
+            </tr>
+          </table></p>
+          
+          <p> 
+            <table>
+              <tr>
+                <th>Test Type</th>
+                <th>DIY kit Price (per pack)</th>
+              </tr>
+              <tr>
+                <td>Mold</td>
+                <td>$11.99</td>
+              </tr>
+              <tr>
+                <td>Asbestos</td>
+                <td>$12.30</td>
+              </tr>
+              <tr>
+                <td>Lead Paint</td>
+                <td>$18.40</td>
+              </tr>
+            </table>
+          </p>
+          <p>
+            <ul>
+              <li>Only NY requires both MOLD and MOLD REMEDIATION inspection and do not take DIY testing.</li>
+              <li>In NY, if someone completes Discoloration Treatment without M&MR inspection, there will be a $3,000.00 fine implimented.</li>
+              <li>You cannot do DIY Mold Remediation Test.</li>
+              <li>DIY testing is very popular among Nationals and if you receive a follow up regarding the professional inspection bid, try submitting a DIY bid.</li>
+
+            </ul>
+           </p>
+          <b>
+            <p style="color: brown">
+              ***Consult with your Team Lead before submitting the price.***
+            </p>
+          </b>
+          <b>
+            <p style="color: brown">
+              ***Please copy the bids before visiting other pages. Bids will not
+              be saved once redirected.***
+            </p>
+          </b>
+        </div>
+      </div>
+
+      <div class="container">
+        <button class="toggle-btn">Toggle Form</button>
+        <div class="division">
+          <h1>Inspections Bid</h1>
+          <h2>General Inspection Bids</h2>
+          <form id="Form">
+            <label for="bidPrefix"
+              >Bid Prefix (for conjunction bid - Use a colon after
+              prefix)</label
+            >
+            <input
+              type="text"
+              id="bidPrefix"
+              name="bidPrefix"
+              placeholder="Title: / Title-"
+            />
+
+            <label for="instype">Inspection Type:*</label>
+            <select id="instype" name="instype" required>
+              <option value="">--Select an inspection type--</option>
+              <option value="Roof">Roof</option>
+              <option value="Structural">Structural</option>
+              <option value="Plumbing">Plumbing</option>
+              <option value="Electric">Electric</option>
+              <option value="HVAC">HVAC</option>
+              <option value="Arborist">Arborist</option>
+              <option value="Mold">Mold</option>
+              <option value="Mold Remediation">Mold Remediation</option>
+              <option value="Termite">Termite</option>
+              <option value="Asbestos">Asbestos</option>
+              <option value="Leadpaint">Lead Paint</option>
+            </select>
+
+            <div id="subField" style="display: none">
+              <label for="sub">Select a Method:*</label>
+              <select id="sub" name="sub">
+                <option value="">--Select an Inspection Method--</option>
+                <option value="Professional">
+                  With Professional Inspector
+                </option>
+                <option value="Lab">With Self Testing Lab Kit</option>
+              </select>
+            </div>
+
+            <label for="additionalInfo">Additional information:</label>
+            <textarea
+              id="additionalInfo"
+              name="additionalInfo"
+              placeholder="Disclaimers or any other comment"
+            ></textarea>
+
+            <label for="conj">Make this bid conjunction to:</label>
+            <input
+              type="text"
+              id="conj"
+              name="conj"
+              placeholder="Bid name only"
+            />
+
+            <label for="price">Price (in USD):</label>
+            <input type="number" id="price" name="price" step="0.01" />
+
+            <button type="submit">Generate Bid</button>
+            <!-- <a href="https://www.zillow.com/" target="_blank" id="findpropsize">Find Property Size: Zillow</a> -->
+            <!-- <a href="https://www.google.com/maps" target="_blank" id="measuredr">Plan & Measure French Drain</a> -->
+          </form>
+        </div>
+      </div>
+
+      <!-- New Note Section -->
+      <div class="note-container">
+        <h2>Bids</h2>
+        <div id="notesList" class="notes-list">
+          <!-- Notes will be dynamically added here -->
+        </div>
+        <button id="copyAllBidsButton">Copy All Bids</button>
+        <a href="../index.html" id="home">
+          <ion-icon name="home"></ion-icon> Go Home</a
+        >
+      </div>
+    </div>
+
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <!-- sub field handler -->
+    <script>
+      // Function to toggle sub field visibility
+      function toggleSubField() {
+        const instype = document.getElementById("instype").value;
+        const subField = document.getElementById("subField");
+        const subSelect = document.getElementById("sub");
+
+        // Show sub field for specific inspection types
+        const showSubTypes = ["Mold", "Asbestos", "Leadpaint"];
+        if (showSubTypes.includes(instype)) {
+          subField.style.display = "block";
+          subSelect.setAttribute("required", "true");
+        } else {
+          subField.style.display = "none";
+          subSelect.removeAttribute("required");
+          subSelect.value = ""; // Reset selection when hidden
+        }
+      }
+
+      // Add event listener to instype select
+      document
+        .getElementById("instype")
+        .addEventListener("change", toggleSubField);
+    </script>
+    <!-- Script to Generate Bid -->
+    <script>
+      document
+        .getElementById("Form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Get form values
+          const bidPrefix = document.getElementById("bidPrefix").value;
+          const instype = document.getElementById("instype").value;
+          const sub = document.getElementById("sub").value;
+          const additionalInfo =
+            document.getElementById("additionalInfo").value;
+          const conj = document.getElementById("conj").value;
+          const price = parseFloat(document.getElementById("price").value || 0);
+
+          // Format the price with commas
+          const formattedPrice = price.toLocaleString("en-US", {
+            style: "decimal",
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
+
+          // Generate the bid text
+          let bidText;
+          if (instype === "Roof") {
+            bidText = `${bidPrefix} Need to call in a professional lisenced roofer to visit the property and inspect the roof to assess all the damages and prepare report along with a plan on how to address the damage - including an estimate to fix the issue. The inspection might take 1-2 hour(s) to complete. If approved, we will require 14-20 days to set an appointment with the roofer. Once completed, it might take upto 72 hours to receive the report and estimates. We will submit the report and estimate as soon as possible. ***This bid is provided only to have a professional visit the property and complete inspection. No repair will be done if approved. Depending on the report, we will provide further bid.*** ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else if (instype === "Structural") {
+            bidText = `${bidPrefix} Need to call in a structural engineer to visit the property and inspect the entire structure to assess all the damages and prepare report along with a plan on how to address the damage - including an estimate to fix the issue. The inspection might take 3-4 hour(s) to complete. If approved, we will require 14-20 days to set an appointment with the engineer. Once completed, it might take upto 72 hours to receive the report and estimates. We will submit the report and estimate as soon as possible. ***This bid is provided only to have a professional visit the property and complete inspection. No repair will be done if approved. Depending on the report, we will provide further bid.*** ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else if (instype === "Plumbing") {
+            bidText = `${bidPrefix} Need to call in a professional lisenced plumber to visit the property and inspect the plumbing system to assess all the damages and prepare report along with a plan on how to address the damage - including an estimate to fix the issue. The inspection might take 1-2 hour(s) to complete. If approved, we will require 14-20 days to set an appointment with the plumber. Once completed, it might take upto 72 hours to receive the report and estimates. We will submit the report and estimate as soon as possible. ***This bid is provided only to have a professional visit the property and complete inspection. No repair will be done if approved. Depending on the report, we will provide further bid.*** ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else if (instype === "Electric") {
+            bidText = `${bidPrefix} Need to call in a professional lisenced electrician to visit the property and inspect the electrical system to assess all the damages and prepair report along with a plan on how to address the damage - including an estimate to fix the issue. The inspection might take 1-2 hour(s) to complete. If approved, we will require 14-20 days to set an appointment with the electrician. Once completed, it might take upto 72 hours to receive the report and estimates. We will submit the report and estimate as soon as possible. ***This bid is provided only to have a professional visit the property and complete inspection. No repair will be done if approved. Depending on the report, we will provide further bid.*** ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else if (instype === "HVAC") {
+            bidText = `${bidPrefix} Need to call in a professional lisenced HVAC technician to visit the property and inspect the HVAC system to assess all the damages and prepair report along with a plan on how to address the damage - including an estimate to fix the issue. The inspection might take 2-3 hour(s) to complete. If approved, we will require 14-20 days to set an appointment with the HVAC technician. Once completed, it might take upto 72 hours to receive the report and estimates. We will submit the report and estimate as soon as possible. ***This bid is provided only to have a professional visit the property and complete inspection. No repair will be done if approved. Depending on the report, we will provide further bid.*** ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else if (instype === "Arborist") {
+            bidText = `${bidPrefix} Need to call in a professional certified arborist to visit the property and inspect the trees all around the house to assess tree health, structural risks, and potential hazards and prepair report along with a plan on how to address the situation - including an estimate to address the issue. The inspection might take 2-3 hour(s) to complete. If approved, we will require 14-20 days to set an appointment with the arborist. Once completed, it might take upto 72 hours to receive the report and estimates. We will submit the report and estimate as soon as possible. ***This bid is provided only to have a professional visit the property and complete inspection. No repair will be done if approved. Depending on the report, we will provide further bid.*** ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else if (instype === "Termite") {
+            bidText = `${bidPrefix} Need to call in a licensed pest control professional or termite inspector to visit the property and inspect for signs of termite activity, wood-damaging insects, or structural damage caused by pests. The inspector will assess all accessible areas, including crawlspaces and attics, and prepare a report along with a plan on how to address any issues found, including an estimate for treatment. The inspection might take 1-2 hour(s) to complete. If approved, we will require 14-20 days to set an appointment with the termite inspector. Once completed, it might take up to 72 hours to receive the report and estimates. We will submit the report and estimate as soon as possible. ***This bid is provided only to have a professional visit the property and complete inspection. No remediation or repairs will be done if approved. Depending on the report, we will provide further bid.*** ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else if (instype === "Mold" && sub === "Professional") {
+            bidText = `${bidPrefix} Need to call in a certified mold inspector to visit the property and inspect all areas for mold growth, moisture issues, and air quality concerns. The inspector will assess visible and hidden mold, potentially using air or surface sampling, and prepare a report along with a plan on how to address any issues found, including an estimate for remediation. The inspection might take 2-3 hour(s) to complete. If approved, we will require 14-20 days to set an appointment with the mold inspector. Once completed, it might take up to 72 hours to receive the report and estimates. We will submit the report and estimate as soon as possible. ***This bid is provided only to have a professional visit the property and complete inspection. No remediation or repairs will be done if approved. Depending on the report, we will provide further bid.*** ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else if (instype === "Mold" && sub === "Lab") {
+            bidText = `${bidPrefix} Need to purchase 5 packs of DIY mold testing kit (Mold Armor/ Similar testing kit) and test for the presence of inside or outside mold at the property. It takes 48 hours or less to get the desired result. Once we have the result, will submit the result with photo documentation. ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else if (instype === "Mold Remediation") {
+            bidText = `${bidPrefix} Need to call in a mold remediation specialist to visit the property and inspect areas previously identified as having mold or moisture issues. The specialist will evaluate the extent of mold contamination and prepare a detailed report along with a plan for safe mold removal and prevention, including an estimate to address the issue. The inspection might take 2-3 hour(s) to complete. If approved, we will require 14-20 days to set an appointment with the remediation specialist. Once completed, it might take up to 72 hours to receive the report and estimates. We will submit the report and estimate as soon as possible. ***This bid is provided only to have a professional visit the property and complete inspection. No remediation or repairs will be done if approved. Depending on the report, we will provide further bid.*** ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else if (instype === "Asbestos" && sub === "Professional") {
+            bidText = `${bidPrefix} Need to call in a certified asbestos inspector to visit the property and inspect for the presence of asbestos-containing materials, such as insulation, flooring, or ceiling tiles, particularly in older structures. The inspector will collect samples for lab analysis if necessary and prepare a report along with a plan on how to address any issues found, including an estimate for abatement. The inspection might take 2-3 hour(s) to complete. If approved, we will require 14-20 days to set an appointment with the asbestos inspector. Once completed, it might take up to 72 hours to receive the report and estimates. We will submit the report and estimate as soon as possible. ***This bid is provided only to have a professional visit the property and complete inspection. No remediation or repairs will be done if approved. Depending on the report, we will provide further bid.*** ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else if (instype === "Asbestos" && sub === "Lab") {
+            bidText = `${bidPrefix} Need to purchase 5 packs of DIY asbestos testing kit (Pro Lab/ Similar testing kit) and test for the presence of inside or outside Asbestos at the property. It takes 48 hours or less to get the desired result. Once we have the result, will submit the result with photo documentation. ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else if (instype === "Leadpaint" && sub === "Professional") {
+            bidText = `${bidPrefix} Need to call in a certified lead paint inspector or risk assessor to visit the property and inspect for lead-based paint, dust, or soil hazards, particularly in homes built before 1978. The inspector will use testing methods such as XRF analysis or paint sampling and prepare a report along with a plan on how to address any issues found, including an estimate for mitigation. The inspection might take 2-3 hour(s) to complete. If approved, we will require 14-20 days to set an appointment with the lead paint inspector. Once completed, it might take up to 72 hours to receive the report and estimates. We will submit the report and estimate as soon as possible. ***This bid is provided only to have a professional visit the property and complete inspection. No remediation or repairs will be done if approved. Depending on the report, we will provide further bid.*** ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else if (instype === "Leadpaint" && sub === "Lab") {
+            bidText = `${bidPrefix} Need to purchase 5 packs of DIY lead testing kit (Safe Home/ Similar testing kit) and test for the presence of inside or outside lead or lead based paint at the property. It takes 48 hours or less to get the desired result. Once we have the result, will submit the result with photo documentation. ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else {
+            alert("Please select an Inspection.");
+            return; // Stop execution if no action is selected
+          }
+          // Save the bid as a note
+          saveBidAsNote(bidText);
+        });
+    </script>
+    <script src="script_other.js"></script>
+    <script src="..\dark_mode.js"></script>
+    <script src="blocker.js"></script>
+  </body>
+</html>

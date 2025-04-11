@@ -69,6 +69,42 @@ body {
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
+.info-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.info-container::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 5px;
+}
+.info-container::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
+.container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.container::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 5px;
+}
+.container::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
+.notes-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.notes-list::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 5px;
+}
+.notes-list::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
 .division {
   display: flex; /* Always visible by default */
   flex: 1;
@@ -173,6 +209,7 @@ textarea {
 #toprailcapsField,
 #debrisField,
 #fasciaField,
+#subField,
 #soffitField,
 #endcapfield {
   grid-column: span 2;
@@ -213,6 +250,7 @@ html.dark-mode #panelFields,
 html.dark-mode #toprailcapsField,
 html.dark-mode #debrisField,
 html.dark-mode #fasciaField,
+html.dark-mode #subField,
 html.dark-mode #soffitField,
 html.dark-mode #endcapfield {
   background-color: #f8927e;
