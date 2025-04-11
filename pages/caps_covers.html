@@ -206,7 +206,7 @@
           const additionalInfo =
             document.getElementById("additionalInfo").value;
           const conj = document.getElementById("conj").value;
-          const price = parseFloat(document.getElementById("price").value);
+          const price = parseFloat(document.getElementById("price").value || 0);
 
           // Format the price with commas
           const formattedPrice = price.toLocaleString("en-US", {

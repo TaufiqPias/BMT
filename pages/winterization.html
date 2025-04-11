@@ -275,18 +275,15 @@
         const winttype = document.getElementById('winttype').value;
         const additionalInfo = document.getElementById('additionalInfo').value;
         const conj = document.getElementById('conj').value;
-        const priceInput = document.getElementById('price').value;
-        const price = parseFloat(priceInput);
+        const price = parseFloat(document.getElementById("price").value || 0);
+
 
         // Validate required fields
-        if (!appl || !winttype || !priceInput) {
+        if (!appl || !winttype) {
             alert('Please fill in all required fields.');
             return;
         }
-        if (isNaN(price)) {
-            alert('Please enter a valid price.');
-            return;
-        }
+       
 
         // Process winttype
         const processedWinttype = getProcessedWinttype(winttype);

@@ -402,7 +402,7 @@
             document.getElementById("additionalInfo").value;
           const conj = document.getElementById("conj").value;
           const pmt = document.getElementById("pmt").value;
-          const price = parseFloat(document.getElementById("price").value);
+          const price = parseFloat(document.getElementById("price").value || 0);
 
           let bidText = "";
 
