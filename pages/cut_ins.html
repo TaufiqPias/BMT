@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Taufiq Pias" />
+    <title>Cut Wall & Inspect - BMT</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <script>
+      (function () {
+        const savedMode = localStorage.getItem("themeMode");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        if (savedMode === "dark" || (!savedMode && prefersDark)) {
+          document.documentElement.classList.add("dark-mode"); // Changed to <html>
+        }
+        // Only collapse .info-content on mobile initially
+        if (window.matchMedia("(max-width: 1200px)").matches) {
+          document.querySelectorAll(".info-content").forEach((el) => {
+            el.classList.add("collapsed");
+          });
+        }
+      })();
+    </script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-M2K232X4B3");
+    </script>
+
+    <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "qj1sdmrlho");
+    </script>
+  </head>
+
+  <body>
+    <div class="main-container">
+      <!-- Information Area -->
+      <div class="info-container">
+        <button class="toggle-btn">Toggle Information</button>
+        <div class="info-content">
+          <h2>Information</h2>
+          <p>
+            Fill out the form accordingly to generate a bid. The following
+            prices are provided as a ranged parameter taken from RepairBase
+            2024.
+          </p>
+          
+          <p><b> Process: </b></p>
+
+          <iframe
+            width="100%"
+            height="216"
+            src="https://www.youtube.com/embed/DqWDHUqLfp4?si=MorEhXwTsqis-Y8-"
+            title="Cut wall and inspect plumbing lines for leaks/damages"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin"
+            allowfullscreen
+          ></iframe>
+          <p><b> Approximate Prices: </b></p> 
+          <p>            
+          <ul>
+            <li>Cut Wall & Inspect Plumbing Lines: $30.00-$35.00 (M/C)</li>
+            <li>Pressure Test: $20</li>
+            <li>Repair Wall 5 cuts: $72.50 - $86.30</li>
+            <li>Repair Wall 10 cuts: $133.76 - $142.51</li>
+          </p>
+
+          <b>
+            <p style="color: brown">
+              ***Consult with your Team Lead before submitting the price.***
+            </p>
+          </b>
+          <b>
+            <p style="color: brown">
+              ***Please copy the bids before visiting other pages. Bids will not
+              be saved once redirected.***
+            </p>
+          </b>
+        </div>
+      </div>
+
+      <div class="container">
+        <button class="toggle-btn">Toggle Form</button>
+        <div class="division">
+          <h1>Inspection Bid</h1>
+          <h2>Cut Wall & Inspect Bids</h2>
+          <form id="Form">
+            <label for="bidPrefix"
+              >Bid Prefix (for conjunction bid - Use a colon after
+              prefix)</label
+            >
+            <input
+              type="text"
+              id="bidPrefix"
+              name="bidPrefix"
+              placeholder="Title: / Title-"
+            />
+
+            <label for="mxcut">How Many Cuts are Needed?*</label>
+            <select id="mxcut" name="mxcut" required>
+              <option value="">--Select any--</option>
+              <option value="(Max 5 cuts)">Max 5 Cuts</option>
+              <option value="(Max 10 cuts)">Max 10 Cuts</option>
+            </select>
+
+            <label for="ptest">Pressure test Needed?*</label>
+            <select id="ptest" name="ptest" required>
+              <option value="">--Select any--</option>
+              <option
+                value="Pressure test required to identify and locate areas to cut. - price included."
+              >
+                Yes
+              </option>
+              <option
+                value="Pressure test not needed as locations of the cuts have already been marked on previous pressure test."
+              >
+                No
+              </option>
+            </select>
+
+            <label for="repwall"
+              >Will the wall be repaired after inspection?*</label
+            >
+            <select id="repwall" name="repwall" required>
+              <option value="">--Select any--</option>
+              <option
+                value="After inspection, will repair the wall accordingly - price included."
+              >
+                Yes
+              </option>
+              <option
+                value="Wall will be kept open for future repairs or inspection. Once satisfied, will provide a bid to repair the wall."
+              >
+                No
+              </option>
+            </select>
+
+            <label for="additionalInfo">Additional information:</label>
+            <textarea
+              id="additionalInfo"
+              name="additionalInfo"
+              placeholder="Disclaimers or any other comment"
+            ></textarea>
+
+            <label for="conj">Make this bid conjunction to:</label>
+            <input
+              type="text"
+              id="conj"
+              name="conj"
+              placeholder="Bid name only"
+            />
+
+            <label for="price">Price (in USD):</label>
+            <input type="number" id="price" name="price" step="0.01" />
+
+            <button type="submit">Generate Bid</button>
+            <!-- <a href="https://www.zillow.com/" target="_blank" id="findpropsize">Find Property Size: Zillow</a> -->
+            <!-- <a href="https://www.google.com/maps" target="_blank" id="measuredr">Plan & Measure French Drain</a> -->
+          </form>
+        </div>
+      </div>
+
+      <!-- New Note Section -->
+      <div class="note-container">
+        <h2>Bids</h2>
+        <div id="notesList" class="notes-list">
+          <!-- Notes will be dynamically added here -->
+        </div>
+        <button id="copyAllBidsButton">Copy All Bids</button>
+        <a href="../index.html" id="home">
+          <ion-icon name="home"></ion-icon> Go Home</a
+        >
+      </div>
+    </div>
+
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <!-- Script to Generate Bid -->
+    <script>
+      document
+        .getElementById("Form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Get form values
+          const bidPrefix = document.getElementById("bidPrefix").value;
+          const mxcut = document.getElementById("mxcut").value;
+          const ptest = document.getElementById("ptest").value;
+          const repwall = document.getElementById("repwall").value;
+          const additionalInfo =
+            document.getElementById("additionalInfo").value;
+          const conj = document.getElementById("conj").value;
+          const price = parseFloat(document.getElementById("price").value || 0);
+
+          // Format the price with commas
+          const formattedPrice = price.toLocaleString("en-US", {
+            style: "decimal",
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
+
+          // Generate the bid text
+          const bidText = `${bidPrefix} Need to cut (1x1) wall and inspect ${mxcut} plumbing lines for leaks/damages to address the plumbing issues of the property. ${ptest} ${repwall} ${
+            conj ? `***Must be approved in conjunction to ${conj} bid.***` : ""
+          } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          // Save the bid as a note
+          saveBidAsNote(bidText);
+        });
+    </script>
+    <script src="script_other.js"></script>
+    <script src="..\dark_mode.js"></script>
+    <script src="blocker.js"></script>
+  </body>
+</html>
