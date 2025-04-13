@@ -1,631 +1,359 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Taufiq Pias" />
-    <title>Bid Maker Tool by Taufiq Pias</title>
-    <link rel="icon" type="image/x-icon" href=".\Images\Favicon.png" />
-    <link rel="stylesheet" href="styles.css" />
 
-    <script>
-      (function () {
-        const savedMode = localStorage.getItem("themeMode");
-        const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)"
-        ).matches;
-        if (savedMode === "dark" || (!savedMode && prefersDark)) {
-          document.documentElement.classList.add("dark-mode");
-        }
-      })();
-    </script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="Taufiq Pias" />
+  <title>Bid Maker Tool by Taufiq Pias</title>
+  <link rel="icon" type="image/x-icon" href=".\Images\Favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
 
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
+  <script>
+    (function () {
+      const savedMode = localStorage.getItem("themeMode");
+      const prefersDark = window.matchMedia(
+        "(prefers-color-scheme: dark)"
+      ).matches;
+      if (savedMode === "dark" || (!savedMode && prefersDark)) {
+        document.documentElement.classList.add("dark-mode");
       }
-      gtag("js", new Date());
+    })();
+  </script>
 
-      gtag("config", "G-M2K232X4B3");
-    </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
 
-    <script type="text/javascript">
-      (function (c, l, a, r, i, t, y) {
-        c[a] =
-          c[a] ||
-          function () {
-            (c[a].q = c[a].q || []).push(arguments);
-          };
-        t = l.createElement(r);
-        t.async = 1;
-        t.src = "https://www.clarity.ms/tag/" + i;
-        y = l.getElementsByTagName(r)[0];
-        y.parentNode.insertBefore(t, y);
-      })(window, document, "clarity", "script", "qj1sdmrlho");
-    </script>
-  </head>
-  <body>
-    <!-- Header -->
-    <header>
-      <div class="header-container">
-        <h1>Bid Maker Tool</h1>
-        <nav class="header-nav">
-          <a href="#">Home</a>
-          <a href="#pricing">Pricing</a>
-          <a href="#bid-demo">Bid Demo</a>
-          <a href=".\navpages\analytics.html">Analytics</a>
-          <a href="https://forms.gle/KLGN4DuJQoBhE3nq9" target="_blank"
-            >Report</a
-          >
-        </nav>
-        <div class="header-actions">
-          <button id="darkModeToggle" class="toggle-btn">Dark Mode</button>
-          <a href="#profile" class="profile-btn">Profile</a>
-        </div>
+    gtag("config", "G-M2K232X4B3");
+  </script>
+
+  <script type="text/javascript">
+    (function (c, l, a, r, i, t, y) {
+      c[a] =
+        c[a] ||
+        function () {
+          (c[a].q = c[a].q || []).push(arguments);
+        };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "qj1sdmrlho");
+  </script>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <h1>Bid Maker Tool</h1>
+      <nav class="header-nav">
+        <a href="#">Home</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#bid-demo">Bid Demo</a>
+        <a href=".\navpages\analytics.html">Analytics</a>
+        <a href="https://forms.gle/KLGN4DuJQoBhE3nq9" target="_blank">Report</a>
+      </nav>
+      <div class="header-actions">
+        <button id="darkModeToggle" class="toggle-btn">Dark Mode</button>
+        <a href="#profile" class="profile-btn">Profile</a>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <!-- Main Container -->
-    <div class="container">
-      <!-- Left Column: Information -->
-      <div class="column" id="information">
-        <button class="info-toggle">View Full Information</button>
-        <h2>Information</h2>
-        <div class="info-panel">
-          <div class="about">
-            <!-- <div class="news">
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Left Column: Information -->
+    <div class="column" id="information">
+      <button class="info-toggle">View Full Information</button>
+      <h2>Information</h2>
+      <div class="info-panel">
+        <div class="about">
+          <!-- <div class="news">
           <h4>NEWS</h4>
         </div> -->
 
-            <p>
-              Welcome to the
-              <strong
-                >Bid Maker Tool - For Property Preservation and Rehab</strong
-              >
-            </p>
-            <p>
-              This tool is developed to help property preservation processors to
-              work faster and with precision. I hope it helps you all. The bid
-              inventory will be updated continuously. If you are unable to find
-              a bid in the inventory, please feel free to email me at
-              <b
-                ><a class="authorinfo" href="mailto:taufiq.xenox@gmail.com"
-                  >taufiq.xenox@gmail.com</a
-                ></b
-              >.
-            </p>
+          <p>
+            Welcome to the
+            <strong>Bid Maker Tool - For Property Preservation and Rehab</strong>
+          </p>
+          <p>
+            This tool is developed to help property preservation processors to
+            work faster and with precision. I hope it helps you all. The bid
+            inventory will be updated continuously. If you are unable to find
+            a bid in the inventory, please feel free to email me at
+            <b><a class="authorinfo" href="mailto:taufiq.xenox@gmail.com">taufiq.xenox@gmail.com</a></b>.
+          </p>
 
-            <h3>BENEFITS</h3>
-            <p>
-              Faster Bid Preparing ♦ Low Chance Of Error ♦ All Bids In One Place
-              ♦ Easy To Use
-            </p>
+          <h3>BENEFITS</h3>
+          <p>
+            Faster Bid Preparing ♦ Low Chance Of Error ♦ All Bids In One Place
+            ♦ Easy To Use
+          </p>
 
-            <img
-              src="Images\Tested.png"
-              alt=""
-              style="display: block; margin: 0 auto; max-width: 100px"
-            />
-            <p style="display: block; margin: 0 auto; max-width: 100%">
-              Auto hotkey reduces processing time to 36% but that requires the
-              processors to memorize hotkeys. Bid Maker Tools reduces processing
-              time to 78% and increases accuracy to 95%. No Memorizing Needed.
-            </p>
+          <img src="Images\Tested.png" alt="" style="display: block; margin: 0 auto; max-width: 100px" />
+          <p style="display: block; margin: 0 auto; max-width: 100%">
+            Auto hotkey reduces processing time to 36% but that requires the
+            processors to memorize hotkeys. Bid Maker Tools reduces processing
+            time to 78% and increases accuracy to 95%. No Memorizing Needed.
+          </p>
 
-            <h3>HOW TO USE</h3>
-            <ol>
-              <li>Search the <strong>Categories</strong> for your services.</li>
-              <li>Go to the page and fill out the form.</li>
-              <li>Generate as many <strong>BID</strong> as you like.</li>
-              <li>
-                Make sure to copy all the bids (or individual bids) on a
-                <strong>Notepad/Word</strong>.
-              </li>
-              <li>Enjoy</li>
-            </ol>
-            <p>If you have any questions, feel free to reach out to me.</p>
-            <p>
-              Developed by:
-              <b
-                ><a
-                  class="authorinfo"
-                  href="https://taufiqpias.github.io/portfolio"
-                  >Taufiq Pias</a
-                ></b
-              >
-            </p>
-            <h2><b>Check Out our other Tools:</b></h2>
-            <a
-              class="Estimator"
-              href=".\apps\prices.html"
-              style="text-align: center; font-weight: 700"
-              >Price Checker</a
-            >
+          <h3>HOW TO USE</h3>
+          <ol>
+            <li>Search the <strong>Categories</strong> for your services.</li>
+            <li>Go to the page and fill out the form.</li>
+            <li>Generate as many <strong>BID</strong> as you like.</li>
+            <li>
+              Make sure to copy all the bids (or individual bids) on a
+              <strong>Notepad/Word</strong>.
+            </li>
+            <li>Enjoy</li>
+          </ol>
+          <p>If you have any questions, feel free to reach out to me.</p>
+          <p>
+            Developed by:
+            <b><a class="authorinfo" href="https://taufiqpias.github.io/portfolio">Taufiq Pias</a></b>
+          </p>
+          <h2><b>Check Out our other Tools:</b></h2>
+          <a class="Estimator" href=".\apps\prices.html" style="text-align: center; font-weight: 700">Price Checker</a>
 
-            <a
-              class="Estimator"
-              href=".\apps\invoice.html"
-              style="text-align: center; font-weight: 700"
-              >Invoice Generator</a
-            >
-          </div>
+          <a class="Estimator" href=".\apps\invoice.html" style="text-align: center; font-weight: 700">Invoice
+            Generator</a>
         </div>
       </div>
+    </div>
 
-      <!-- Middle Column: Categories -->
-      <div class="column" id="categories">
-        <h2>Categories</h2>
-        <!-- Search Input -->
-        <input
-          type="text"
-          id="searchInput"
-          placeholder="Search categories..."
-          oninput="filterCategories()"
-        />
-        <div class="category-container">
-          <div class="category-section">
-            <!-- Landscaping -->
-            <div class="category">
-              <h3>Landscaping</h3>
-              <div class="category-buttons">
-                <a
-                  href="./pages/grass_cuts.html"
-                  title="Initial GC, Partial GC, Grass Recut"
-                  >Grass Cuts</a
-                >
-                <a href="./pages/tree.html" title="Tree Trimming, Remove Tree"
-                  >Tree</a
-                >
-                <a
-                  href="./pages/tree_limb.html"
-                  title="Remove Tree Limb/Branch - Fallen Limb"
-                  >Remove Tree Branch/Limb</a
-                >
-                <a
-                  href="./pages/shrubs.html"
-                  title="Shrubs Trimming, Remove Shrubs/Bush"
-                  >Shrubs</a
-                >
-                <a
-                  href="./pages/vines_removal.html"
-                  title="Poisonous/Non-poisonous Vines"
-                  >Vines Removal</a
-                >
-                <a href="./pages/saplings_removal.html" title="Saplings Removal"
-                  >Saplings Removal</a
-                >
-                <a href="./pages/weeds_removal.html" title="Weeds Removal"
-                  >Weeds Removal</a
-                >
-                <a href="./pages/vehicle_removal.html" title="Vehicle Removal"
-                  >Vehicle Removal</a
-                >
-                <a
-                  href="./pages/fence.html"
-                  title="Remove/Replace/Repair - Wood Fence/Chainlink Fence/Vinyl Fence/Composite Fence/Picket Fence"
-                  >Fence</a
-                >
-                <a href="./pages/french_drain.html" title="Install French Drain"
-                  >French Drain</a
-                >
-                <a href="./pages/snow_removal.html" title="Snow Removal"
-                  >Snow Removal</a
-                >
-                <a href="./pages/driveway.html" title="Repair Driveway"
-                  >Driveway</a
-                >
-                <a
-                  href="./pages/fill_in_depression.html"
-                  title="Fill In Depression with Dirt/Gravel"
-                  >Fill in Depression</a
-                >
-              </div>
+    <!-- Middle Column: Categories -->
+    <div class="column" id="categories">
+      <h2>Categories</h2>
+      <!-- Search Input -->
+      <input type="text" id="searchInput" placeholder="Search categories..." oninput="filterCategories()" />
+      <div class="category-container">
+        <div class="category-section">
+          <!-- Landscaping -->
+          <div class="category">
+            <h3>Landscaping</h3>
+            <div class="category-buttons">
+              <a href="./pages/grass_cuts.html" title="Initial GC, Partial GC, Grass Recut">Grass Cuts</a>
+              <a href="./pages/tree.html" title="Tree Trimming, Remove Tree">Tree</a>
+              <a href="./pages/tree_limb.html" title="Remove Tree Limb/Branch - Fallen Limb">Remove Tree Branch/Limb</a>
+              <a href="./pages/shrubs.html" title="Shrubs Trimming, Remove Shrubs/Bush">Shrubs</a>
+              <a href="./pages/vines_removal.html" title="Poisonous/Non-poisonous Vines">Vines Removal</a>
+              <a href="./pages/saplings_removal.html" title="Saplings Removal">Saplings Removal</a>
+              <a href="./pages/weeds_removal.html" title="Weeds Removal">Weeds Removal</a>
+              <a href="./pages/vehicle_removal.html" title="Vehicle Removal">Vehicle Removal</a>
+              <a href="./pages/fence.html"
+                title="Remove/Replace/Repair - Wood Fence/Chainlink Fence/Vinyl Fence/Composite Fence/Picket Fence">Fence</a>
+              <a href="./pages/french_drain.html" title="Install French Drain">French Drain</a>
+              <a href="./pages/snow_removal.html" title="Snow Removal">Snow Removal</a>
+              <a href="./pages/driveway.html" title="Repair Driveway">Driveway</a>
+              <a href="./pages/fill_in_depression.html" title="Fill In Depression with Dirt/Gravel">Fill in
+                Depression</a>
             </div>
+          </div>
 
-            <!-- Debris/Personals -->
-            <div class="category">
-              <h3>Debris & Personals</h3>
-              <div class="category-buttons">
-                <a
-                  href="./pages/debris.html"
-                  title="Remove/Move - Exterior Debris, Interior Debris, Natural Debris, Hazardous Debris, Heavy Debris, Raw Debris, Trashout"
-                  >Debris</a
-                >
-                <a href="./pages/hazmat_suit.html" title="Hazmat Suit"
-                  >Hazmat Suit</a
-                >
-                <a
-                  href="./pages/personals.html"
-                  title="Remove/Move/Store - Personal Property"
-                  >Personals</a
-                >
-                <a
-                  href="./pages/maid_services.html"
-                  title="Initial Maid Service, Maid Refresh, Broom Sweep"
-                  >Maid Services</a
-                >
-                <a
-                  href="./pages/appliances_cleaning.html"
-                  title="Refrigerator, Stove, Dishwasher, Freezer, Rangehood, Oven, Microwave - Cleaning"
-                  >Appliances Cleaning</a
-                >
-                <a
-                  href="./pages/r_r_appliances.html"
-                  title="Refrigerator, Stove, Dishwasher, Freezer, Rangehood, Oven, Microwave, Washer, Dryer, Hot Water Heater, AC, Window AC, Furnace, Boiler, Radiators, Baseboard Radiators"
-                  >R&R Appliances</a
-                >
-                <a
-                  href="./pages/dead_animal.html"
-                  title="Remove Dead Animal - Small/Medium/Large"
-                  >Dead Animal</a
-                >
-                <a
-                  href="./pages/remove_haz_material.html"
-                  title="Broken Glass, Gas Tanks, Fire Extinguisher"
-                  >Remove Haz Material</a
-                >
-                <a
-                  href="./pages/remove_relocate_special_items.html"
-                  title="Tires, Oil Drums, Satellite Antenna, Trampoline, Swing Set, Fire Drum"
-                  >Remove/Relocate Special Items</a
-                >
-                <a href="./pages/clean_gutter.html" title="Clean Gutter"
-                  >Clean Gutter</a
-                >
-                <a
-                  href="./pages/clean_roof.html"
-                  title="Clean Roof (moss, dry-leaves)"
-                  >Clean Roof</a
-                >
-              </div>
+          <!-- Debris/Personals -->
+          <div class="category">
+            <h3>Debris & Personals</h3>
+            <div class="category-buttons">
+              <a href="./pages/debris.html"
+                title="Remove/Move - Exterior Debris, Interior Debris, Natural Debris, Hazardous Debris, Heavy Debris, Raw Debris, Trashout">Debris</a>
+              <a href="./pages/hazmat_suit.html" title="Hazmat Suit">Hazmat Suit</a>
+              <a href="./pages/personals.html" title="Remove/Move/Store - Personal Property">Personals</a>
+              <a href="./pages/maid_services.html" title="Initial Maid Service, Maid Refresh, Broom Sweep">Maid
+                Services</a>
+              <a href="./pages/appliances_cleaning.html"
+                title="Refrigerator, Stove, Dishwasher, Freezer, Rangehood, Oven, Microwave - Cleaning">Appliances
+                Cleaning</a>
+              <a href="./pages/r_r_appliances.html"
+                title="Refrigerator, Stove, Dishwasher, Freezer, Rangehood, Oven, Microwave, Washer, Dryer, Hot Water Heater, AC, Window AC, Furnace, Boiler, Radiators, Baseboard Radiators">R&R
+                Appliances</a>
+              <a href="./pages/dead_animal.html" title="Remove Dead Animal - Small/Medium/Large">Dead Animal</a>
+              <a href="./pages/remove_haz_material.html" title="Broken Glass, Gas Tanks, Fire Extinguisher">Remove Haz
+                Material</a>
+              <a href="./pages/remove_relocate_special_items.html"
+                title="Tires, Oil Drums, Satellite Antenna, Trampoline, Swing Set, Fire Drum">Remove/Relocate Special
+                Items</a>
+              <a href="./pages/clean_gutter.html" title="Clean Gutter">Clean Gutter</a>
+              <a href="./pages/clean_roof.html" title="Clean Roof (moss, dry-leaves)">Clean Roof</a>
             </div>
+          </div>
 
-            <!-- Securing -->
-            <div class="category">
-              <h3>Securing</h3>
-              <div class="category-buttons">
-                <a
-                  href="./pages/lock_changes.html"
-                  title="Lockset, Lockbox, Padlock"
-                  >Lock Changes</a
-                >
-                <a
-                  href="./pages/other_securing.html"
-                  title="Slider Lock, Window Lock"
-                  >Other Securing</a
-                >
-                <a
-                  href="./pages/window_boarding.html"
-                  title="Window Boarding, Window Re-glazing, De-boarding"
-                  >Window Boarding/Re-glazing</a
-                >
-                <a
-                  href="./pages/doors.html"
-                  title="Remove/Replace - Exterior Door, Interior Door, Security Door, Bilco Door, Crawlspace Door, Fence Gate, Screen Door, Storm Door"
-                  >Doors & Gates</a
-                >
-                <a
-                  href="./pages/garage_door.html"
-                  title="Remove/Replace- Garage Door, Track, Roller, Opener, Tension Spring"
-                  >Garage Door</a
-                >
-                <a
-                  href="./pages/window_replacement.html"
-                  title="Remove/Replace Windows"
-                  >Remove/Replace Windows</a
-                >
-              </div>
+          <!-- Securing -->
+          <div class="category">
+            <h3>Securing</h3>
+            <div class="category-buttons">
+              <a href="./pages/lock_changes.html" title="Lockset, Lockbox, Padlock">Lock Changes</a>
+              <a href="./pages/other_securing.html" title="Slider Lock, Window Lock">Other Securing</a>
+              <a href="./pages/window_boarding.html" title="Window Boarding, Window Re-glazing, De-boarding">Window
+                Boarding/Re-glazing</a>
+              <a href="./pages/doors.html"
+                title="Remove/Replace - Exterior Door, Interior Door, Security Door, Bilco Door, Crawlspace Door, Fence Gate, Screen Door, Storm Door">Doors
+                & Gates</a>
+              <a href="./pages/garage_door.html"
+                title="Remove/Replace- Garage Door, Track, Roller, Opener, Tension Spring">Garage Door</a>
+              <a href="./pages/window_replacement.html" title="Remove/Replace Windows">Remove/Replace Windows</a>
             </div>
+          </div>
 
-            <!-- Pool -->
-            <div class="category">
-              <h3>Pool</h3>
-              <div class="category-buttons">
-                <a
-                  href="./pages/inground_pool.html"
-                  title="Pool Cover, Pool Boarding"
-                  >Inground Pool</a
-                >
-                <a
-                  href="./pages/above_ground_pool.html"
-                  title="Pool Cover, Pool Dismantle, Relocation & Removal"
-                  >Above Ground Pool</a
-                >
-                <a href="./pages/pool_treatment.html" title="Treat & Shock"
-                  >Pool Treatment</a
-                >
-                <a
-                  href="./pages/drain_pool.html"
-                  title="Drain - inground/aboveground pool"
-                  >Drain Pool</a
-                >
-              </div>
+          <!-- Pool -->
+          <div class="category">
+            <h3>Pool</h3>
+            <div class="category-buttons">
+              <a href="./pages/inground_pool.html" title="Pool Cover, Pool Boarding">Inground Pool</a>
+              <a href="./pages/above_ground_pool.html" title="Pool Cover, Pool Dismantle, Relocation & Removal">Above
+                Ground Pool</a>
+              <a href="./pages/pool_treatment.html" title="Treat & Shock">Pool Treatment</a>
+              <a href="./pages/drain_pool.html" title="Drain - inground/aboveground pool">Drain Pool</a>
             </div>
+          </div>
 
-            <!-- Roof -->
-            <div class="category">
-              <h3>Roof</h3>
-              <div class="category-buttons">
-                <a href="./pages/tarp_roof.html" title="Remove/Replace Tarp"
-                  >Tarp Roof</a
-                >
-                <a
-                  href="./pages/remove_replace_roof.html"
-                  title="Remove/Replace - Asphalt, Flat, Clay Tile, Metal, Corrugated, Rolled, Hot Mopped Roof"
-                  >Remove/Replace Roof</a
-                >
-                <a
-                  href="./pages/repair_roof.html"
-                  title="Repair Roof - Tar Patch, 45sf Light Roofing"
-                  >Repair Roof</a
-                >
-                <a
-                  href="./pages/chimney.html"
-                  title="Replace Chimney, Repair Chimney, Cap Chimney, Rake & Repoint Chimney"
-                  >Chimney</a
-                >
-                <a
-                  href="./pages/fascia_soffit.html"
-                  title="Remove/Replace - Fascia, Soffit"
-                  >Fascia & Soffit</a
-                >
-                <a
-                  href="./pages/gutter.html"
-                  title="Remove/Replace - Gutter, Downspout, Extension"
-                  >Gutter & Downspout</a
-                >
-                <a
-                  href="./pages/skylight.html"
-                  title="Remove/Replace/Repair - Skylight"
-                  >Skylight</a
-                >
-              </div>
+          <!-- Roof -->
+          <div class="category">
+            <h3>Roof</h3>
+            <div class="category-buttons">
+              <a href="./pages/tarp_roof.html" title="Remove/Replace Tarp">Tarp Roof</a>
+              <a href="./pages/remove_replace_roof.html"
+                title="Remove/Replace - Asphalt, Flat, Clay Tile, Metal, Corrugated, Rolled, Hot Mopped Roof">Remove/Replace
+                Roof</a>
+              <a href="./pages/repair_roof.html" title="Repair Roof - Tar Patch, 45sf Light Roofing">Repair Roof</a>
+              <a href="./pages/chimney.html"
+                title="Replace Chimney, Repair Chimney, Cap Chimney, Rake & Repoint Chimney">Chimney</a>
+              <a href="./pages/fascia_soffit.html" title="Remove/Replace - Fascia, Soffit">Fascia & Soffit</a>
+              <a href="./pages/gutter.html" title="Remove/Replace - Gutter, Downspout, Extension">Gutter & Downspout</a>
+              <a href="./pages/skylight.html" title="Remove/Replace/Repair - Skylight">Skylight</a>
             </div>
+          </div>
 
-            <!-- Floor -->
-            <div class="category">
-              <h3>Flooring</h3>
-              <div class="category-buttons">
-                <a href="./pages/exterior_deck.html" title="Remove/Replace Deck"
-                  >Exterior Deck</a
-                >
-                <a
-                  href="./pages/repair_deck.html"
-                  title="Repair Deck - Deck Board, Joist"
-                  >Repair Deck</a
-                >
-                <a
-                  href="./pages/remove_replace_flooring.html"
-                  title="Remove/Replace - Floor, Subfloor, Padding, Tackstrip - Carpet, Wooden, Laminated, Vinyl, Ceramic Tiles"
-                  >Remove/Replace Flooring</a
-                >
-                <a
-                  href="./pages/repair_floor.html"
-                  title="Repair - Buckled Floor, Epoxy Filling, Cracked Floor, Mortar, Loose Carpet"
-                  >Repair Floor</a
-                >
-                <a href="./pages/mop.html" title="Mop Basement Floor - Biowash"
-                  >Mop Basement Floor</a
-                >
-                <a
-                  href="./pages/handrails_guardrails.html"
-                  title="Remove/Replace - Exterior/Interior Handrail, Guardrails, Post, Newel Post, Balusters, Hanging Brackets"
-                  >Handrails & Guardrails</a
-                >
-                <a
-                  href="./pages/staircase.html"
-                  title="Remove/Repalce - Staircase - Handmade, Pre-fabricated"
-                  >Staircase</a
-                >
-                <a
-                  href="./pages/repair_stairs.html"
-                  title="Repair Stairs/Steps - Riser, Run, Stringer"
-                  >Repair Stairs/Steps</a
-                >
-              </div>
+          <!-- Floor -->
+          <div class="category">
+            <h3>Flooring</h3>
+            <div class="category-buttons">
+              <a href="./pages/exterior_deck.html" title="Remove/Replace Deck">Exterior Deck</a>
+              <a href="./pages/repair_deck.html" title="Repair Deck - Deck Board, Joist">Repair Deck</a>
+              <a href="./pages/remove_replace_flooring.html"
+                title="Remove/Replace - Floor, Subfloor, Padding, Tackstrip - Carpet, Wooden, Laminated, Vinyl, Ceramic Tiles">Remove/Replace
+                Flooring</a>
+              <a href="./pages/repair_floor.html"
+                title="Repair - Buckled Floor, Epoxy Filling, Cracked Floor, Mortar, Loose Carpet">Repair Floor</a>
+              <a href="./pages/mop.html" title="Mop Floor - Biowash">Mop Floor</a>
+              <a href="./pages/handrails_guardrails.html"
+                title="Remove/Replace - Exterior/Interior Handrail, Guardrails, Post, Newel Post, Balusters, Hanging Brackets">Handrails
+                & Guardrails</a>
+              <a href="./pages/staircase.html"
+                title="Remove/Repalce - Staircase - Handmade, Pre-fabricated">Staircase</a>
+              <a href="./pages/repair_stairs.html" title="Repair Stairs/Steps - Riser, Run, Stringer">Repair
+                Stairs/Steps</a>
             </div>
+          </div>
 
-            <!-- Walls -->
-            <div class="category">
-              <h3>Ceiling, Walls & Siding</h3>
-              <div class="category-buttons">
-                <a
-                  href="./pages/interior_walls.html"
-                  title="Remove/Replace/Repair - Drywall, Plaster, Wooden Wall, Paneling"
-                  >Interior Walls</a
-                >
-                <a
-                  href="./pages/exterior_walls.html"
-                  title="Remove/Replace/Repair - Wooden, Stucco, Plaster, Veneer, Vinyl, Metal"
-                  >Exterior Walls/Siding</a
-                >
-                <a
-                  href="./pages/ceiling.html"
-                  title="Remove/Replace/Repair - Ceiling Drywall, Plaster, Wooden Wall, Paneling"
-                  >Ceiling</a
-                >
-                <a
-                  href="./pages/basement_walls.html"
-                  title="Repair - Basement Walls - Concrete, Cinder Block, Stone"
-                  >Basement Walls</a
-                >
-                <a
-                  href="./pages/k_b_walls.html"
-                  title="Remove/Replace/Repair - Bathroom & Kitchen Walls - Ceramic Tiles"
-                  >Bathroom & Kitchen Walls</a
-                >
-              </div>
+          <!-- Walls -->
+          <div class="category">
+            <h3>Ceiling, Walls & Siding</h3>
+            <div class="category-buttons">
+              <a href="./pages/interior_walls.html"
+                title="Remove/Replace/Repair - Drywall, Plaster, Wooden Wall, Paneling">Interior Walls</a>
+              <a href="./pages/exterior_walls.html"
+                title="Remove/Replace/Repair - Wooden, Stucco, Plaster, Veneer, Vinyl, Metal">Exterior Walls/Siding</a>
+              <a href="./pages/ceiling.html"
+                title="Remove/Replace/Repair - Ceiling Drywall, Plaster, Wooden Wall, Paneling">Ceiling</a>
+              <a href="./pages/basement_walls.html"
+                title="Repair - Basement Walls - Concrete, Cinder Block, Stone">Basement Walls</a>
+              <a href="./pages/k_b_walls.html"
+                title="Remove/Replace/Repair - Bathroom & Kitchen Walls - Ceramic Tiles">Bathroom & Kitchen Walls</a>
             </div>
+          </div>
 
-            <!-- Mold/Mildew -->
-            <div class="category">
-              <h3>Mold/Mildew</h3>
-              <div class="category-buttons">
-                <a
-                  href="./pages/mold_1.html"
-                  title="Stains, Light Infestation, Light Water Damage"
-                  >Mold_Stains</a
-                >
-                <a
-                  href="./pages/mold_2.html"
-                  title="Dark Mold, Heavy Infestation, Heavy Water Damage, Open Wall Treatment"
-                  >Mold_Dark_Mold</a
-                >
-                <a
-                  href="./pages/dehum_damrid.html"
-                  title="Dehumidifier, Damprids"
-                  >Moisture Control</a
-                >
-                <a href="./pages/bio_door.html" title="Biowash - Doors"
-                  >Biowash Doors</a
-                >
-                <a
-                  href="./pages/bio_cabinets.html"
-                  title="Biowash - Cabinet Floors, Wash Cabinet"
-                  >Wash Cabinets</a
-                >
-              </div>
+          <!-- Mold/Mildew -->
+          <div class="category">
+            <h3>Mold/Mildew</h3>
+            <div class="category-buttons">
+              <a href="./pages/mold_1.html" title="Stains, Light Infestation, Light Water Damage">Mold_Stains</a>
+              <a href="./pages/mold_2.html"
+                title="Dark Mold, Heavy Infestation, Heavy Water Damage, Open Wall Treatment">Mold_Dark_Mold</a>
+              <a href="./pages/dehum_damrid.html" title="Dehumidifier, Damprids">Moisture Control</a>
+              <a href="./pages/bio_door.html" title="Biowash - Doors">Biowash Doors</a>
+              <a href="./pages/bio_cabinets.html" title="Biowash - Cabinet Floors, Wash Cabinet">Wash Cabinets</a>
             </div>
+          </div>
 
-            <!-- Plumbing & Winterization -->
-            <div class="category">
-              <h3>Plumbing, Winterization, Electrical & Gas</h3>
-              <div class="category-buttons">
-                <a
-                  href="./pages/winterization.html"
-                  title="Dry/Steam/Radient - Complete, Re-wint, Wint-Refresh"
-                  >Winterization</a
-                >
-                <a
-                  href="./pages/toilet.html"
-                  title="Clean/Remove/Replace Toilet (Tank & Bowl)"
-                  >Toilet</a
-                >
-                <a
-                  href="./pages/remove_replace_other_plumbing.html"
-                  title="Remove/Replace - Faucet, Spigot, Showerhead, Supply Lines, Discharge Lines, P-Trap, Garbage Disposal, Toilet Flushing Kit, Angle Stop, Shower Diverter"
-                  >Remove/Replace Other Plumbing</a
-                >
-                <a
-                  href="./pages/hot_water_heater.html"
-                  title="Drain/Remove/Replace/Repair - Hot Water Heater (Tank,Straps,Vent)"
-                  >Hot Water Heater</a
-                >
-                <a
-                  href="./pages/broken_pipe.html"
-                  title="Broken Pipe - Soldering, Shark Bite"
-                  >Broken Pipe</a
-                >
-                <a href="./pages/thaw_property.html" title="Thawing"
-                  >Thaw Property</a
-                >
-                <a
-                  href="./pages/pressure_test.html"
-                  title="Pressure Test - For Damage Check, After Plumbing Repair - High Pressure System Test"
-                  >Pressure Test</a
-                >
-                <a
-                  href="./pages/caps_covers.html"
-                  title="Water Lines, Gas, Wires, Dryer Vent, Outlet"
-                  >Caps & Covers</a
-                >
-                <a
-                  href="./pages/circuit_breaker.html"
-                  title="Replace/Re-hang Panel, Replace Panel Box"
-                  >Circuit Breaker</a
-                >
-                <a href="./pages/entire_property.html" title="Re-plumb, Rewire"
-                  >Entire Property</a
-                >
-                <a
-                  href="./pages/stop_services.html"
-                  title="Water, Gas, Electricity"
-                  >Stop Services</a
-                >
-                <a
-                  href="./pages/secure_electric_wire.html"
-                  title="Secure Electric Wire, Zip Tie"
-                  >Secure Electric Wire</a
-                >
-                <a
-                  href="./pages/sump_pump.html"
-                  title="Remove/Replace/Install - Sump Pump, Basin, Lid, Discharge Line, Power Supply"
-                  >Sump Pump</a
-                >
-              </div>
+          <!-- Plumbing & Winterization -->
+          <div class="category">
+            <h3>Plumbing, Winterization, Electrical & Gas</h3>
+            <div class="category-buttons">
+              <a href="./pages/winterization.html"
+                title="Dry/Steam/Radient - Complete, Re-wint, Wint-Refresh">Winterization</a>
+              <a href="./pages/toilet.html" title="Clean/Remove/Replace Toilet (Tank & Bowl)">Toilet</a>
+              <a href="./pages/remove_replace_other_plumbing.html"
+                title="Remove/Replace - Faucet, Spigot, Showerhead, Supply Lines, Discharge Lines, P-Trap, Garbage Disposal, Toilet Flushing Kit, Angle Stop, Shower Diverter">Remove/Replace
+                Other Plumbing</a>
+              <a href="./pages/hot_water_heater.html"
+                title="Drain/Remove/Replace/Repair - Hot Water Heater (Tank,Straps,Vent)">Hot Water Heater</a>
+              <a href="./pages/broken_pipe.html" title="Broken Pipe - Soldering, Shark Bite">Broken Pipe</a>
+              <a href="./pages/thaw_property.html" title="Thawing">Thaw Property</a>
+              <a href="./pages/pressure_test.html"
+                title="Pressure Test - For Damage Check, After Plumbing Repair - High Pressure System Test">Pressure
+                Test</a>
+              <a href="./pages/caps_covers.html" title="Water Lines, Gas, Wires, Dryer Vent, Outlet">Caps & Covers</a>
+              <a href="./pages/circuit_breaker.html" title="Replace/Re-hang Panel, Replace Panel Box">Circuit
+                Breaker</a>
+              <a href="./pages/entire_property.html" title="Re-plumb, Rewire">Entire Property</a>
+              <a href="./pages/stop_services.html" title="Water, Gas, Electricity">Stop Services</a>
+              <a href="./pages/secure_electric_wire.html" title="Secure Electric Wire, Zip Tie">Secure Electric Wire</a>
+              <a href="./pages/sump_pump.html"
+                title="Remove/Replace/Install - Sump Pump, Basin, Lid, Discharge Line, Power Supply">Sump Pump</a>
             </div>
+          </div>
 
-            <!-- Cabinets -->
-            <div class="category">
-              <h3>Cabinets, Counters & Closets</h3>
-              <div class="category-buttons">
-                <a
-                  href="./pages/r_r_cabinets.html"
-                  title="Remove/Replace - Kitchen/Bathroom - Top/Bottom Cabinets"
-                  >Remove/Replace Cabinets</a
-                >
-                <a
-                  href="./pages/r_r_cabinet-doors.html"
-                  title="Remove/Replace - Kitchen/Bathroom - Top/Bottom Cabinets - Doors/Drawers"
-                  >Cabinet Doors/Drawers</a
-                >
-                <a
-                  href="./pages/counter.html"
-                  title="Remove/Repalce - Kitchen Counter, Drill Hole, Install Sink"
-                  >Counter Top</a
-                >
-                <a
-                  href="./pages/vanity.html"
-                  title="Remove/Replace/Relocate Vanity Cabinet"
-                  >Vanity Cabinet</a
-                >
-                <a
-                  href="./pages/closets.html"
-                  title="Remove/Replace - Closet Doors"
-                  >Closet Doors</a
-                >
-              </div>
+          <!-- Cabinets -->
+          <div class="category">
+            <h3>Cabinets, Counters & Closets</h3>
+            <div class="category-buttons">
+              <a href="./pages/r_r_cabinets.html"
+                title="Remove/Replace - Kitchen/Bathroom - Top/Bottom Cabinets">Remove/Replace Cabinets</a>
+              <a href="./pages/r_r_cabinet-doors.html"
+                title="Remove/Replace - Kitchen/Bathroom - Top/Bottom Cabinets - Doors/Drawers">Cabinet
+                Doors/Drawers</a>
+              <a href="./pages/counter.html" title="Remove/Repalce - Kitchen Counter, Drill Hole, Install Sink">Counter
+                Top</a>
+              <a href="./pages/vanity.html" title="Remove/Replace/Relocate Vanity Cabinet">Vanity Cabinet</a>
+              <a href="./pages/closets.html" title="Remove/Replace - Closet Doors">Closet Doors</a>
             </div>
+          </div>
 
-            <!-- Inspection -->
-            <div class="category">
-              <h3>Inspections</h3>
-              <div class="category-buttons">
-                <a
-                  href="./pages/gen_ins.html"
-                  title="General Inspections - Roof, Structure, Plumbing, Electric, HVAC, Arborist, Mold, Mold Remediation, Termite, Asbestos, Lead Paint"
-                  >General Inspections</a
-                >
-                <a
-                  href="./pages/cut_ins.html"
-                  title="Cut Wall & Inspect for Plumbing Damage"
-                  >Cut Wall & Inspect</a
-                >
-                <a
-                  href="./pages/rem_ins.html"
-                  title="Remove/Relocate & Inspect for Damage - Walls, Floor, Ceiling, Debris"
-                  >Remove/Relocate & Inspect</a
-                >
-              </div>
+          <!-- Inspection -->
+          <div class="category">
+            <h3>Inspections</h3>
+            <div class="category-buttons">
+              <a href="./pages/gen_ins.html"
+                title="General Inspections - Roof, Structure, Plumbing, Electric, HVAC, Arborist, Mold, Mold Remediation, Termite, Asbestos, Lead Paint">General
+                Inspections</a>
+              <a href="./pages/cut_ins.html" title="Cut Wall & Inspect for Plumbing Damage">Cut Wall & Inspect</a>
+              <a href="./pages/rem_ins.html"
+                title="Remove/Relocate & Inspect for Damage - Walls, Floor, Ceiling, Debris">Remove/Relocate &
+                Inspect</a>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script src="script.js"></script>
-    <script src="dark_mode.js"></script>
+  <script src="script.js"></script>
+  <script src="dark_mode.js"></script>
 
-    <!-- <footer>
+  <!-- <footer>
       <div class="footer">
         <p>Copyright @ Taufiq Pias ♦ 2024-2025</p>
       </div>
     </footer> -->
-  </body>
+</body>
+
 </html>
