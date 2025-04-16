@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Taufiq Pias" />
+    <title>R/R & Inspect - BMT</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <script>
+      (function () {
+        const savedMode = localStorage.getItem("themeMode");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        if (savedMode === "dark" || (!savedMode && prefersDark)) {
+          document.documentElement.classList.add("dark-mode"); // Changed to <html>
+        }
+        // Only collapse .info-content on mobile initially
+        if (window.matchMedia("(max-width: 1200px)").matches) {
+          document.querySelectorAll(".info-content").forEach((el) => {
+            el.classList.add("collapsed");
+          });
+        }
+      })();
+    </script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-M2K232X4B3");
+    </script>
+
+    <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "qj1sdmrlho");
+    </script>
+  </head>
+
+  <body>
+    <div class="main-container">
+      <!-- Information Area -->
+      <div class="info-container">
+        <button class="toggle-btn">Toggle Information</button>
+        <div class="info-content">
+          <h2>Information</h2>
+          <p>
+            Fill out the form accordingly to generate a bid. The following
+            prices are provided as a ranged parameter taken from RepairBase
+            2024.
+          </p>
+          <p><b>Approximate Prices:</b></p>
+          <p>Check the general prices</p>
+
+          <p>
+            <b>Instruction:</b>This bid gets approved a lot - specially the
+            debris relocation bid. All bids generated in this form is for
+            interior inspection.
+            <b>SO, PLEASE DO NOT ADD ANY EXTERIOR AREA AS LOCATION.</b>
+          </p>
+          <b>
+            <p style="color: brown">
+              ***Consult with your Team Lead before submitting the price.***
+            </p>
+          </b>
+          <b>
+            <p style="color: brown">
+              ***Please copy the bids before visiting other pages. Bids will not
+              be saved once redirected.***
+            </p>
+          </b>
+        </div>
+      </div>
+
+      <div class="container">
+        <button class="toggle-btn">Toggle Form</button>
+        <div class="division">
+          <h1>Inspection Bid</h1>
+          <h2>R/R & Inspect Bids</h2>
+          <form id="Form">
+            <label for="bidPrefix"
+              >Bid Prefix (for conjunction bid - Use a colon after
+              prefix)</label
+            >
+            <input
+              type="text"
+              id="bidPrefix"
+              name="bidPrefix"
+              placeholder="Title: / Title-"
+            />
+
+            <label for="action">Select an Action:*</label>
+            <select id="action" name="action" required>
+              <option value="">--Select an Action--</option>
+              <option value="remove">Remove</option>
+              <option value="relocate">Relocate</option>
+            </select>
+
+            <label for="appl">Select items to Remove/Relocate:*</label>
+            <select id="appl" name="appl" required>
+              <option value="">--Select any--</option>
+            </select>
+
+            <div id="sizeField" style="display: none">
+              <label for="length">Length:*</label>
+              <input type="number" id="length" name="length" step="1" />
+              <label for="width">Width:*</label>
+              <input type="number" id="width" name="width" step="1" />
+            </div>
+
+            <div id="countField" style="display: none">
+              <label for="count">How many cyds:*</label>
+              <input type="number" id="count" name="count" step="1" />
+            </div>
+
+            <div id="debrisField" style="display: none">
+              <label for="debris">Generated debris (in cyds):</label>
+              <input type="number" id="debris" name="debris" step="1" />
+            </div>
+
+            <label for="loc">Location:*</label>
+            <input
+              type="text"
+              id="loc"
+              name="loc"
+              placeholder="basement, bedroom, bathroom, etc."
+              required
+            />
+
+            <label for="additionalInfo">Additional information:</label>
+            <textarea
+              id="additionalInfo"
+              name="additionalInfo"
+              placeholder="Disclaimers or any other comment"
+            ></textarea>
+
+            <label for="conj">Make this bid conjunction to:</label>
+            <input
+              type="text"
+              id="conj"
+              name="conj"
+              placeholder="Bid name only"
+            />
+
+            <label for="price">Price (in USD):</label>
+            <input type="number" id="price" name="price" step="0.01" />
+
+            <button type="submit">Generate Bid</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- New Note Section -->
+      <div class="note-container">
+        <h2>Bids</h2>
+        <div id="notesList" class="notes-list">
+          <!-- Notes will be dynamically added here -->
+        </div>
+        <button id="copyAllBidsButton">Copy All Bids</button>
+        <a href="../index.html" id="home">
+          <ion-icon name="home"></ion-icon> Go Home</a
+        >
+      </div>
+    </div>
+
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <!-- Script to Generate Bid -->
+    <script>
+      // Function to save bid as a note
+      function saveBidAsNote(bidText) {
+        const notesList = document.getElementById("notesList");
+        const note = document.createElement("div");
+        note.className = "note";
+        note.textContent = bidText;
+        notesList.appendChild(note);
+      }
+
+      // Form submission logic
+      document
+        .getElementById("Form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Get form values
+          const bidPrefix = document.getElementById("bidPrefix").value;
+          const action = document.getElementById("action").value;
+          const appl = document.getElementById("appl").value;
+          const length = document.getElementById("length").value;
+          const width = document.getElementById("width").value;
+          const count = document.getElementById("count").value;
+          const debris = document.getElementById("debris").value;
+          const loc = document.getElementById("loc").value;
+          const additionalInfo =
+            document.getElementById("additionalInfo").value;
+          const conj = document.getElementById("conj").value;
+          const price = parseFloat(document.getElementById("price").value || 0);
+
+          // Basic validation
+          if (!action || !appl || !loc) {
+            alert("Please fill in all required fields.");
+            return;
+          }
+          if (
+            (appl === "wall" || appl === "floor" || appl === "ceiling") &&
+            (!length || !width)
+          ) {
+            alert(
+              "Please fill in length and width for wall, floor, or ceiling."
+            );
+            return;
+          }
+          if (appl === "debris or personal" && !count) {
+            alert("Please fill in the count for debris or personal.");
+            return;
+          }
+
+          // Format the price with commas
+          const formattedPrice = price.toLocaleString("en-US", {
+            style: "decimal",
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
+
+          // Generate the bid text
+          const bidText = `${bidPrefix} Need to ${action} ${
+            length && width ? `${length} x ${width} = ${length * width} SF` : ""
+          }${
+            count ? `${count} cyds` : ""
+          } of ${appl} from the ${loc} to inspect the damage underneath and proceed with the repair.${
+            debris ? ` Will generate approx ${debris} cyds of debris.` : ""
+          } ${
+            conj ? `***Must be approved in conjunction to ${conj} bid.***` : ""
+          } ${additionalInfo}\nPrice: $${formattedPrice}`;
+
+          // Save the bid as a note
+          saveBidAsNote(bidText);
+
+          // // Reset form (optional)
+          // document.getElementById("Form").reset();
+          // updateApplOptions(); // Reset dynamic fields
+        });
+
+      // Copy all bids functionality
+      document
+        .getElementById("copyAllBidsButton")
+        .addEventListener("click", function () {
+          const notes = document.querySelectorAll(".note");
+          const allBids = Array.from(notes)
+            .map((note) => note.textContent)
+            .join("\n\n");
+          navigator.clipboard.writeText(allBids).then(() => {
+            const floatingMessage = document.getElementById("floatingMessage");
+            floatingMessage.style.display = "block";
+            setTimeout(() => {
+              floatingMessage.style.display = "none";
+            }, 2000);
+          });
+        });
+
+      // Dynamic form logic
+      function updateApplOptions() {
+        const action = document.getElementById("action").value;
+        const applSelect = document.getElementById("appl");
+
+        // Clear existing options
+        applSelect.innerHTML = '<option value="">--Select any--</option>';
+
+        // Populate options based on action
+        if (action === "remove") {
+          const options = ["wall", "floor", "ceiling", "debris or personal"];
+          options.forEach((option) => {
+            const opt = document.createElement("option");
+            opt.value = option;
+            opt.textContent = option.charAt(0).toUpperCase() + option.slice(1);
+            applSelect.appendChild(opt);
+          });
+        } else if (action === "relocate") {
+          const opt = document.createElement("option");
+          opt.value = "debris or personal";
+          opt.textContent = "Debris or personal";
+          applSelect.appendChild(opt);
+        }
+
+        // Reset dependent fields
+        updateDynamicFields();
+      }
+
+      function updateDynamicFields() {
+        const appl = document.getElementById("appl").value;
+        const debrisField = document.getElementById("debrisField");
+        const sizeField = document.getElementById("sizeField");
+        const countField = document.getElementById("countField");
+
+        // Clear inputs to prevent stale data
+        document.getElementById("length").value = "";
+        document.getElementById("width").value = "";
+        document.getElementById("count").value = "";
+        document.getElementById("debris").value = "";
+
+        if (appl === "wall" || appl === "floor" || appl === "ceiling") {
+          debrisField.style.display = "block";
+          sizeField.style.display = "block";
+          countField.style.display = "none";
+        } else if (appl === "debris or personal") {
+          debrisField.style.display = "none";
+          sizeField.style.display = "none";
+          countField.style.display = "block";
+        } else {
+          debrisField.style.display = "none";
+          sizeField.style.display = "none";
+          countField.style.display = "none";
+        }
+      }
+
+      // Add event listeners
+      document
+        .getElementById("action")
+        .addEventListener("change", updateApplOptions);
+      document
+        .getElementById("appl")
+        .addEventListener("change", updateDynamicFields);
+
+      // Initialize form on page load
+      document.addEventListener("DOMContentLoaded", () => {
+        updateApplOptions();
+      });
+    </script>
+    <script src="script_other.js"></script>
+    <script src="..\dark_mode.js"></script>
+    <script src="blocker.js"></script>
+  </body>
+</html>

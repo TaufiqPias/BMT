@@ -102,3 +102,31 @@
       ? 0
       : document.getElementById("debris").value || 0;
 </script>
+
+<div id="sizeField" style="display: none">
+  <label for="length">Length:*</label>
+  <input type="number" id="length" name="length" step="1" />
+  <label for="width">Width:*</label>
+  <input type="number" id="width" name="width" step="1" />
+</div>
+
+<div id="countField" style="display: none">
+  <label for="count">How many cyds:*</label>
+  <input type="number" id="count" name="count" step="1" />
+</div>
+
+<script>
+  let bidText;
+  if (action === "remove") {
+    bidText = `${bidPrefix}  Will generate approx ${debris} cyds of debris - hauling away included. ${
+      conj ? `***Must be approved in conjunction to ${conj} bid.***` : ""
+    } ${additionalInfo}\nPrice: $${formattedPrice}`;
+  } else if (action === "replace") {
+    bidText = `${bidPrefix} ${
+      conj ? `***Must be approved in conjunction to ${conj} bid.***` : ""
+    } ${additionalInfo}\nPrice: $${formattedPrice}`;
+  } else {
+    alert("Please select an action (Remove or Replace).");
+    return; // Stop execution if no action is selected
+  }
+</script>
