@@ -172,6 +172,15 @@
               <option value="Guardrail">Guardrails</option>
             </select>
 
+            <label for="mat">Select a Material:*</label>
+            <select id="mat" name="mat" required>
+              <option value="">--Select any--</option>
+              <option value="wood">Wood</option>
+              <option value="cast iron">Cast Iron</option>
+              <option value="aluminum">Aluminum</option>
+              <option value="composite">Composite</option>
+            </select>
+
             <label for="count"
               >How many LF of Handrail/Guardrail needed:*</label
             >
@@ -289,6 +298,7 @@
           const action = document.getElementById("action").value;
           const appl = document.getElementById("appl").value;
           const loc = document.getElementById("loc").value;
+          const mat = document.getElementById("mat").value;
           const debris = document.getElementById("debris").value;
           const sup = document.getElementById("sup").value;
           const newel = document.getElementById("newel").value;
@@ -314,12 +324,12 @@
                 : ""
             } ${additionalInfo}\nPrice: $${formattedPrice}`;
           } else if (action === "replace" && appl === "Handrail") {
-            bidText = `${bidPrefix} Need to replace ${count} LF of handrail using ${sup} at the ${loc} of the property. Will require installing ${Math.ceil(
+            bidText = `${bidPrefix} Need to replace ${count} LF of ${mat} handrail using ${sup} at the ${loc} of the property. Will require installing ${Math.ceil(
               count / 5 + 1
             )} ${sup}.${newel ? ` ${newel}` : ""}${
               balusters
                 ? ` Will also require installing approx ${
-                    count * 6
+                    count * 2
                   } balusters (economy grade) to ensure safety.`
                 : ""
             } ${
@@ -328,7 +338,9 @@
                 : ""
             } ${additionalInfo}\nPrice: $${formattedPrice}`;
           } else if (action === "replace" && appl === "Guardrail") {
-            bidText = `${bidPrefix} Need to replace ${count} LF of handrail using ${sup} at the ${loc} of the property. Will require installing ${count} LF of toprails, ${count} LF of bottom rails and ${Math.ceil(
+            bidText = `${bidPrefix} Need to replace ${count} LF of ${mat} guardrail (${
+              count * 2
+            } lf in total) using ${sup} at the ${loc} of the property. Will require installing ${count} LF of toprails, ${count} LF of bottom rails and ${Math.ceil(
               count / 5 + 1
             )} posts.${
               balusters
