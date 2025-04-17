@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Taufiq Pias" />
+    <title>Repair Floor - BMT</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <script>
+      (function () {
+        const savedMode = localStorage.getItem("themeMode");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        if (savedMode === "dark" || (!savedMode && prefersDark)) {
+          document.documentElement.classList.add("dark-mode"); // Changed to <html>
+        }
+        // Only collapse .info-content on mobile initially
+        if (window.matchMedia("(max-width: 1200px)").matches) {
+          document.querySelectorAll(".info-content").forEach((el) => {
+            el.classList.add("collapsed");
+          });
+        }
+      })();
+    </script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-M2K232X4B3");
+    </script>
+
+    <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "qj1sdmrlho");
+    </script>
+  </head>
+
+  <body>
+    <div class="main-container">
+      <!-- Information Area -->
+      <div class="info-container">
+        <button class="toggle-btn">Toggle Information</button>
+        <div class="info-content">
+          <h2>Information</h2>
+          <p>
+            Fill out the form accordingly to generate a bid. The following
+            prices are provided as a ranged parameter taken from RepairBase
+            2024.
+          </p>
+          <p><b>Approximate Prices:</b></p>
+          <table>
+            <tr>
+              <th>Item</th>
+              <th>Unit</th>
+              <th>Price</th>
+            </tr>
+            <tr>
+              <td>Secure Loose Flooring - Hardwood</td>
+              <td>M/C</td>
+              <td>$53.98</td>
+            </tr>
+            <tr>
+              <td>Secure Loose Flooring - Laminate Wood</td>
+              <td>M/C</td>
+              <td>$43.07</td>
+            </tr>
+            <tr>
+              <td>Secure Buckled Flooring - Hardwood</td>
+              <td>M/C</td>
+              <td>$67.07</td>
+            </tr>
+            <tr>
+              <td>Concrete Epoxy - Caulking Gun Injection - Per LF</td>
+              <td>LF</td>
+              <td>$16.97</td>
+            </tr>
+            <tr>
+              <td>Concrete Epoxy - Injections Under Pressure - Per LF</td>
+              <td>LF</td>
+              <td>$19.67</td>
+            </tr>
+            <tr>
+              <td>Apply Mortar - up to 10 LF</td>
+              <td>M/C</td>
+              <td>$47.83</td>
+            </tr>
+            <tr>
+              <td>Apply Mortar - Additional 10 LF</td>
+              <td>EA</td>
+              <td>$36.92</td>
+            </tr>
+            <tr>
+              <td>Hydraulic Cement - up to 1" Wide - up to 10 LF</td>
+              <td>M/C</td>
+              <td>$102.88</td>
+            </tr>
+            <tr>
+              <td>Hydraulic Cement - up to 1" Wide - Each Additional LF</td>
+              <td>LF</td>
+              <td>$12.90</td>
+            </tr>
+          </table>
+          <p>
+            Prices vary from time to time and depending on work scope. Consult
+            with vendor first.
+          </p>
+
+          <h3>Description:</h3>
+          <b>Buckled Floor:</b> Remove damaged flooring, level subfloor, replace
+          with new material, secure properly or put a nail in between panels,
+          push buckled floor to level. <br />
+          <b>Loose Carpet:</b> Stretch carpet, reattach to tack strips, secure
+          with adhesive if needed. <br />
+          <b>Epoxy Filling:</b> Clean crack, inject epoxy resin, smooth surface,
+          cure. <br />
+          <b>Hydraulic Cement:</b> Clear debris, apply hydraulic cement, smooth,
+          allow to set. <br />
+          <b>Mortar Filling:</b> Clean crack, fill with mortar mix, level, cure.
+          <b>
+            <p style="color: brown">
+              ***Consult with your Team Lead before submitting the price.***
+            </p>
+          </b>
+          <b>
+            <p style="color: brown">
+              ***Please copy the bids before visiting other pages. Bids will not
+              be saved once redirected.***
+            </p>
+          </b>
+        </div>
+      </div>
+
+      <div class="container">
+        <button class="toggle-btn">Toggle Form</button>
+        <div class="division">
+          <h1>Flooring Bid</h1>
+          <h2>Repair Floor Bids</h2>
+          <form id="Form">
+            <label for="bidPrefix"
+              >Bid Prefix (for conjunction bid - Use a colon after
+              prefix)</label
+            >
+            <input
+              type="text"
+              id="bidPrefix"
+              name="bidPrefix"
+              placeholder="Title: / Title-"
+            />
+
+            <label for="appl">Select a Type of Repair:*</label>
+            <select id="appl" name="appl" required>
+              <option value="">--Select any--</option>
+              <option value="Buckled Floor">Buckled Floor</option>
+              <option value="Loose Carpet">Loose Carpet</option>
+              <option value="Hydraulic Cement">
+                Cracked Floor - Hydraulic Cement
+              </option>
+              <option value="Epoxy Filling">
+                Cracked Floor - Epoxy Filling
+              </option>
+              <option value="Mortar Filling">
+                Cracked Floor - Mortar Filling
+              </option>
+            </select>
+
+            <div id="sizeField" style="display: none">
+              <label for="length">Floor Length:*</label>
+              <input type="number" id="length" name="length" step="1" />
+              <label for="width">Floor Width:*</label>
+              <input type="number" id="width" name="width" step="1" />
+            </div>
+
+            <div id="countField" style="display: none">
+              <label for="count">How many LF of crack needs repairing:*</label>
+              <input type="number" id="count" name="count" step="1" />
+            </div>
+
+            <label for="loc">Location:*</label>
+            <input
+              type="text"
+              id="loc"
+              name="loc"
+              placeholder="living room, bedroom, dining, den, etc."
+              required
+            />
+
+            <label for="additionalInfo">Additional information:</label>
+            <textarea
+              id="additionalInfo"
+              name="additionalInfo"
+              placeholder="Disclaimers or any other comment"
+            ></textarea>
+
+            <label for="conj">Make this bid conjunction to:</label>
+            <input
+              type="text"
+              id="conj"
+              name="conj"
+              placeholder="Bid name only"
+            />
+
+            <label for="price">Price (in USD):</label>
+            <input type="number" id="price" name="price" step="0.01" />
+
+            <button type="submit">Generate Bid</button>
+            <!-- <a href="https://www.zillow.com/" target="_blank" id="findpropsize">Find Property Size: Zillow</a> -->
+            <!-- <a href="https://www.google.com/maps" target="_blank" id="measuredr">Plan & Measure French Drain</a> -->
+          </form>
+        </div>
+      </div>
+
+      <!-- New Note Section -->
+      <div class="note-container">
+        <h2>Bids</h2>
+        <div id="notesList" class="notes-list">
+          <!-- Notes will be dynamically added here -->
+        </div>
+        <button id="copyAllBidsButton">Copy All Bids</button>
+        <a href="../index.html" id="home">
+          <ion-icon name="home"></ion-icon> Go Home</a
+        >
+      </div>
+    </div>
+
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <!-- Script to Generate Bid -->
+    <script>
+      document.getElementById("appl").addEventListener("change", function () {
+        const appl = this.value;
+        const sizeField = document.getElementById("sizeField");
+        const lengthInput = document.getElementById("length");
+        const widthInput = document.getElementById("width");
+
+        // Debris field visibility and reset
+        if (appl === "Buckled Floor" || appl === "Loose Carpet") {
+          sizeField.style.display = "block";
+        } else {
+          sizeField.style.display = "none";
+          lengthInput.value = ""; // Reset to default when hidden
+          widthInput.value = ""; // Reset to default when hidden
+        }
+      });
+
+      document.getElementById("appl").addEventListener("change", function () {
+        const appl = this.value;
+        const countField = document.getElementById("countField");
+        const countInput = document.getElementById("count");
+
+        // Padding field visibility and reset
+        if (
+          appl === "Epoxy Filling" ||
+          appl === "Mortar Filling" ||
+          appl === "Hydraulic Cement"
+        ) {
+          countField.style.display = "block";
+        } else {
+          countField.style.display = "none";
+          countInput.value = ""; // Reset to default when hidden
+        }
+      });
+
+      document
+        .getElementById("Form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Get form values
+          const bidPrefix = document.getElementById("bidPrefix").value;
+          const appl = document.getElementById("appl").value;
+          const length = document.getElementById("length").value;
+          const width = document.getElementById("width").value;
+          const count = document.getElementById("count").value;
+          const loc = document.getElementById("loc").value;
+          const additionalInfo =
+            document.getElementById("additionalInfo").value;
+          const conj = document.getElementById("conj").value;
+          const price = parseFloat(document.getElementById("price").value || 0);
+
+          // Format the price with commas
+          const formattedPrice = price.toLocaleString("en-US", {
+            style: "decimal",
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
+
+          // Generate the bid text
+          let bidText;
+          if (appl === "Loose Carpet" || appl === "Buckled Floor") {
+            bidText = `${bidPrefix}  Need to repair ${length}x${width} = ${
+              length * width
+            } SF of ${appl.toLowerCase()} in the ${loc} of the property - Trip Hazard. ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else if (
+            appl === "Epoxy Filling" ||
+            appl === "Mortar Filling" ||
+            appl === "Hydraulic Cement"
+          ) {
+            bidText = `${bidPrefix} Need to repair ${count} LF of cracked floor by injecting ${appl.toLowerCase()} in the ${loc} of the property - Trip Hazard. ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else {
+            alert("Please select an Item.");
+            return; // Stop execution if no action is selected
+          }
+          // Save the bid as a note
+          saveBidAsNote(bidText);
+        });
+    </script>
+    <script src="script_other.js"></script>
+    <script src="..\dark_mode.js"></script>
+    <script src="blocker.js"></script>
+  </body>
+</html>
