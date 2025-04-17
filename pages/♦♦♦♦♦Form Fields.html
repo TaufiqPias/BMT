@@ -51,6 +51,9 @@
 <label for="conj">Make this bid conjunction to:</label>
 <input type="text" id="conj" name="conj" placeholder="Bid name only" />
 
+<label for="Reason">Reason:</label>
+<input type="text" id="Reason" name="Reason" placeholder="" />
+
 <label for="price">Price (in USD):</label>
 <input type="number" id="price" name="price" step="0.01" />
 
@@ -129,4 +132,28 @@
     alert("Please select an action (Remove or Replace).");
     return; // Stop execution if no action is selected
   }
+</script>
+
+
+<script>
+  // Debris and other field visibility logic
+  document.getElementById('action').addEventListener('change', function () {
+            const action = this.value;
+            const debrisField = document.getElementById('debrisField');
+            const applField = document.getElementById('applField');
+
+            // Debris field visibility
+            if (action === 'remove') {
+                debrisField.style.display = 'block';
+            } else {
+                debrisField.style.display = 'none';
+            }
+
+            // Appl field visibility
+            if (action === 'remove' || action === 'replace') {
+                applField.style.display = 'block';
+            } else {
+                applField.style.display = 'none';
+            }
+        });
 </script>

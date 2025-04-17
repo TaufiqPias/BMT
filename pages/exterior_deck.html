@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Taufiq Pias" />
+    <title>Exterior Deck - BMT</title>
+    <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <script>
+      (function () {
+        const savedMode = localStorage.getItem("themeMode");
+        const prefersDark = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+        if (savedMode === "dark" || (!savedMode && prefersDark)) {
+          document.documentElement.classList.add("dark-mode"); // Changed to <html>
+        }
+        // Only collapse .info-content on mobile initially
+        if (window.matchMedia("(max-width: 1200px)").matches) {
+          document.querySelectorAll(".info-content").forEach((el) => {
+            el.classList.add("collapsed");
+          });
+        }
+      })();
+    </script>
+
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-M2K232X4B3"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-M2K232X4B3");
+    </script>
+
+    <script type="text/javascript">
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+      })(window, document, "clarity", "script", "qj1sdmrlho");
+    </script>
+  </head>
+
+  <body>
+    <div class="main-container">
+      <!-- Information Area -->
+      <div class="info-container">
+        <button class="toggle-btn">Toggle Information</button>
+        <div class="info-content">
+          <h2>Information</h2>
+          <p>
+            Fill out the form accordingly to generate a bid. The following
+            prices are provided as a ranged parameter taken from RepairBase
+            2024.
+          </p>
+          <h3>This form will generate bid for WOODEN DECK only</h3>
+          <p><b>Approximate Prices:</b></p>
+          <table>
+            <tr>
+              <th>Item Name</th>
+              <th>Prices (per SF)</th>
+            </tr>
+            <tr>
+              <td>Remove Deck Sheathing - Plywood - Nailed Down</td>
+              <td>$0.48</td>
+            </tr>
+            <tr>
+              <td>Remove Deck Sheathing - Plywood - Screwed Down</td>
+              <td>$0.60</td>
+            </tr>
+            <tr>
+              <td>Remove Decking - Nailed Down</td>
+              <td>$0.60</td>
+            </tr>
+            <tr>
+              <td>Remove Decking - Screwed Down</td>
+              <td>$0.81</td>
+            </tr>
+            <tr>
+              <td>---</td>
+              <td>---</td>
+            </tr>
+            <tr>
+              <td>Replace Decking - Spaced 1/2" - 2" x 6" - Composite</td>
+              <td>$19.72</td>
+            </tr>
+            <tr>
+              <td>Replace Decking - Spaced 1/2" - 2" x 6" - Redwood</td>
+              <td>$14.91</td>
+            </tr>
+            <tr>
+              <td>Replace Decking - Spaced 1/2" - 2" x 6" - Treated Wood</td>
+              <td>$9.84</td>
+            </tr>
+            <tr>
+              <td>Replace Deck Sheathing 1/2" CDX</td>
+              <td>$4.02</td>
+            </tr>
+            <tr>
+              <td>Replace Deck Sheathing 3/4" CDX</td>
+              <td>$4.52</td>
+            </tr>
+            <tr>
+              <td>Replace Deck Sheathing 5/8" CDX</td>
+              <td>$4.39</td>
+            </tr>
+            <tr>
+              <td>---</td>
+              <td>---</td>
+            </tr>
+            <tr>
+              <td>Replace - Deck Flashing - Galvanized Aluminum - Per LF</td>
+              <td>$2.46</td>
+            </tr>
+          </table>
+
+          <p><b>Conjunction Bid: (if needed)</b></p>
+          <a href="./pages/handrails_guardrails.html">Handrails & Guardrails</a>
+          <a href="./pages/staircase.html">Staircase</a>
+          <b>
+            <p style="color: brown">
+              ***Consult with your Team Lead before submitting the price.***
+            </p>
+          </b>
+          <b>
+            <p style="color: brown">
+              ***Please copy the bids before visiting other pages. Bids will not
+              be saved once redirected.***
+            </p>
+          </b>
+        </div>
+      </div>
+
+      <div class="container">
+        <button class="toggle-btn">Toggle Form</button>
+        <div class="division">
+          <h1>Flooring Bid</h1>
+          <h2>Exterior Deck Bids</h2>
+          <form id="Form">
+            <label for="bidPrefix"
+              >Bid Prefix (for conjunction bid - Use a colon after
+              prefix)</label
+            >
+            <input
+              type="text"
+              id="bidPrefix"
+              name="bidPrefix"
+              placeholder="Title: / Title-"
+            />
+            <label for="action">Select an Action:*</label>
+            <select id="action" name="action" required>
+              <option value="">--Select an Action--</option>
+              <option value="remove">Remove</option>
+              <option value="replace">Replace</option>
+              <option value="repair">Repair</option>
+            </select>
+
+            <label for="appl">Select any item to Remove/Replace/Repair:*</label>
+            <select id="appl" name="appl" required>
+              <option value="">--Select any--</option>
+              <option value="decking">Decking</option>
+              <option value="deck joist">Deck Joist</option>
+              <option value="complete deck - including decking & joist">
+                Complete Deck (Decking & Joist)
+              </option>
+            </select>
+
+            <div id="countField" style="display: none">
+              <label for="mat">Select a Material:*</label>
+              <select id="mat" name="mat">
+                <option value="">--Select any--</option>
+                <option value='Treated Wood - Spaced 1/2" - 2" x 6"'>
+                  Treated Wood
+                </option>
+                <option value='Redwood - Spaced 1/2" - 2" x 6"'>Redwood</option>
+                <option value='Composite - Spaced 1/2" - 2" x 6"'>
+                  Composite
+                </option>
+              </select>
+            </div>
+
+            <label for="length">Deck Length:*</label>
+            <input type="number" id="length" name="length" step="1" required />
+
+            <label for="width">Deck Width:*</label>
+            <input type="number" id="width" name="width" step="1" required />
+
+            <div id="debrisField" style="display: none">
+              <label for="debris">Generated debris (in cyds):</label>
+              <input type="number" id="debris" name="debris" step="1" />
+            </div>
+
+            <label for="loc">Location:*</label>
+            <input
+              type="text"
+              id="loc"
+              name="loc"
+              placeholder="front, back, right, left, etc."
+              required
+            />
+
+            <label for="additionalInfo">Additional information:</label>
+            <textarea
+              id="additionalInfo"
+              name="additionalInfo"
+              placeholder="Disclaimers or any other comment"
+            ></textarea>
+
+            <label for="conj">Make this bid conjunction to:</label>
+            <input
+              type="text"
+              id="conj"
+              name="conj"
+              placeholder="Bid name only"
+            />
+
+            <label for="price">Price (in USD):</label>
+            <input type="number" id="price" name="price" step="0.01" />
+
+            <button type="submit">Generate Bid</button>
+            <!-- <a href="https://www.zillow.com/" target="_blank" id="findpropsize">Find Property Size: Zillow</a> -->
+            <!-- <a href="https://www.google.com/maps" target="_blank" id="measuredr">Plan & Measure French Drain</a> -->
+          </form>
+        </div>
+      </div>
+
+      <!-- New Note Section -->
+      <div class="note-container">
+        <h2>Bids</h2>
+        <div id="notesList" class="notes-list">
+          <!-- Notes will be dynamically added here -->
+        </div>
+        <button id="copyAllBidsButton">Copy All Bids</button>
+        <a href="../index.html" id="home">
+          <ion-icon name="home"></ion-icon> Go Home</a
+        >
+      </div>
+    </div>
+
+    <div id="floatingMessage" class="floating-message">Copied!</div>
+
+    <!-- Script to Generate Bid -->
+    <script>
+      // Debris and other field visibility logic
+      document.getElementById("action").addEventListener("change", function () {
+        const action = this.value;
+        const debrisField = document.getElementById("debrisField");
+        const countField = document.getElementById("countField");
+
+        // Debris field visibility
+        if (action === "remove") {
+          debrisField.style.display = "block";
+        } else {
+          debrisField.style.display = "none";
+        }
+
+        // Count field visibility
+        if (action === "replace") {
+          countField.style.display = "block";
+        } else {
+          countField.style.display = "none";
+        }
+      });
+
+      document
+        .getElementById("Form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          // Get form values
+          const bidPrefix = document.getElementById("bidPrefix").value;
+          const action = document.getElementById("action").value;
+          const length = document.getElementById("length").value;
+          const width = document.getElementById("width").value;
+          const appl = document.getElementById("appl").value;
+          const loc = document.getElementById("loc").value;
+          const mat = document.getElementById("mat").value;
+          const debris = document.getElementById("debris").value;
+          const additionalInfo =
+            document.getElementById("additionalInfo").value;
+          const conj = document.getElementById("conj").value;
+          const price = parseFloat(document.getElementById("price").value || 0);
+
+          // Format the price with commas
+          const formattedPrice = price.toLocaleString("en-US", {
+            style: "decimal",
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          });
+
+          // Generate the bid text
+          let bidText;
+          if (action === "remove") {
+            bidText = `${bidPrefix}  Need to remove approx ${length}x${width} = ${
+              length * width
+            } SF of ${appl} from the ${loc} side of the property due to damage - trip hazard. Will generate approx ${debris} cyds of debris - hauling away included. Will require General Tools, Sledge Hammer, Wheel Barrow, Mask, Gloves and Bags. ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else if (action === "replace") {
+            bidText = `${bidPrefix} Need to replace approx ${length}x${width} = ${
+              length * width
+            } SF of wooden ${appl} (${mat}) at the ${loc} side of the property. Will require Flashing, Nail Guns, Hammer, Tape, Wrench, Drills, and Other equipment. ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else if (action === "repair") {
+            bidText = `${bidPrefix} Need to repair approx ${length}x${width} = ${
+              length * width
+            } SF of wooden ${appl} to the existing style at the ${loc} side of the property due to damage. Will require Nail Guns, Hammer, Tape, Wrench, Drills, and Other equipment. ${
+              conj
+                ? `***Must be approved in conjunction to ${conj} bid.***`
+                : ""
+            } ${additionalInfo}\nPrice: $${formattedPrice}`;
+          } else {
+            alert("Please select an action (Remove or Replace or Repair).");
+            return; // Stop execution if no action is selected
+          }
+          // Save the bid as a note
+          saveBidAsNote(bidText);
+        });
+    </script>
+    <script src="script_other.js"></script>
+    <script src="..\dark_mode.js"></script>
+    <script src="blocker.js"></script>
+  </body>
+</html>
