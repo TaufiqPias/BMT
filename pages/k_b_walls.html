@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Taufiq Pias" />
-    <title>Ceiling - BMT</title>
+    <title>Bathroom & Kitchen Walls - BMT</title>
     <link rel="icon" type="image/x-icon" href="..\Images\Favicon.png" />
     <link rel="stylesheet" href="styles.css" />
 
@@ -78,104 +78,43 @@
             prices are provided as a ranged parameter taken from RepairBase
             2024.
           </p>
-          <p><b>Approximate Prices:</b></p>
-          <table>
-            <tr>
-              <th>Item</th>
-              <th>Unit</th>
-              <th>Price</th>
-            </tr>
-            <tr>
-              <td>Remove - Drywall - up to 30 SF</td>
-              <td>M/C</td>
-              <td>$77.44</td>
-            </tr>
-            <tr>
-              <td>Remove - Drywall - up to 80 SF</td>
-              <td>M/C</td>
-              <td>$110.64</td>
-            </tr>
-            <tr>
-              <td>Remove - Drywall - over 80 SF - Per S.F.</td>
-              <td>SF</td>
-              <td>$1.04</td>
-            </tr>
-            <tr>
-              <td>Remove - Plaster - up to 30 SF</td>
-              <td>M/C</td>
-              <td>$99.65</td>
-            </tr>
-            <tr>
-              <td>Remove - Plaster - up to 80 SF</td>
-              <td>M/C</td>
-              <td>$123.55</td>
-            </tr>
-            <tr>
-              <td>Remove - Plaster - over 80 SF - Per SF</td>
-              <td>SF</td>
-              <td>$1.68</td>
-            </tr>
-            <tr>
-              <td>Remove Discolored Ceiling Tiles and T-bars</td>
-              <td>SF</td>
-              <td>$0.73</td>
-            </tr>
-            <tr>
-              <td>
-                Remove Discolored Ceiling Tiles from T-bars - leave T-bars
-              </td>
-              <td>SF</td>
-              <td>$0.61</td>
-            </tr>
-            <tr>
-              <td>---</td>
-              <td>---</td>
-              <td>---</td>
-            </tr>
-            <tr>
-              <td>
-                Replace Drywall - Over 80 S.F. (Includes Tape, Texture & Ready
-                for Paint) Per S.F.
-              </td>
-              <td>SF</td>
-              <td>$2.53</td>
-            </tr>
-            <tr>
-              <td>Replace - Plaster - On Ceilings</td>
-              <td>SF</td>
-              <td>$3.49</td>
-            </tr>
-            <tr>
-              <td>Replace Acoustical Ceiling Tiles - Good</td>
-              <td>SF</td>
-              <td>$3.20</td>
-            </tr>
-            <tr>
-              <td>Replace Acoustical Ceiling Tiles - Better</td>
-              <td>SF</td>
-              <td>$4.57</td>
-            </tr>
-            <tr>
-              <td>---</td>
-              <td>---</td>
-              <td>---</td>
-            </tr>
-            <tr>
-              <td>Repair Drywall - up to 10 S.F. (4 Patches)</td>
-              <td>M/C</td>
-              <td>$133.76</td>
-            </tr>
-            <tr>
-              <td>Repair Drywall - up to 30 S.F. (10 Patches)</td>
-              <td>M/C</td>
-              <td>$238.74</td>
-            </tr>
-            <tr>
-              <td>Repair Drywall - up to 80 S.F. (20 Patches)</td>
-              <td>M/C</td>
-              <td>$435.20</td>
-            </tr>
-          </table>
+          <h3>Why vapor barriers are installed in bathrooms and kitchens:</h3>
+
+          <strong>1. High Moisture Areas:</strong>
+          <p>
+            Bathrooms and kitchens naturally produce a lot of moisture — from
+            showers, cooking, dishwashing, and general humidity. That moisture
+            can seep into walls and ceilings if not properly controlled.
+          </p>
+
+          <strong>2. Preventing Mold and Mildew:</strong>
+          <p>
+            If moisture gets trapped inside wall cavities, it can create the
+            perfect environment for mold, mildew, and rot — which not only
+            damages materials but also affects air quality and health.
+          </p>
+
+          <strong>3. Protecting Insulation and Structure:</strong>
+          <p>
+            Moisture can reduce the effectiveness of insulation, making walls
+            cold, inefficient, and leading to condensation problems. It can also
+            weaken wood framing or corrode metal components over time.
+          </p>
+
+          <strong>4. Vapor Movement Control:</strong>
+          <p>
+            A vapor barrier (like polyethylene sheeting or special treated
+            drywall) slows down or stops moisture from moving through the wall
+            from the humid interior to the cooler, drier exterior — where it
+            would otherwise condense.
+          </p>
+
+          <strong>5. Building Code Compliance:</strong>
+          <p>
+            In many building codes, especially in colder or humid climates,
+            vapor barriers are required in wet zones like kitchens and bathrooms
+            to meet moisture management standards.
+          </p>
 
           <b>
             <p style="color: brown">
@@ -195,7 +134,7 @@
         <button class="toggle-btn">Toggle Form</button>
         <div class="division">
           <h1>Ceiling, Walls & Siding Bid</h1>
-          <h2>Ceiling Bids</h2>
+          <h2>Bathroom & Kitchen Walls Bids</h2>
           <form id="Form">
             <label for="bidPrefix"
               >Bid Prefix (for conjunction bid - Use a colon after
@@ -215,12 +154,11 @@
               <option value="repair">Repair</option>
             </select>
 
-            <label for="appl">Select a Ceiling Type:*</label>
+            <label for="appl">Select a Wall Location:*</label>
             <select id="appl" name="appl" required>
               <option value="">--Select any--</option>
-              <option value="drywall">Drywall</option>
-              <option value="plaster">Plaster</option>
-              <option value="tiles">Tiles</option>
+              <option value="bathroom wall">Bathroom Wall</option>
+              <option value="kitchen wall">Kitchen Wall</option>
             </select>
 
             <label for="ins">Insulation Included?*</label>
@@ -230,10 +168,10 @@
               <option value="">No</option>
             </select>
 
-            <label for="length">Ceiling Length:*</label>
+            <label for="length">Wall Length:*</label>
             <input type="number" id="length" name="length" step="1" required />
 
-            <label for="width">Ceiling Width:*</label>
+            <label for="width">Wall Height:*</label>
             <input type="number" id="width" name="width" step="1" required />
 
             <div id="debrisField" style="display: none">
@@ -246,7 +184,7 @@
               type="text"
               id="loc"
               name="loc"
-              placeholder="living room, bedroom, dining, den, etc."
+              placeholder="bathroom 1 right, bathroom 2 left, front, back etc."
               required
             />
 
@@ -340,13 +278,13 @@
           if (action === "remove") {
             bidText = `${bidPrefix} Need to remove approx ${length}x${width} = ${
               length * width
-            } SF of ceiling ${appl} from the ${loc} of the property due to ${reason}. Will generate approx ${debris} cyds of debris - hauling away included. ${
+            } SF of ceramic tiles from the ${appl} of the property due to ${reason}. ${
               ins
-                ? `Also includes removing insulation from ${length}x${width} = ${
+                ? `Also includes removing drywall and insulation from ${length}x${width} = ${
                     length * width
-                  } of ceiling.`
+                  } of ${appl}.`
                 : ""
-            } ${
+            } Will generate approx ${debris} cyds of debris - hauling away included. ${
               conj
                 ? `***Must be approved in conjunction to ${conj} bid.***`
                 : ""
@@ -354,13 +292,15 @@
           } else if (action === "replace") {
             bidText = `${bidPrefix} Need to replace approx ${length}x${width} = ${
               length * width
-            } SF of ceiling ${appl} in the ${loc} of the property due to ${reason}. ${
+            } SF of ceramic tiles at the ${appl} of the property due to ${reason}. ${
               ins
-                ? `Also includes repalcing insulation at ${length}x${width} = ${
+                ? `Also includes replacing drywall and insulation at ${length}x${width} = ${
                     length * width
-                  } of ceiling.`
+                  } of ${appl}.`
                 : ""
-            } ${
+            } Will install ${
+              length * width
+            } SF of vapor barrier prior to tiles installation to prevent water damping the insulation. ${
               conj
                 ? `***Must be approved in conjunction to ${conj} bid.***`
                 : ""
@@ -368,11 +308,11 @@
           } else if (action === "repair") {
             bidText = `${bidPrefix} Need to repair approx ${length}x${width} = ${
               length * width
-            } SF of ceiling ${appl} in the ${loc} of the property due to ${reason}. ${
+            } SF of ceramic tiles at the ${appl} of the property due to ${reason}. ${
               ins
-                ? `Also includes re-setting insulation at ${length}x${width} = ${
+                ? `Also includes re-setting drywall and insulation at ${length}x${width} = ${
                     length * width
-                  } of ceiling.`
+                  } of ${appl}.`
                 : ""
             } ${
               conj
